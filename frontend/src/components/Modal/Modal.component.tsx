@@ -1,6 +1,5 @@
-import React from "react";
 import styles from "./Modal.module.css";
-import Overlay from "../../Overlay/Overlay.component";
+import Overlay from "../Overlay/Overlay.component";
 
 const Modal = ({
   children,
@@ -9,12 +8,15 @@ const Modal = ({
 }: {
   children: React.ReactNode;
   onClose: () => void;
-  title: string;
+  title?: string;
 }) => {
   return (
     <>
-      <Overlay onClick={onClose} />
-      <h1>{title}</h1>
+      <Overlay
+        onClick={onClose}
+        // style={{ backgroundColor: "white", opacity: "1" }}
+      />
+      {title && <h1>{title}</h1>}
       <div className={`${styles.modal}`}>{children}</div>
     </>
   );
@@ -25,7 +27,11 @@ Modal.Body = ({ children }: { children: React.ReactNode }) => {
 };
 
 Modal.Footer = ({ children }: { children: React.ReactNode }) => {
-  return <div>{children}</div>;
+  return (
+    <>
+      <div>{children}</div>
+    </>
+  );
 };
 
 export default Modal;
