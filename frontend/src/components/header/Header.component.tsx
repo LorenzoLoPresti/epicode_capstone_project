@@ -3,6 +3,7 @@ import COLORS from "../../style/color";
 import styles from "./Header.module.css";
 import MyButton from "../Button/MyButton.component";
 import { useState } from "react";
+import Modal from "../Modal/Modal.component";
 
 const Header = () => {
   const [showAuthModal, setShowAuthModal] = useState(false);
@@ -31,7 +32,7 @@ const Header = () => {
           >
             <MyButton
               text="Sign Up"
-              onClickFnc={() => setShowAuthModal(true)}
+              onClickFnc={() => setShowAuthModal(!showAuthModal)}
             />
             <Nav.Link className={`${styles.navLink} d-none d-md-block`}>
               Contacts
@@ -42,14 +43,10 @@ const Header = () => {
           </Col>
         </Row>
         {showAuthModal && (
-          <div
-            style={{
-              fontSize: "100px",
-              color: "white",
-            }}
-          >
-            ciao
-          </div>
+          <Modal onClose={() => setShowAuthModal(false)} title="capra">
+            <Modal.Body>Ciao</Modal.Body>
+            <Modal.Footer>Capra</Modal.Footer>
+          </Modal>
         )}
       </Container>
     </Navbar>
