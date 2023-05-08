@@ -51,71 +51,71 @@ const Header = () => {
           <Modal onClose={() => setShowAuthModal(false)}>
             <Row className="d-flex">
               <Col xs={6} className="p-0">
-                <Modal.Body>
-                  <div
-                    className="d-flex flex-column p-5 text-light"
+                {/* <Modal.Body> */}
+                <div
+                  className="d-flex flex-column p-5 text-light"
+                  style={{
+                    backgroundImage: `url("https://static1.bigstockphoto.com/4/8/2/large1500/284139886.jpg")`,
+                    backgroundSize: "cover",
+                    width: "530px",
+                    height: "570px",
+                  }}
+                >
+                  <h2
+                    className="m-0"
                     style={{
-                      backgroundImage: `url("https://static1.bigstockphoto.com/4/8/2/large1500/284139886.jpg")`,
-                      backgroundSize: "cover",
-                      width: "530px",
-                      height: "570px",
+                      fontSize: "3rem",
+                      fontFamily: "'Abril Fatface', cursive",
                     }}
                   >
-                    <h2
-                      className="m-0"
-                      style={{
-                        fontSize: "3rem",
-                        fontFamily: "'Abril Fatface', cursive",
-                      }}
-                    >
-                      Gourmet
-                    </h2>
-                    <h3
-                      style={{
-                        fontSize: "2rem",
-                        fontWeight: "100",
-                      }}
-                    >
-                      a casa tua
-                    </h3>
-                  </div>
-                </Modal.Body>
+                    Gourmet
+                  </h2>
+                  <h3
+                    style={{
+                      fontSize: "2rem",
+                      fontWeight: "100",
+                    }}
+                  >
+                    a casa tua
+                  </h3>
+                </div>
+                {/* </Modal.Body> */}
               </Col>
               <Col xs={6} className="pe-3">
-                <Modal.Footer>
-                  <div className="d-flex flex-column align-items-center py-5">
-                    <h2 className="fs-3 pt-3 fw-bold">Wanna try?</h2>
-                    <p className="mb-5">create new account</p>
-                    <div className="d-flex flex-column px-5">
-                      <input
-                        value={username}
-                        className="mb-3"
-                        type="text"
-                        placeholder="username"
-                        onChange={(e) => {
-                          setUsername(e.target.value);
-                        }}
-                      />
-                      <input
-                        value={password}
-                        className="mb-5"
-                        type="text"
-                        placeholder="password"
-                        onChange={(e) => {
-                          setPassword(e.target.value);
-                        }}
-                      />
-                      <MyButton
-                        text="Sign Up"
-                        onClickFnc={() => console.log(username, password)}
-                        style={{
-                          backgroundColor: `${COLORS.brandGold}`,
-                          color: `${COLORS.brandBlack}`,
-                        }}
-                      />
-                    </div>
+                {/* <Modal.Footer> */}
+                <div className="d-flex flex-column align-items-center py-5">
+                  <h2 className="fs-3 pt-3 fw-bold">Wanna try?</h2>
+                  <p className="mb-5">create new account</p>
+                  <div className="d-flex flex-column px-5">
+                    <input
+                      value={username}
+                      className="mb-3"
+                      type="text"
+                      placeholder="username"
+                      onChange={(e) => {
+                        setUsername(e.target.value);
+                      }}
+                    />
+                    <input
+                      value={password}
+                      className="mb-5"
+                      type="text"
+                      placeholder="password"
+                      onChange={(e) => {
+                        setPassword(e.target.value);
+                      }}
+                    />
+                    <MyButton
+                      text="Sign Up"
+                      onClickFnc={() => console.log(username, password)}
+                      style={{
+                        backgroundColor: `${COLORS.brandGold}`,
+                        color: `${COLORS.brandBlack}`,
+                      }}
+                    />
                   </div>
-                </Modal.Footer>
+                </div>
+                {/* </Modal.Footer> */}
               </Col>
             </Row>
             {/* <Modal.Body>Ciao</Modal.Body>

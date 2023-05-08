@@ -9,7 +9,12 @@
   background-color: white;
   border-top-left-radius: 0.375rem;
   border-top-right-radius: 0.375rem;
-  animation: popup ease 1s;
+}
+
+@media screen and (max-width: 799px) {
+  .modal {
+    animation: popupMobile ease 1s;
+  }
 }
 
 @media screen and (min-width: 800px) {
@@ -17,15 +22,24 @@
     bottom: 50%;
     transform: translate(-50%, 50%);
     border-radius: 0.375rem;
+    animation: popupDesktop ease 1s;
   }
 }
 
-@keyframes popup {
+@keyframes popupMobile {
   0% {
-    transform: scale(0);
+    transform: translate(-50%, 0) scale(0);
   }
   100% {
-    transform: translateX(-50%);
-    transform: scale(1);
+    transform: translate(-50%, 0) scale(1);
+  }
+}
+
+@keyframes popupDesktop {
+  0% {
+    transform: translate(-50%, 50%) scale(0);
+  }
+  100% {
+    transform: translate(-50%, 50%) scale(1);
   }
 }
