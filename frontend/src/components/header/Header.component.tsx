@@ -1,36 +1,56 @@
 import { Navbar, Container, Row, Col, Nav } from "react-bootstrap";
+import COLORS from "../../style/color";
+import styles from "./Header.module.css";
+import MyButton from "../Button/MyButton.component";
+import { useState } from "react";
 
 const Header = () => {
+  const [showAuthModal, setShowAuthModal] = useState(false);
+
   return (
-    <Navbar bg="light" expand="lg" fixed="top">
-      <Container>
-        {/* <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#link">Link</Nav.Link>
-            <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
-                Another action
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">
-                Separated link
-              </NavDropdown.Item>
-            </NavDropdown>
-          </Nav>
-        </Navbar.Collapse> */}
-        <Row className="d-flex justify-content-between w-100">
+    <Navbar bg="none" expand="lg" fixed="top">
+      <Container className="justify-content-center">
+        <Row
+          className="d-flex justify-content-between w-100 py-4"
+          style={{
+            borderBottom: "1px ridge" + COLORS.brandWhite,
+          }}
+        >
           <Col>
-            <Navbar.Brand>ciao</Navbar.Brand>
+            <Navbar.Brand
+              style={{
+                color: COLORS.brandWhite,
+              }}
+            >
+              Restaurant-app
+            </Navbar.Brand>
           </Col>
-          <Col className="d-flex flex-row-reverse">
-            <Nav.Link>capra</Nav.Link>
+          <Col
+            className="d-flex flex-row-reverse"
+            style={{ color: COLORS.brandWhite }}
+          >
+            <MyButton
+              text="Sign Up"
+              onClickFnc={() => setShowAuthModal(true)}
+            />
+            <Nav.Link className={`${styles.navLink} d-none d-md-block`}>
+              Contacts
+            </Nav.Link>
+            <Nav.Link className={`${styles.navLink} d-none d-md-block`}>
+              About us
+            </Nav.Link>
           </Col>
         </Row>
+        {showAuthModal && (
+          <div
+            style={{
+              fontSize: "100px",
+              color: "white",
+            }}
+          >
+            ciao
+          </div>
+        )}
       </Container>
     </Navbar>
   );
