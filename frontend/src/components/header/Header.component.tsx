@@ -52,11 +52,12 @@ const Header = () => {
         >
           <Col>
             <Navbar.Brand
+              className="d-none d-sm-block"
               style={{
                 color: COLORS.brandWhite,
               }}
             >
-              Restaurant-app
+              Luxury Homecooking
             </Navbar.Brand>
           </Col>
           <Col
@@ -70,7 +71,7 @@ const Header = () => {
             <Nav.Link className={`${styles.navLink} d-none d-md-block`}>
               Contacts
             </Nav.Link>
-            <Nav.Link className={`${styles.navLink} d-none d-md-block`}>
+            <Nav.Link className={`${styles.navLink} d-none d-lg-block`}>
               About us
             </Nav.Link>
             <Nav.Link className={`${styles.navLink} d-none d-md-block`}>

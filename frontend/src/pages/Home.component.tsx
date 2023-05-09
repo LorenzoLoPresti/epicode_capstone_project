@@ -1,5 +1,11 @@
+import Jumbotron from "../components/Jumbotron/Jumbotron.component";
+
 const Home = () => {
-  return <div className="text-light mt-5 pt-5">Home</div>;
+  return (
+    <div>
+      <Jumbotron />
+    </div>
+  );
 };
 
 export default Home;
