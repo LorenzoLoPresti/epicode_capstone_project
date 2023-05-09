@@ -2,13 +2,44 @@ import { Navbar, Container, Row, Col, Nav } from "react-bootstrap";
 import COLORS from "../../style/color";
 import styles from "./Header.module.css";
 import MyButton from "../Button/MyButton.component";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Modal from "../Modal/Modal.component";
 
 const Header = () => {
   const [showAuthModal, setShowAuthModal] = useState(false);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [token, setToken] = useState("");
+  const [stato, setStato] = useState([]);
+
+  const authRequest = async () => {
+    try {
+      const response = await fetch("http://localhost:8080/api/auth/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          username,
+          password,
+        }),
+      });
+      if (response.ok) {
+        const data = (await response).json();
+        const value = await data.then((e) => e.accessToken);
+        setStato(value);
+        setToken(value);
+        //data.then((e) => console.log(e));
+        console.log(data); //TOKEN
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    console.log(stato);
+  }, [token]);
 
   return (
     <Navbar className={`${styles.navStyle}`} expand="lg" fixed="top">
@@ -107,13 +138,18 @@ const Header = () => {
                     />
                     <MyButton
                       text="Sign Up"
-                      onClickFnc={() => console.log(username, password)}
+                      onClickFnc={() => {
+                        authRequest();
+                      }}
                       style={{
                         backgroundColor: `${COLORS.brandGold}`,
                         color: `${COLORS.brandBlack}`,
                       }}
                     />
                   </div>
+                  {token && (
+                    <p className="fs-4 text-center">{`Bearer ${token}`}</p>
+                  )}
                 </div>
                 {/* </Modal.Footer> */}
               </Col>
