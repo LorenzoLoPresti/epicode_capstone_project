@@ -50,6 +50,24 @@ const Jumbotron = () => {
               password={password}
               setPassword={setPassword}
             >
+              <input
+                value={username}
+                className="mb-3"
+                type="text"
+                placeholder="nome"
+                onChange={(e) => {
+                  setUsername(e.target.value);
+                }}
+              />
+              <input
+                value={username}
+                className="mb-3"
+                type="text"
+                placeholder="cognome"
+                onChange={(e) => {
+                  setUsername(e.target.value);
+                }}
+              />
               <MyButton
                 text="Sign Up"
                 onClickFnc={() => {

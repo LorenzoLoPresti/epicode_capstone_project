@@ -69,7 +69,7 @@ const Header = () => {
           <Modal
             onClose={() => setShowAuthModal(false)}
             title="Accedi a Grand Bistrot"
-            subtitle="registrati ora"
+            subtitle="login"
             username={username}
             setUsername={setUsername}
             password={password}
