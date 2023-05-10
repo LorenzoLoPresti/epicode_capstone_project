@@ -2,44 +2,24 @@ import { Navbar, Container, Row, Col, Nav } from "react-bootstrap";
 import COLORS from "../../style/color";
 import styles from "./Header.module.css";
 import MyButton from "../Button/MyButton.component";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Modal from "../Modal/Modal.component";
+import { useAppDispatch, useAppSelector } from "../../redux/store/store";
+import { fetchToken, user } from "../../redux/reducers/tokenStore";
+// import { RootState } from "../../redux/store/store";
 
 const Header = () => {
   const [showAuthModal, setShowAuthModal] = useState(false);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [token, setToken] = useState("");
-  const [stato, setStato] = useState([]);
 
-  const authRequest = async () => {
-    try {
-      const response = await fetch("http://localhost:8080/api/auth/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          username,
-          password,
-        }),
-      });
-      if (response.ok) {
-        const data = (await response).json();
-        const value = await data.then((e) => e.accessToken);
-        setStato(value);
-        setToken(value);
-        //data.then((e) => console.log(e));
-        console.log(data); //TOKEN
-      }
-    } catch (error) {
-      console.log(error);
-    }
+  const user: user = {
+    username,
+    password,
   };
 
-  useEffect(() => {
-    console.log(stato);
-  }, [token]);
+  const storeTry = useAppSelector((state) => state.authToken.token);
+  const dispatch = useAppDispatch();
 
   return (
     <Navbar className={`${styles.navStyle}`} expand="lg" fixed="top">
@@ -65,8 +45,8 @@ const Header = () => {
             style={{ color: COLORS.brandWhite }}
           >
             <MyButton
-              text="Sign Up"
-              onClickFnc={() => setShowAuthModal(!showAuthModal)}
+              text="Sign In"
+              onClickFnc={() => setShowAuthModal(true)}
             />
             <Nav.Link className={`${styles.navLink} d-none d-md-block`}>
               Contacts
@@ -140,7 +120,7 @@ const Header = () => {
                     <MyButton
                       text="Sign Up"
                       onClickFnc={() => {
-                        authRequest();
+                        dispatch(fetchToken(user));
                       }}
                       style={{
                         backgroundColor: `${COLORS.brandGold}`,
@@ -148,8 +128,8 @@ const Header = () => {
                       }}
                     />
                   </div>
-                  {token && (
-                    <p className="fs-4 text-center">{`Bearer ${token}`}</p>
+                  {storeTry && (
+                    <p className="fs-4 text-center">{`Bearer ${storeTry}`}</p>
                   )}
                 </div>
                 {/* </Modal.Footer> */}
