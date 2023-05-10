@@ -28,7 +28,6 @@ const Modal = ({
         onClick={onClose}
         // style={{ backgroundColor: "white", opacity: "1" }}
       />
-      {title && <h1>{title}</h1>}
       <div className={`${styles.modal}`}>
         {" "}
         <Row className="d-flex">
@@ -39,7 +38,7 @@ const Modal = ({
               style={{
                 backgroundImage: `url("https://static1.bigstockphoto.com/4/8/2/large1500/284139886.jpg")`,
                 backgroundSize: "cover",
-                width: "530px",
+                maxWidth: "530px",
                 height: "570px",
               }}
             >

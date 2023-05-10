@@ -3,11 +3,12 @@ import COLORS from "../../style/color";
 import styles from "./Header.module.css";
 import MyButton from "../Button/MyButton.component";
 import { useState } from "react";
-import Modal from "../Modal/Modal.component";
 import { useAppDispatch } from "../../redux/store/store";
+import Modal from "../Modal/Modal.component";
 // import { useAppSelector } from "../../redux/store/store";
 import { fetchToken, user } from "../../redux/reducers/tokenStore";
 // import { RootState } from "../../redux/store/store";
+import blackLogoNoBg from "../../assets/blackLogoNoBg.png";
 
 const Header = () => {
   const [showAuthModal, setShowAuthModal] = useState(false);
@@ -26,23 +27,27 @@ const Header = () => {
     <Navbar className={`${styles.navStyle}`} expand="lg" fixed="top">
       <Container className="justify-content-center">
         <Row
-          className="d-flex justify-content-between w-100 py-4"
+          className="d-flex justify-content-between w-100"
           style={{
             borderBottom: "1px ridge" + COLORS.brandWhite,
           }}
         >
-          <Col>
+          <Col className="py-1 d-flex align-items-center">
             <Navbar.Brand
               className="d-none d-sm-block"
               style={{
                 color: COLORS.brandWhite,
               }}
             >
-              Luxury Homecooking
+              <img
+                className={`${styles.logoOptions}`}
+                src={blackLogoNoBg}
+                alt=""
+              />
             </Navbar.Brand>
           </Col>
           <Col
-            className="d-flex flex-row-reverse"
+            className="d-flex flex-row-reverse py-4"
             style={{ color: COLORS.brandWhite }}
           >
             <MyButton
@@ -63,7 +68,7 @@ const Header = () => {
         {showAuthModal && (
           <Modal
             onClose={() => setShowAuthModal(false)}
-            title="Accedi a Luxury Homecooking"
+            title="Accedi a Grand Bistrot"
             subtitle="registrati ora"
             username={username}
             setUsername={setUsername}

@@ -1,5 +1,13 @@
+.goldContainer {
+  background-color: #ccb7a9;
+}
+
 .titleOptions {
+  color: #303030;
+}
+
+.subtitleOptions {
   max-width: 35rem;
   margin: auto;
-  color: #ccb7a9;
+  color: #303030;
 }

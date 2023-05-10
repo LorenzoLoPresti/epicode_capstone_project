@@ -1,7 +1,24 @@
 import styles from "./Jumbotron.module.css";
 import { Container, Row, Col } from "react-bootstrap";
+import { useState } from "react";
+import { useAppDispatch } from "../../redux/store/store";
+import { fetchToken, user } from "../../redux/reducers/tokenStore";
+import MyButton from "../Button/MyButton.component";
+import Modal from "../Modal/Modal.component";
+import COLORS from "../../style/color";
 
 const Jumbotron = () => {
+  const [showRegistrationModal, setShowRegistrationModal] = useState(false);
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+
+  const user: user = {
+    username,
+    password,
+  };
+
+  // const storeTry = useAppSelector((state) => state.authToken.token);
+  const dispatch = useAppDispatch();
   return (
     <div className={`${styles.jumboOptions}`}>
       <div className={`${styles.jumboContainerOptions}`}>
@@ -15,8 +32,36 @@ const Jumbotron = () => {
               </p>
               <h1 className={`text-light ${styles.h1Options}`}>Gourmet</h1>
               <h2 className={`text-light  ${styles.h2Options}`}>a casa tua</h2>
+              <div className="text-center text-sm-start">
+                <MyButton
+                  text="Iniziamo"
+                  onClickFnc={() => setShowRegistrationModal(true)}
+                />
+              </div>
             </Col>
           </Row>
+          {showRegistrationModal && (
+            <Modal
+              onClose={() => setShowRegistrationModal(false)}
+              title="Accedi a Grand Bistrot"
+              subtitle="registrati ora"
+              username={username}
+              setUsername={setUsername}
+              password={password}
+              setPassword={setPassword}
+            >
+              <MyButton
+                text="Sign Up"
+                onClickFnc={() => {
+                  dispatch(fetchToken(user));
+                }}
+                style={{
+                  backgroundColor: `${COLORS.brandGold}`,
+                  color: `${COLORS.brandBlack}`,
+                }}
+              />
+            </Modal>
+          )}
         </Container>
       </div>
     </div>
