@@ -1,24 +1,92 @@
 import styles from "./Jumbotron.module.css";
+import styleModal from "../Modal/Modal.module.css";
 import { Container, Row, Col } from "react-bootstrap";
 import { useState } from "react";
-import { useAppDispatch } from "../../redux/store/store";
-import { fetchToken, user } from "../../redux/reducers/tokenStore";
+// import { useAppDispatch } from "../../redux/store/store";
 import MyButton from "../Button/MyButton.component";
 import Modal from "../Modal/Modal.component";
 import COLORS from "../../style/color";
+
+// interface user {
+//   name: string;
+//   lastName: string;
+//   username: string;
+//   email: string;
+//   password: string;
+//   citta: string;
+// }
 
 const Jumbotron = () => {
   const [showRegistrationModal, setShowRegistrationModal] = useState(false);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [name, setName] = useState("");
+  const [lastname, setLastname] = useState("");
+  const [email, setEmail] = useState("");
+  const [citta, setCitta] = useState("");
 
-  const user: user = {
-    username,
-    password,
+  const cleanField = () => {
+    console.log("clean");
+
+    setUsername("");
+    setPassword("");
+    setCitta("");
+    setEmail("");
+    setName("");
+    setLastname("");
   };
 
+  const valueCheck = () => {
+    if (
+      username.length > 2 &&
+      password.length > 2 &&
+      name.length > 2 &&
+      lastname.length > 2 &&
+      email.length > 2 &&
+      citta.length > 2 &&
+      email.includes("@")
+    ) {
+      return true;
+    } else {
+      return false;
+    }
+  };
   // const storeTry = useAppSelector((state) => state.authToken.token);
-  const dispatch = useAppDispatch();
+  const registerRequest = async () => {
+    try {
+      const response = await fetch("http://localhost:8080/api/auth/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name,
+          lastname,
+          username,
+          email,
+          password,
+          citta,
+        }),
+      });
+      if (response.ok) {
+        console.log(response.body?.pipeTo);
+
+        cleanField();
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  // const handleSubmit = () => {
+  //   registerRequest()
+  //     .then(() => {
+  //       cleanField();
+  //     })
+  //     .catch((error) => console.log(error));
+  // };
+
+  // const dispatch = useAppDispatch();
   return (
     <div className={`${styles.jumboOptions}`}>
       <div className={`${styles.jumboContainerOptions}`}>
@@ -35,7 +103,7 @@ const Jumbotron = () => {
               <div className="text-center text-sm-start">
                 <MyButton
                   text="Iniziamo"
-                  onClickFnc={() => setShowRegistrationModal(true)}
+                  onClick={() => setShowRegistrationModal(true)}
                 />
               </div>
             </Col>
@@ -51,27 +119,53 @@ const Jumbotron = () => {
               setPassword={setPassword}
             >
               <input
-                value={username}
-                className="mb-3"
+                value={name}
+                className={`mb-5 mb-md-3 ${styleModal.inputOptions}`}
                 type="text"
                 placeholder="nome"
                 onChange={(e) => {
-                  setUsername(e.target.value);
+                  setName(e.target.value);
                 }}
               />
               <input
-                value={username}
-                className="mb-3"
+                value={lastname}
+                className={`mb-5 mb-md-3 ${styleModal.inputOptions}`}
                 type="text"
                 placeholder="cognome"
                 onChange={(e) => {
-                  setUsername(e.target.value);
+                  setLastname(e.target.value);
+                }}
+              />
+              <input
+                value={email}
+                className={`mb-5 mb-md-3 ${styleModal.inputOptions}`}
+                type="text"
+                placeholder="email"
+                onChange={(e) => {
+                  setEmail(e.target.value);
+                }}
+              />
+              <input
+                value={citta}
+                className={`mb-5 mb-md-3 ${styleModal.inputOptions}`}
+                type="text"
+                placeholder="citta"
+                onChange={(e) => {
+                  setCitta(e.target.value);
                 }}
               />
               <MyButton
                 text="Sign Up"
-                onClickFnc={() => {
-                  dispatch(fetchToken(user));
+                onClick={() => {
+                  // handleSubmit();
+                  if (valueCheck()) {
+                    // try {
+                    registerRequest();
+                    // cleanField();
+                    // } catch (e) {
+                    //   console.log(e);
+                    // }
+                  }
                 }}
                 style={{
                   backgroundColor: `${COLORS.brandGold}`,

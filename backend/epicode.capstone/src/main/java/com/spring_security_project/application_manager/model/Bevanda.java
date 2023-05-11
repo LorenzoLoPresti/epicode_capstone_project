@@ -1,11 +1,37 @@
 package com.spring_security_project.application_manager.model;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "bevande")
-public class Bevanda {
+@NoArgsConstructor
+@AllArgsConstructor
+public class Bevanda extends Prodotto {
+	
+	@Column(nullable = false)
+	@Enumerated(EnumType.STRING)
+	private TipoBevanda tipoBevanda;
 
 	
+	public TipoBevanda getTipoBevanda() {
+		return tipoBevanda;
+	}
+
+	public void setTipoBevanda(TipoBevanda tipoBevanda) {
+		this.tipoBevanda = tipoBevanda;
+	}
+
+	@Override
+	public String toString() {
+		return "Bevanda [id=" + getId() +  ", tipoBevanda=" + getTipoBevanda() + ", nome=" + getName()
+				+ ", categoria)=" + getCategoria() + ", prezzo=" + getPrezzo() + "]";
+	}
+
 }

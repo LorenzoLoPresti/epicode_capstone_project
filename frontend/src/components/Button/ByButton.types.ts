@@ -1,5 +1,5 @@
 export interface ButtonProps {
   text: string;
-  onClickFnc: () => void;
+  onClick: () => void;
   style?: Record<string, string | number>;
 }

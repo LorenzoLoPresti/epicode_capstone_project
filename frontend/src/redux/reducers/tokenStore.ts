@@ -1,11 +1,13 @@
 import { createSlice, PayloadAction, createAsyncThunk } from "@reduxjs/toolkit";
 
 interface TokenState {
-  token: null | string;
+  token?: string;
+  username: string;
 }
 
 const initialState: TokenState = {
-  token: null,
+  token: undefined,
+  username: "",
 };
 
 export interface user {
@@ -32,7 +34,7 @@ export const fetchToken = createAsyncThunk(
       if (response.ok) {
         const data = (await response).json();
         // const v2 = await data;
-        const value = await data.then((e) => e.accessToken);
+        const value = await data.then((e) => e);
         // console.log(v2); //TOKEN
         return value;
       }
@@ -52,7 +54,8 @@ export const tokenStore = createSlice({
   },
   extraReducers: (builder) => {
     builder.addCase(fetchToken.fulfilled, (state, action) => {
-      state.token = action.payload;
+      state.token = action.payload.accessToken;
+      state.username = action.payload.username;
     });
   },
 });

@@ -15,6 +15,7 @@ const Header = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [navScroll, setNavScroll] = useState(false);
+  // const reduxUsername = useAppSelector((state) => state?.authToken?.username);
 
   const user: user = {
     username,
@@ -67,10 +68,18 @@ const Header = () => {
             className="d-flex flex-row-reverse py-4"
             style={{ color: COLORS.brandWhite }}
           >
-            <MyButton
-              text="Sign In"
-              onClickFnc={() => setShowAuthModal(true)}
-            />
+            {/* {!reduxUsername ? (
+              <MyButton
+                text="Sign In"
+                onClickFnc={() => setShowAuthModal(true)}
+              />
+            ) : (
+              <Nav.Link className={`${styles.navLink} d-none d-md-block`}>
+                Benvenuto {reduxUsername}
+              </Nav.Link>
+            )} */}
+            <MyButton text="Sign In" onClick={() => setShowAuthModal(true)} />
+
             <Nav.Link className={`${styles.navLink} d-none d-md-block`}>
               Contacts
             </Nav.Link>
@@ -94,7 +103,7 @@ const Header = () => {
           >
             <MyButton
               text="Sign Up"
-              onClickFnc={() => {
+              onClick={() => {
                 dispatch(fetchToken(user));
                 setUsername("");
                 setPassword("");

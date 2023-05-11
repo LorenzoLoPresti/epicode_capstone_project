@@ -5,7 +5,7 @@
   left: 50%;
   transform: translate(-50%, 0);
   width: 100%;
-  max-width: 65rem;
+  max-width: 47rem;
   background-color: white;
   border-top-left-radius: 0.375rem;
   border-top-right-radius: 0.375rem;
@@ -15,10 +15,11 @@
   .modal {
     animation: popupMobile ease 1s;
     transform: translate(-50%, 0);
+    z-index: 10000;
   }
 }
 
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 768px) {
   .modal {
     bottom: 50%;
     transform: translate(-50%, 50%);
@@ -27,14 +28,46 @@
   }
 }
 
-/* @keyframes popupMobile {
-  0% {
-    transform: translate(-50%, 0) scale(0);
+.closeModal {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  font-size: 1.25rem;
+  cursor: pointer;
+}
+
+.closeModal:hover {
+  transform: scale(1.1);
+}
+
+@media screen and (max-width: 768px) {
+  .bgModal {
+    background-image: url(https://static1.bigstockphoto.com/4/8/2/large1500/284139886.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    color: white;
   }
-  100% {
-    transform: translate(-50%, 0) scale(1);
+
+  .closeModal {
+    font-size: 2rem;
   }
-} */
+}
+
+.inputOptions {
+  width: 22rem;
+}
+
+@media screen and (min-width: 768px) {
+  .inputOptions {
+    width: auto;
+  }
+}
+@media screen and (max-width: 420px) {
+  .inputOptions {
+    width: auto;
+  }
+}
 
 @keyframes popupDesktop {
   0% {
