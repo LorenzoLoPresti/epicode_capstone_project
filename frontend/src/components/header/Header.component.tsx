@@ -24,15 +24,18 @@ const Header = () => {
   const storeTry = useAppSelector((state) => state.authToken.token);
   const dispatch = useAppDispatch();
 
-  const handleScroll = () => {
-    if (window.scrollY >= 100) {
-      setNavScroll(true);
-    } else {
-      setNavScroll(false);
-    }
-  };
+  // const handleScroll = () => {
+  //   if (window.scrollY >= 100) {
+  //     setNavScroll(true);
+  //   } else {
+  //     setNavScroll(false);
+  //   }
+  // };
 
-  window.addEventListener("scroll", handleScroll);
+  // window.addEventListener("scroll", handleScroll);
+  window.addEventListener("scroll", () =>
+    window.scrollY >= 100 ? setNavScroll(true) : setNavScroll(false)
+  );
 
   return (
     <Navbar
@@ -42,10 +45,9 @@ const Header = () => {
     >
       <Container className="justify-content-center">
         <Row
-          className="d-flex justify-content-between w-100"
-          style={{
-            borderBottom: "1px ridge" + COLORS.brandWhite,
-          }}
+          className={`d-flex justify-content-between w-100 ${
+            !navScroll && styles.navBorder
+          }`}
         >
           <Col className="py-1 d-flex align-items-center">
             <Navbar.Brand

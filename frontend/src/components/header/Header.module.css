@@ -13,6 +13,12 @@
 
 .navbarScroll {
   background-color: #303030;
+  border-bottom: none;
+  transition: all 1s;
+}
+
+.navBorder {
+  border-bottom: 1px ridge #faf4f0;
   transition: all 1s;
 }
 
