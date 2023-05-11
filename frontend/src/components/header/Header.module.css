@@ -7,7 +7,13 @@
     rgba(0, 0, 0, 0.1) 90%,
     rgba(0, 0, 0, 0) 100%
   );
+  transition: all 0.5s;
   z-index: 10;
+}
+
+.navbarScroll {
+  background-color: #303030;
+  transition: all 1s;
 }
 
 .navLink {
@@ -28,6 +34,6 @@
 
 .logoOptions {
   border-radius: 50%;
-  height: 5rem;
+  height: 4.5rem;
   width: 9.5rem;
 }

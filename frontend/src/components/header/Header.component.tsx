@@ -5,7 +5,7 @@ import MyButton from "../Button/MyButton.component";
 import { useState } from "react";
 import { useAppDispatch } from "../../redux/store/store";
 import Modal from "../Modal/Modal.component";
-// import { useAppSelector } from "../../redux/store/store";
+import { useAppSelector } from "../../redux/store/store";
 import { fetchToken, user } from "../../redux/reducers/tokenStore";
 // import { RootState } from "../../redux/store/store";
 import blackLogoNoBg from "../../assets/blackLogoNoBg.png";
@@ -14,17 +14,32 @@ const Header = () => {
   const [showAuthModal, setShowAuthModal] = useState(false);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [navScroll, setNavScroll] = useState(false);
 
   const user: user = {
     username,
     password,
   };
 
-  // const storeTry = useAppSelector((state) => state.authToken.token);
+  const storeTry = useAppSelector((state) => state.authToken.token);
   const dispatch = useAppDispatch();
 
+  const handleScroll = () => {
+    if (window.scrollY >= 100) {
+      setNavScroll(true);
+    } else {
+      setNavScroll(false);
+    }
+  };
+
+  window.addEventListener("scroll", handleScroll);
+
   return (
-    <Navbar className={`${styles.navStyle}`} expand="lg" fixed="top">
+    <Navbar
+      className={`${navScroll ? styles.navbarScroll : styles.navStyle}`}
+      expand="lg"
+      fixed="top"
+    >
       <Container className="justify-content-center">
         <Row
           className="d-flex justify-content-between w-100"
@@ -79,12 +94,19 @@ const Header = () => {
               text="Sign Up"
               onClickFnc={() => {
                 dispatch(fetchToken(user));
+                setUsername("");
+                setPassword("");
               }}
               style={{
                 backgroundColor: `${COLORS.brandGold}`,
                 color: `${COLORS.brandBlack}`,
               }}
             />
+            {storeTry && (
+              <div style={{ maxWidth: "100px", paddingRight: "8px" }}>
+                <p>{`bearer ${storeTry}`}</p>
+              </div>
+            )}
           </Modal>
         )}
       </Container>
