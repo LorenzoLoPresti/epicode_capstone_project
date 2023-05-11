@@ -87,3 +87,150 @@
 2023-05-11 12:04:47,541 [Worker-42: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
 2023-05-11 12:04:47,544 [Worker-42: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
 2023-05-11 12:04:47,547 [Worker-42: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\cloud\OneDrive\Desktop\Epicode corso\CapstoneProject\epicode_capstone_project\backend\epicode.capstone\src\test\resources
+2023-05-11 12:06:01,160 [Worker-44: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2023-05-11 12:06:01,162 [Worker-44: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2023-05-11 12:06:01,165 [Worker-44: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\cloud\OneDrive\Desktop\Epicode corso\CapstoneProject\epicode_capstone_project\backend\epicode.capstone\src\test\resources
+2023-05-11 12:06:11,806 [Worker-44: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2023-05-11 12:06:11,810 [Worker-44: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2023-05-11 12:06:11,812 [Worker-44: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\cloud\OneDrive\Desktop\Epicode corso\CapstoneProject\epicode_capstone_project\backend\epicode.capstone\src\test\resources
+2023-05-11 12:06:22,307 [Worker-40: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2023-05-11 12:06:22,315 [Worker-40: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2023-05-11 12:06:22,318 [Worker-40: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\cloud\OneDrive\Desktop\Epicode corso\CapstoneProject\epicode_capstone_project\backend\epicode.capstone\src\test\resources
+2023-05-11 12:06:30,587 [Worker-42: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2023-05-11 12:06:30,591 [Worker-42: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2023-05-11 12:06:30,594 [Worker-42: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\cloud\OneDrive\Desktop\Epicode corso\CapstoneProject\epicode_capstone_project\backend\epicode.capstone\src\test\resources
+2023-05-11 12:06:45,175 [Worker-40: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2023-05-11 12:06:45,180 [Worker-40: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2023-05-11 12:06:45,183 [Worker-40: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\cloud\OneDrive\Desktop\Epicode corso\CapstoneProject\epicode_capstone_project\backend\epicode.capstone\src\test\resources
+2023-05-11 12:06:54,364 [Worker-44: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2023-05-11 12:06:54,369 [Worker-44: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2023-05-11 12:06:54,371 [Worker-44: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\cloud\OneDrive\Desktop\Epicode corso\CapstoneProject\epicode_capstone_project\backend\epicode.capstone\src\test\resources
+2023-05-11 12:07:29,156 [Worker-45: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2023-05-11 12:07:29,160 [Worker-45: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2023-05-11 12:07:29,164 [Worker-45: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\cloud\OneDrive\Desktop\Epicode corso\CapstoneProject\epicode_capstone_project\backend\epicode.capstone\src\test\resources
+2023-05-11 12:08:03,720 [Worker-42: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2023-05-11 12:08:03,722 [Worker-42: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2023-05-11 12:08:03,724 [Worker-42: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\cloud\OneDrive\Desktop\Epicode corso\CapstoneProject\epicode_capstone_project\backend\epicode.capstone\src\test\resources
+2023-05-11 12:09:03,113 [Worker-45: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2023-05-11 12:09:03,115 [Worker-45: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2023-05-11 12:09:03,117 [Worker-45: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\cloud\OneDrive\Desktop\Epicode corso\CapstoneProject\epicode_capstone_project\backend\epicode.capstone\src\test\resources
+2023-05-11 12:09:34,588 [Worker-44: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2023-05-11 12:09:34,591 [Worker-44: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2023-05-11 12:09:34,593 [Worker-44: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\cloud\OneDrive\Desktop\Epicode corso\CapstoneProject\epicode_capstone_project\backend\epicode.capstone\src\test\resources
+2023-05-11 12:09:49,386 [Worker-43: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2023-05-11 12:09:49,389 [Worker-43: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2023-05-11 12:09:49,393 [Worker-43: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\cloud\OneDrive\Desktop\Epicode corso\CapstoneProject\epicode_capstone_project\backend\epicode.capstone\src\test\resources
+2023-05-11 12:10:06,322 [Worker-43: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2023-05-11 12:10:06,325 [Worker-43: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2023-05-11 12:10:06,328 [Worker-43: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\cloud\OneDrive\Desktop\Epicode corso\CapstoneProject\epicode_capstone_project\backend\epicode.capstone\src\test\resources
+2023-05-11 12:10:24,422 [Worker-43: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2023-05-11 12:10:24,425 [Worker-43: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2023-05-11 12:10:24,427 [Worker-43: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\cloud\OneDrive\Desktop\Epicode corso\CapstoneProject\epicode_capstone_project\backend\epicode.capstone\src\test\resources
+2023-05-11 12:11:54,226 [Worker-40: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2023-05-11 12:11:54,229 [Worker-40: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2023-05-11 12:11:54,232 [Worker-40: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\cloud\OneDrive\Desktop\Epicode corso\CapstoneProject\epicode_capstone_project\backend\epicode.capstone\src\test\resources
+2023-05-11 12:12:13,507 [Worker-44: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2023-05-11 12:12:13,511 [Worker-44: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2023-05-11 12:12:13,513 [Worker-44: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\cloud\OneDrive\Desktop\Epicode corso\CapstoneProject\epicode_capstone_project\backend\epicode.capstone\src\test\resources
+2023-05-11 12:12:21,932 [Worker-42: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2023-05-11 12:12:21,934 [Worker-42: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2023-05-11 12:12:21,936 [Worker-42: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\cloud\OneDrive\Desktop\Epicode corso\CapstoneProject\epicode_capstone_project\backend\epicode.capstone\src\test\resources
+2023-05-11 12:12:27,095 [Worker-44: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2023-05-11 12:12:27,097 [Worker-44: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2023-05-11 12:12:27,100 [Worker-44: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\cloud\OneDrive\Desktop\Epicode corso\CapstoneProject\epicode_capstone_project\backend\epicode.capstone\src\test\resources
+2023-05-11 12:12:38,262 [Worker-45: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2023-05-11 12:12:38,273 [Worker-45: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2023-05-11 12:12:38,276 [Worker-45: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\cloud\OneDrive\Desktop\Epicode corso\CapstoneProject\epicode_capstone_project\backend\epicode.capstone\src\test\resources
+2023-05-11 12:12:41,681 [Worker-40: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2023-05-11 12:12:41,682 [Worker-40: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2023-05-11 12:12:41,684 [Worker-40: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\cloud\OneDrive\Desktop\Epicode corso\CapstoneProject\epicode_capstone_project\backend\epicode.capstone\src\test\resources
+2023-05-11 12:13:31,395 [Worker-44: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2023-05-11 12:13:31,398 [Worker-44: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2023-05-11 12:13:31,400 [Worker-44: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\cloud\OneDrive\Desktop\Epicode corso\CapstoneProject\epicode_capstone_project\backend\epicode.capstone\src\test\resources
+2023-05-11 12:13:40,190 [Worker-47: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2023-05-11 12:13:40,195 [Worker-47: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2023-05-11 12:13:40,197 [Worker-47: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\cloud\OneDrive\Desktop\Epicode corso\CapstoneProject\epicode_capstone_project\backend\epicode.capstone\src\test\resources
+2023-05-11 12:14:06,156 [Worker-42: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2023-05-11 12:14:06,158 [Worker-42: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2023-05-11 12:14:06,160 [Worker-42: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\cloud\OneDrive\Desktop\Epicode corso\CapstoneProject\epicode_capstone_project\backend\epicode.capstone\src\test\resources
+2023-05-11 12:14:08,980 [Worker-40: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2023-05-11 12:14:08,987 [Worker-40: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2023-05-11 12:14:08,989 [Worker-40: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\cloud\OneDrive\Desktop\Epicode corso\CapstoneProject\epicode_capstone_project\backend\epicode.capstone\src\test\resources
+2023-05-11 12:15:49,505 [Worker-50: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2023-05-11 12:15:49,508 [Worker-50: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2023-05-11 12:15:49,510 [Worker-50: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\cloud\OneDrive\Desktop\Epicode corso\CapstoneProject\epicode_capstone_project\backend\epicode.capstone\src\test\resources
+2023-05-11 12:16:22,037 [Worker-49: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2023-05-11 12:16:22,039 [Worker-49: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2023-05-11 12:16:22,041 [Worker-49: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\cloud\OneDrive\Desktop\Epicode corso\CapstoneProject\epicode_capstone_project\backend\epicode.capstone\src\test\resources
+2023-05-11 12:16:28,953 [Worker-50: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2023-05-11 12:16:28,956 [Worker-50: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2023-05-11 12:16:28,959 [Worker-50: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\cloud\OneDrive\Desktop\Epicode corso\CapstoneProject\epicode_capstone_project\backend\epicode.capstone\src\test\resources
+2023-05-11 12:17:57,724 [Worker-52: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2023-05-11 12:17:57,728 [Worker-52: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2023-05-11 12:17:57,730 [Worker-52: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\cloud\OneDrive\Desktop\Epicode corso\CapstoneProject\epicode_capstone_project\backend\epicode.capstone\src\test\resources
+2023-05-11 12:18:48,058 [Worker-52: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2023-05-11 12:18:48,062 [Worker-52: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2023-05-11 12:18:48,063 [Worker-52: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\cloud\OneDrive\Desktop\Epicode corso\CapstoneProject\epicode_capstone_project\backend\epicode.capstone\src\test\resources
+2023-05-11 12:20:14,312 [Worker-50: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2023-05-11 12:20:14,315 [Worker-50: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2023-05-11 12:20:14,318 [Worker-50: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\cloud\OneDrive\Desktop\Epicode corso\CapstoneProject\epicode_capstone_project\backend\epicode.capstone\src\test\resources
+2023-05-11 12:20:31,689 [Worker-47: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2023-05-11 12:20:31,692 [Worker-47: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2023-05-11 12:20:31,694 [Worker-47: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\cloud\OneDrive\Desktop\Epicode corso\CapstoneProject\epicode_capstone_project\backend\epicode.capstone\src\test\resources
+2023-05-11 12:21:08,642 [Worker-52: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2023-05-11 12:21:08,645 [Worker-52: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2023-05-11 12:21:08,647 [Worker-52: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\cloud\OneDrive\Desktop\Epicode corso\CapstoneProject\epicode_capstone_project\backend\epicode.capstone\src\test\resources
+2023-05-11 12:21:14,087 [Worker-47: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2023-05-11 12:21:14,090 [Worker-47: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2023-05-11 12:21:14,093 [Worker-47: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\cloud\OneDrive\Desktop\Epicode corso\CapstoneProject\epicode_capstone_project\backend\epicode.capstone\src\test\resources
+2023-05-11 12:21:17,965 [Worker-47: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2023-05-11 12:21:17,967 [Worker-47: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2023-05-11 12:21:17,969 [Worker-47: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\cloud\OneDrive\Desktop\Epicode corso\CapstoneProject\epicode_capstone_project\backend\epicode.capstone\src\test\resources
+2023-05-11 12:21:25,836 [Worker-50: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2023-05-11 12:21:25,838 [Worker-50: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2023-05-11 12:21:25,840 [Worker-50: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\cloud\OneDrive\Desktop\Epicode corso\CapstoneProject\epicode_capstone_project\backend\epicode.capstone\src\test\resources
+2023-05-11 12:23:40,508 [Worker-48: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2023-05-11 12:23:40,510 [Worker-48: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2023-05-11 12:23:40,513 [Worker-48: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\cloud\OneDrive\Desktop\Epicode corso\CapstoneProject\epicode_capstone_project\backend\epicode.capstone\src\test\resources
+2023-05-11 12:37:48,744 [Worker-54: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2023-05-11 12:37:48,749 [Worker-54: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2023-05-11 12:37:48,750 [Worker-54: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\cloud\OneDrive\Desktop\Epicode corso\CapstoneProject\epicode_capstone_project\backend\epicode.capstone\src\test\resources
+2023-05-11 12:38:07,203 [Worker-52: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2023-05-11 12:38:07,206 [Worker-52: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2023-05-11 12:38:07,208 [Worker-52: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\cloud\OneDrive\Desktop\Epicode corso\CapstoneProject\epicode_capstone_project\backend\epicode.capstone\src\test\resources
+2023-05-11 12:38:48,639 [Worker-52: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2023-05-11 12:38:48,642 [Worker-52: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2023-05-11 12:38:48,645 [Worker-52: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\cloud\OneDrive\Desktop\Epicode corso\CapstoneProject\epicode_capstone_project\backend\epicode.capstone\src\test\resources
+2023-05-11 12:38:56,905 [Worker-52: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2023-05-11 12:38:56,908 [Worker-52: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2023-05-11 12:38:56,911 [Worker-52: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\cloud\OneDrive\Desktop\Epicode corso\CapstoneProject\epicode_capstone_project\backend\epicode.capstone\src\test\resources
+2023-05-11 12:39:06,508 [Worker-56: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2023-05-11 12:39:06,511 [Worker-56: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2023-05-11 12:39:06,513 [Worker-56: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\cloud\OneDrive\Desktop\Epicode corso\CapstoneProject\epicode_capstone_project\backend\epicode.capstone\src\test\resources
+2023-05-11 12:39:22,551 [Worker-56: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2023-05-11 12:39:22,553 [Worker-56: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2023-05-11 12:39:22,555 [Worker-56: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\cloud\OneDrive\Desktop\Epicode corso\CapstoneProject\epicode_capstone_project\backend\epicode.capstone\src\test\resources
+2023-05-11 12:40:14,238 [Worker-52: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2023-05-11 12:40:14,240 [Worker-52: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2023-05-11 12:40:14,242 [Worker-52: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\cloud\OneDrive\Desktop\Epicode corso\CapstoneProject\epicode_capstone_project\backend\epicode.capstone\src\test\resources
+2023-05-11 12:40:16,792 [Worker-56: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2023-05-11 12:40:16,795 [Worker-56: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2023-05-11 12:40:16,797 [Worker-56: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\cloud\OneDrive\Desktop\Epicode corso\CapstoneProject\epicode_capstone_project\backend\epicode.capstone\src\test\resources
+2023-05-11 12:40:21,994 [Worker-56: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2023-05-11 12:40:21,996 [Worker-56: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2023-05-11 12:40:21,998 [Worker-56: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\cloud\OneDrive\Desktop\Epicode corso\CapstoneProject\epicode_capstone_project\backend\epicode.capstone\src\test\resources
+2023-05-11 12:41:08,019 [Worker-52: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2023-05-11 12:41:08,021 [Worker-52: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2023-05-11 12:41:08,022 [Worker-52: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\cloud\OneDrive\Desktop\Epicode corso\CapstoneProject\epicode_capstone_project\backend\epicode.capstone\src\test\resources
+2023-05-11 12:43:21,128 [Worker-59: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2023-05-11 12:43:21,132 [Worker-59: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2023-05-11 12:43:21,133 [Worker-59: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\cloud\OneDrive\Desktop\Epicode corso\CapstoneProject\epicode_capstone_project\backend\epicode.capstone\src\test\resources
+2023-05-11 12:45:21,845 [Worker-61: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2023-05-11 12:45:21,850 [Worker-61: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2023-05-11 12:45:21,852 [Worker-61: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\cloud\OneDrive\Desktop\Epicode corso\CapstoneProject\epicode_capstone_project\backend\epicode.capstone\src\test\resources
+2023-05-11 12:45:39,900 [Worker-63: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2023-05-11 12:45:39,903 [Worker-63: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2023-05-11 12:45:39,905 [Worker-63: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\cloud\OneDrive\Desktop\Epicode corso\CapstoneProject\epicode_capstone_project\backend\epicode.capstone\src\test\resources
+2023-05-11 12:46:13,963 [Worker-47: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2023-05-11 12:46:13,966 [Worker-47: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2023-05-11 12:46:13,968 [Worker-47: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\cloud\OneDrive\Desktop\Epicode corso\CapstoneProject\epicode_capstone_project\backend\epicode.capstone\src\test\resources
