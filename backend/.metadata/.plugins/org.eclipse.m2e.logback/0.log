@@ -74,3 +74,16 @@
 2023-05-10 07:38:56,287 [Worker-41: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
 2023-05-10 07:38:56,290 [Worker-41: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
 2023-05-10 07:38:56,292 [Worker-41: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\cloud\OneDrive\Desktop\Epicode corso\CapstoneProject\epicode_capstone_project\backend\epicode.capstone\src\test\resources
+2023-05-11 11:55:45,045 [Worker-4: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2023-05-11 12:00:45,428 [Worker-33: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2023-05-11 12:00:45,447 [Worker-33: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2023-05-11 12:00:45,450 [Worker-33: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\cloud\OneDrive\Desktop\Epicode corso\CapstoneProject\epicode_capstone_project\backend\epicode.capstone\src\test\resources
+2023-05-11 12:02:10,175 [Worker-33: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2023-05-11 12:02:10,191 [Worker-33: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2023-05-11 12:02:10,201 [Worker-33: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\cloud\OneDrive\Desktop\Epicode corso\CapstoneProject\epicode_capstone_project\backend\epicode.capstone\src\test\resources
+2023-05-11 12:02:11,699 [Worker-33: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2023-05-11 12:02:11,703 [Worker-33: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2023-05-11 12:02:11,706 [Worker-33: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\cloud\OneDrive\Desktop\Epicode corso\CapstoneProject\epicode_capstone_project\backend\epicode.capstone\src\test\resources
+2023-05-11 12:04:47,541 [Worker-42: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2023-05-11 12:04:47,544 [Worker-42: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2023-05-11 12:04:47,547 [Worker-42: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\cloud\OneDrive\Desktop\Epicode corso\CapstoneProject\epicode_capstone_project\backend\epicode.capstone\src\test\resources

@@ -45,6 +45,7 @@ public class AuthRunner implements ApplicationRunner {
 			user.setPassword(passwordEncoder.encode("qwerty"));
 			user.setEmail("mario@example.com");
 			user.setName("Mario");
+			user.setCitta("Roma");
 			Role admin = roleRepository.findById(1l).get();			
 			user.getRoles().add(admin);
 			userRepository.save(user);

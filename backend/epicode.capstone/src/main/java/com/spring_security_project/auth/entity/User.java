@@ -32,6 +32,8 @@ public class User {
     private String email;
     @Column(nullable = false)
     private String password;
+    @Column(nullable = false)
+    private String citta;
     
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     @JoinTable(name = "users_roles",
