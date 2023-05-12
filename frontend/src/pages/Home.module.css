@@ -1,0 +1,39 @@
+.generalContainerOption {
+  height: 100vh;
+  width: 100%;
+  position: absolute;
+  z-index: 10000;
+}
+
+.logoContainerOptions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  background: radial-gradient(
+    circle,
+    rgba(0, 0, 0, 1) 4%,
+    rgba(10, 10, 10, 1) 38%,
+    rgba(20, 20, 20, 1) 70%,
+    rgba(30, 30, 30, 1) 90%,
+    rgba(35, 35, 35, 1) 100%
+  );
+}
+
+.imgOptions {
+  width: 300px;
+  height: 200px;
+  animation: logoAnimation ease 1.5s;
+}
+@keyframes logoAnimation {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
