@@ -80,13 +80,13 @@ public class AppRunner implements ApplicationRunner {
 			servicePiatto.salva(piatto.getObject("Amatriciana", CategoriaProdotto.PRIMO, 17.00, c1, TipoCottura.COTTO));
 			servicePiatto.salva(piatto.getObject("Gricia", CategoriaProdotto.PRIMO, 17.00, c1, TipoCottura.COTTO));
 
-			servicePiatto.salva(piatto.getObject("Carbonara", CategoriaProdotto.PRIMO, 18.00, c1, TipoCottura.COTTO));
-			servicePiatto.salva(piatto.getObject("Amatriciana", CategoriaProdotto.PRIMO, 17.00, c1, TipoCottura.COTTO));
-			servicePiatto.salva(piatto.getObject("Gricia", CategoriaProdotto.PRIMO, 17.00, c1, TipoCottura.COTTO));
+			servicePiatto.salva(piatto.getObject("Carbonara", CategoriaProdotto.PRIMO, 18.00, c2, TipoCottura.COTTO));
+			servicePiatto.salva(piatto.getObject("Amatriciana", CategoriaProdotto.PRIMO, 17.00, c2, TipoCottura.COTTO));
+			servicePiatto.salva(piatto.getObject("Gricia", CategoriaProdotto.PRIMO, 17.00, c2, TipoCottura.COTTO));
 
-			servicePiatto.salva(piatto.getObject("Carbonara", CategoriaProdotto.PRIMO, 18.00, c1, TipoCottura.COTTO));
-			servicePiatto.salva(piatto.getObject("Amatriciana", CategoriaProdotto.PRIMO, 17.00, c1, TipoCottura.COTTO));
-			servicePiatto.salva(piatto.getObject("Gricia", CategoriaProdotto.PRIMO, 17.00, c1, TipoCottura.COTTO));
+			servicePiatto.salva(piatto.getObject("Carbonara", CategoriaProdotto.PRIMO, 18.00, c3, TipoCottura.COTTO));
+			servicePiatto.salva(piatto.getObject("Amatriciana", CategoriaProdotto.PRIMO, 17.00, c3, TipoCottura.COTTO));
+			servicePiatto.salva(piatto.getObject("Gricia", CategoriaProdotto.PRIMO, 17.00, c3, TipoCottura.COTTO));
 
 			Piatto p1 = servicePiatto.cercaPerId(1l);
 			Piatto p2 = servicePiatto.cercaPerId(2l);
