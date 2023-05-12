@@ -35,4 +35,14 @@ public class Prodotto {
 	private Double prezzo;
 	@ManyToOne
 	private Chef chef;
+	
+	public Prodotto(String name, CategoriaProdotto categoria, Double prezzo, Chef chef) {
+		super();
+		this.name = name;
+		this.categoria = categoria;
+		this.prezzo = prezzo;
+		this.chef = chef;
+	}
+	
+	
 }

@@ -1,6 +1,6 @@
 package com.spring_security_project.application_manager.model;
 
-import jakarta.persistence.Column;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Piatto extends Prodotto {
 	
-	@Column(nullable = false)
+
 	private TipoCottura tipoCottura;
 
 	
@@ -30,5 +30,12 @@ public class Piatto extends Prodotto {
 		return "Piatto [id=" + getId() +  ", tipoCottura=" + getTipoCottura() + ", nome=" + getName()
 				+ ", categoria)=" + getCategoria() + ", prezzo=" + getPrezzo() + "]";
 	}
+
+	public Piatto(String name, CategoriaProdotto categoria, Double prezzo, Chef chef, TipoCottura tipoCottura) {
+		super(name, categoria, prezzo, chef);
+		setTipoCottura(tipoCottura);
+	}
+	
+	
 
 }

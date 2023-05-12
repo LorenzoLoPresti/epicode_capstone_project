@@ -1,6 +1,6 @@
 package com.spring_security_project.application_manager.model;
 
-import jakarta.persistence.Column;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -15,7 +15,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Bevanda extends Prodotto {
 	
-	@Column(nullable = false)
 	@Enumerated(EnumType.STRING)
 	private TipoBevanda tipoBevanda;
 
