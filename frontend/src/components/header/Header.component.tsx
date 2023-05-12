@@ -87,7 +87,9 @@ const Header = () => {
               About us
             </Nav.Link>
             <Nav.Link className={`${styles.navLink} d-none d-md-block`}>
-              Home
+              <Link className={styles.routerLink} to={"/"}>
+                Home
+              </Link>
             </Nav.Link>
           </Col>
         </Row>

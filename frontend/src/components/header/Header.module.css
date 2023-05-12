@@ -43,3 +43,13 @@
   height: 4.5rem;
   width: 9.5rem;
 }
+
+.routerLink {
+  text-decoration: none;
+  color: #faf4f0;
+}
+
+.routerLink:hover {
+  text-decoration: none;
+  color: #ccb7a9;
+}
