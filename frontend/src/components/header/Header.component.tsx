@@ -9,13 +9,14 @@ import { useAppSelector } from "../../redux/store/store";
 import { fetchToken, user } from "../../redux/reducers/tokenStore";
 // import { RootState } from "../../redux/store/store";
 import blackLogoNoBg from "../../assets/blackLogoNoBg.png";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const [showAuthModal, setShowAuthModal] = useState(false);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [navScroll, setNavScroll] = useState(false);
-  // const reduxUsername = useAppSelector((state) => state?.authToken?.username);
+  const reduxUsername = useAppSelector((state) => state.authToken?.username);
 
   const user: user = {
     username,
@@ -57,28 +58,27 @@ const Header = () => {
                 color: COLORS.brandWhite,
               }}
             >
-              <img
-                className={`${styles.logoOptions}`}
-                src={blackLogoNoBg}
-                alt=""
-              />
+              <Link to={"/"}>
+                <img
+                  className={`${styles.logoOptions}`}
+                  src={blackLogoNoBg}
+                  alt=""
+                />
+              </Link>
             </Navbar.Brand>
           </Col>
           <Col
             className="d-flex flex-row-reverse py-4"
             style={{ color: COLORS.brandWhite }}
           >
-            {/* {!reduxUsername ? (
-              <MyButton
-                text="Sign In"
-                onClickFnc={() => setShowAuthModal(true)}
-              />
+            {!reduxUsername ? (
+              <MyButton text="Sign In" onClick={() => setShowAuthModal(true)} />
             ) : (
               <Nav.Link className={`${styles.navLink} d-none d-md-block`}>
                 Benvenuto {reduxUsername}
               </Nav.Link>
-            )} */}
-            <MyButton text="Sign In" onClick={() => setShowAuthModal(true)} />
+            )}
+            {/* <MyButton text="Sign In" onClick={() => setShowAuthModal(true)} /> */}
 
             <Nav.Link className={`${styles.navLink} d-none d-md-block`}>
               Contacts

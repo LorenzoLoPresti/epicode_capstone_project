@@ -6,6 +6,8 @@ import { useState } from "react";
 import MyButton from "../Button/MyButton.component";
 import Modal from "../Modal/Modal.component";
 import COLORS from "../../style/color";
+import { useAppSelector } from "../../redux/store/store";
+import { useNavigate } from "react-router-dom";
 
 // interface user {
 //   name: string;
@@ -24,10 +26,11 @@ const Jumbotron = () => {
   const [lastname, setLastname] = useState("");
   const [email, setEmail] = useState("");
   const [citta, setCitta] = useState("");
+  const [registered, setRegistered] = useState(false);
+  const token = useAppSelector((state) => state.authToken?.token);
+  const navigate = useNavigate();
 
   const cleanField = () => {
-    console.log("clean");
-
     setUsername("");
     setPassword("");
     setCitta("");
@@ -72,6 +75,11 @@ const Jumbotron = () => {
         console.log(response.body?.pipeTo);
 
         cleanField();
+        setRegistered(true);
+        setTimeout(() => {
+          setShowRegistrationModal(false);
+          navigate("/login");
+        }, 1200);
       }
     } catch (error) {
       console.log(error);
@@ -100,12 +108,14 @@ const Jumbotron = () => {
               </p>
               <h1 className={`text-light ${styles.h1Options}`}>Gourmet</h1>
               <h2 className={`text-light  ${styles.h2Options}`}>a casa tua</h2>
-              <div className="text-center text-sm-start">
-                <MyButton
-                  text="Iniziamo"
-                  onClick={() => setShowRegistrationModal(true)}
-                />
-              </div>
+              {!token && (
+                <div className="text-center text-sm-start">
+                  <MyButton
+                    text="Iniziamo"
+                    onClick={() => setShowRegistrationModal(true)}
+                  />
+                </div>
+              )}
             </Col>
           </Row>
           {showRegistrationModal && (
@@ -139,7 +149,7 @@ const Jumbotron = () => {
               <input
                 value={email}
                 className={`mb-5 mb-md-3 ${styleModal.inputOptions}`}
-                type="text"
+                type="email"
                 placeholder="email"
                 onChange={(e) => {
                   setEmail(e.target.value);
@@ -172,6 +182,7 @@ const Jumbotron = () => {
                   color: `${COLORS.brandBlack}`,
                 }}
               />
+              {registered && <h1>Grazie!</h1>}
             </Modal>
           )}
         </Container>

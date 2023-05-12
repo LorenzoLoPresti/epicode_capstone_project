@@ -84,7 +84,7 @@ const Modal = ({
                 <input
                   value={password}
                   className={`mb-5 mb-md-3 ${styles.inputOptions}`}
-                  type="text"
+                  type="password"
                   placeholder="password"
                   onChange={(e) => {
                     setPassword(e.target.value);
