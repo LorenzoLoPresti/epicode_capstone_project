@@ -71,6 +71,7 @@ const Jumbotron = () => {
           citta,
         }),
       });
+      console.log(response);
       if (response.ok) {
         console.log(response.body?.pipeTo);
 

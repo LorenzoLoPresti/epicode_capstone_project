@@ -5,7 +5,6 @@ import { useAppSelector } from "../redux/store/store";
 import { Col, Row } from "react-bootstrap";
 import logo from "../assets/blackLogoNoBg.png";
 import style from "./Home.module.css";
-// import { useEffect } from "react";
 
 const Home = () => {
   const reduxToken = useAppSelector((state) => state.authToken?.token);
@@ -38,7 +37,7 @@ const Home = () => {
             {!loading && <HomeBody />}
           </>
         )}
-        {reduxToken && <Jumbotron />}
+        {/* {reduxToken && <Jumbotron />} */}
       </>
     </div>
   );

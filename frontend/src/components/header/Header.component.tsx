@@ -7,7 +7,7 @@ import { useAppDispatch } from "../../redux/store/store";
 import Modal from "../Modal/Modal.component";
 import { useAppSelector } from "../../redux/store/store";
 import { fetchToken, logout, user } from "../../redux/reducers/tokenStore";
-// import { RootState } from "../../redux/store/store";
+import { FiUser } from "react-icons/fi";
 import blackLogoNoBg from "../../assets/blackLogoNoBg.png";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import SideMenu from "../SideMenu/SideMenu.component";
@@ -98,14 +98,24 @@ const Header = () => {
                   onClick={() => setShowAuthModal(true)}
                 />
               ) : (
-                <Nav.Link
-                  onClick={() => {
-                    setShowMenu(true);
-                  }}
-                  className={`${styles.username} d-none d-md-block`}
-                >
-                  Ciao {reduxUsername}
-                </Nav.Link>
+                <>
+                  <Nav.Link
+                    onClick={() => {
+                      setShowMenu(true);
+                    }}
+                    className={` ${styles.username} ${styles.userIconOptions} me-2 fs-6`}
+                  >
+                    <FiUser />
+                  </Nav.Link>
+                  <Nav.Link
+                    onClick={() => {
+                      setShowMenu(true);
+                    }}
+                    className={`${styles.username} me-1`}
+                  >
+                    Ciao {reduxUsername}{" "}
+                  </Nav.Link>
+                </>
               )}
               {/* <MyButton text="Sign In" onClick={() => setShowAuthModal(true)} /> */}
 

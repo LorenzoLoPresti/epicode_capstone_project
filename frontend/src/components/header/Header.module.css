@@ -57,6 +57,14 @@
   width: 9.5rem;
 }
 
+.userIconOptions {
+  margin-bottom: 3px;
+}
+
+.userIconOptions:hover {
+  border: none;
+}
+
 /* .routerLink {
   text-decoration: none;
   color: #faf4f0;
