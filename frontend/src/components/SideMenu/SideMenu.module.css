@@ -1,0 +1,43 @@
+.sideMenu {
+  position: absolute;
+  bottom: 0%;
+  right: 0%;
+  height: 100%;
+  width: 100vw;
+  max-width: 25rem;
+  background-color: #30303058;
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+  overflow: hidden;
+  /* transform: translate(-107%); */
+  animation: sliding linear 0.4s;
+}
+
+@keyframes sliding {
+  0% {
+    right: -30%;
+  }
+
+  100% {
+    right: 0%;
+  }
+}
+
+.headline,
+.menuOption {
+  color: #faf4f0 !important;
+  text-transform: capitalize !important;
+}
+
+.menuOption:hover {
+  color: #ccb7a9 !important;
+  cursor: pointer !important;
+}
+
+.closeModal {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  font-size: 1.5rem;
+  cursor: pointer;
+}

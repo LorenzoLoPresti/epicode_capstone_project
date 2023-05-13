@@ -38,6 +38,7 @@ const Home = () => {
             {!loading && <HomeBody />}
           </>
         )}
+        {reduxToken && <Jumbotron />}
       </>
     </div>
   );

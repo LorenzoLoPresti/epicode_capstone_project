@@ -51,6 +51,10 @@ export const tokenStore = createSlice({
     addToken: (state, action: PayloadAction<string>) => {
       state.token = action.payload;
     },
+    logout: (state) => {
+      state.token = undefined;
+      state.username = "";
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(fetchToken.fulfilled, (state, action) => {
@@ -60,4 +64,4 @@ export const tokenStore = createSlice({
   },
 });
 
-export const { addToken } = tokenStore.actions; // Esporto le azioni
+export const { addToken, logout } = tokenStore.actions; // Esporto le azioni
