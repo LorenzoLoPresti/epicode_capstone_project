@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.spring_security_project.application_manager.repository.RistoranteRepository;
+import com.spring_security_project.application_manager.service.RistoranteService;
 import com.spring_security_project.auth.entity.User;
 import com.spring_security_project.auth.repository.UserRepository;
 
@@ -27,5 +29,26 @@ public class UserController {
 			return new ResponseEntity<>("Username non trovato", HttpStatus.NOT_FOUND);
 		}
 		return new ResponseEntity<User>(userRepo.findByUsername(username).get(), HttpStatus.ACCEPTED);
+	}
+	
+	@Autowired RistoranteService ristoranteService;
+	@Autowired RistoranteRepository ristoranteRepo;
+	
+	@GetMapping("/citta/{citta}")
+	@PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
+	public ResponseEntity<?> trovaRistorantiPerCitta (@PathVariable String citta) {
+		if(!ristoranteRepo.existsByCitta(citta)) {
+			return new ResponseEntity<>("Ristoranti non trovati", HttpStatus.NOT_FOUND);
+		}
+		return new ResponseEntity<>(ristoranteService.cercaPerCitta(citta), HttpStatus.ACCEPTED);
+	}
+	
+	@GetMapping("/list")
+	@PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
+	public ResponseEntity<?> trovaUtenti () {
+//		if(!ristoranteRepo.existsByCitta(citta)) {
+//			return new ResponseEntity<>("Ristoranti non trovati", HttpStatus.NOT_FOUND);
+//		}
+		return new ResponseEntity<>(userRepo.findAll(), HttpStatus.ACCEPTED);
 	}
 }

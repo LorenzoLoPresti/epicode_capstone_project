@@ -11,14 +11,16 @@ export const fetchRistorantiPerCitta = async (
 ) => {
   try {
     const response = await fetch(
-      `http://localhost:8080/grand_bistrot/ristoranti/${stringCapitalizer(
-        citta
-      )}`,
+      //   `http://localhost:8080//grand_bistrot/users/citta/${stringCapitalizer(
+      //     citta
+      //   )}`,
+      `http://localhost:8080/grand_bistrot/users/list`,
       {
         method: "GET",
         headers: { authorization: `Bearer ${token}` },
       }
     );
+    console.log(citta);
     if (response.ok) {
       const data = await response.json();
       setRistoranti(data);
