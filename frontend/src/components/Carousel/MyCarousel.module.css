@@ -1,13 +1,18 @@
 .imgFilter {
   background: radial-gradient(
     circle,
-    rgba(0, 0, 0, 0.2) 0%,
-    rgba(0, 0, 0, 0.2) 23%,
-    rgba(0, 0, 0, 0.3) 63%,
-    rgba(0, 0, 0, 0.4) 100%
+    rgba(0, 0, 0, 0.4) 0%,
+    rgba(0, 0, 0, 0.3) 23%,
+    rgba(0, 0, 0, 0.2) 63%,
+    rgba(0, 0, 0, 0.1) 100%
   );
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+}
+
+.titleOptions {
+  font-size: 6rem;
+  font-family: "Abril Fatface", cursive;
 }

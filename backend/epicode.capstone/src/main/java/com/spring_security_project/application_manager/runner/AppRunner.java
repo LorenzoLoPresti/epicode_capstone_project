@@ -56,9 +56,9 @@ public class AppRunner implements ApplicationRunner {
 //			serviceRistorante.salva(ristorante.getObject("Ristorante Aroma", "Roma", "06 9761 5109", "/src/assets/ristoranti/aroma_roma.jpg"));
 //			serviceRistorante.salva(ristorante.getObject("Ristorante Mirabelle", "Roma", "06 4216 8838", "/src/assets/ristoranti/aroma_roma.jpg"));
 			
-			serviceRistorante.salva(ristorante.getObject("Ristorante La Pergola", "Roma", "06 3509 2152", "/src/assets/ristoranti/la_pergola_roma.jpg"));
-			serviceRistorante.salva(ristorante.getObject("Ristorante Aroma", "Roma", "06 9761 5109", "/src/assets/ristoranti/aroma_roma.jpg"));
-			serviceRistorante.salva(ristorante.getObject("Ristorante Mirabelle", "Roma", "06 4216 8838", "/src/assets/ristoranti/mirabelle_roma.jpg"));
+			serviceRistorante.salva(ristorante.getObject("La Pergola", "Roma", "06 3509 2152", "/src/assets/ristoranti/la_pergola_roma.jpg"));
+			serviceRistorante.salva(ristorante.getObject("Aroma", "Roma", "06 9761 5109", "/src/assets/ristoranti/aroma_roma.jpg"));
+			serviceRistorante.salva(ristorante.getObject("Mirabelle", "Roma", "06 4216 8838", "/src/assets/ristoranti/mirabelle_roma.jpg"));
 
 			Ristorante r1 = serviceRistorante.cercaPerId(1l);
 			Ristorante r2 = serviceRistorante.cercaPerId(2l);

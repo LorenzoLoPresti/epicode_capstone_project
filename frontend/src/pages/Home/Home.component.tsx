@@ -80,7 +80,7 @@ const Home = () => {
           //     </Carousel.Item>
           //   ))}
           // </Carousel>
-          <MyCarousel images={ristoranti?.map((e) => e.immagine)} />
+          <MyCarousel array={ristoranti} />
         )}
       </>
     </div>

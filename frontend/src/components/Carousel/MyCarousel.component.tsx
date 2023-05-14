@@ -1,17 +1,17 @@
 import { Carousel } from "react-bootstrap";
 import styles from "./MyCarousel.module.css";
-// import { Ristorante } from "../../pages/Home/Home.types";
+import { Ristorante } from "../../pages/Home/Home.types";
 
-const MyCarousel = ({ images }: { images: string[] }) => {
+const MyCarousel = ({ array }: { array: Ristorante[] }) => {
   return (
     <Carousel>
-      {images.length > 0 &&
-        images?.map((img) => (
-          <Carousel.Item interval={100000000}>
+      {array.length > 0 &&
+        array.map((e, i) => (
+          <Carousel.Item interval={100000000} key={"carouselId:" + i}>
             <div
               className="d-block w-100"
               style={{
-                backgroundImage: `url(${img})`,
+                backgroundImage: `url(${e?.immagine})`,
                 height: "100vh",
                 backgroundSize: "cover",
               }}
@@ -23,7 +23,9 @@ const MyCarousel = ({ images }: { images: string[] }) => {
                   height: "100%",
                 }}
               >
-                <h1 className="text-light">La Pergola</h1>
+                <h1 className={`text-light fs1 ${styles.titleOptions}`}>
+                  {e?.name}
+                </h1>
               </div>
             </div>
           </Carousel.Item>
