@@ -31,6 +31,7 @@ const Home = () => {
 
   useEffect(() => {
     if (reduxToken) {
+      console.log("ue - fetch");
       dispatch(fetchCity(user));
       // fetchRistorantiPerCitta(reduxToken, reduxCitta, setRistoranti);
     }

@@ -55,7 +55,6 @@ export const fetchCity = createAsyncThunk(
     username: string;
     token: string | undefined;
   }) => {
-    console.log("STATO USERNAME " + username);
     try {
       const response = await fetch(
         `http://localhost:8080/grand_bistrot/users/${username}`,
@@ -68,8 +67,11 @@ export const fetchCity = createAsyncThunk(
         const data = await response.json();
         return data.citta;
       }
+      if (response.status === 401) {
+        // todo - logout
+      }
     } catch (error) {
-      console.log(error);
+      console.log("error", error);
     }
   }
 );
