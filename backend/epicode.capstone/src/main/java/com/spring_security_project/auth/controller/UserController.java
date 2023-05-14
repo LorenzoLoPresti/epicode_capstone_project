@@ -43,12 +43,12 @@ public class UserController {
 		return new ResponseEntity<>(ristoranteService.cercaPerCitta(citta), HttpStatus.ACCEPTED);
 	}
 	
-	@GetMapping("/list")
-	@PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
-	public ResponseEntity<?> trovaUtenti () {
-//		if(!ristoranteRepo.existsByCitta(citta)) {
-//			return new ResponseEntity<>("Ristoranti non trovati", HttpStatus.NOT_FOUND);
-//		}
-		return new ResponseEntity<>(userRepo.findAll(), HttpStatus.ACCEPTED);
-	}
+//	@GetMapping("/list")
+//	@PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
+//	public ResponseEntity<?> trovaUtenti () {
+////		if(!ristoranteRepo.existsByCitta(citta)) {
+////			return new ResponseEntity<>("Ristoranti non trovati", HttpStatus.NOT_FOUND);
+////		}
+//		return new ResponseEntity<>(userRepo.findAll(), HttpStatus.ACCEPTED);
+//	}
 }
