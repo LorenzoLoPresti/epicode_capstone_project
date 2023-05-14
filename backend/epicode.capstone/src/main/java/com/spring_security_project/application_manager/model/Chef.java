@@ -2,6 +2,7 @@ package com.spring_security_project.application_manager.model;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import jakarta.persistence.CascadeType;
@@ -34,9 +35,10 @@ public class Chef {
 	@Enumerated(EnumType.STRING)
 	private CategoriaChef categoria;
 	@ManyToOne(cascade = CascadeType.MERGE)
-	@JsonIgnoreProperties
+	@JsonIgnore
 	private Ristorante ristoranteAssociato;
 	@OneToMany(fetch = FetchType.EAGER)
+	@JsonIgnoreProperties
 	private List<Prodotto> listaProdotti;
 	
 	public Chef(String name, CategoriaChef categoria, Ristorante ristoranteAssociato) {

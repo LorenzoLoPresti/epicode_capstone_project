@@ -1,5 +1,7 @@
 package com.spring_security_project.application_manager.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.DiscriminatorColumn;
 import jakarta.persistence.Entity;
@@ -34,6 +36,7 @@ public class Prodotto {
 	@Column(nullable = false)
 	private Double prezzo;
 	@ManyToOne
+	@JsonIgnore
 	private Chef chef;
 	
 	public Prodotto(String name, CategoriaProdotto categoria, Double prezzo, Chef chef) {

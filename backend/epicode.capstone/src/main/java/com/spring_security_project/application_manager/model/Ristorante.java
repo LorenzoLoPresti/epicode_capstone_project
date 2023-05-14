@@ -40,7 +40,12 @@ public class Ristorante {
 		this.name = name;
 		this.citta = citta;
 	}
-	
+
+//	@Override
+//	public String toString() {
+//		return "Ristorante [id=" + id + ", name=" + name + ", citta=" + citta + "]";
+//	}
+//	
 	
 	
 	

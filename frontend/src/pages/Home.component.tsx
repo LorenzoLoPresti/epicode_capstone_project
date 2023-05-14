@@ -6,11 +6,14 @@ import { fetchCity } from "../redux/reducers/tokenStore";
 import { Col, Row } from "react-bootstrap";
 import logo from "../assets/blackLogoNoBg.png";
 import style from "./Home.module.css";
+import { fetchRistorantiPerCitta } from "../components/Utils/Utils";
 
 const Home = () => {
   const reduxToken = useAppSelector((state) => state.authToken?.token);
   const reduxUsername = useAppSelector((state) => state.authToken?.username);
+  const reduxCitta = useAppSelector((state) => state.authToken?.citta);
   const [loading, setLoading] = useState(true);
+  const [ristoranti, setRistoranti] = useState([]);
   const dispatch = useAppDispatch();
 
   const user = {
@@ -25,6 +28,7 @@ const Home = () => {
   useEffect(() => {
     if (reduxToken) {
       dispatch(fetchCity(user));
+      fetchRistorantiPerCitta(reduxToken, reduxCitta, setRistoranti);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [reduxToken]);
@@ -52,7 +56,7 @@ const Home = () => {
             {!loading && <HomeBody />}
           </>
         )}
-        {/* {reduxToken && <Jumbotron />} */}
+        {ristoranti && ristoranti?.map((e) => console.log(e))}
       </>
     </div>
   );

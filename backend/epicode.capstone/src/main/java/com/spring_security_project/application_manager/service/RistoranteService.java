@@ -54,4 +54,8 @@ public class RistoranteService {
 	public List<Ristorante> cercaTutti(){
 		return repoRistorante.findAll();
 	}
+	
+	public List<Ristorante> cercaPerCitta(String citta){
+		return repoRistorante.findByCitta(citta);
+	}
 }
