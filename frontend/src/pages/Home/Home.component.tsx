@@ -1,19 +1,20 @@
 import { useEffect, useState } from "react";
-import HomeBody from "../components/HomeBody/HomeBody.component";
-import Jumbotron from "../components/Jumbotron/Jumbotron.component";
-import { useAppDispatch, useAppSelector } from "../redux/store/store";
-import { fetchCity } from "../redux/reducers/tokenStore";
+import HomeBody from "../../components/HomeBody/HomeBody.component";
+import Jumbotron from "../../components/Jumbotron/Jumbotron.component";
+import { useAppDispatch, useAppSelector } from "../../redux/store/store";
+import { fetchCity } from "../../redux/reducers/tokenStore";
 import { Col, Row } from "react-bootstrap";
-import logo from "../assets/blackLogoNoBg.png";
+import logo from "../../assets/blackLogoNoBg.png";
 import style from "./Home.module.css";
-import { fetchRistorantiPerCitta } from "../components/Utils/Utils";
+import { fetchRistorantiPerCitta } from "../../components/Utils/Utils";
+import { Ristorante } from "./Home.types";
 
 const Home = () => {
   const reduxToken = useAppSelector((state) => state.authToken?.token);
   const reduxUsername = useAppSelector((state) => state.authToken?.username);
   const reduxCitta = useAppSelector((state) => state.authToken?.citta);
   const [loading, setLoading] = useState(true);
-  const [ristoranti, setRistoranti] = useState([]);
+  const [ristoranti, setRistoranti] = useState<Ristorante[]>([]);
   const dispatch = useAppDispatch();
 
   const user = {
@@ -22,12 +23,16 @@ const Home = () => {
   };
 
   useEffect(() => {
-    setTimeout(() => setLoading(false), 1500);
-  });
+    const t = setTimeout(() => setLoading(false), 1500);
+    return () => clearTimeout(t);
+  }, []);
 
   useEffect(() => {
     if (reduxToken) {
       dispatch(fetchCity(user));
+      // fetchRistorantiPerCitta(reduxToken, reduxCitta, setRistoranti);
+    }
+    if (reduxCitta && reduxToken) {
       fetchRistorantiPerCitta(reduxToken, reduxCitta, setRistoranti);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -56,7 +61,11 @@ const Home = () => {
             {!loading && <HomeBody />}
           </>
         )}
-        {ristoranti && ristoranti?.map((e) => console.log(e))}
+        {ristoranti.length > 0 &&
+          ristoranti?.map(
+            (e) => <h1 className="mt-5 text-light">{e?.listaChef[0].name}</h1>
+            // console.log(e.listaChef[0]?.listaProdotti)
+          )}
       </>
     </div>
   );
