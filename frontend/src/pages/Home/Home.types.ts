@@ -3,6 +3,8 @@ export interface Ristorante {
   id: number;
   listaChef: Chef[];
   citta: string;
+  telefono: string;
+  immagine: string;
 }
 
 interface Chef {

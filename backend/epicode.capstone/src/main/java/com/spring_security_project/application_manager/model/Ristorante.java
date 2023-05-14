@@ -31,14 +31,26 @@ public class Ristorante {
 	private String name;
 	@Column(nullable = false)
 	private String citta;
+	@Column(nullable = false)
+	private String telefono;
+	private String immagine;
 	@OneToMany(fetch = FetchType.EAGER)
 	@JsonIgnoreProperties
 	private List<Chef> listaChef = new ArrayList<Chef>();
 	
-	public Ristorante(String name, String citta) {
+	public Ristorante(String name, String citta, String telefono) {
 		super();
 		this.name = name;
 		this.citta = citta;
+		this.telefono = telefono;
+	}
+	
+	public Ristorante(String name, String citta, String telefono, String immagine) {
+		super();
+		this.name = name;
+		this.citta = citta;
+		this.telefono = telefono;
+		this.immagine = immagine;
 	}
 
 //	@Override

@@ -5,9 +5,11 @@ import { useAppDispatch, useAppSelector } from "../../redux/store/store";
 import { fetchCity } from "../../redux/reducers/tokenStore";
 import { Col, Row } from "react-bootstrap";
 import logo from "../../assets/blackLogoNoBg.png";
+// import ristorante from "/src/assets/ristoranti/aroma_roma.jpg";
 import style from "./Home.module.css";
 import { fetchRistorantiPerCitta } from "../../components/Utils/Utils";
 import { Ristorante } from "./Home.types";
+import MyCarousel from "../../components/Carousel/MyCarousel.component";
 
 const Home = () => {
   const reduxToken = useAppSelector((state) => state.authToken?.token);
@@ -36,7 +38,7 @@ const Home = () => {
       fetchRistorantiPerCitta(reduxToken, reduxCitta, setRistoranti);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [reduxToken]);
+  }, [reduxToken, reduxCitta]);
 
   return (
     <div>
@@ -61,11 +63,25 @@ const Home = () => {
             {!loading && <HomeBody />}
           </>
         )}
-        {ristoranti.length > 0 &&
-          ristoranti?.map(
-            (e) => <h1 className="mt-5 text-light">{e?.listaChef[0].name}</h1>
-            // console.log(e.listaChef[0]?.listaProdotti)
-          )}
+        {ristoranti.length > 0 && (
+          // <Carousel>
+          //   {ristoranti?.map((e) => (
+          //     <Carousel.Item interval={100000000}>
+          //       <div>
+          //         <div
+          //           className="d-block w-100"
+          //           style={{
+          //             backgroundImage: `url(${e?.immagine})`,
+          //             height: "100vh",
+          //             backgroundSize: "cover",
+          //           }}
+          //         ></div>
+          //       </div>
+          //     </Carousel.Item>
+          //   ))}
+          // </Carousel>
+          <MyCarousel images={ristoranti?.map((e) => e.immagine)} />
+        )}
       </>
     </div>
   );

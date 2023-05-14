@@ -11,7 +11,7 @@ public class RistoranteConfig {
 
 	@Bean
 	@Scope("prototype")
-	public Ristorante creaRistorante(String name, String citta) {
-		return new Ristorante(name, citta);
+	public Ristorante creaRistorante(String name, String citta, String telefono, String immagine) {
+		return new Ristorante(name, citta, telefono, immagine);
 	}
 }
