@@ -3,11 +3,13 @@ import { createSlice, PayloadAction, createAsyncThunk } from "@reduxjs/toolkit";
 interface TokenState {
   token?: string;
   username: string;
+  citta: string;
 }
 
 const initialState: TokenState = {
   token: undefined,
   username: "",
+  citta: "",
 };
 
 export interface user {
@@ -44,6 +46,34 @@ export const fetchToken = createAsyncThunk(
   }
 );
 
+export const fetchCity = createAsyncThunk(
+  "city/fetch",
+  async ({
+    username,
+    token,
+  }: {
+    username: string;
+    token: string | undefined;
+  }) => {
+    console.log("STATO USERNAME " + username);
+    try {
+      const response = await fetch(
+        `http://localhost:8080/grand_bistrot/users/${username}`,
+        {
+          method: "GET",
+          headers: { authorization: `Bearer ${token}` },
+        }
+      );
+      if (response.ok) {
+        const data = await response.json();
+        return data.citta;
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
+);
+
 export const tokenStore = createSlice({
   name: "token", // nome dello slice
   initialState,
@@ -54,12 +84,16 @@ export const tokenStore = createSlice({
     logout: (state) => {
       state.token = undefined;
       state.username = "";
+      state.citta = "";
     },
   },
   extraReducers: (builder) => {
     builder.addCase(fetchToken.fulfilled, (state, action) => {
       state.token = action.payload.accessToken;
       state.username = action.payload.username;
+    });
+    builder.addCase(fetchCity.fulfilled, (state, action) => {
+      state.citta = action.payload;
     });
   },
 });
