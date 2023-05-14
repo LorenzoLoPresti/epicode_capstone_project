@@ -27,6 +27,7 @@ const Jumbotron = () => {
   const [email, setEmail] = useState("");
   const [citta, setCitta] = useState("");
   const [registered, setRegistered] = useState(false);
+  const [exists, setExists] = useState(false);
   const token = useAppSelector((state) => state.authToken?.token);
   const navigate = useNavigate();
 
@@ -56,6 +57,7 @@ const Jumbotron = () => {
   };
   // const storeTry = useAppSelector((state) => state.authToken.token);
   const registerRequest = async () => {
+    setExists(false);
     try {
       const response = await fetch("http://localhost:8080/api/auth/register", {
         method: "POST",
@@ -71,7 +73,9 @@ const Jumbotron = () => {
           citta,
         }),
       });
-      console.log(response);
+      if (response.status === 400) {
+        setExists(true);
+      }
       if (response.ok) {
         console.log(response.body?.pipeTo);
 
@@ -128,6 +132,7 @@ const Jumbotron = () => {
               setUsername={setUsername}
               password={password}
               setPassword={setPassword}
+              warning={exists}
             >
               <input
                 value={name}
@@ -149,7 +154,9 @@ const Jumbotron = () => {
               />
               <input
                 value={email}
-                className={`mb-5 mb-md-3 ${styleModal.inputOptions}`}
+                className={`mb-5 mb-md-3 ${styleModal.inputOptions} ${
+                  exists && "bg-warning"
+                }`}
                 type="email"
                 placeholder="email"
                 onChange={(e) => {
@@ -170,12 +177,11 @@ const Jumbotron = () => {
                 onClick={() => {
                   // handleSubmit();
                   if (valueCheck()) {
-                    // try {
-                    registerRequest();
-                    // cleanField();
-                    // } catch (e) {
-                    //   console.log(e);
-                    // }
+                    try {
+                      registerRequest();
+                    } catch (e) {
+                      console.log(e);
+                    }
                   }
                 }}
                 style={{

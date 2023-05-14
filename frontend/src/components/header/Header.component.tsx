@@ -2,7 +2,7 @@ import { Navbar, Container, Row, Col, Nav } from "react-bootstrap";
 import COLORS from "../../style/color";
 import styles from "./Header.module.css";
 import MyButton from "../Button/MyButton.component";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useAppDispatch } from "../../redux/store/store";
 import Modal from "../Modal/Modal.component";
 import { useAppSelector } from "../../redux/store/store";
@@ -18,6 +18,8 @@ const Header = () => {
   const [password, setPassword] = useState("");
   const [navScroll, setNavScroll] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
+  const [warning, setWarning] = useState(false);
+  // const [clicked, setClicked] = useState(false);
   const reduxUsername = useAppSelector((state) => state.authToken?.username);
   const navigate = useNavigate();
 
@@ -26,7 +28,7 @@ const Header = () => {
     password,
   };
 
-  const storeTry = useAppSelector((state) => state.authToken.token);
+  const token = useAppSelector((state) => state.authToken?.token);
   const dispatch = useAppDispatch();
 
   // const handleScroll = () => {
@@ -41,6 +43,19 @@ const Header = () => {
   window.addEventListener("scroll", () =>
     window.scrollY >= 100 ? setNavScroll(true) : setNavScroll(false)
   );
+
+  // useEffect(() => {
+  //   if (clicked) {
+  //     setWarning(true);
+  //   }
+  // }, [clicked]);
+
+  useEffect(() => {
+    if (token) {
+      setShowAuthModal(false);
+      setWarning(false);
+    }
+  }, [token, warning]);
 
   return (
     <>
@@ -141,31 +156,35 @@ const Header = () => {
           </Row>
           {showAuthModal && (
             <Modal
-              onClose={() => setShowAuthModal(false)}
+              onClose={() => {
+                setShowAuthModal(false);
+                setWarning(false);
+              }}
               title="Accedi a Grand Bistrot"
               subtitle="login"
               username={username}
               setUsername={setUsername}
               password={password}
               setPassword={setPassword}
+              warning={warning}
+              pswWarning={warning}
             >
               <MyButton
                 text="Sign Up"
                 onClick={() => {
+                  setWarning(false);
+                  // setClicked(false);
                   dispatch(fetchToken(user));
                   setUsername("");
                   setPassword("");
+                  // setClicked(true);
+                  setWarning(true);
                 }}
                 style={{
                   backgroundColor: `${COLORS.brandGold}`,
                   color: `${COLORS.brandBlack}`,
                 }}
               />
-              {storeTry && (
-                <div style={{ maxWidth: "100px", paddingRight: "8px" }}>
-                  <p>{`bearer ${storeTry}`}</p>
-                </div>
-              )}
             </Modal>
           )}
         </Container>

@@ -1,5 +1,6 @@
 package com.spring_security_project.auth.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.spring_security_project.auth.payload.JWTAuthResponse;
 import com.spring_security_project.auth.payload.LoginDto;
 import com.spring_security_project.auth.payload.RegisterDto;
+import com.spring_security_project.auth.repository.UserRepository;
 import com.spring_security_project.auth.service.AuthService;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
@@ -20,6 +22,7 @@ import com.spring_security_project.auth.service.AuthService;
 public class AuthController {
 
     private AuthService authService;
+    @Autowired private UserRepository userRepo;
 
     public AuthController(AuthService authService) {
         this.authService = authService;
@@ -41,6 +44,9 @@ public class AuthController {
     // Build Register REST API
     @PostMapping(value = {"/register", "/signup"})
     public ResponseEntity<String> register(@RequestBody RegisterDto registerDto){
+    	if(userRepo.existsByEmail(registerDto.getEmail())) {
+    		return new ResponseEntity<>("username esistente", HttpStatus.FOUND);
+    	}
         String response = authService.register(registerDto);
         return new ResponseEntity<>(response, HttpStatus.CREATED);
     }

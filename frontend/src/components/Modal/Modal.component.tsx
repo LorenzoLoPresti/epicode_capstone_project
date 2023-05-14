@@ -13,6 +13,8 @@ const Modal = ({
   setUsername,
   password,
   setPassword,
+  warning,
+  pswWarning,
 }: {
   children: React.ReactNode;
   onClose: () => void;
@@ -22,6 +24,8 @@ const Modal = ({
   setUsername: Dispatch<SetStateAction<string>>;
   password: string;
   setPassword: Dispatch<SetStateAction<string>>;
+  warning?: boolean;
+  pswWarning?: boolean;
 }) => {
   return (
     <>
@@ -74,7 +78,9 @@ const Modal = ({
               <div className="d-flex flex-column align-items-center px-0 p-md-2 w-100">
                 <input
                   value={username}
-                  className={`mb-5 mb-md-3 ${styles.inputOptions}`}
+                  className={`mb-5 mb-md-3 ${styles.inputOptions} ${
+                    warning && "bg-warning"
+                  }`}
                   type="text"
                   placeholder="username"
                   onChange={(e) => {
@@ -83,7 +89,9 @@ const Modal = ({
                 />
                 <input
                   value={password}
-                  className={`mb-5 mb-md-3 ${styles.inputOptions}`}
+                  className={`mb-5 mb-md-3 ${styles.inputOptions} ${
+                    pswWarning && "bg-warning"
+                  }`}
                   type="password"
                   placeholder="password"
                   onChange={(e) => {
