@@ -18,7 +18,7 @@
 }
 
 .navBorder {
-  border-bottom: 1px ridge #faf4f0;
+  border-bottom: 1px ridge #faf4f0cd;
   transition: all 1s;
 }
 

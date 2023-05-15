@@ -5,6 +5,7 @@ export interface Ristorante {
   citta: string;
   telefono: string;
   immagine: string;
+  indirizzo: string;
 }
 
 interface Chef {

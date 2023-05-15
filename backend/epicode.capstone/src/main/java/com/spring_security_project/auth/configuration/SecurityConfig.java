@@ -57,7 +57,6 @@ public class SecurityConfig {
     	http.cors().and().csrf().disable()
         .authorizeHttpRequests((authorize) -> authorize
         		.requestMatchers(HttpMethod.GET, "/api/**").permitAll()
-        		.requestMatchers(HttpMethod.GET, "/**").permitAll()
                 .requestMatchers("/api/auth/**").permitAll()
                 .anyRequest().authenticated())
         .exceptionHandling( exception -> exception

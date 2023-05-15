@@ -61,8 +61,18 @@ public class AppRunner implements ApplicationRunner {
 			serviceRistorante.salva(ristorante.getObject("Mirabelle", "Roma", "06 4216 8838", "/src/assets/ristoranti/mirabelle_roma.jpg"));
 
 			Ristorante r1 = serviceRistorante.cercaPerId(1l);
+			r1.setIndirizzo("Via Alberto Cadlolo 101");
+			serviceRistorante.modifica(r1);
 			Ristorante r2 = serviceRistorante.cercaPerId(2l);
+			r2.setIndirizzo("Via Labicana 125");
+			serviceRistorante.modifica(r2);
 			Ristorante r3 = serviceRistorante.cercaPerId(3l);
+			r3.setIndirizzo("Via di Porta Pinciana 14");
+			serviceRistorante.modifica(r3);
+			
+			r1 = serviceRistorante.cercaPerId(1l);
+			r2 = serviceRistorante.cercaPerId(2l);
+			r3 = serviceRistorante.cercaPerId(3l);
 
 			serviceChef.salva(
 					chef.getObject("Giancarlo Esposito", CategoriaChef.GENERALE, serviceRistorante.cercaPerId(1l)));

@@ -134,12 +134,7 @@ const Header = () => {
               )}
               {/* <MyButton text="Sign In" onClick={() => setShowAuthModal(true)} /> */}
 
-              <Nav.Link
-                onClick={() => {
-                  dispatch(logout());
-                }}
-                className={`${styles.navLink} d-none d-md-block`}
-              >
+              <Nav.Link className={`${styles.navLink} d-none d-md-block`}>
                 Contacts
               </Nav.Link>
               <Nav.Link className={`${styles.navLink} d-none d-lg-block`}>

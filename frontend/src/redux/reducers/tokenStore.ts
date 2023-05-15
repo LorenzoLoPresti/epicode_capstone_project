@@ -63,18 +63,31 @@ export const fetchCity = createAsyncThunk(
           headers: { authorization: `Bearer ${token}` },
         }
       );
-      if (response.ok) {
-        const data = await response.json();
-        return data.citta;
+      if (!response.ok) {
+        throw new Error("Unauthorized");
       }
-      if (response.status === 401) {
-        // todo - logout
-      }
+      const data = await response.json();
+      return data.citta;
     } catch (error) {
       console.log("error", error);
+      throw error;
     }
   }
 );
+
+// const fetchdddd = async () => {
+//   return (dispatch) =>
+// }
+
+// export const fetchCityExtra = ({
+//   username,
+//   token,
+// }: {
+//   username: string;
+//   token: string | undefined;
+// }) => {
+//   const dispatch = useAppDispatch();
+// };
 
 export const tokenStore = createSlice({
   name: "token", // nome dello slice
@@ -96,6 +109,11 @@ export const tokenStore = createSlice({
     });
     builder.addCase(fetchCity.fulfilled, (state, action) => {
       state.citta = action.payload;
+    });
+    builder.addCase(fetchCity.rejected, (state) => {
+      state.token = undefined;
+      state.username = "";
+      state.citta = "";
     });
   },
 });

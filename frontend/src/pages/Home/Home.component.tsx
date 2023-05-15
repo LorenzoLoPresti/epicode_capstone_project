@@ -64,25 +64,7 @@ const Home = () => {
             {!loading && <HomeBody />}
           </>
         )}
-        {ristoranti.length > 0 && (
-          // <Carousel>
-          //   {ristoranti?.map((e) => (
-          //     <Carousel.Item interval={100000000}>
-          //       <div>
-          //         <div
-          //           className="d-block w-100"
-          //           style={{
-          //             backgroundImage: `url(${e?.immagine})`,
-          //             height: "100vh",
-          //             backgroundSize: "cover",
-          //           }}
-          //         ></div>
-          //       </div>
-          //     </Carousel.Item>
-          //   ))}
-          // </Carousel>
-          <MyCarousel array={ristoranti} />
-        )}
+        {ristoranti.length > 0 && <MyCarousel array={ristoranti} />}
       </>
     </div>
   );
