@@ -7,6 +7,7 @@ export interface Ristorante {
   immagine: string;
   indirizzo: string;
   descrizione: string;
+  menu_img: string;
 }
 
 interface Chef {

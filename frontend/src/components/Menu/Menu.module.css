@@ -29,12 +29,52 @@
   font-family: "Abril Fatface", cursive;
 }
 
+.imgContainer {
+  transform: rotate(-20deg);
+  background-color: #303030;
+  margin-right: 3rem;
+}
+
+.menuImg {
+  width: 350px;
+  transform: rotate(13deg);
+}
+
+.btn {
+  background-color: #ccb7a9;
+  color: #faf4f0;
+  border: 1px solid #faf4f0;
+  border-radius: 24px;
+}
+
+.btn:hover {
+  background-color: #ccb7a9 !important;
+  transform: scale(1.04);
+  animation-name: buttonAnimation !important;
+  animation-duration: 0.5s !important;
+}
+
 @keyframes menuAnimation {
   0% {
     top: -100%;
   }
   100% {
     top: 0%;
+  }
+}
+
+@keyframes buttonAnimation {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    background-color: #c8beb7;
+  }
+
+  100% {
+    transform: scale(1.04);
+    background-color: #ccb7a9;
   }
 }
 /* @keyframes menuScrollup {
