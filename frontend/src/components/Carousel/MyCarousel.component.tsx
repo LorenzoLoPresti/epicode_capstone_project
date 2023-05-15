@@ -38,7 +38,7 @@ const MyCarousel = ({ array }: { array: Ristorante[] }) => {
                       </p>
                       {/* </div> */}
                     </div>
-                    <div>
+                    <div className={styles.titleContainer}>
                       <h1
                         className={`${styles.titleOptions}  mb-0`}
                         onClick={() => setShowMenu(true)}

@@ -30,6 +30,8 @@
   align-self: center;
   text-decoration: none;
   color: #faf4f0;
+  transition: transform 0.75s;
+  transition-timing-function: ease;
 }
 
 .username {
@@ -43,8 +45,9 @@
 .navLink:hover,
 .username:hover {
   color: #ccb7a9;
-  border-bottom: 1px solid #ccb7a9;
+  /* border-bottom: 1px solid #ccb7a9; */
   text-decoration: none;
+  transform: translate(0, -15%);
 }
 
 .cta {

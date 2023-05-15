@@ -27,7 +27,9 @@ const Menu = ({
                 className="d-flex flex-column justify-content-center"
                 style={{ height: "100%", padding: "3rem 5% 5rem 8%" }}
               >
-                <Col className="mt-5 d-flex align-items-center">
+                <Col
+                  className={`mt-5 d-flex align-items-center ${styles.menuTitleContainer}`}
+                >
                   <h2 className={`${styles.menuTitle} pb-5`}>
                     {ristoranteEl?.name}
                   </h2>
@@ -40,7 +42,7 @@ const Menu = ({
                       alt="immagine-menu"
                     />
                   </div>
-                  <div>
+                  <div className={`${styles.descContainer}`}>
                     <p>{ristoranteEl?.descrizione}</p>
                     <p>
                       Lorem ipsum, dolor sit amet consectetur adipisicing elit.

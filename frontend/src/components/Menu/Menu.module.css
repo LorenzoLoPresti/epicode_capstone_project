@@ -29,14 +29,47 @@
   font-family: "Abril Fatface", cursive;
 }
 
-.menuTitle:hover {
-  color: #faf4f0;
+.menuTitleContainer {
+  animation: menuTitle ease 1.8s;
+}
+
+@keyframes menuTitle {
+  0% {
+    transform: translate(0%, 400%);
+  }
+  100% {
+    transform: translate(0%, 0%);
+  }
+}
+
+.descContainer {
+  animation: descContainer ease 1.4s;
+}
+
+@keyframes descContainer {
+  0% {
+    transform: translate(0%, 400%);
+  }
+
+  100% {
+    transform: translate(0%, 0%);
+  }
 }
 
 .imgContainer {
   transform: rotate(-20deg);
   background-color: #303030;
   margin-right: 3rem;
+  animation: imgContainer ease 1s;
+}
+
+@keyframes imgContainer {
+  0% {
+    transform: translate(0%, 400%) rotate(80deg);
+  }
+  100% {
+    transform: translate(0%, 0%) rotate(-20deg);
+  }
 }
 
 .menuImg {
