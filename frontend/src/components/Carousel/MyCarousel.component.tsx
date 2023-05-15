@@ -5,7 +5,7 @@ import { useState } from "react";
 import Menu from "../Menu/Menu.component";
 
 const MyCarousel = ({ array }: { array: Ristorante[] }) => {
-  const [showMenu, setShowMenu] = useState(true);
+  const [showMenu, setShowMenu] = useState(false);
   return (
     <>
       <div className={`position-relative ${styles.carouselContainerOptions}`}>
@@ -54,10 +54,16 @@ const MyCarousel = ({ array }: { array: Ristorante[] }) => {
                     </div>
                   </div>
                 </div>
+                {showMenu && (
+                  <Menu
+                    onClick={setShowMenu}
+                    showMenu={showMenu}
+                    ristoranteEl={e}
+                  />
+                )}
               </Carousel.Item>
             ))}
         </Carousel>
-        {showMenu && <Menu onClick={setShowMenu} />}
       </div>
     </>
   );
