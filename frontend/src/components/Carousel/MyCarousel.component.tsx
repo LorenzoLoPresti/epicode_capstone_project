@@ -6,6 +6,7 @@ import Menu from "../Menu/Menu.component";
 
 const MyCarousel = ({ array }: { array: Ristorante[] }) => {
   const [showMenu, setShowMenu] = useState(false);
+
   return (
     <>
       <div className={`position-relative ${styles.carouselContainerOptions}`}>
@@ -39,7 +40,7 @@ const MyCarousel = ({ array }: { array: Ristorante[] }) => {
                     </div>
                     <div>
                       <h1
-                        className={`${styles.titleOptions} mb-0`}
+                        className={`${styles.titleOptions}  mb-0`}
                         onClick={() => setShowMenu(true)}
                       >
                         {e?.name}

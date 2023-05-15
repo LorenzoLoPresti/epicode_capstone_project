@@ -29,6 +29,10 @@
   font-family: "Abril Fatface", cursive;
 }
 
+.menuTitle:hover {
+  color: #faf4f0;
+}
+
 .imgContainer {
   transform: rotate(-20deg);
   background-color: #303030;
@@ -45,6 +49,8 @@
   color: #faf4f0;
   border: 1px solid #faf4f0;
   border-radius: 24px;
+  transition: transform 0.5s;
+  transition-timing-function: ease;
 }
 
 .btn:hover {

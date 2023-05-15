@@ -51,6 +51,7 @@ const Login = () => {
                         setShowAuthModal(true);
                       }}
                       className="text-warning"
+                      style={{ cursor: "pointer" }}
                     >
                       Accedi ora!
                     </p>
