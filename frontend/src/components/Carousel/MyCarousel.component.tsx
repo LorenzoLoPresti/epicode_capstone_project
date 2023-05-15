@@ -33,8 +33,7 @@ const MyCarousel = ({ array }: { array: Ristorante[] }) => {
                     >
                       {/* <div className={`py-3 ${styles.descriptionMargin}`}> */}
                       <p className={`${styles.descriptionOptions} mb-0`}>
-                        1234567890 1234567890 1234567890 1234567890 1234567890
-                        1234567890 1234567890 1234567890 1234567890
+                        {e?.descrizione}
                       </p>
                       {/* </div> */}
                     </div>

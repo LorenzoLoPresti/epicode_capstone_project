@@ -4,6 +4,7 @@
   position: absolute;
   top: 0%;
   padding-top: 500px;
+  z-index: 1;
   animation: menuAnimation ease 1s;
 }
 

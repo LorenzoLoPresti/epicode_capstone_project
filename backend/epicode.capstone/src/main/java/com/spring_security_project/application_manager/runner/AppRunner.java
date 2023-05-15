@@ -61,12 +61,21 @@ public class AppRunner implements ApplicationRunner {
 			serviceRistorante.salva(ristorante.getObject("Mirabelle", "Roma", "06 4216 8838", "/src/assets/ristoranti/mirabelle_roma.jpg"));
 
 			Ristorante r1 = serviceRistorante.cercaPerId(1l);
+			r1.setDescrizione("Un panorama unico della Città Eterna si apre"
+					+ " alla vista degli ospiti di uno dei ristoranti più belli del mondo."
+					);
 			r1.setIndirizzo("Via Alberto Cadlolo 101");
 			serviceRistorante.modifica(r1);
 			Ristorante r2 = serviceRistorante.cercaPerId(2l);
+			r2.setDescrizione(" Le ricette gourmet rielaborano i sapori e i gusti della tradizione italiana,"
+					+ " mentre la cantina selezionata dal Sommelier ha un’impronta molto internazionale "
+					+ "con un focus particolare sugli champagne e una selezione di vini di oltre 600 etichette.");
 			r2.setIndirizzo("Via Labicana 125");
 			serviceRistorante.modifica(r2);
 			Ristorante r3 = serviceRistorante.cercaPerId(3l);
+			r3.setDescrizione(" Una terrazza gourmet con una vista che partendo da Villa Medici e Trinità dei Monti arriva fino"
+					+ " a San Pietro e al Gianicolo. A fare da cornice a questo meraviglioso scorcio ci sono un'insuperabile accoglienza"
+					+ " e una cucina raffinata.");
 			r3.setIndirizzo("Via di Porta Pinciana 14");
 			serviceRistorante.modifica(r3);
 			

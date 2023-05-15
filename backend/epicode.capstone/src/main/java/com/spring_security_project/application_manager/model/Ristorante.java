@@ -35,6 +35,7 @@ public class Ristorante {
 	private String telefono;
 	private String immagine;
 	private String indirizzo;
+	private String descrizione;
 	@OneToMany(fetch = FetchType.EAGER)
 	@JsonIgnoreProperties
 	private List<Chef> listaChef = new ArrayList<Chef>();

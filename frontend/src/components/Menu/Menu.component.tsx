@@ -9,11 +9,8 @@ const Menu = ({
 }) => {
   return (
     <>
-      <div
-        className={`bg-light ${styles.menuMainContainer}`}
-        onClick={() => onClick(false)}
-      >
-        Menu<h3>X</h3>
+      <div className={`bg-light ${styles.menuMainContainer}`}>
+        Menu<h3 onClick={() => onClick(false)}>X</h3>
       </div>
       ;
     </>
