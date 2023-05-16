@@ -1,0 +1,14 @@
+.mainContainer {
+  padding-top: 6rem;
+  background-color: white;
+  overflow-y: auto;
+  max-height: 100vh;
+}
+
+.colDescriptionOptions {
+}
+
+.colName {
+  font-family: "Abril Fatface", cursive;
+  font-size: 6rem;
+}

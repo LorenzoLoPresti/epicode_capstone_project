@@ -7,12 +7,10 @@ const Menu = ({
   onClick,
   showMenu,
   ristoranteEl,
-  indexRistorante,
 }: {
   onClick: React.Dispatch<React.SetStateAction<boolean>>;
   showMenu: boolean;
   ristoranteEl: Ristorante;
-  indexRistorante: number;
 }) => {
   return (
     <>
@@ -63,8 +61,8 @@ const Menu = ({
                       <button className={`px-3 py-2 ${styles.btn}`}>
                         <Link
                           style={{ textDecoration: "none", color: "#faf4f0" }}
-                          to={`/chef_page`}
-                          onClick={() => console.log(indexRistorante)}
+                          to={`/store/${ristoranteEl?.name}`}
+                          onClick={() => console.log(ristoranteEl?.name)}
                         >
                           Vai agli chef
                         </Link>

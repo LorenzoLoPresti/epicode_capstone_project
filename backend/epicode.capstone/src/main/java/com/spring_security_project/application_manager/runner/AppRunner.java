@@ -1,5 +1,7 @@
 package com.spring_security_project.application_manager.runner;
 
+import java.util.List;
+
 import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
@@ -91,17 +93,36 @@ public class AppRunner implements ApplicationRunner {
 			serviceChef.salva(chef.getObject("Walter White", CategoriaChef.GENERALE, serviceRistorante.cercaPerId(2l)));
 			serviceChef
 					.salva(chef.getObject("Jesse Pinkman", CategoriaChef.GENERALE, serviceRistorante.cercaPerId(3l)));
+			serviceChef.salva(
+					chef.getObject("Carlo Cracco", CategoriaChef.GENERALE, serviceRistorante.cercaPerId(1l)));
+			serviceChef.salva(chef.getObject("Bruno Barbieri", CategoriaChef.GENERALE, serviceRistorante.cercaPerId(2l)));
+			serviceChef
+					.salva(chef.getObject("Alessandro Borghese", CategoriaChef.GENERALE, serviceRistorante.cercaPerId(3l)));
 
 			Chef c1 = serviceChef.cercaPerId(1l);
 			Chef c2 = serviceChef.cercaPerId(2l);
 			Chef c3 = serviceChef.cercaPerId(3l);
+			Chef c4 = serviceChef.cercaPerId(4l);
+			Chef c5 = serviceChef.cercaPerId(5l);
+			Chef c6 = serviceChef.cercaPerId(6l);
 
+
+//			List<Chef> listaChef1 = r1.getListaChef();
 			r1.getListaChef().add(c1);
+			r1.getListaChef().add(c4);
 			serviceRistorante.modifica(r1);
 			r2.getListaChef().add(c2);
+			r2.getListaChef().add(c5);
 			serviceRistorante.modifica(r2);
 			r3.getListaChef().add(c3);
+			r3.getListaChef().add(c6);
 			serviceRistorante.modifica(r3);
+//			r1.getListaChef().add(c4);
+//			serviceRistorante.modifica(r1);
+//			r2.getListaChef().add(c5);
+//			serviceRistorante.modifica(r2);
+//			r3.getListaChef().add(c6);
+//			serviceRistorante.modifica(r3);
 
 			servicePiatto.salva(piatto.getObject("Carbonara", CategoriaProdotto.PRIMO, 18.00, c1, TipoCottura.COTTO));
 			servicePiatto.salva(piatto.getObject("Amatriciana", CategoriaProdotto.PRIMO, 17.00, c1, TipoCottura.COTTO));
@@ -114,6 +135,18 @@ public class AppRunner implements ApplicationRunner {
 			servicePiatto.salva(piatto.getObject("Carbonara", CategoriaProdotto.PRIMO, 18.00, c3, TipoCottura.COTTO));
 			servicePiatto.salva(piatto.getObject("Amatriciana", CategoriaProdotto.PRIMO, 17.00, c3, TipoCottura.COTTO));
 			servicePiatto.salva(piatto.getObject("Gricia", CategoriaProdotto.PRIMO, 17.00, c3, TipoCottura.COTTO));
+			
+			servicePiatto.salva(piatto.getObject("Carbonara", CategoriaProdotto.PRIMO, 18.00, c4, TipoCottura.COTTO));
+			servicePiatto.salva(piatto.getObject("Amatriciana", CategoriaProdotto.PRIMO, 17.00, c4, TipoCottura.COTTO));
+			servicePiatto.salva(piatto.getObject("Gricia", CategoriaProdotto.PRIMO, 17.00, c4, TipoCottura.COTTO));
+
+			servicePiatto.salva(piatto.getObject("Carbonara", CategoriaProdotto.PRIMO, 18.00, c5, TipoCottura.COTTO));
+			servicePiatto.salva(piatto.getObject("Amatriciana", CategoriaProdotto.PRIMO, 17.00, c5, TipoCottura.COTTO));
+			servicePiatto.salva(piatto.getObject("Gricia", CategoriaProdotto.PRIMO, 17.00, c5, TipoCottura.COTTO));
+
+			servicePiatto.salva(piatto.getObject("Carbonara", CategoriaProdotto.PRIMO, 18.00, c6, TipoCottura.COTTO));
+			servicePiatto.salva(piatto.getObject("Amatriciana", CategoriaProdotto.PRIMO, 17.00, c6, TipoCottura.COTTO));
+			servicePiatto.salva(piatto.getObject("Gricia", CategoriaProdotto.PRIMO, 17.00, c6, TipoCottura.COTTO));
 
 			Piatto p1 = servicePiatto.cercaPerId(1l);
 			Piatto p2 = servicePiatto.cercaPerId(2l);
@@ -137,6 +170,19 @@ public class AppRunner implements ApplicationRunner {
 			c3.getListaProdotti().add(p8);
 			c3.getListaProdotti().add(p9);
 			serviceChef.modifica(c3);
+			
+//			c4.getListaProdotti().add(p1);
+//			c4.getListaProdotti().add(p2);
+//			c4.getListaProdotti().add(p3);
+//			serviceChef.modifica(c4);
+//			c5.getListaProdotti().add(p4);
+//			c5.getListaProdotti().add(p5);
+//			c5.getListaProdotti().add(p6);
+//			serviceChef.modifica(c5);
+//			c6.getListaProdotti().add(p7);
+//			c6.getListaProdotti().add(p8);
+//			c6.getListaProdotti().add(p9);
+//			serviceChef.modifica(c6);
 
 		}
 	}

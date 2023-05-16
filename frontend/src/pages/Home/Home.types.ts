@@ -10,14 +10,14 @@ export interface Ristorante {
   menu_img: string;
 }
 
-interface Chef {
+export interface Chef {
   id: number;
   name: string;
   categoria: string;
   listaProdotti: listaProdotti[];
 }
 
-interface listaProdotti {
+export interface listaProdotti {
   id: number;
   categoria: string;
   name: string;
