@@ -29,30 +29,34 @@ const MyCarousel = ({ array }: { array: Ristorante[] }) => {
                       height: "100%",
                     }}
                   >
-                    <div
-                      className={`position-absolute ps-4 ${styles.descriptionContainer}`}
-                    >
-                      {/* <div className={`py-3 ${styles.descriptionMargin}`}> */}
-                      <p className={`${styles.descriptionOptions} mb-0`}>
-                        {e?.descrizione}
-                      </p>
-                      {/* </div> */}
-                    </div>
-                    <div className={styles.titleContainer}>
-                      <h1
-                        className={`${styles.titleOptions}  mb-0`}
-                        onClick={() => setShowMenu(true)}
+                    {!showMenu && (
+                      <div
+                        className={`position-absolute ps-4 ${styles.descriptionContainer}`}
                       >
-                        {e?.name}
-                      </h1>
-                      <p className={`${styles.subtitleOptions}`}>
-                        {e?.citta}
-                        <span className="me-3 ms-3">/</span>
-                        <span className={`${styles.subtitleOptions}`}>
-                          {e?.indirizzo}
-                        </span>
-                      </p>
-                    </div>
+                        {/* <div className={`py-3 ${styles.descriptionMargin}`}> */}
+                        <p className={`${styles.descriptionOptions} mb-0`}>
+                          {e?.descrizione}
+                        </p>
+                        {/* </div> */}
+                      </div>
+                    )}
+                    {!showMenu && (
+                      <div className={styles.titleContainer}>
+                        <h1
+                          className={`${styles.titleOptions}  mb-0`}
+                          onClick={() => setShowMenu(true)}
+                        >
+                          {e?.name}
+                        </h1>
+                        <p className={`${styles.subtitleOptions}`}>
+                          {e?.citta}
+                          <span className="me-3 ms-3">/</span>
+                          <span className={`${styles.subtitleOptions}`}>
+                            {e?.indirizzo}
+                          </span>
+                        </p>
+                      </div>
+                    )}
                   </div>
                 </div>
                 {showMenu && (

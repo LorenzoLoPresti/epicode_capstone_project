@@ -8,6 +8,15 @@
   animation: menuAnimation ease 1s;
 }
 
+@keyframes menuAnimation {
+  0% {
+    top: -100%;
+  }
+  100% {
+    top: 0%;
+  }
+}
+
 /* .menuScrollup {
   height: 100vh;
   width: 100vw;
@@ -27,18 +36,28 @@
 .menuTitle {
   font-size: 3.5rem;
   font-family: "Abril Fatface", cursive;
-}
-
-.menuTitleContainer {
+  top: 20%;
+  left: 10%;
   animation: menuTitle ease 1.8s;
 }
 
+/* .menuTitleContainer {
+  
+} */
+
 @keyframes menuTitle {
   0% {
-    transform: translate(0%, 400%);
+    color: transparent;
+    top: 200%;
   }
+
+  30% {
+    color: transparent;
+  }
+
   100% {
-    transform: translate(0%, 0%);
+    color: #303030;
+    top: 20%;
   }
 }
 
@@ -93,15 +112,6 @@
   animation-duration: 0.5s !important;
 }
 
-@keyframes menuAnimation {
-  0% {
-    top: -100%;
-  }
-  100% {
-    top: 0%;
-  }
-}
-
 @keyframes buttonAnimation {
   0% {
     transform: scale(1);
@@ -124,3 +134,48 @@
     top: 100%;
   }
 } */
+.decorator {
+  height: 110px;
+  width: 2px;
+  background-color: #303030;
+  top: 19%;
+  left: 7%;
+  animation: decorator ease 4s;
+}
+
+@keyframes decorator {
+  0% {
+    height: 0px;
+  }
+
+  40% {
+    height: 0px;
+  }
+
+  100% {
+    background-color: #303030;
+    height: 110px;
+  }
+}
+
+.decoratorDesc {
+  width: 100%;
+  height: 2px;
+  background-color: #303030;
+  margin-top: 3rem;
+  animation: decoratorDesc ease 3.3s;
+}
+
+@keyframes decoratorDesc {
+  0% {
+    width: 0%;
+  }
+
+  40% {
+    width: 0%;
+  }
+
+  100% {
+    width: 100%;
+  }
+}

@@ -22,7 +22,10 @@ const Menu = ({
         `}
             // ${!showMenu && styles.menuSrollup}
           >
-            <Container className={`bg-light ${styles.menuContainer}`}>
+            <Container
+              className={`bg-light position-relative ${styles.menuContainer}`}
+            >
+              <div className={`position-absolute ${styles.decorator}`}></div>
               <Row
                 className="d-flex flex-column justify-content-center"
                 style={{ height: "100%", padding: "3rem 5% 5rem 8%" }}
@@ -30,7 +33,7 @@ const Menu = ({
                 <Col
                   className={`mt-5 d-flex align-items-center ${styles.menuTitleContainer}`}
                 >
-                  <h2 className={`${styles.menuTitle} pb-5`}>
+                  <h2 className={`${styles.menuTitle} pb-5 position-absolute`}>
                     {ristoranteEl?.name}
                   </h2>
                 </Col>
@@ -42,7 +45,7 @@ const Menu = ({
                       alt="immagine-menu"
                     />
                   </div>
-                  <div className={`${styles.descContainer}`}>
+                  <div className={`${styles.descContainer} ps-3`}>
                     <p>{ristoranteEl?.descrizione}</p>
                     <p>
                       Lorem ipsum, dolor sit amet consectetur adipisicing elit.
@@ -58,6 +61,7 @@ const Menu = ({
                         Vai agli chef
                       </button>
                     </div>
+                    <div className={`${styles.decoratorDesc}`}></div>
                   </div>
                 </Col>
               </Row>
