@@ -1,6 +1,7 @@
 import { Col, Container, Row } from "react-bootstrap";
 import styles from "./Menu.module.css";
 import { Ristorante } from "../../pages/Home/Home.types";
+import { Link } from "react-router-dom";
 
 const Menu = ({
   onClick,
@@ -34,7 +35,10 @@ const Menu = ({
                   className={`mt-5 d-flex align-items-center ${styles.menuTitleContainer}`}
                 >
                   <h2 className={`${styles.menuTitle} pb-5 position-absolute`}>
-                    {ristoranteEl?.name}
+                    {ristoranteEl?.name}{" "}
+                    <span className="ms-3 fs-3" onClick={() => onClick(false)}>
+                      X
+                    </span>
                   </h2>
                 </Col>
                 <Col className="d-flex">
@@ -54,11 +58,13 @@ const Menu = ({
                       officiis dolore adipisci vel ullam itaque aut ad.
                     </p>
                     <div className="w-100 text-end pe-3">
-                      <button
-                        className={`px-3 py-2 ${styles.btn}`}
-                        onClick={() => onClick(false)}
-                      >
-                        Vai agli chef
+                      <button className={`px-3 py-2 ${styles.btn}`}>
+                        <Link
+                          style={{ textDecoration: "none", color: "#faf4f0" }}
+                          to={`/chef_page`}
+                        >
+                          Vai agli chef
+                        </Link>
                       </button>
                     </div>
                     <div className={`${styles.decoratorDesc}`}></div>
