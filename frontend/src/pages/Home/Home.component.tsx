@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import HomeBody from "../../components/HomeBody/HomeBody.component";
 import Jumbotron from "../../components/Jumbotron/Jumbotron.component";
 import { useAppDispatch, useAppSelector } from "../../redux/store/store";
-import { fetchCity } from "../../redux/reducers/tokenStore";
+import { addRistoranti, fetchCity } from "../../redux/reducers/tokenStore";
 import { Col, Row } from "react-bootstrap";
 import logo from "../../assets/blackLogoNoBg.png";
 // import ristorante from "/src/assets/ristoranti/aroma_roma.jpg";
@@ -38,8 +38,16 @@ const Home = () => {
     if (reduxCitta && reduxToken) {
       fetchRistorantiPerCitta(reduxToken, reduxCitta, setRistoranti);
     }
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [reduxToken, reduxCitta]);
+
+  useEffect(() => {
+    if (reduxCitta && reduxToken && reduxCitta && ristoranti.length > 0) {
+      dispatch(addRistoranti(ristoranti));
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [ristoranti]);
 
   return (
     <div>

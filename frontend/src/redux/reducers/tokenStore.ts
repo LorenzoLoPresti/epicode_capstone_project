@@ -1,15 +1,18 @@
 import { createSlice, PayloadAction, createAsyncThunk } from "@reduxjs/toolkit";
+import { Ristorante } from "../../pages/Home/Home.types";
 
 interface TokenState {
   token?: string;
   username: string;
   citta: string;
+  ristoranti: Ristorante[];
 }
 
 const initialState: TokenState = {
   token: undefined,
   username: "",
   citta: "",
+  ristoranti: [],
 };
 
 export interface user {
@@ -100,6 +103,10 @@ export const tokenStore = createSlice({
       state.token = undefined;
       state.username = "";
       state.citta = "";
+      state.ristoranti = [];
+    },
+    addRistoranti: (state, action: PayloadAction<Ristorante[]>) => {
+      state.ristoranti = action.payload;
     },
   },
   extraReducers: (builder) => {
@@ -118,4 +125,4 @@ export const tokenStore = createSlice({
   },
 });
 
-export const { addToken, logout } = tokenStore.actions; // Esporto le azioni
+export const { addToken, logout, addRistoranti } = tokenStore.actions; // Esporto le azioni

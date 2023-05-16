@@ -64,6 +64,7 @@ const MyCarousel = ({ array }: { array: Ristorante[] }) => {
                     onClick={setShowMenu}
                     showMenu={showMenu}
                     ristoranteEl={e}
+                    indexRistorante={i}
                   />
                 )}
               </Carousel.Item>

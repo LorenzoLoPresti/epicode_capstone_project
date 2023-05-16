@@ -7,10 +7,12 @@ const Menu = ({
   onClick,
   showMenu,
   ristoranteEl,
+  indexRistorante,
 }: {
   onClick: React.Dispatch<React.SetStateAction<boolean>>;
   showMenu: boolean;
   ristoranteEl: Ristorante;
+  indexRistorante: number;
 }) => {
   return (
     <>
@@ -62,6 +64,7 @@ const Menu = ({
                         <Link
                           style={{ textDecoration: "none", color: "#faf4f0" }}
                           to={`/chef_page`}
+                          onClick={() => console.log(indexRistorante)}
                         >
                           Vai agli chef
                         </Link>
