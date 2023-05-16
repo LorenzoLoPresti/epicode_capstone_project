@@ -49,9 +49,7 @@ const Negozio = () => {
                       <Col className={` pb-5 px-4`} lg={4}>
                         <Chef
                           selected={selected}
-                          setSelected={() => {
-                            handleSet;
-                          }}
+                          setSelected={setSelected}
                           chef={chef}
                         ></Chef>
                       </Col>
