@@ -13,7 +13,13 @@ const ChefElement = ({
   return (
     <>
       <div
-        onClick={() => setSelected(chef?.id)}
+        onClick={() => {
+          if (selected !== chef?.id) {
+            setSelected(chef?.id);
+          } else {
+            setSelected(0);
+          }
+        }}
         className={`${styles.colChefOptions}  ${
           selected === chef?.id ? styles.chefSelected : ""
         } `}
@@ -26,7 +32,9 @@ const ChefElement = ({
             backgroundPosition: "center",
           }}
         >
-          <div className={`${!selected && styles.divOverlay} mb-3`}></div>
+          <div
+            className={`${selected !== chef?.id && styles.divOverlay} mb-3`}
+          ></div>
         </div>
       </div>
       <h4 className="mb-5">{chef?.name}</h4>
