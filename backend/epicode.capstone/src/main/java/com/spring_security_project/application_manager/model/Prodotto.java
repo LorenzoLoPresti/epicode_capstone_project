@@ -37,14 +37,15 @@ public class Prodotto {
 	private Double prezzo;
 	@ManyToOne
 	@JsonIgnore
-	private Chef chef;
+	Menu menu;
+
 	
-	public Prodotto(String name, CategoriaProdotto categoria, Double prezzo, Chef chef) {
+	public Prodotto(String name, CategoriaProdotto categoria, Double prezzo, Menu menu) {
 		super();
 		this.name = name;
 		this.categoria = categoria;
 		this.prezzo = prezzo;
-		this.chef = chef;
+		this.menu = menu;
 	}
 	
 	

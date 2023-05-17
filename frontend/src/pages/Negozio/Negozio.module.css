@@ -35,6 +35,9 @@
   /* padding-left: 2rem; */
   border-top: 2px solid #ccb7a9;
   font-size: 2.3rem;
-  font-family: "Abril Fatface", cursive;
   color: #faf4f0;
+}
+
+.nameChef {
+  font-family: "Abril Fatface", cursive;
 }

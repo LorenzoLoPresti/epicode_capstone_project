@@ -13,7 +13,7 @@ public class ChefConfiguration {
 
 	@Bean
 	@Scope("prototype")
-	public Chef creaChef(String name, CategoriaChef categoria, Ristorante ristoranteAssociato) {
-		return new Chef(name, categoria, ristoranteAssociato);
+	public Chef creaChef(String name, CategoriaChef categoria, Ristorante ristoranteAssociato, Integer tariffa) {
+		return new Chef(name, categoria, ristoranteAssociato, tariffa);
 	}
 }

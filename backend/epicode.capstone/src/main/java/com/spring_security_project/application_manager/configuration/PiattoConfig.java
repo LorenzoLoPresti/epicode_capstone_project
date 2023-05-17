@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Scope;
 
 import com.spring_security_project.application_manager.model.CategoriaProdotto;
 import com.spring_security_project.application_manager.model.Chef;
+import com.spring_security_project.application_manager.model.Menu;
 import com.spring_security_project.application_manager.model.Piatto;
 import com.spring_security_project.application_manager.model.TipoCottura;
 
@@ -14,7 +15,7 @@ public class PiattoConfig {
 	
 	@Bean
 	@Scope("prototype")
-	public Piatto creaPiatto(String name, CategoriaProdotto categoria, Double prezzo, Chef chef, TipoCottura tipoCottura) {
-		return new Piatto(name,categoria, prezzo, chef, tipoCottura);
+	public Piatto creaPiatto(String name, CategoriaProdotto categoria, Double prezzo, Menu menu, TipoCottura tipoCottura, Integer tempo) {
+		return new Piatto(name,categoria, prezzo, menu, tipoCottura, tempo);
 	}
 }

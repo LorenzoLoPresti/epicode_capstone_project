@@ -14,13 +14,20 @@ export interface Chef {
   id: number;
   name: string;
   categoria: string;
-  listaProdotti: listaProdotti[];
+  tariffaOraria: number;
+  listaMenu: ListaMenu[];
 }
 
-export interface listaProdotti {
+export interface ListaMenu {
+  selezione: ListaProdotti[];
+  chef: Chef[];
+}
+
+export interface ListaProdotti {
   id: number;
   categoria: string;
   name: string;
   prezzo: number;
   tipoCottura: string;
+  tempoDiPreparazione: number;
 }

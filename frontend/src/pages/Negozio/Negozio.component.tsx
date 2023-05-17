@@ -4,11 +4,17 @@ import { Col, Row } from "react-bootstrap";
 import styles from "./Negozio.module.css";
 import Chef from "../../components/Chef/ChefElement.component";
 import { useState } from "react";
+import React from "react";
+// import { ListaProdotti } from "../Home/Home.types";
 
 const Negozio = () => {
   const { nomeRistorante } = useParams();
   const ristorante = useAppSelector((state) => state.authToken?.ristoranti);
   const [selected, setSelected] = useState(0);
+
+  // const arrayMaker = (array: ListaProdotti[]) => {
+  //   return array.map((prodotto) => prodotto.prezzo);
+  // };
 
   return (
     <>
@@ -26,8 +32,8 @@ const Negozio = () => {
           {ristorante.length > 0 &&
             ristorante
               ?.filter((ristorante) => ristorante.name === nomeRistorante)
-              .map((e) => (
-                <>
+              .map((e, i) => (
+                <React.Fragment key={"rist" + i}>
                   <Row
                     className=" py-5 mb-4"
                     style={{ flexDirection: "column-reverse" }}
@@ -63,9 +69,10 @@ const Negozio = () => {
                       </p>
                     </div>
                   </div>
-                  <Row className="px-2">
+                  <Row className="px-2" key={"ristoranteChef" + e?.id}>
                     {e?.listaChef.map((chef) => (
                       <Col
+                        key={"chef" + chef?.id}
                         className={`p-0 ${
                           selected !== 0 && selected !== chef.id && "d-none"
                         }`}
@@ -87,12 +94,20 @@ const Negozio = () => {
                       {e?.listaChef
                         .filter((chef) => chef?.id === selected)
                         .map((chefSelected) => (
-                          <>
+                          <React.Fragment key={"chefProps" + chefSelected?.id}>
                             <div
-                              className={`${styles.selectChef} pt-4 text-light`}
+                              className={`${styles.selectChef} d-flex justify-content-between pt-4 text-light`}
                             >
-                              <p>{chefSelected?.name}</p>
+                              <p className={`${styles.nameChef}`}>
+                                {chefSelected?.name}
+                              </p>
+                              <div className="d-flex align-items-center">
+                                <p className="fs-4 mb-1">
+                                  Offerta gastronomica
+                                </p>
+                              </div>
                             </div>
+
                             <Row>
                               <Col className="text-light">
                                 Lorem ipsum dolor, sit amet consectetur
@@ -101,9 +116,59 @@ const Negozio = () => {
                                 blanditiis laboriosam libero culpa ipsa atque
                                 dolore est quos doloremque fugit.
                               </Col>
-                              <Col className="text-light">dawdw</Col>
+                              <Col className="text-light text-center">
+                                <p>{chefSelected?.categoria}</p>
+                                <p
+                                // onClick={() =>
+                                //   // arrayMaker(
+                                //   //   chefSelected?.listaMenu?.map(
+                                //   //     (menu) =>
+                                //   //       // console.log(menu.selezione)
+                                //   //       menu.selezione
+                                //   //   )
+                                //   // )
+                                //   // {
+                                //   //   const selezione = chefSelected?.listaMenu
+                                //   //     ?.map((sel) => sel.selezione)
+                                //   //     .map((prod) => prod);
+                                //   //   console.log(selezione);
+                                //   //   console.log(chefSelected);
+                                //   // }
+                                //   console.log(
+                                //     chefSelected?.listaMenu
+                                //       ?.map((menu) => menu.selezione)
+                                //       .map((listProd) =>
+                                //         listProd
+                                //           .map(
+                                //             (prod) => prod.tempoDiPreparazione
+                                //           )
+                                //           .reduce(
+                                //             (acc, tempo) => acc + tempo + 15,
+                                //             0
+                                //           )
+                                //       )
+                                //   )
+                                // }
+                                >
+                                  {/* {chefSelected?.listaMenu
+                                    ?.map((menu) => menu.selezione)
+                                    .map((l, i) => l[i].prezzo)
+                                    .reduce((p) => p)} */}
+                                  {chefSelected?.listaMenu
+                                    ?.map((menu) => menu.selezione)
+                                    .map((listProd) =>
+                                      listProd
+                                        .map((prod) => prod.tempoDiPreparazione)
+                                        .reduce(
+                                          (acc, tempo) => acc + tempo + 15,
+                                          0
+                                        )
+                                    )}
+                                </p>
+                                {chefSelected?.tariffaOraria}
+                              </Col>
                             </Row>
-                          </>
+                          </React.Fragment>
                         ))}
                     </Col>
                     {/* {e?.listaChef.map((chef) => (
@@ -119,7 +184,7 @@ const Negozio = () => {
                       </Col>
                     ))} */}
                   </Row>
-                </>
+                </React.Fragment>
               ))}
         </div>
       </div>
