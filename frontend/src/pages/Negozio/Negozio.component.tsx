@@ -30,7 +30,7 @@ const Negozio = () => {
                 <>
                   <Row
                     className=" py-5 mb-4"
-                    style={{ flexDirection: "row-reverse" }}
+                    style={{ flexDirection: "column-reverse" }}
                   >
                     <Col
                       xs={12}
@@ -79,19 +79,31 @@ const Negozio = () => {
                       </Col>
                     ))}
                     <Col className="w-100 px-5">
-                      {selected === 0 && (
+                      {/* {selected === 0 && (
                         <div className="text-light">
                           Seleziona uno chef per continuare
                         </div>
-                      )}
+                      )} */}
                       {e?.listaChef
                         .filter((chef) => chef?.id === selected)
                         .map((chefSelected) => (
-                          <div
-                            className={`${styles.selectChef} py-5 text-light`}
-                          >
-                            <p>{chefSelected?.name}</p>
-                          </div>
+                          <>
+                            <div
+                              className={`${styles.selectChef} pt-4 text-light`}
+                            >
+                              <p>{chefSelected?.name}</p>
+                            </div>
+                            <Row>
+                              <Col className="text-light">
+                                Lorem ipsum dolor, sit amet consectetur
+                                adipisicing elit. Quam eligendi totam, eveniet
+                                qui provident iusto cum in quaerat. Tempora
+                                blanditiis laboriosam libero culpa ipsa atque
+                                dolore est quos doloremque fugit.
+                              </Col>
+                              <Col className="text-light">dawdw</Col>
+                            </Row>
+                          </>
                         ))}
                     </Col>
                     {/* {e?.listaChef.map((chef) => (
