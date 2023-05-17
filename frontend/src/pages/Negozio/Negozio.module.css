@@ -33,11 +33,29 @@
 
 .selectChef {
   /* padding-left: 2rem; */
-  border-top: 2px solid #ccb7a9;
+
   font-size: 2.3rem;
   color: #faf4f0;
+  font-family: "Abril Fatface", cursive;
 }
 
-.nameChef {
-  font-family: "Abril Fatface", cursive;
+.decoration {
+  border-top: 2px solid #ccb7a9;
+  animation: textAppear ease 1s;
+}
+
+@keyframes textAppear {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+.infoColor {
+  color: #ccb7a9;
 }

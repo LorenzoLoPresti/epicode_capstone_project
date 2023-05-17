@@ -6,15 +6,23 @@ const ChefElement = ({
   chef,
   selected,
   setSelected,
-}: {
+}: // setMenuSelected,
+{
   chef: Chef;
   selected: number;
   setSelected: React.Dispatch<React.SetStateAction<number>>;
+  // setMenuSelected: React.Dispatch<
+  //   React.SetStateAction<number | null | undefined>
+  // >;
 }) => {
   const [nameVisible, setNameVisible] = useState(false);
 
-  const chefSelectedAnimation = () =>
+  const selectChef = () =>
     selected !== chef?.id ? setSelected(chef?.id) : setSelected(0);
+
+  // const selectMenu = () => {
+  //   selected === chef?.id && setMenuSelected(chef.listaMenu[0].id);
+  // };
 
   const showName = () => {
     if (selected !== chef?.id) setNameVisible(true);
@@ -25,7 +33,10 @@ const ChefElement = ({
   return (
     <>
       <div
-        onClick={chefSelectedAnimation}
+        onClick={() => {
+          selectChef();
+          // selectMenu();
+        }}
         className={`${styles.colChefOptions}`}
       >
         <div

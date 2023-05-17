@@ -11,10 +11,15 @@ const Negozio = () => {
   const { nomeRistorante } = useParams();
   const ristorante = useAppSelector((state) => state.authToken?.ristoranti);
   const [selected, setSelected] = useState(0);
+  // const [menuSelected, setMenuSelected] = useState<number | null>();
 
-  // const arrayMaker = (array: ListaProdotti[]) => {
-  //   return array.map((prodotto) => prodotto.prezzo);
-  // };
+  // const listaChef = ristorante.find(
+  //   (r) => r.citta.toLowerCase() === "roma"
+  // )?.listaChef;
+
+  // const cuoco = listaChef?.find((c) => c.id === selected);
+
+  // const selezione = cuoco?.listaMenu.find((m) => m?.id === menuSelected);
 
   return (
     <>
@@ -81,6 +86,7 @@ const Negozio = () => {
                         <Chef
                           selected={selected}
                           setSelected={setSelected}
+                          // setMenuSelected={setMenuSelected}
                           chef={chef}
                         ></Chef>
                       </Col>
@@ -95,77 +101,69 @@ const Negozio = () => {
                         .filter((chef) => chef?.id === selected)
                         .map((chefSelected) => (
                           <React.Fragment key={"chefProps" + chefSelected?.id}>
-                            <div
+                            {/* <div
                               className={`${styles.selectChef} d-flex justify-content-between pt-4 text-light`}
-                            >
-                              <p className={`${styles.nameChef}`}>
-                                {chefSelected?.name}
-                              </p>
-                              <div className="d-flex align-items-center">
-                                <p className="fs-4 mb-1">
+                            ></div> */}
+
+                            <Row className={`${styles.decoration} pt-4`}>
+                              <Col className="text-light d-flex flex-column">
+                                <p className={`${styles.selectChef}`}>
+                                  {chefSelected?.name}
+                                </p>
+                                <p>
+                                  Lorem ipsum dolor, sit amet consectetur
+                                  adipisicing elit. Quam eligendi totam, eveniet
+                                  qui provident iusto cum in quaerat. Tempora
+                                  blanditiis laboriosam libero culpa ipsa atque
+                                  dolore est quos doloremque fugit.
+                                </p>
+                              </Col>
+                              <Col className="text-light text-center pt-2">
+                                <p className="fs-5 mb-1 pe-2 pt-1">
                                   Offerta gastronomica
                                 </p>
-                              </div>
-                            </div>
-
-                            <Row>
-                              <Col className="text-light">
-                                Lorem ipsum dolor, sit amet consectetur
-                                adipisicing elit. Quam eligendi totam, eveniet
-                                qui provident iusto cum in quaerat. Tempora
-                                blanditiis laboriosam libero culpa ipsa atque
-                                dolore est quos doloremque fugit.
-                              </Col>
-                              <Col className="text-light text-center">
-                                <p>{chefSelected?.categoria}</p>
-                                <p
-                                // onClick={() =>
-                                //   // arrayMaker(
-                                //   //   chefSelected?.listaMenu?.map(
-                                //   //     (menu) =>
-                                //   //       // console.log(menu.selezione)
-                                //   //       menu.selezione
-                                //   //   )
-                                //   // )
-                                //   // {
-                                //   //   const selezione = chefSelected?.listaMenu
-                                //   //     ?.map((sel) => sel.selezione)
-                                //   //     .map((prod) => prod);
-                                //   //   console.log(selezione);
-                                //   //   console.log(chefSelected);
-                                //   // }
-                                //   console.log(
-                                //     chefSelected?.listaMenu
-                                //       ?.map((menu) => menu.selezione)
-                                //       .map((listProd) =>
-                                //         listProd
-                                //           .map(
-                                //             (prod) => prod.tempoDiPreparazione
-                                //           )
-                                //           .reduce(
-                                //             (acc, tempo) => acc + tempo + 15,
-                                //             0
-                                //           )
-                                //       )
-                                //   )
-                                // }
-                                >
-                                  {/* {chefSelected?.listaMenu
+                                <p className={`${styles.infoColor}`}>
+                                  {chefSelected?.categoria}
+                                </p>
+                                <div className="my-3">
+                                  <p className="fs-5 mb-1">
+                                    Tempo cena medio:{" "}
+                                  </p>
+                                  <p
+                                    className={`${styles.infoColor}`}
+                                    // onClick={() => {
+                                    //   // const selezione = chefSelected?.listaMenu
+                                    //   //   ?.map((sel) => sel.selezione)
+                                    //   //   .map((prod) => prod);
+                                    //   // console.log(chefSelected?.listaMenu[0]);
+                                    // }}
+                                  >
+                                    {/* {chefSelected?.listaMenu
                                     ?.map((menu) => menu.selezione)
                                     .map((l, i) => l[i].prezzo)
                                     .reduce((p) => p)} */}
-                                  {chefSelected?.listaMenu
-                                    ?.map((menu) => menu.selezione)
-                                    .map((listProd) =>
-                                      listProd
-                                        .map((prod) => prod.tempoDiPreparazione)
-                                        .reduce(
-                                          (acc, tempo) => acc + tempo + 15,
-                                          0
-                                        )
-                                    )}
-                                </p>
-                                {chefSelected?.tariffaOraria}
+                                    {chefSelected?.listaMenu
+                                      ?.map((menu) => menu.selezione)
+                                      .map((listProd) =>
+                                        listProd
+                                          .map(
+                                            (prod) => prod.tempoDiPreparazione
+                                          )
+                                          .reduce(
+                                            (acc, tempo) => acc + tempo + 15,
+                                            0
+                                          )
+                                      ) + " minuti"}
+                                  </p>
+                                </div>
+                                <div>
+                                  <p className="mb-1 fs-5">
+                                    Prezzo orario chef:{" "}
+                                  </p>
+                                  <p className={`${styles.infoColor}`}>
+                                    {chefSelected?.tariffaOraria} euro
+                                  </p>
+                                </div>
                               </Col>
                             </Row>
                           </React.Fragment>
