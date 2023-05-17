@@ -24,7 +24,7 @@ const Menu = ({
             // ${!showMenu && styles.menuSrollup}
           >
             <Container
-              className={`bg-light position-relative ${styles.menuContainer}`}
+              className={`bg-light position-relative ${styles.menuContainer} `}
             >
               <div className={`position-absolute ${styles.decorator}`}></div>
               <Row

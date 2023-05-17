@@ -29,7 +29,9 @@ const ChefElement = ({
         className={`${styles.colChefOptions}`}
       >
         <div
-          className={`${styles.chefContainer} text-center`}
+          className={`${styles.chefContainer} ${
+            selected === chef?.id ? styles.colorImg : styles.greyScale
+          } text-center`}
           style={{
             backgroundImage: `url(https://static1.moviewebimages.com/wordpress/wp-content/uploads/2022/04/IMG_604.jpeg)`,
             backgroundSize: "cover",

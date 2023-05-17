@@ -1,15 +1,40 @@
 .mainContainer {
-  padding-top: 6rem;
-  background-color: white;
+  /* padding-top: 6rem; */
+  width: 77%;
+  margin: auto;
+  padding: 6rem 5rem;
+  background-color: #303030;
   overflow-y: auto;
   max-height: 100vh;
+  animation: mainContainer ease 1s;
+}
+
+@keyframes mainContainer {
+  0% {
+    background-color: rgba(255, 255, 255);
+  }
+
+  100% {
+    background-color: #303030;
+  }
 }
 
 .colNameOptions {
-  border-left: 2px solid black;
+  border-left: 2px solid #ccb7a9;
+  padding-left: 3rem;
+  margin-top: 1rem;
 }
 
 .colName {
   font-family: "Abril Fatface", cursive;
-  font-size: 6rem;
+  font-size: 3.5rem;
+  color: #faf4f0;
+}
+
+.selectChef {
+  /* padding-left: 2rem; */
+  border-top: 2px solid #ccb7a9;
+  font-size: 2.3rem;
+  font-family: "Abril Fatface", cursive;
+  color: #faf4f0;
 }
