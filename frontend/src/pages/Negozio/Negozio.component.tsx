@@ -22,31 +22,42 @@ const Negozio = () => {
           backgroundSize: "cover",
         }}
       >
-        <Container className={`${styles.mainContainer}`}>
+        <Container className={`${styles.mainContainer} `}>
           {ristorante.length > 0 &&
             ristorante
               ?.filter((ristorante) => ristorante.name === nomeRistorante)
               .map((e) => (
                 <>
-                  <Row className="px-5 py-5">
+                  <Row className="px-5 py-5 mb-4">
                     <Col
                       xs={12}
-                      md={5}
-                      className={`${styles.colDescriptionOptions} py-5`}
+                      md={6}
+                      xxl={5}
+                      className={`${styles.colDescriptionOptions} d-flex justify-content-center align-items-center`}
                     >
-                      {e?.descrizione}
+                      <p>{e?.descrizione}</p>
                     </Col>
+
                     <Col
                       xs={12}
-                      md={7}
-                      className={`${styles.colNameOptions} d-flex justify-content-center py-5`}
+                      md={6}
+                      className={`${styles.colNameOptions} offset-xxl-1 d-flex justify-content-center`}
                     >
                       <h2 className={`${styles.colName}`}>{e?.name}</h2>
                     </Col>
                   </Row>
+                  <div className="w-100 text-center">
+                    <h4 className=" mb-4 fs-3">Seleziona il tuo chef</h4>
+                    <div className="d-flex justify-content-center aligno-items-center">
+                      <p className="mb-5 w-50" style={{ fontSize: "1.1rem" }}>
+                        Lo chef da te selezionato si recherà a casa tua portando
+                        con se tutto l'occorrente per una cena indimenticabile
+                      </p>
+                    </div>
+                  </div>
                   <Row className="px-2">
                     {e?.listaChef.map((chef) => (
-                      <Col className={` pb-5 px-4`} lg={4}>
+                      <Col className={`p-0`} lg={4}>
                         <Chef
                           selected={selected}
                           setSelected={setSelected}

@@ -32,7 +32,7 @@ const Menu = ({
                 style={{ height: "100%", padding: "3rem 5% 5rem 8%" }}
               >
                 <Col
-                  className={`mt-5 d-flex align-items-center ${styles.menuTitleContainer}`}
+                  className={`mt-5 d-flex align-items-center justify-content-end ${styles.menuTitleContainer}`}
                 >
                   <h2 className={`${styles.menuTitle} pb-5 position-absolute`}>
                     {ristoranteEl?.name}{" "}

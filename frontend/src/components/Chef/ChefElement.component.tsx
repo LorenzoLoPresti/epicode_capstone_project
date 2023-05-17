@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Chef } from "../../pages/Home/Home.types";
 import styles from "./ChefElement.module.css";
 
@@ -10,19 +11,22 @@ const ChefElement = ({
   selected: number;
   setSelected: React.Dispatch<React.SetStateAction<number>>;
 }) => {
+  const [nameVisible, setNameVisible] = useState(false);
+
+  const chefSelectedAnimation = () =>
+    selected !== chef?.id ? setSelected(chef?.id) : setSelected(0);
+
+  const showName = () => {
+    if (selected !== chef?.id) setNameVisible(true);
+  };
+
+  const hideName = () => setNameVisible(false);
+
   return (
     <>
       <div
-        onClick={() => {
-          if (selected !== chef?.id) {
-            setSelected(chef?.id);
-          } else {
-            setSelected(0);
-          }
-        }}
-        className={`${styles.colChefOptions}  ${
-          selected === chef?.id ? styles.chefSelected : ""
-        } `}
+        onClick={chefSelectedAnimation}
+        className={`${styles.colChefOptions}`}
       >
         <div
           className={`${styles.chefContainer} text-center`}
@@ -33,11 +37,24 @@ const ChefElement = ({
           }}
         >
           <div
-            className={`${selected !== chef?.id && styles.divOverlay} mb-3`}
-          ></div>
+            onMouseEnter={showName}
+            onMouseLeave={hideName}
+            className={`${selected !== chef?.id && styles.divOverlay} ${
+              styles.divOverlayDimensions
+            } ${
+              selected === chef?.id && styles.chefSelected
+            } d-flex justify-content-center align-items-center mb-3`}
+          >
+            <h4
+              className={`${styles.chefName} ${
+                nameVisible && styles.chefNameVisible
+              } ${selected === chef?.id && styles.chefSelected}`}
+            >
+              {chef?.name}
+            </h4>
+          </div>
         </div>
       </div>
-      <h4 className="mb-5">{chef?.name}</h4>
     </>
   );
 };

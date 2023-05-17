@@ -5,7 +5,8 @@
   max-height: 100vh;
 }
 
-.colDescriptionOptions {
+.colNameOptions {
+  border-left: 2px solid black;
 }
 
 .colName {
