@@ -3,7 +3,7 @@ import styleModal from "../Modal/Modal.module.css";
 import { Container, Row, Col } from "react-bootstrap";
 import { useState } from "react";
 // import { useAppDispatch } from "../../redux/store/store";
-import MyButton from "../Button/MyButton.component";
+import MyButton from "../Button/NavButton/MyButton.component";
 import Modal from "../Modal/Modal.component";
 import COLORS from "../../style/color";
 import { useAppSelector } from "../../redux/store/store";

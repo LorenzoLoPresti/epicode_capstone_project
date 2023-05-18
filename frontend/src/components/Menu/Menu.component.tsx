@@ -2,6 +2,7 @@ import { Col, Container, Row } from "react-bootstrap";
 import styles from "./Menu.module.css";
 import { Ristorante } from "../../pages/Home/Home.types";
 import { Link } from "react-router-dom";
+import GeneralButton from "../Button/GeneralButton/GeneralButton.component";
 
 const Menu = ({
   onClick,
@@ -58,15 +59,13 @@ const Menu = ({
                       officiis dolore adipisci vel ullam itaque aut ad.
                     </p>
                     <div className="w-100 text-end pe-3">
-                      <button className={`px-3 py-2 ${styles.btn}`}>
-                        <Link
-                          style={{ textDecoration: "none", color: "#faf4f0" }}
-                          to={`/store/${ristoranteEl?.name}`}
-                          onClick={() => console.log(ristoranteEl?.name)}
-                        >
-                          Vai agli chef
-                        </Link>
-                      </button>
+                      <Link
+                        style={{ textDecoration: "none", color: "#faf4f0" }}
+                        to={`/store/${ristoranteEl?.name}`}
+                        onClick={() => console.log(ristoranteEl?.name)}
+                      >
+                        <GeneralButton text="Vai agli chef" />
+                      </Link>
                     </div>
                     <div className={`${styles.decoratorDesc}`}></div>
                   </div>

@@ -7,6 +7,7 @@ import { useState } from "react";
 import React from "react";
 import { ListaMenu } from "../Home/Home.types";
 import { useEffect } from "react";
+import GeneralButton from "../../components/Button/GeneralButton/GeneralButton.component";
 // import { ListaProdotti } from "../Home/Home.types";
 
 const Negozio = () => {
@@ -52,7 +53,6 @@ const Negozio = () => {
   useEffect(() => {
     if (selected !== 0) {
       trovaListaMenuPerChefId(selected);
-      console.log(listaMenu);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selected]);
@@ -91,7 +91,7 @@ const Negozio = () => {
                     <Col
                       xs={12}
                       md={6}
-                      className={`${styles.colNameOptions} mx-0 d-flex`}
+                      className={`${styles.colNameOptions}  d-flex`}
                     >
                       <h2 className={`${styles.colName}`}>{e?.name}</h2>
                     </Col>
@@ -101,10 +101,7 @@ const Negozio = () => {
                       Seleziona il tuo chef
                     </h4>
                     <div className="d-flex ">
-                      <p
-                        className="mb-5 w-50 text-light"
-                        style={{ fontSize: "1.1rem" }}
-                      >
+                      <p className={`mb-5 text-light ${styles.copyOptions}`}>
                         Lo chef da te selezionato si recherà a casa tua portando
                         con se tutto l'occorrente per una cena indimenticabile
                       </p>
@@ -114,9 +111,10 @@ const Negozio = () => {
                     {e?.listaChef.map((chef) => (
                       <Col
                         key={"chef" + chef?.id}
-                        className={`p-0 ${
+                        className={`p-0 mb-4 mb-md-0 ${
                           selected !== 0 && selected !== chef.id && "d-none"
                         }`}
+                        md={8}
                         lg={4}
                       >
                         <Chef
@@ -126,12 +124,14 @@ const Negozio = () => {
                         ></Chef>
                       </Col>
                     ))}
-                    <Col className="w-100 px-5">
+                    <Col className="w-100 px-lg-5">
                       {e?.listaChef
                         .filter((chef) => chef?.id === selected)
                         .map((chefSelected) => (
                           <React.Fragment key={"chefProps" + chefSelected?.id}>
-                            <Row className={`${styles.decoration} pt-4`}>
+                            <Row
+                              className={`${styles.decoration} pt-4 flex-column flex-xl-row`}
+                            >
                               <Col className="text-light d-flex flex-column">
                                 <p className={`${styles.selectChef}`}>
                                   {chefSelected?.name}
@@ -145,43 +145,63 @@ const Negozio = () => {
                                 </p>
                               </Col>
                               <Col className="text-light text-center pt-2">
-                                <p className="fs-5 mb-1 pe-2 pt-1">
-                                  Offerta gastronomica
-                                </p>
-                                <p className={`${styles.infoColor}`}>
-                                  {chefSelected?.categoria}
-                                </p>
-                                <div className="my-3">
-                                  <p className="fs-5 mb-1">
-                                    Tempo cena medio:{" "}
-                                  </p>
-                                  <p className={`${styles.infoColor}`}>
-                                    {/* RESTITUISCE MINUTI CENA */}
-                                    {(listaMenu.length > 0 &&
-                                      tempoMedioCena + " minuti") ||
-                                      chefSelected?.listaMenu
-                                        ?.map((menu) => menu.selezione)
-                                        .map((listProd) =>
-                                          listProd
-                                            .map(
-                                              (prod) => prod.tempoDiPreparazione
-                                            )
-                                            .reduce(
-                                              (acc, tempo) => acc + tempo + 15,
-                                              0
-                                            )
-                                        ) + " minuti" ||
-                                      "variabile"}
-                                  </p>
-                                </div>
-                                <div>
-                                  <p className="mb-1 fs-5">
-                                    Prezzo orario chef:{" "}
-                                  </p>
-                                  <p className={`${styles.infoColor}`}>
-                                    {chefSelected?.tariffaOraria} euro
-                                  </p>
-                                </div>
+                                <Row className="flex-column flex-lg-row flex-xl-column">
+                                  <Col lg={4} xl={12}>
+                                    <p
+                                      className={`mb-1 pe-2 pt-1 ${styles.categoryNamesOptions}`}
+                                    >
+                                      Offerta gastronomica
+                                    </p>
+                                    <p className={`${styles.infoColor}`}>
+                                      {chefSelected?.categoria}
+                                    </p>
+                                  </Col>
+                                  <Col lg={4} xl={12}>
+                                    <p
+                                      className={`mb-1 ${styles.categoryNamesOptions}`}
+                                    >
+                                      Tempo cena medio:{" "}
+                                    </p>
+                                    <p className={`${styles.infoColor}`}>
+                                      {/* RESTITUISCE MINUTI CENA */}
+                                      {(listaMenu.length > 0 &&
+                                        tempoMedioCena + " minuti") ||
+                                        chefSelected?.listaMenu
+                                          ?.map((menu) => menu.selezione)
+                                          .map((listProd) =>
+                                            listProd
+                                              .map(
+                                                (prod) =>
+                                                  prod.tempoDiPreparazione
+                                              )
+                                              .reduce(
+                                                (acc, tempo) =>
+                                                  acc + tempo + 15,
+                                                0
+                                              )
+                                          ) + " minuti" ||
+                                        "variabile"}
+                                    </p>
+                                  </Col>
+                                  <Col lg={4} xl={12}>
+                                    <p
+                                      className={`mb-1 ${styles.categoryNamesOptions}`}
+                                    >
+                                      Prezzo orario chef:{" "}
+                                    </p>
+                                    <p className={`${styles.infoColor}`}>
+                                      {chefSelected?.tariffaOraria} euro
+                                    </p>
+                                  </Col>
+                                  <Col className="mt-xl-5 mt-lg-3">
+                                    <GeneralButton
+                                      text={`Vai ${
+                                        (listaMenu?.length === 1 && "al") ||
+                                        "ai"
+                                      } menu`}
+                                    />
+                                  </Col>
+                                </Row>
                               </Col>
                             </Row>
                           </React.Fragment>

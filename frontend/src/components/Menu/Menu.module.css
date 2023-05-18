@@ -96,7 +96,7 @@
   transform: rotate(13deg);
 }
 
-.btn {
+/* .btn {
   background-color: #ccb7a9;
   color: #faf4f0;
   border: 1px solid #faf4f0;
@@ -125,7 +125,7 @@
     transform: scale(1.04);
     background-color: #ccb7a9;
   }
-}
+} */
 /* @keyframes menuScrollup {
   0% {
     top: 0%;

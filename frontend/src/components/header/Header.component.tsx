@@ -1,7 +1,7 @@
 import { Navbar, Container, Row, Col, Nav } from "react-bootstrap";
 import COLORS from "../../style/color";
 import styles from "./Header.module.css";
-import MyButton from "../Button/MyButton.component";
+import MyButton from "../Button/NavButton/MyButton.component";
 import { useState, useEffect } from "react";
 import { useAppDispatch } from "../../redux/store/store";
 import Modal from "../Modal/Modal.component";

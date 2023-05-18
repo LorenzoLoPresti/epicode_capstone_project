@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 // import Modal from "../components/Modal/Modal.component";
-import MyButton from "../components/Button/MyButton.component";
+import MyButton from "../components/Button/NavButton/MyButton.component";
 import COLORS from "../style/color";
 import { useAppDispatch, useAppSelector } from "../redux/store/store";
 import { fetchToken, user } from "../redux/reducers/tokenStore";
