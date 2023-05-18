@@ -18,19 +18,6 @@ const Negozio = () => {
   const dispatch = useAppDispatch();
   const [selected, setSelected] = useState(0);
   const [listaMenu, setListaMenu] = useState<ListaMenu[]>([]);
-  // const [menuSelected, setMenuSelected] = useState<number | null>();
-
-  // const listaChef = ristorante.find(
-  //   (r) => r.citta.toLowerCase() === "roma"
-  // )?.listaChef;
-
-  // const cuoco = listaChef?.find((c) => c.id === selected);
-
-  // const selezione = cuoco?.listaMenu.find((m) => m?.id === menuSelected);
-
-  const tempoMedioCena = listaMenu[0]?.selezione
-    ?.map((prodotto) => prodotto.tempoDiPreparazione)
-    .reduce((acc, tempo) => acc + tempo + 15, 0);
 
   const trovaListaMenuPerChefId = async (id: number) => {
     try {
@@ -52,6 +39,10 @@ const Negozio = () => {
     }
   };
 
+  const piattiMenu = listaMenu
+    ?.map((p) => p.selezione.filter((p) => p?.categoria !== "BEVANDA"))
+    .pop();
+
   const selezionaChefPerId = (id: number) => {
     const listaChef = ristorante?.find(
       (r) => r?.name === nomeRistorante
@@ -60,6 +51,10 @@ const Negozio = () => {
     const chefSelezionato = listaChef?.filter((c) => c.id === id);
     return chefSelezionato![0];
   };
+
+  const tempoMedioCena = piattiMenu
+    ?.map((p) => p.tempoDiPreparazione)
+    .reduce((acc, tempo) => acc + tempo + 15, 0);
 
   useEffect(() => {
     if (selected !== 0) {
@@ -177,20 +172,6 @@ const Negozio = () => {
                                       {/* RESTITUISCE MINUTI CENA */}
                                       {(listaMenu.length > 0 &&
                                         tempoMedioCena + " minuti") ||
-                                        chefSelected?.listaMenu
-                                          ?.map((menu) => menu.selezione)
-                                          .map((listProd) =>
-                                            listProd
-                                              .map(
-                                                (prod) =>
-                                                  prod.tempoDiPreparazione
-                                              )
-                                              .reduce(
-                                                (acc, tempo) =>
-                                                  acc + tempo + 15,
-                                                0
-                                              )
-                                          ) + " minuti" ||
                                         "variabile"}
                                     </p>
                                   </Col>
@@ -207,13 +188,14 @@ const Negozio = () => {
                                   <Col className="mt-xl-5 mt-lg-3">
                                     <Link
                                       to={`/shop/${nomeRistorante}`}
-                                      onClick={() =>
+                                      onClick={() => {
                                         dispatch(
                                           addChefToCart(
                                             selezionaChefPerId(selected)
                                           )
-                                        )
-                                      }
+                                        );
+                                        console.log(tempoMedioCena);
+                                      }}
                                     >
                                       <GeneralButton
                                         text={`Vai ${
