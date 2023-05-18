@@ -15,6 +15,8 @@ export interface Chef {
   name: string;
   categoria: string;
   tariffaOraria: number;
+  immagineProfilo: string;
+  immagineCucina: string;
   listaMenu: ListaMenu[];
 }
 

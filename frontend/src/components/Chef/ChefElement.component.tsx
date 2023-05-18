@@ -48,7 +48,7 @@ const ChefElement = ({
             selected === chef?.id ? styles.colorImg : styles.greyScale
           } text-center`}
           style={{
-            backgroundImage: `url(https://static1.moviewebimages.com/wordpress/wp-content/uploads/2022/04/IMG_604.jpeg)`,
+            backgroundImage: `url(${chef?.immagineProfilo})`,
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}

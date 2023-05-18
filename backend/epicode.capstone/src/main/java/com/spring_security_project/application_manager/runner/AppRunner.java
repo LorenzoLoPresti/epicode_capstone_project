@@ -8,12 +8,14 @@ import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
+import com.spring_security_project.application_manager.model.Bevanda;
 import com.spring_security_project.application_manager.model.CategoriaChef;
 import com.spring_security_project.application_manager.model.CategoriaProdotto;
 import com.spring_security_project.application_manager.model.Chef;
 import com.spring_security_project.application_manager.model.Menu;
 import com.spring_security_project.application_manager.model.Piatto;
 import com.spring_security_project.application_manager.model.Ristorante;
+import com.spring_security_project.application_manager.model.TipoBevanda;
 import com.spring_security_project.application_manager.model.TipoCottura;
 import com.spring_security_project.application_manager.repository.RistoranteRepository;
 import com.spring_security_project.application_manager.service.BevandaService;
@@ -46,6 +48,8 @@ public class AppRunner implements ApplicationRunner {
 	@Autowired
 	ObjectProvider<Piatto> piatto;
 	@Autowired
+	ObjectProvider<Bevanda> bevanda;
+	@Autowired
 	ObjectProvider<Menu> menu;
 
 	@Override
@@ -63,15 +67,17 @@ public class AppRunner implements ApplicationRunner {
 //			serviceRistorante.salva(ristorante.getObject("Ristorante La Pergola", "Roma", "06 3509 2152", "/src/assets/ristoranti/aroma_roma.jpg"));
 //			serviceRistorante.salva(ristorante.getObject("Ristorante Aroma", "Roma", "06 9761 5109", "/src/assets/ristoranti/aroma_roma.jpg"));
 //			serviceRistorante.salva(ristorante.getObject("Ristorante Mirabelle", "Roma", "06 4216 8838", "/src/assets/ristoranti/aroma_roma.jpg"));
-			
-			serviceRistorante.salva(ristorante.getObject("La Pergola", "Roma", "06 3509 2152", "/src/assets/ristoranti/la_pergola_roma.jpg"));
-			serviceRistorante.salva(ristorante.getObject("Aroma", "Roma", "06 9761 5109", "/src/assets/ristoranti/aroma_roma.jpg"));
-			serviceRistorante.salva(ristorante.getObject("Mirabelle", "Roma", "06 4216 8838", "/src/assets/ristoranti/mirabelle_roma.jpg"));
+
+			serviceRistorante.salva(ristorante.getObject("La Pergola", "Roma", "06 3509 2152",
+					"/src/assets/ristoranti/la_pergola_roma.jpg"));
+			serviceRistorante.salva(
+					ristorante.getObject("Aroma", "Roma", "06 9761 5109", "/src/assets/ristoranti/aroma_roma.jpg"));
+			serviceRistorante.salva(ristorante.getObject("Mirabelle", "Roma", "06 4216 8838",
+					"/src/assets/ristoranti/mirabelle_roma.jpg"));
 
 			Ristorante r1 = serviceRistorante.cercaPerId(1l);
 			r1.setDescrizione("Un panorama unico della Città Eterna si apre"
-					+ " alla vista degli ospiti di uno dei ristoranti più belli del mondo."
-					);
+					+ " alla vista degli ospiti di uno dei ristoranti più belli del mondo.");
 			r1.setMenu_img("/src/assets/menu/la_pergola.jpg");
 			r1.setIndirizzo("Via Alberto Cadlolo 101");
 			serviceRistorante.modifica(r1);
@@ -83,27 +89,29 @@ public class AppRunner implements ApplicationRunner {
 			r2.setIndirizzo("Via Labicana 125");
 			serviceRistorante.modifica(r2);
 			Ristorante r3 = serviceRistorante.cercaPerId(3l);
-			r3.setDescrizione(" Una terrazza gourmet con una vista che partendo da Villa Medici e Trinità dei Monti arriva fino"
-					+ " a San Pietro e al Gianicolo. A fare da cornice a questo meraviglioso scorcio ci sono un'insuperabile accoglienza"
-					+ " e una cucina raffinata.");
+			r3.setDescrizione(
+					" Una terrazza gourmet con una vista che partendo da Villa Medici e Trinità dei Monti arriva fino"
+							+ " a San Pietro e al Gianicolo. A fare da cornice a questo meraviglioso scorcio ci sono un'insuperabile accoglienza"
+							+ " e una cucina raffinata.");
 			r3.setMenu_img("/src/assets/menu/mirabelle.jpg");
 			r3.setIndirizzo("Via di Porta Pinciana 14");
 			serviceRistorante.modifica(r3);
-			
+
 			r1 = serviceRistorante.cercaPerId(1l);
 			r2 = serviceRistorante.cercaPerId(2l);
 			r3 = serviceRistorante.cercaPerId(3l);
 
+			serviceChef.salva(chef.getObject("Gus Fring", CategoriaChef.CARNE, serviceRistorante.cercaPerId(1l), 45));
 			serviceChef.salva(
-					chef.getObject("Giancarlo Esposito", CategoriaChef.GENERALE, serviceRistorante.cercaPerId(1l), 45));
-			serviceChef.salva(chef.getObject("Walter White", CategoriaChef.GENERALE, serviceRistorante.cercaPerId(2l), 50));
+					chef.getObject("Walter White", CategoriaChef.GENERALE, serviceRistorante.cercaPerId(2l), 50));
 			serviceChef
-					.salva(chef.getObject("Jesse Pinkman", CategoriaChef.GENERALE, serviceRistorante.cercaPerId(3l), 20));
+					.salva(chef.getObject("Jesse Pinkman", CategoriaChef.PESCE, serviceRistorante.cercaPerId(3l), 20));
 			serviceChef.salva(
-					chef.getObject("Carlo Cracco", CategoriaChef.GENERALE, serviceRistorante.cercaPerId(1l), 40));
-			serviceChef.salva(chef.getObject("Bruno Barbieri", CategoriaChef.GENERALE, serviceRistorante.cercaPerId(2l), 35));
+					chef.getObject("Gale Boetticher", CategoriaChef.GENERALE, serviceRistorante.cercaPerId(1l), 40));
 			serviceChef
-					.salva(chef.getObject("Alessandro Borghese", CategoriaChef.GENERALE, serviceRistorante.cercaPerId(3l), 25));
+					.salva(chef.getObject("Bruno Barbieri", CategoriaChef.CARNE, serviceRistorante.cercaPerId(2l), 35));
+			serviceChef.salva(
+					chef.getObject("Giorgio Locatelli", CategoriaChef.PESCE, serviceRistorante.cercaPerId(3l), 25));
 
 			Chef c1 = serviceChef.cercaPerId(1l);
 			Chef c2 = serviceChef.cercaPerId(2l);
@@ -111,14 +119,14 @@ public class AppRunner implements ApplicationRunner {
 			Chef c4 = serviceChef.cercaPerId(4l);
 			Chef c5 = serviceChef.cercaPerId(5l);
 			Chef c6 = serviceChef.cercaPerId(6l);
-			
+
 			serviceMenu.salva(menu.getObject(c1));
 			serviceMenu.salva(menu.getObject(c2));
 			serviceMenu.salva(menu.getObject(c3));
 			serviceMenu.salva(menu.getObject(c4));
 			serviceMenu.salva(menu.getObject(c5));
 			serviceMenu.salva(menu.getObject(c6));
-			
+
 			Menu m1 = serviceMenu.cercaPerId(1l);
 			Menu m2 = serviceMenu.cercaPerId(2l);
 			Menu m3 = serviceMenu.cercaPerId(3l);
@@ -127,18 +135,30 @@ public class AppRunner implements ApplicationRunner {
 			Menu m6 = serviceMenu.cercaPerId(6l);
 
 			c1.getListaMenu().add(m1);
+			c1.setImmagineProfilo("/src/assets/chef/fring_posa.jpg");
+			c1.setImmagineCucina("/src/assets/chef/fring_cucina.jpg");
 			serviceChef.modifica(c1);
 			c2.getListaMenu().add(m2);
+			c2.setImmagineProfilo("/src/assets/chef/white_posa.jpg");
+			c2.setImmagineCucina("/src/assets/chef/white_cucina.jpg");
 			serviceChef.modifica(c2);
 			c3.getListaMenu().add(m3);
+			c3.setImmagineProfilo("/src/assets/chef/pinkman_posa.jpg");
+			c3.setImmagineCucina("/src/assets/chef/pinkman_cucina.jpg");
 			serviceChef.modifica(c3);
 			c4.getListaMenu().add(m4);
+			c4.setImmagineProfilo("/src/assets/chef/gale_posa.jpg");
+			c4.setImmagineCucina("/src/assets/chef/gale_cucina.jpg");
 			serviceChef.modifica(c4);
 			c5.getListaMenu().add(m5);
+			c5.setImmagineProfilo("/src/assets/chef/barbieri_posa.jpg");
+			c5.setImmagineCucina("/src/assets/chef/barbieri_cucina.jpg");
 			serviceChef.modifica(c5);
 			c6.getListaMenu().add(m6);
+			c6.setImmagineProfilo("/src/assets/chef/locatelli_posa.jpg");
+			c6.setImmagineCucina("/src/assets/chef/locatelli_cucina.jpg");
 			serviceChef.modifica(c6);
-			
+
 			c1 = serviceChef.cercaPerId(1l);
 			c2 = serviceChef.cercaPerId(2l);
 			c3 = serviceChef.cercaPerId(3l);
@@ -162,33 +182,63 @@ public class AppRunner implements ApplicationRunner {
 //			serviceRistorante.modifica(r2);
 //			r3.getListaChef().add(c6);
 //			serviceRistorante.modifica(r3);
-			
-			
-			
 
-			servicePiatto.salva(piatto.getObject("Carbonara", CategoriaProdotto.PRIMO, 18.00, m1, TipoCottura.COTTO, 25));
-			servicePiatto.salva(piatto.getObject("Amatriciana", CategoriaProdotto.PRIMO, 17.00, m1, TipoCottura.COTTO, 25));
+			servicePiatto
+					.salva(piatto.getObject("Carbonara", CategoriaProdotto.PRIMO, 18.00, m1, TipoCottura.COTTO, 25));
+			servicePiatto
+					.salva(piatto.getObject("Amatriciana", CategoriaProdotto.PRIMO, 17.00, m1, TipoCottura.COTTO, 25));
 			servicePiatto.salva(piatto.getObject("Gricia", CategoriaProdotto.PRIMO, 17.00, m1, TipoCottura.COTTO, 25));
 
-			servicePiatto.salva(piatto.getObject("Carbonara", CategoriaProdotto.PRIMO, 18.00, m2, TipoCottura.COTTO, 25));
-			servicePiatto.salva(piatto.getObject("Amatriciana", CategoriaProdotto.PRIMO, 17.00, m2, TipoCottura.COTTO, 25));
+			servicePiatto
+					.salva(piatto.getObject("Carbonara", CategoriaProdotto.PRIMO, 18.00, m2, TipoCottura.COTTO, 25));
+			servicePiatto
+					.salva(piatto.getObject("Amatriciana", CategoriaProdotto.PRIMO, 17.00, m2, TipoCottura.COTTO, 25));
 			servicePiatto.salva(piatto.getObject("Gricia", CategoriaProdotto.PRIMO, 17.00, m2, TipoCottura.COTTO, 25));
 
-			servicePiatto.salva(piatto.getObject("Carbonara", CategoriaProdotto.PRIMO, 18.00, m3, TipoCottura.COTTO, 25));
-			servicePiatto.salva(piatto.getObject("Amatriciana", CategoriaProdotto.PRIMO, 17.00, m3, TipoCottura.COTTO, 25));
+			servicePiatto
+					.salva(piatto.getObject("Carbonara", CategoriaProdotto.PRIMO, 18.00, m3, TipoCottura.COTTO, 25));
+			servicePiatto
+					.salva(piatto.getObject("Amatriciana", CategoriaProdotto.PRIMO, 17.00, m3, TipoCottura.COTTO, 25));
 			servicePiatto.salva(piatto.getObject("Gricia", CategoriaProdotto.PRIMO, 17.00, m3, TipoCottura.COTTO, 25));
-			
-			servicePiatto.salva(piatto.getObject("Carbonara", CategoriaProdotto.PRIMO, 18.00, m4, TipoCottura.COTTO, 25));
-			servicePiatto.salva(piatto.getObject("Amatriciana", CategoriaProdotto.PRIMO, 17.00, m4, TipoCottura.COTTO, 25));
+
+			servicePiatto
+					.salva(piatto.getObject("Carbonara", CategoriaProdotto.PRIMO, 18.00, m4, TipoCottura.COTTO, 25));
+			servicePiatto
+					.salva(piatto.getObject("Amatriciana", CategoriaProdotto.PRIMO, 17.00, m4, TipoCottura.COTTO, 25));
 			servicePiatto.salva(piatto.getObject("Gricia", CategoriaProdotto.PRIMO, 17.00, m4, TipoCottura.COTTO, 25));
 
-			servicePiatto.salva(piatto.getObject("Carbonara", CategoriaProdotto.PRIMO, 18.00, m5, TipoCottura.COTTO, 25));
-			servicePiatto.salva(piatto.getObject("Amatriciana", CategoriaProdotto.PRIMO, 17.00, m5, TipoCottura.COTTO, 25));
+			servicePiatto
+					.salva(piatto.getObject("Carbonara", CategoriaProdotto.PRIMO, 18.00, m5, TipoCottura.COTTO, 25));
+			servicePiatto
+					.salva(piatto.getObject("Amatriciana", CategoriaProdotto.PRIMO, 17.00, m5, TipoCottura.COTTO, 25));
 			servicePiatto.salva(piatto.getObject("Gricia", CategoriaProdotto.PRIMO, 17.00, m5, TipoCottura.COTTO, 25));
 
-			servicePiatto.salva(piatto.getObject("Carbonara", CategoriaProdotto.PRIMO, 18.00, m6, TipoCottura.COTTO, 25));
-			servicePiatto.salva(piatto.getObject("Amatriciana", CategoriaProdotto.PRIMO, 17.00, m6, TipoCottura.COTTO, 25));
+			servicePiatto
+					.salva(piatto.getObject("Carbonara", CategoriaProdotto.PRIMO, 18.00, m6, TipoCottura.COTTO, 25));
+			servicePiatto
+					.salva(piatto.getObject("Amatriciana", CategoriaProdotto.PRIMO, 17.00, m6, TipoCottura.COTTO, 25));
 			servicePiatto.salva(piatto.getObject("Gricia", CategoriaProdotto.PRIMO, 17.00, m6, TipoCottura.COTTO, 25));
+//			
+			serviceBevanda.salva(bevanda.getObject("Marchese di Villamarina", CategoriaProdotto.BEVANDA, 38.00, m1,
+					TipoBevanda.ALCOLICA,
+					"Il vino Marchese di Villamarina è un'eccellenza italiana. Di colore intenso, presenta un bouquet complesso e avvolgente di frutti maturi, spezie e note floreali. In bocca è elegante, con tannini morbidi e una piacevole persistenza"));
+			serviceBevanda.salva(bevanda.getObject("Molvina", CategoriaProdotto.BEVANDA, 45.00, m2,
+					TipoBevanda.ALCOLICA,
+					"\r\n" + "Il vino Molvina è un'opera d'arte enologica. Colore vivace, aroma fruttato e fresco con accenti floreali. Gusto equilibrato e persistente con una piacevole acidità"));
+			serviceBevanda.salva(bevanda.getObject("Leonardo Da Vinci", CategoriaProdotto.BEVANDA, 35.00, m3,
+					TipoBevanda.ALCOLICA,
+					"Il vino Leonardo Da Vinci è un'opera di maestria enologica. Profondo colore rubino, con intensi aromi di frutti rossi e spezie. In bocca è pieno, armonico e di lunga persistenza."));
+			serviceBevanda.salva(bevanda.getObject("Batasiolo", CategoriaProdotto.BEVANDA, 35.00, m4,
+					TipoBevanda.ALCOLICA,
+					"Il vino Batasiolo è un'autentica espressione del Piemonte. Colore brillante, con profumi intensi di frutti maturi, spezie e sottobosco. In bocca è strutturato, elegante e persistente, con un equilibrio perfetto tra acidità e tannini."));
+			serviceBevanda.salva(bevanda.getObject("Brunello di Montalcino", CategoriaProdotto.BEVANDA, 41.00, m5,
+					TipoBevanda.ALCOLICA,
+					"\r\n" + "Il Brunello di Montalcino è uno dei vini più rinomati e ammirati in Italia. Prodotto nella regione toscana, presenta un colore rubino intenso e un profilo aromatico complesso con note di frutta rossa, spezie, tabacco e cuoio."));
+			serviceBevanda.salva(bevanda.getObject("Tignanello", CategoriaProdotto.BEVANDA, 174.00, m6,
+					TipoBevanda.ALCOLICA,
+					"Il Tignanello è un rinomato vino toscano. Di colore intenso, offre un bouquet complesso di frutti rossi, spezie, tabacco e note balsamiche. In bocca è elegante, con tannini vellutati e un'armoniosa acidità."));
+//			
+//			serviceBevanda.salva(bevanda.getObject("Molvina", CategoriaProdotto.BEVANDA, 45.00, m6, TipoBevanda.ALCOLICA, ""));
 
 			Piatto p1 = servicePiatto.cercaPerId(1l);
 			Piatto p2 = servicePiatto.cercaPerId(2l);
@@ -209,31 +259,44 @@ public class AppRunner implements ApplicationRunner {
 			Piatto p17 = servicePiatto.cercaPerId(17l);
 			Piatto p18 = servicePiatto.cercaPerId(18l);
 
+			Bevanda b1 = serviceBevanda.cercaPerId(19l);
+			Bevanda b2 = serviceBevanda.cercaPerId(20l);
+			Bevanda b3 = serviceBevanda.cercaPerId(21l);
+			Bevanda b4 = serviceBevanda.cercaPerId(22l);
+			Bevanda b5 = serviceBevanda.cercaPerId(23l);
+			Bevanda b6 = serviceBevanda.cercaPerId(24l);
+
 			m1.getSelezione().add(p1);
 			m1.getSelezione().add(p2);
 			m1.getSelezione().add(p3);
+			m1.getSelezione().add(b1);
 			serviceMenu.modifica(m1);
 			m2.getSelezione().add(p4);
 			m2.getSelezione().add(p5);
 			m2.getSelezione().add(p6);
+			m2.getSelezione().add(b2);
 			serviceMenu.modifica(m2);
 			m3.getSelezione().add(p7);
 			m3.getSelezione().add(p8);
 			m3.getSelezione().add(p9);
+			m3.getSelezione().add(b3);
 			serviceMenu.modifica(m3);
 			m4.getSelezione().add(p10);
 			m4.getSelezione().add(p11);
 			m4.getSelezione().add(p12);
+			m4.getSelezione().add(b4);
 			serviceMenu.modifica(m4);
 			m5.getSelezione().add(p13);
 			m5.getSelezione().add(p14);
 			m5.getSelezione().add(p15);
+			m5.getSelezione().add(b5);
 			serviceMenu.modifica(m5);
 			m6.getSelezione().add(p16);
 			m6.getSelezione().add(p17);
 			m6.getSelezione().add(p18);
+			m6.getSelezione().add(b6);
 			serviceMenu.modifica(m6);
-			
+
 //			c4.getListaProdotti().add(p1);
 //			c4.getListaProdotti().add(p2);
 //			c4.getListaProdotti().add(p3);

@@ -38,6 +38,8 @@ public class Chef {
 	@JsonIgnore
 	private Ristorante ristoranteAssociato;
 	private double tariffaOraria;
+	private String immagineProfilo;
+	private String immagineCucina;
 	@OneToMany(fetch = FetchType.EAGER)
 	@JsonIgnoreProperties
 	private List<Menu> listaMenu;
