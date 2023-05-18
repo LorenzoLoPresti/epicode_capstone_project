@@ -38,6 +38,12 @@ public class Menu {
 		super();
 		this.chef = chef;
 	}
+
+	@Override
+	public String toString() {
+		return "Menu [id=" + id + ", selezione=" + selezione + "]";
+	}
+	
 	
 	
 }

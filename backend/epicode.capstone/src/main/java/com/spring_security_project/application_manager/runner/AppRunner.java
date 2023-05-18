@@ -53,7 +53,7 @@ public class AppRunner implements ApplicationRunner {
 		// TODO Auto-generated method stub
 		System.out.println("AppRun...");
 		creaDb();
-
+		System.out.println(serviceMenu.cercaMenuPerIdChef(1l));
 	}
 
 	public void creaDb() {

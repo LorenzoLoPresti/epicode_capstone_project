@@ -5,12 +5,16 @@ import styles from "./Negozio.module.css";
 import Chef from "../../components/Chef/ChefElement.component";
 import { useState } from "react";
 import React from "react";
+import { ListaMenu } from "../Home/Home.types";
+import { useEffect } from "react";
 // import { ListaProdotti } from "../Home/Home.types";
 
 const Negozio = () => {
   const { nomeRistorante } = useParams();
   const ristorante = useAppSelector((state) => state.authToken?.ristoranti);
+  const token = useAppSelector((state) => state.authToken?.token);
   const [selected, setSelected] = useState(0);
+  const [listaMenu, setListaMenu] = useState<ListaMenu[]>([]);
   // const [menuSelected, setMenuSelected] = useState<number | null>();
 
   // const listaChef = ristorante.find(
@@ -20,6 +24,34 @@ const Negozio = () => {
   // const cuoco = listaChef?.find((c) => c.id === selected);
 
   // const selezione = cuoco?.listaMenu.find((m) => m?.id === menuSelected);
+
+  const tempoMedioCena = listaMenu[0]?.selezione
+    ?.map((prodotto) => prodotto.tempoDiPreparazione)
+    .reduce((acc, tempo) => acc + tempo + 15, 0);
+
+  const trovaListaMenuPerChefId = async (id: number) => {
+    try {
+      const response = await fetch(`http://localhost:8080/menu/chef_id/${id}`, {
+        method: "GET",
+        headers: { authorization: `Bearer ${token}` },
+      });
+      if (!response.ok) {
+        throw new Error("Unhautorized");
+      }
+      const data = await response.json();
+      setListaMenu(data);
+    } catch (error) {
+      return error;
+    }
+  };
+
+  useEffect(() => {
+    if (selected !== 0) {
+      trovaListaMenuPerChefId(selected);
+      console.log(listaMenu);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [selected]);
 
   return (
     <>
@@ -129,20 +161,8 @@ const Negozio = () => {
                                   <p className="fs-5 mb-1">
                                     Tempo cena medio:{" "}
                                   </p>
-                                  <p
-                                    className={`${styles.infoColor}`}
-                                    // onClick={() => {
-                                    //   // const selezione = chefSelected?.listaMenu
-                                    //   //   ?.map((sel) => sel.selezione)
-                                    //   //   .map((prod) => prod);
-                                    //   // console.log(chefSelected?.listaMenu[0]);
-                                    // }}
-                                  >
+                                  <p className={`${styles.infoColor}`}>
                                     {/* {chefSelected?.listaMenu
-                                    ?.map((menu) => menu.selezione)
-                                    .map((l, i) => l[i].prezzo)
-                                    .reduce((p) => p)} */}
-                                    {chefSelected?.listaMenu
                                       ?.map((menu) => menu.selezione)
                                       .map((listProd) =>
                                         listProd
@@ -153,7 +173,10 @@ const Negozio = () => {
                                             (acc, tempo) => acc + tempo + 15,
                                             0
                                           )
-                                      ) + " minuti"}
+                                      ) + " minuti"} */}
+                                    {(listaMenu.length > 0 &&
+                                      tempoMedioCena + " minuti") ||
+                                      "variabile"}
                                   </p>
                                 </div>
                                 <div>
