@@ -35,16 +35,18 @@ public class Prodotto {
 	private CategoriaProdotto categoria;
 	@Column(nullable = false)
 	private Double prezzo;
+	private String descrizione;
 	@ManyToOne
 	@JsonIgnore
 	Menu menu;
 
 	
-	public Prodotto(String name, CategoriaProdotto categoria, Double prezzo, Menu menu) {
+	public Prodotto(String name, CategoriaProdotto categoria, Double prezzo, String descrizione, Menu menu) {
 		super();
 		this.name = name;
 		this.categoria = categoria;
 		this.prezzo = prezzo;
+		this.descrizione = descrizione;
 		this.menu = menu;
 	}
 	

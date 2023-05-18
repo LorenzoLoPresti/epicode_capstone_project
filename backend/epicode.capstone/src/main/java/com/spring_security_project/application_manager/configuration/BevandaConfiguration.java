@@ -17,7 +17,7 @@ public class BevandaConfiguration {
 	
 	@Bean
 	@Scope("prototype")
-	public Bevanda creaBevanda(String name, CategoriaProdotto categoria, Double prezzo, Menu menu, TipoBevanda tipoBevanda, String descrizione) {
-		return new Bevanda(name,categoria, prezzo, menu, tipoBevanda, descrizione);
+	public Bevanda creaBevanda(String name, CategoriaProdotto categoria, Double prezzo,String descrizione, Menu menu, TipoBevanda tipoBevanda) {
+		return new Bevanda(name,categoria, prezzo , descrizione, menu, tipoBevanda);
 	}
 }

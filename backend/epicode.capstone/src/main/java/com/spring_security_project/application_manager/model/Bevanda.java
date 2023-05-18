@@ -17,24 +17,20 @@ public class Bevanda extends Prodotto {
 	
 	@Enumerated(EnumType.STRING)
 	private TipoBevanda tipoBevanda;
-	private String descrizione;
+	
 
 	
 	public TipoBevanda getTipoBevanda() {
 		return tipoBevanda;
 	}
 	
-	public String getDescrizione() {
-		return descrizione;
-	}
+
 
 	public void setTipoBevanda(TipoBevanda tipoBevanda) {
 		this.tipoBevanda = tipoBevanda;
 	}
 	
-	public void setDescrizione(String descrizione) {
-		this.descrizione = descrizione;
-	}
+
 	
 	
 
@@ -45,10 +41,10 @@ public class Bevanda extends Prodotto {
 	}
 
 
-	public Bevanda(String name, CategoriaProdotto categoria, Double prezzo, Menu menu, TipoBevanda tipoBevanda, String descrizione) {
-		super(name, categoria, prezzo, menu);
+	public Bevanda(String name, CategoriaProdotto categoria, Double prezzo, String descrizione, Menu menu, TipoBevanda tipoBevanda) {
+		super(name, categoria, prezzo, descrizione, menu);
 		this.tipoBevanda = tipoBevanda;
-		this.descrizione = descrizione;
+
 	}
 
 }

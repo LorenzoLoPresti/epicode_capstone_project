@@ -15,7 +15,7 @@ public class PiattoConfig {
 	
 	@Bean
 	@Scope("prototype")
-	public Piatto creaPiatto(String name, CategoriaProdotto categoria, Double prezzo, Menu menu, TipoCottura tipoCottura, Integer tempo) {
-		return new Piatto(name,categoria, prezzo, menu, tipoCottura, tempo);
+	public Piatto creaPiatto(String name, CategoriaProdotto categoria, Double prezzo,  String descrizione, Menu menu, TipoCottura tipoCottura, Integer tempo) {
+		return new Piatto(name,categoria, prezzo, descrizione, menu, tipoCottura, tempo);
 	}
 }

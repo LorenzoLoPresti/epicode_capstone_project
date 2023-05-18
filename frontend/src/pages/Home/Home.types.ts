@@ -30,6 +30,8 @@ export interface ListaProdotti {
   categoria: string;
   name: string;
   prezzo: number;
+  descrizione: string;
   tipoCottura: string;
   tempoDiPreparazione: number;
+  tipoBevanda: string;
 }

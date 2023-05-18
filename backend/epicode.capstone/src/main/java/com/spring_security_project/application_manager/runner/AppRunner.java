@@ -184,59 +184,69 @@ public class AppRunner implements ApplicationRunner {
 //			serviceRistorante.modifica(r3);
 
 			servicePiatto
-					.salva(piatto.getObject("Carbonara", CategoriaProdotto.PRIMO, 18.00, m1, TipoCottura.COTTO, 25));
+					.salva(piatto.getObject("Carbonara", CategoriaProdotto.PRIMO, 18.00, "", m1, TipoCottura.COTTO, 25));
 			servicePiatto
-					.salva(piatto.getObject("Amatriciana", CategoriaProdotto.PRIMO, 17.00, m1, TipoCottura.COTTO, 25));
-			servicePiatto.salva(piatto.getObject("Gricia", CategoriaProdotto.PRIMO, 17.00, m1, TipoCottura.COTTO, 25));
+					.salva(piatto.getObject("Amatriciana", CategoriaProdotto.PRIMO, 17.00,"", m1, TipoCottura.COTTO, 25));
+			servicePiatto.salva(piatto.getObject("Gricia", CategoriaProdotto.PRIMO, 17.00,"", m1, TipoCottura.COTTO, 25));
 
 			servicePiatto
-					.salva(piatto.getObject("Carbonara", CategoriaProdotto.PRIMO, 18.00, m2, TipoCottura.COTTO, 25));
+					.salva(piatto.getObject("Carbonara", CategoriaProdotto.PRIMO, 18.00,"", m2, TipoCottura.COTTO, 25));
 			servicePiatto
-					.salva(piatto.getObject("Amatriciana", CategoriaProdotto.PRIMO, 17.00, m2, TipoCottura.COTTO, 25));
-			servicePiatto.salva(piatto.getObject("Gricia", CategoriaProdotto.PRIMO, 17.00, m2, TipoCottura.COTTO, 25));
+					.salva(piatto.getObject("Amatriciana", CategoriaProdotto.PRIMO, 17.00,"", m2, TipoCottura.COTTO, 25));
+			servicePiatto.salva(piatto.getObject("Gricia", CategoriaProdotto.PRIMO, 17.00,"", m2, TipoCottura.COTTO, 25));
 
 			servicePiatto
-					.salva(piatto.getObject("Carbonara", CategoriaProdotto.PRIMO, 18.00, m3, TipoCottura.COTTO, 25));
+					.salva(piatto.getObject("Carbonara", CategoriaProdotto.PRIMO, 18.00,"", m3, TipoCottura.COTTO, 25));
 			servicePiatto
-					.salva(piatto.getObject("Amatriciana", CategoriaProdotto.PRIMO, 17.00, m3, TipoCottura.COTTO, 25));
-			servicePiatto.salva(piatto.getObject("Gricia", CategoriaProdotto.PRIMO, 17.00, m3, TipoCottura.COTTO, 25));
+					.salva(piatto.getObject("Amatriciana", CategoriaProdotto.PRIMO, 17.00,"", m3, TipoCottura.COTTO, 25));
+			servicePiatto.salva(piatto.getObject("Gricia", CategoriaProdotto.PRIMO, 17.00,"", m3, TipoCottura.COTTO, 25));
 
 			servicePiatto
-					.salva(piatto.getObject("Carbonara", CategoriaProdotto.PRIMO, 18.00, m4, TipoCottura.COTTO, 25));
+					.salva(piatto.getObject("Carbonara", CategoriaProdotto.PRIMO, 18.00,"", m4, TipoCottura.COTTO, 25));
 			servicePiatto
-					.salva(piatto.getObject("Amatriciana", CategoriaProdotto.PRIMO, 17.00, m4, TipoCottura.COTTO, 25));
-			servicePiatto.salva(piatto.getObject("Gricia", CategoriaProdotto.PRIMO, 17.00, m4, TipoCottura.COTTO, 25));
+					.salva(piatto.getObject("Amatriciana", CategoriaProdotto.PRIMO, 17.00,"", m4, TipoCottura.COTTO, 25));
+			servicePiatto.salva(piatto.getObject("Gricia", CategoriaProdotto.PRIMO, 17.00,"", m4, TipoCottura.COTTO, 25));
 
 			servicePiatto
-					.salva(piatto.getObject("Carbonara", CategoriaProdotto.PRIMO, 18.00, m5, TipoCottura.COTTO, 25));
+					.salva(piatto.getObject("Carbonara", CategoriaProdotto.PRIMO, 18.00,"", m5, TipoCottura.COTTO, 25));
 			servicePiatto
-					.salva(piatto.getObject("Amatriciana", CategoriaProdotto.PRIMO, 17.00, m5, TipoCottura.COTTO, 25));
-			servicePiatto.salva(piatto.getObject("Gricia", CategoriaProdotto.PRIMO, 17.00, m5, TipoCottura.COTTO, 25));
+					.salva(piatto.getObject("Amatriciana", CategoriaProdotto.PRIMO, 17.00,"", m5, TipoCottura.COTTO, 25));
+			servicePiatto.salva(piatto.getObject("Gricia", CategoriaProdotto.PRIMO, 17.00,"", m5, TipoCottura.COTTO, 25));
 
 			servicePiatto
-					.salva(piatto.getObject("Carbonara", CategoriaProdotto.PRIMO, 18.00, m6, TipoCottura.COTTO, 25));
+					.salva(piatto.getObject("Carbonara", CategoriaProdotto.PRIMO, 18.00,"", m6, TipoCottura.COTTO, 25));
 			servicePiatto
-					.salva(piatto.getObject("Amatriciana", CategoriaProdotto.PRIMO, 17.00, m6, TipoCottura.COTTO, 25));
-			servicePiatto.salva(piatto.getObject("Gricia", CategoriaProdotto.PRIMO, 17.00, m6, TipoCottura.COTTO, 25));
+					.salva(piatto.getObject("Amatriciana", CategoriaProdotto.PRIMO, 17.00,"", m6, TipoCottura.COTTO, 25));
+			servicePiatto.salva(piatto.getObject("Gricia", CategoriaProdotto.PRIMO, 17.00,"", m6, TipoCottura.COTTO, 25));
 //			
-			serviceBevanda.salva(bevanda.getObject("Marchese di Villamarina", CategoriaProdotto.BEVANDA, 38.00, m1,
-					TipoBevanda.ALCOLICA,
-					"Il vino Marchese di Villamarina è un'eccellenza italiana. Di colore intenso, presenta un bouquet complesso e avvolgente di frutti maturi, spezie e note floreali. In bocca è elegante, con tannini morbidi e una piacevole persistenza"));
-			serviceBevanda.salva(bevanda.getObject("Molvina", CategoriaProdotto.BEVANDA, 45.00, m2,
-					TipoBevanda.ALCOLICA,
-					"\r\n" + "Il vino Molvina è un'opera d'arte enologica. Colore vivace, aroma fruttato e fresco con accenti floreali. Gusto equilibrato e persistente con una piacevole acidità"));
-			serviceBevanda.salva(bevanda.getObject("Leonardo Da Vinci", CategoriaProdotto.BEVANDA, 35.00, m3,
-					TipoBevanda.ALCOLICA,
-					"Il vino Leonardo Da Vinci è un'opera di maestria enologica. Profondo colore rubino, con intensi aromi di frutti rossi e spezie. In bocca è pieno, armonico e di lunga persistenza."));
-			serviceBevanda.salva(bevanda.getObject("Batasiolo", CategoriaProdotto.BEVANDA, 35.00, m4,
-					TipoBevanda.ALCOLICA,
-					"Il vino Batasiolo è un'autentica espressione del Piemonte. Colore brillante, con profumi intensi di frutti maturi, spezie e sottobosco. In bocca è strutturato, elegante e persistente, con un equilibrio perfetto tra acidità e tannini."));
-			serviceBevanda.salva(bevanda.getObject("Brunello di Montalcino", CategoriaProdotto.BEVANDA, 41.00, m5,
-					TipoBevanda.ALCOLICA,
-					"\r\n" + "Il Brunello di Montalcino è uno dei vini più rinomati e ammirati in Italia. Prodotto nella regione toscana, presenta un colore rubino intenso e un profilo aromatico complesso con note di frutta rossa, spezie, tabacco e cuoio."));
-			serviceBevanda.salva(bevanda.getObject("Tignanello", CategoriaProdotto.BEVANDA, 174.00, m6,
-					TipoBevanda.ALCOLICA,
-					"Il Tignanello è un rinomato vino toscano. Di colore intenso, offre un bouquet complesso di frutti rossi, spezie, tabacco e note balsamiche. In bocca è elegante, con tannini vellutati e un'armoniosa acidità."));
+			serviceBevanda.salva(bevanda.getObject("Marchese di Villamarina", CategoriaProdotto.BEVANDA, 38.00,					
+					"Il vino Marchese di Villamarina è un'eccellenza italiana. Di colore intenso, presenta un bouquet complesso e avvolgente di frutti maturi, spezie e note floreali. In bocca è elegante, con tannini morbidi e una piacevole persistenza",
+					m1,
+					TipoBevanda.ALCOLICA));
+			serviceBevanda.salva(bevanda.getObject("Molvina", CategoriaProdotto.BEVANDA, 45.00,"Il vino Molvina è un'opera d'arte enologica. Colore vivace, aroma fruttato e fresco con accenti floreali. Gusto equilibrato e persistente con una piacevole acidità",
+					m2,
+					TipoBevanda.ALCOLICA
+					));
+			serviceBevanda.salva(bevanda.getObject("Leonardo Da Vinci", CategoriaProdotto.BEVANDA, 35.00,
+					"Il vino Leonardo Da Vinci è un'opera di maestria enologica. Profondo colore rubino, con intensi aromi di frutti rossi e spezie. In bocca è pieno, armonico e di lunga persistenza.",
+					m3,
+					TipoBevanda.ALCOLICA
+					));
+			serviceBevanda.salva(bevanda.getObject("Batasiolo", CategoriaProdotto.BEVANDA, 35.00,
+					"Il vino Batasiolo è un'autentica espressione del Piemonte. Colore brillante, con profumi intensi di frutti maturi, spezie e sottobosco. In bocca è strutturato, elegante e persistente, con un equilibrio perfetto tra acidità e tannini.",
+					m4,
+					TipoBevanda.ALCOLICA
+					));
+			serviceBevanda.salva(bevanda.getObject("Brunello di Montalcino", CategoriaProdotto.BEVANDA, 41.00,
+					"Il Brunello di Montalcino è uno dei vini più rinomati e ammirati in Italia. Prodotto nella regione toscana, presenta un colore rubino intenso e un profilo aromatico complesso con note di frutta rossa, spezie, tabacco e cuoio.",
+					m5,
+					TipoBevanda.ALCOLICA
+					));
+			serviceBevanda.salva(bevanda.getObject("Tignanello", CategoriaProdotto.BEVANDA, 174.00,
+					"Il Tignanello è un rinomato vino toscano. Di colore intenso, offre un bouquet complesso di frutti rossi, spezie, tabacco e note balsamiche. In bocca è elegante, con tannini vellutati e un'armoniosa acidità.",
+					m6,
+					TipoBevanda.ALCOLICA
+					));
 //			
 //			serviceBevanda.salva(bevanda.getObject("Molvina", CategoriaProdotto.BEVANDA, 45.00, m6, TipoBevanda.ALCOLICA, ""));
 

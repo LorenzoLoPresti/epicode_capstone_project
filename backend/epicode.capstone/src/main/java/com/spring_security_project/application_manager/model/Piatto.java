@@ -41,8 +41,8 @@ public class Piatto extends Prodotto {
 				+ ", categoria)=" + getCategoria() + ", prezzo=" + getPrezzo() + "]";
 	}
 
-	public Piatto(String name, CategoriaProdotto categoria, Double prezzo, Menu menu, TipoCottura tipoCottura, Integer tempo) {
-		super(name, categoria, prezzo, menu);
+	public Piatto(String name, CategoriaProdotto categoria, Double prezzo, String descrizione, Menu menu, TipoCottura tipoCottura, Integer tempo) {
+		super(name, categoria, prezzo, descrizione, menu);
 		setTipoCottura(tipoCottura);
 		setTempoDiPreparazione(tempo);
 	}
