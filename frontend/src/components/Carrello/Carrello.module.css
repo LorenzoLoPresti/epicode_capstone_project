@@ -1,0 +1,10 @@
+.mainContainer {
+  /* padding-top: 6rem; */
+  width: 77%;
+  margin: auto;
+  padding: 6rem 5rem;
+  background-color: #303030;
+  overflow-y: auto;
+  max-height: 100vh;
+  animation: mainContainer ease 1s;
+}

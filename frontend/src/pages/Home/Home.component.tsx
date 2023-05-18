@@ -10,11 +10,18 @@ import style from "./Home.module.css";
 import { fetchRistorantiPerCitta } from "../../components/Utils/Utils";
 import { Ristorante } from "./Home.types";
 import MyCarousel from "../../components/Carousel/MyCarousel.component";
+import {
+  addUsernameToCart,
+  removeChefToCart,
+} from "../../redux/reducers/carrelloStore";
 
 const Home = () => {
   const reduxToken = useAppSelector((state) => state.authToken?.token);
   const reduxUsername = useAppSelector((state) => state.authToken?.username);
   const reduxCitta = useAppSelector((state) => state.authToken?.citta);
+  const reduxCarrelloUsername = useAppSelector(
+    (state) => state.carrelloReducer?.username
+  );
   const [loading, setLoading] = useState(true);
   const [ristoranti, setRistoranti] = useState<Ristorante[]>([]);
   const dispatch = useAppDispatch();
@@ -45,6 +52,10 @@ const Home = () => {
   useEffect(() => {
     if (reduxCitta && reduxToken && reduxCitta && ristoranti.length > 0) {
       dispatch(addRistoranti(ristoranti));
+    }
+    if (reduxCarrelloUsername !== reduxUsername) {
+      dispatch(removeChefToCart());
+      dispatch(addUsernameToCart(reduxUsername));
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [ristoranti]);

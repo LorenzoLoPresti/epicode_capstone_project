@@ -2,12 +2,14 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { Chef, ListaProdotti } from "../../pages/Home/Home.types";
 
 interface Carrello {
+  username: string;
   chef: Chef | null;
   listaProdottiMenu: ListaProdotti[] | null;
   listaVini: ListaProdotti[] | null;
 }
 
 const initialState: Carrello = {
+  username: "",
   chef: null,
   listaProdottiMenu: [],
   listaVini: [],
@@ -25,7 +27,11 @@ export const carrelloStore = createSlice({
       state.listaProdottiMenu = null;
       state.listaVini = null;
     },
+    addUsernameToCart: (state, action: PayloadAction<string>) => {
+      state.username = action.payload;
+    },
   },
 });
 
-export const { addChefToCart, removeChefToCart } = carrelloStore.actions;
+export const { addChefToCart, removeChefToCart, addUsernameToCart } =
+  carrelloStore.actions;

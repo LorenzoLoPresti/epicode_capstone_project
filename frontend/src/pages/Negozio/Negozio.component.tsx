@@ -206,7 +206,7 @@ const Negozio = () => {
                                   </Col>
                                   <Col className="mt-xl-5 mt-lg-3">
                                     <Link
-                                      to={"/carrello"}
+                                      to={`/shop/${nomeRistorante}`}
                                       onClick={() =>
                                         dispatch(
                                           addChefToCart(
