@@ -10,6 +10,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.spring_security_project.application_manager.repository.ChefRepository;
+import com.spring_security_project.application_manager.service.ChefService;
+import com.spring_security_project.application_manager.service.MenuService;
 import com.spring_security_project.application_manager.service.RistoranteService;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
@@ -27,4 +30,19 @@ public class RistoranteController {
 //		}
 		return new ResponseEntity<>(ristoranteService.cercaPerCitta(citta), HttpStatus.ACCEPTED);
 	}
+	
+	
+//	
+//	@Autowired MenuService menuService;
+//	@Autowired ChefService chefService;
+//	@Autowired ChefRepository chefRepo;
+//
+//	@GetMapping("/menu/chef_id/{id}")
+//	@PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
+//	public ResponseEntity<?> trovaListaMenuPerChefId(@PathVariable Long id){
+//		if(!chefRepo.existsById(id)) {
+//			return new ResponseEntity<>("Chef non trovato", HttpStatus.NOT_FOUND);
+//		}
+//		return new ResponseEntity<>(menuService.cercaMenuPerIdChef(id), HttpStatus.OK);
+//}
 }

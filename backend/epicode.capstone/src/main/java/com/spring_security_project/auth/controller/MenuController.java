@@ -18,7 +18,8 @@ import com.spring_security_project.application_manager.service.MenuService;
 
 
 
-@CrossOrigin(origins = "*", allowedHeaders = "*", methods = { RequestMethod.GET, RequestMethod.POST }, maxAge = 3600)
+//@CrossOrigin(origins = "*", allowedHeaders = "*", methods = { RequestMethod.GET, RequestMethod.POST }, maxAge = 3600)
+@CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 @RequestMapping("/grand_bistrot/menu")
 public class MenuController {

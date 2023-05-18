@@ -31,10 +31,14 @@ const Negozio = () => {
 
   const trovaListaMenuPerChefId = async (id: number) => {
     try {
-      const response = await fetch(`http://localhost:8080/menu/chef_id/${id}`, {
-        method: "GET",
-        headers: { authorization: `Bearer ${token}` },
-      });
+      const response = await fetch(
+        // `http://localhost:8080/grand_bistrot/ristorante/menu/chef_id/${id}`
+        `http://localhost:8080/grand_bistrot/menu/chef_id/${id}`,
+        {
+          method: "GET",
+          headers: { authorization: `Bearer ${token}` },
+        }
+      );
       if (!response.ok) {
         throw new Error("Unhautorized");
       }
@@ -118,25 +122,15 @@ const Negozio = () => {
                         <Chef
                           selected={selected}
                           setSelected={setSelected}
-                          // setMenuSelected={setMenuSelected}
                           chef={chef}
                         ></Chef>
                       </Col>
                     ))}
                     <Col className="w-100 px-5">
-                      {/* {selected === 0 && (
-                        <div className="text-light">
-                          Seleziona uno chef per continuare
-                        </div>
-                      )} */}
                       {e?.listaChef
                         .filter((chef) => chef?.id === selected)
                         .map((chefSelected) => (
                           <React.Fragment key={"chefProps" + chefSelected?.id}>
-                            {/* <div
-                              className={`${styles.selectChef} d-flex justify-content-between pt-4 text-light`}
-                            ></div> */}
-
                             <Row className={`${styles.decoration} pt-4`}>
                               <Col className="text-light d-flex flex-column">
                                 <p className={`${styles.selectChef}`}>
@@ -162,20 +156,21 @@ const Negozio = () => {
                                     Tempo cena medio:{" "}
                                   </p>
                                   <p className={`${styles.infoColor}`}>
-                                    {/* {chefSelected?.listaMenu
-                                      ?.map((menu) => menu.selezione)
-                                      .map((listProd) =>
-                                        listProd
-                                          .map(
-                                            (prod) => prod.tempoDiPreparazione
-                                          )
-                                          .reduce(
-                                            (acc, tempo) => acc + tempo + 15,
-                                            0
-                                          )
-                                      ) + " minuti"} */}
+                                    {/* RESTITUISCE MINUTI CENA */}
                                     {(listaMenu.length > 0 &&
                                       tempoMedioCena + " minuti") ||
+                                      chefSelected?.listaMenu
+                                        ?.map((menu) => menu.selezione)
+                                        .map((listProd) =>
+                                          listProd
+                                            .map(
+                                              (prod) => prod.tempoDiPreparazione
+                                            )
+                                            .reduce(
+                                              (acc, tempo) => acc + tempo + 15,
+                                              0
+                                            )
+                                        ) + " minuti" ||
                                       "variabile"}
                                   </p>
                                 </div>
@@ -192,30 +187,11 @@ const Negozio = () => {
                           </React.Fragment>
                         ))}
                     </Col>
-                    {/* {e?.listaChef.map((chef) => (
-                      <Col className={` pb-5 px-4`} lg={4}>
-                        <Chef
-                          selected={selected}
-                          setSelected={() => {
-                            setSelected(e?.id);
-                            console.log(selected);
-                          }}
-                          chef={chef}
-                        ></Chef>
-                      </Col>
-                    ))} */}
                   </Row>
                 </React.Fragment>
               ))}
         </div>
       </div>
-
-      {/* // <div  onClick={() => console.log(ristorante)}
-            //   className="d-flex justify-content-center align-items-center"
-            //   style={{ height: "500px", width: "500px" }}
-            // >
-            //   {e?.listaChef[i].name}
-            // </div> */}
     </>
   );
 };
