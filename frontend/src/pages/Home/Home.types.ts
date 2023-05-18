@@ -21,7 +21,6 @@ export interface Chef {
 export interface ListaMenu {
   id: number;
   selezione: ListaProdotti[];
-  chef: Chef[];
 }
 
 export interface ListaProdotti {

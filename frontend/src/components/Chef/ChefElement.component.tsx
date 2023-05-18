@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { Chef } from "../../pages/Home/Home.types";
 import styles from "./ChefElement.module.css";
+import { useAppDispatch } from "../../redux/store/store";
+import { removeChefToCart } from "../../redux/reducers/carrelloStore";
 
 const ChefElement = ({
   chef,
@@ -15,6 +17,7 @@ const ChefElement = ({
   //   React.SetStateAction<number | null | undefined>
   // >;
 }) => {
+  const dispatch = useAppDispatch();
   const [nameVisible, setNameVisible] = useState(false);
 
   const selectChef = () =>
@@ -35,6 +38,7 @@ const ChefElement = ({
       <div
         onClick={() => {
           selectChef();
+          dispatch(removeChefToCart());
           // selectMenu();
         }}
         className={`${styles.colChefOptions}`}
