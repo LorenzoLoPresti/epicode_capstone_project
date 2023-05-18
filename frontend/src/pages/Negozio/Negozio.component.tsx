@@ -1,5 +1,5 @@
-import { useParams } from "react-router-dom";
-import { useAppSelector } from "../../redux/store/store";
+import { Link, useParams } from "react-router-dom";
+import { useAppDispatch, useAppSelector } from "../../redux/store/store";
 import { Col, Row } from "react-bootstrap";
 import styles from "./Negozio.module.css";
 import Chef from "../../components/Chef/ChefElement.component";
@@ -8,12 +8,14 @@ import React from "react";
 import { ListaMenu } from "../Home/Home.types";
 import { useEffect } from "react";
 import GeneralButton from "../../components/Button/GeneralButton/GeneralButton.component";
+import { addChefToCart } from "../../redux/reducers/carrelloStore";
 // import { ListaProdotti } from "../Home/Home.types";
 
 const Negozio = () => {
   const { nomeRistorante } = useParams();
   const ristorante = useAppSelector((state) => state.authToken?.ristoranti);
   const token = useAppSelector((state) => state.authToken?.token);
+  const dispatch = useAppDispatch();
   const [selected, setSelected] = useState(0);
   const [listaMenu, setListaMenu] = useState<ListaMenu[]>([]);
   // const [menuSelected, setMenuSelected] = useState<number | null>();
@@ -48,6 +50,15 @@ const Negozio = () => {
     } catch (error) {
       return error;
     }
+  };
+
+  const selezionaChefPerId = (id: number) => {
+    const listaChef = ristorante?.find(
+      (r) => r?.name === nomeRistorante
+    )?.listaChef;
+
+    const chefSelezionato = listaChef?.filter((c) => c.id === id);
+    return chefSelezionato![0];
   };
 
   useEffect(() => {
@@ -194,12 +205,23 @@ const Negozio = () => {
                                     </p>
                                   </Col>
                                   <Col className="mt-xl-5 mt-lg-3">
-                                    <GeneralButton
-                                      text={`Vai ${
-                                        (listaMenu?.length === 1 && "al") ||
-                                        "ai"
-                                      } menu`}
-                                    />
+                                    <Link
+                                      to={"/carrello"}
+                                      onClick={() =>
+                                        dispatch(
+                                          addChefToCart(
+                                            selezionaChefPerId(selected)
+                                          )
+                                        )
+                                      }
+                                    >
+                                      <GeneralButton
+                                        text={`Vai ${
+                                          (listaMenu?.length === 1 && "al") ||
+                                          "ai"
+                                        } menu`}
+                                      />
+                                    </Link>
                                   </Col>
                                 </Row>
                               </Col>

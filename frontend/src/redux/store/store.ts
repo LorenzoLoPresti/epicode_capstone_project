@@ -4,9 +4,11 @@ import { TypedUseSelectorHook, useSelector, useDispatch } from "react-redux";
 import storage from "redux-persist/lib/storage";
 import { persistReducer } from "redux-persist";
 import persistStore from "redux-persist/es/persistStore";
+import { carrelloStore } from "../reducers/carrelloStore";
 
 const rootReducer = combineReducers({
   authToken: tokenStore.reducer,
+  carrelloReducer: carrelloStore.reducer,
 });
 
 const persistConfig = {
