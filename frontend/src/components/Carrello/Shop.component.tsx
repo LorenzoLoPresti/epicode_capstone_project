@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { useAppSelector } from "../../redux/store/store";
+import { useAppDispatch, useAppSelector } from "../../redux/store/store";
 import styles from "./Shop.module.css";
 import { Col, Row } from "react-bootstrap";
 import AccordionMenu from "../AccordionMenu/AccordionMenu.component";
@@ -8,9 +8,26 @@ import { AiOutlineMinus } from "react-icons/ai";
 import { useState } from "react";
 import { ListaProdotti } from "../../pages/Home/Home.types";
 import Vino from "../VinoElemento/Vino.component";
+import GeneralButton from "../Button/GeneralButton/GeneralButton.component";
+import {
+  addDataCena,
+  addListaVini,
+  addMenu,
+  addNumberOfPeaple,
+  addUsernameToCart,
+} from "../../redux/reducers/carrelloStore";
+
+interface Carrello {
+  username: string;
+  partecipanti: number;
+  menu: ListaProdotti[];
+  vini: ListaProdotti[];
+  dataCena: string;
+}
 
 const Shop = () => {
   const ristorante = useAppSelector((state) => state.authToken?.ristoranti);
+  const username = useAppSelector((state) => state.authToken?.username);
   const { nomeRistorante } = useParams();
   const chefSelezionato = useAppSelector(
     (state) => state.carrelloReducer?.chef
@@ -21,6 +38,29 @@ const Shop = () => {
   const [listaViniScelti, setListaViniScelti] = useState<ListaProdotti[]>([]);
   const [dateSelected, setDateSelected] = useState("");
   const [nomeVinoSelezionato, setNomeVinoSelezionato] = useState("");
+  const dispatch = useAppDispatch();
+
+  const carrello: Carrello = {
+    username: username,
+    partecipanti: numeroCommensali,
+    menu: menuSelected,
+    vini: listaViniScelti,
+    dataCena: dateSelected,
+  };
+
+  const handleDispatch = ({
+    username,
+    partecipanti,
+    menu,
+    vini,
+    dataCena,
+  }: Carrello) => {
+    dispatch(addUsernameToCart(username));
+    dispatch(addNumberOfPeaple(partecipanti));
+    dispatch(addMenu(menu));
+    dispatch(addListaVini(vini));
+    dispatch(addDataCena(dataCena));
+  };
 
   const aggiungiCommensale = () => {
     if (numeroCommensali < 8) setNumeroCommensali(numeroCommensali + 1);
@@ -164,6 +204,8 @@ const Shop = () => {
                     selezione={s?.selezione}
                     setMenuSelected={setMenuSelected}
                     setCartaVini={setCartaVini}
+                    setListaViniScelti={setListaViniScelti}
+                    setNomeVinoSelezionato={setNomeVinoSelezionato}
                   />
                 ))}
               </Col>
@@ -201,9 +243,11 @@ const Shop = () => {
             </div>
             {cartaVini?.length > 0 &&
               cartaVini.map((v) => (
-                <div onClick={() => setNomeVinoSelezionato(v?.name)}>
+                <div
+                  key={v?.id}
+                  onClick={() => setNomeVinoSelezionato(v?.name)}
+                >
                   <Vino
-                    key={v?.id}
                     vino={v}
                     nomeVino={nomeVinoSelezionato}
                     listaViniScelti={listaViniScelti}
@@ -212,6 +256,10 @@ const Shop = () => {
                 </div>
               ))}
           </section>
+          <GeneralButton
+            text="Vai al checkout"
+            onClick={() => handleDispatch(carrello)}
+          />
         </div>
       </div>
     </>

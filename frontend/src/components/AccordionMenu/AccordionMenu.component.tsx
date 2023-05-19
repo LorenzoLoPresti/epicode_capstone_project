@@ -12,11 +12,15 @@ const AccordionMenu = ({
   setCartaVini,
   opzione,
   setMenuSelected,
+  setListaViniScelti,
+  setNomeVinoSelezionato,
 }: {
   selezione: ListaProdotti[];
   setCartaVini: React.Dispatch<React.SetStateAction<ListaProdotti[]>>;
   opzione: number;
   setMenuSelected: React.Dispatch<React.SetStateAction<ListaProdotti[]>>;
+  setListaViniScelti: React.Dispatch<React.SetStateAction<ListaProdotti[]>>;
+  setNomeVinoSelezionato: React.Dispatch<React.SetStateAction<string>>;
 }) => {
   const [visible, setVisible] = useState(false);
   const [selected, setSelected] = useState(false);
@@ -149,6 +153,9 @@ const AccordionMenu = ({
                       onClick={() => {
                         setMenuSelected([]);
                         setSelected(false);
+                        setListaViniScelti([]);
+                        setNomeVinoSelezionato("");
+                        setCartaVini([]);
                       }}
                     />
                   </div>

@@ -7,6 +7,7 @@ interface Carrello {
   listaProdottiMenu: ListaProdotti[] | null;
   listaVini: ListaProdotti[] | null;
   numeroCommensali: number;
+  dataCena: string | null;
 }
 
 const initialState: Carrello = {
@@ -15,6 +16,7 @@ const initialState: Carrello = {
   listaProdottiMenu: [],
   listaVini: [],
   numeroCommensali: 0,
+  dataCena: null,
 };
 
 export const carrelloStore = createSlice({
@@ -29,12 +31,22 @@ export const carrelloStore = createSlice({
       state.listaProdottiMenu = null;
       state.listaVini = null;
       state.numeroCommensali = 0;
+      state.dataCena = null;
     },
     addUsernameToCart: (state, action: PayloadAction<string>) => {
       state.username = action.payload;
     },
     addNumberOfPeaple: (state, action: PayloadAction<number>) => {
       state.numeroCommensali = action.payload;
+    },
+    addMenu: (state, action: PayloadAction<ListaProdotti[]>) => {
+      state.listaProdottiMenu = action.payload;
+    },
+    addListaVini: (state, action: PayloadAction<ListaProdotti[]>) => {
+      state.listaVini = action.payload;
+    },
+    addDataCena: (state, action: PayloadAction<string>) => {
+      state.dataCena = action.payload;
     },
   },
 });
@@ -44,4 +56,7 @@ export const {
   removeChefToCart,
   addUsernameToCart,
   addNumberOfPeaple,
+  addMenu,
+  addListaVini,
+  addDataCena,
 } = carrelloStore.actions;
