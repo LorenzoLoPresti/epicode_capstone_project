@@ -1,8 +1,8 @@
 import { useParams } from "react-router-dom";
 import { useAppSelector } from "../../redux/store/store";
-import styles from "./Carrello.module.css";
+import styles from "./Shop.module.css";
 
-const Carrello = () => {
+const Shop = () => {
   const ristorante = useAppSelector((state) => state.authToken?.ristoranti);
   const { nomeRistorante } = useParams();
 
@@ -24,4 +24,4 @@ const Carrello = () => {
   );
 };
 
-export default Carrello;
+export default Shop;

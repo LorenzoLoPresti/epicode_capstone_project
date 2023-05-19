@@ -184,10 +184,10 @@ public class AppRunner implements ApplicationRunner {
 //			serviceRistorante.modifica(r3);
 
 			servicePiatto
-					.salva(piatto.getObject("Carbonara", CategoriaProdotto.PRIMO, 18.00, "", m1, TipoCottura.COTTO, 25));
+					.salva(piatto.getObject("Gnocchi al ragù di pollo", CategoriaProdotto.PRIMO, 14.00, "", m1, TipoCottura.COTTO, 25));
 			servicePiatto
-					.salva(piatto.getObject("Amatriciana", CategoriaProdotto.PRIMO, 17.00,"", m1, TipoCottura.COTTO, 25));
-			servicePiatto.salva(piatto.getObject("Gricia", CategoriaProdotto.PRIMO, 17.00,"", m1, TipoCottura.COTTO, 25));
+					.salva(piatto.getObject("Filetto di manzo alla griglia con salsa al vino rosso", CategoriaProdotto.SECONDO, 17.00,"", m1, TipoCottura.COTTO, 25));
+			servicePiatto.salva(piatto.getObject("Panna cotta con coulis di frutti di bosco", CategoriaProdotto.DOLCE, 17.00,"", m1, TipoCottura.COTTO, 25));
 
 			servicePiatto
 					.salva(piatto.getObject("Carbonara", CategoriaProdotto.PRIMO, 18.00,"", m2, TipoCottura.COTTO, 25));
