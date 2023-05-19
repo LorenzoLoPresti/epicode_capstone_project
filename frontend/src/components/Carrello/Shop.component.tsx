@@ -7,11 +7,7 @@ import { BiPlus } from "react-icons/bi";
 import { AiOutlineMinus } from "react-icons/ai";
 import { useState } from "react";
 import { ListaProdotti } from "../../pages/Home/Home.types";
-
-export interface AccordionItem {
-  title: string;
-  content: string;
-}
+import Vino from "../VinoElemento/Vino.component";
 
 const Shop = () => {
   const ristorante = useAppSelector((state) => state.authToken?.ristoranti);
@@ -21,12 +17,20 @@ const Shop = () => {
   );
   const [numeroCommensali, setNumeroCommensali] = useState(0);
   const [menuSelected, setMenuSelected] = useState<ListaProdotti[]>([]);
+  const [cartaVini, setCartaVini] = useState<ListaProdotti[]>([]);
+  const [listaViniScelti, setListaViniScelti] = useState<ListaProdotti[]>([]);
+  const [dateSelected, setDateSelected] = useState("");
+  const [nomeVinoSelezionato, setNomeVinoSelezionato] = useState("");
 
   const aggiungiCommensale = () => {
     if (numeroCommensali < 8) setNumeroCommensali(numeroCommensali + 1);
   };
   const rimuoviCommensale = () => {
     if (numeroCommensali > 0) setNumeroCommensali(numeroCommensali - 1);
+  };
+
+  const handleDatePicker = (e: React.FormEvent) => {
+    e.preventDefault();
   };
 
   // const accordionItems: AccordionItem[] = [
@@ -57,7 +61,8 @@ const Shop = () => {
         }}
       >
         <div className={`${styles.mainContainer}`}>
-          <Row className=" py-5 mb-4 flex-column">
+          {/* INTRO */}
+          <Row className=" pt-5 mb-0 flex-column">
             <Col className={`${styles.chefNameContainer} mb-4`}>
               <h1 className={`text-light ${styles.chefName}`}>
                 Il menu di {chefSelezionato?.name}
@@ -83,67 +88,130 @@ const Shop = () => {
                   Prepara il palato e preparati a gustare un viaggio
                   gastronomico di alto livello.
                 </p>
-                <p className={`mb-5 text-light ${styles.copyOptions}`}>
+                <p className={`mb-3 text-light ${styles.copyOptions}`}>
                   Scegli il tuo menu e prenota ora per una serata
                   indimenticabile.
                 </p>
               </div>
             </Col>
-
-            <Row>
-              <Col xs={12} lg={4} className="pt-2">
-                <div
-                  className={`${styles.chefImage}`}
-                  style={{
-                    backgroundImage: `url(${chefSelezionato?.immagineCucina})`,
-                    backgroundSize: "cover",
-                    backgroundPosition: "center",
-                  }}
-                ></div>
-              </Col>
-              <Col lg={8}>
-                <Col className="mb-4 mb-lg-3 mt-4 mt-lg-0 d-flex align-items-center justify-content-evenly">
-                  <h4 className="mb-0 fs-5" style={{ color: "#ccb7a9" }}>
-                    Inserisci il numero di commensali
-                  </h4>
-                  <div className="text-light text-center d-flex align-items-center">
-                    <button
-                      className={`px-1 ms-1 ${
-                        numeroCommensali > 0 && styles.commensaliBtn
-                      } ${numeroCommensali <= 0 && styles.btnDisabled}`}
-                      onClick={rimuoviCommensale}
-                    >
-                      <AiOutlineMinus className={`${styles.btnContent}`} />
-                    </button>
-                    <span className="px-1 fs-3" style={{ width: "1.6rem" }}>
-                      {numeroCommensali}
-                    </span>
-                    <button
-                      className={`px-1 me-1 ${
-                        numeroCommensali < 8 && styles.commensaliBtn
-                      } ${numeroCommensali >= 8 && styles.btnDisabled}`}
-                      onClick={aggiungiCommensale}
-                    >
-                      <BiPlus className={`${styles.btnContent}`} />
-                    </button>
-                  </div>
-                </Col>
-                <Col>
-                  {chefSelezionato?.listaMenu.map((s, i) => (
-                    <AccordionMenu
-                      key={i}
-                      opzione={i + 1}
-                      selezione={s?.selezione}
-                      setMenuSelected={setMenuSelected}
-                    />
-                  ))}
-                </Col>
-                <button onClick={() => console.log(menuSelected)}>
-                  controllo
-                </button>
-              </Col>
-            </Row>
           </Row>
+          {/* SELEZIONE MENU */}
+          <Row className="mb-5">
+            <Col xs={12} lg={4} className="pt-2">
+              <div
+                className={`${styles.chefImage}`}
+                style={{
+                  backgroundImage: `url(${chefSelezionato?.immagineCucina})`,
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                }}
+              ></div>
+            </Col>
+            <Col lg={8}>
+              <Col
+                className="mb-4 mt-4 mt-lg-0 d-flex align-items-center justify-content-between"
+                style={{ borderBottom: "1px solid #474c55" }}
+              >
+                <h4 className="mb-0 fs-5" style={{ color: "#ccb7a9" }}>
+                  Inserisci il numero di partecipanti
+                </h4>
+                <div className="text-light text-center d-flex align-items-center">
+                  <button
+                    className={`px-1 ms-1 ${
+                      numeroCommensali > 0 && styles.commensaliBtn
+                    } ${numeroCommensali <= 0 && styles.btnDisabled}`}
+                    onClick={rimuoviCommensale}
+                  >
+                    <AiOutlineMinus className={`${styles.btnContent}`} />
+                  </button>
+                  <span className="px-1 fs-3" style={{ width: "1.6rem" }}>
+                    {numeroCommensali}
+                  </span>
+                  <button
+                    className={`px-1 me-1 ${
+                      numeroCommensali < 8 && styles.commensaliBtn
+                    } ${numeroCommensali >= 8 && styles.btnDisabled}`}
+                    onClick={aggiungiCommensale}
+                  >
+                    <BiPlus className={`${styles.btnContent}`} />
+                  </button>
+                </div>
+              </Col>
+              <Col
+                className="mb-4 mt-4 mt-lg-0 pb-2 d-flex align-items-center justify-content-between"
+                style={{ borderBottom: "1px solid #474c55" }}
+              >
+                <h4 className="mb-0 fs-5" style={{ color: "#ccb7a9" }}>
+                  Seleziona la data
+                </h4>
+                <form onSubmit={handleDatePicker}>
+                  <input
+                    // className={styles.dataPicker}
+                    type="date"
+                    value={dateSelected}
+                    onChange={(e) => setDateSelected(e.target.value)}
+                  />
+                </form>
+              </Col>
+              <Col>
+                <h4 className="mb-2 fs-5" style={{ color: "#ccb7a9" }}>
+                  Seleziona menu
+                </h4>
+                {chefSelezionato?.listaMenu.map((s, i) => (
+                  <AccordionMenu
+                    key={i}
+                    opzione={i + 1}
+                    selezione={s?.selezione}
+                    setMenuSelected={setMenuSelected}
+                    setCartaVini={setCartaVini}
+                  />
+                ))}
+              </Col>
+              <button
+                onClick={() => {
+                  console.log(menuSelected);
+                  console.log(dateSelected);
+                  console.log(listaViniScelti);
+                  console.log(nomeVinoSelezionato);
+                }}
+              >
+                controllo
+              </button>
+            </Col>
+          </Row>
+          {/* SELEZIONE VINI */}
+          <section>
+            <h4 className=" mb-4 mt-2 fs-3" style={{ color: "#ccb7a9" }}>
+              Seleziona i vini per la serata
+            </h4>
+            <div className="d-flex flex-column mb-4">
+              <p className={`text-light mb-0 ${styles.copyOptions}`}>
+                Prepara il tuo palato per un'esperienza culinaria straordinaria
+                con i vini raccomandati dallo chef.
+              </p>
+              <p className={`text-light ${styles.copyOptions}`}>
+                Affidati alla sua expertise e lasciati guidare attraverso un
+                viaggio di sapori e abbinamenti perfetti.
+              </p>
+              <p className={`text-light ${styles.copyOptions}`}>
+                Lo chef ha selezionato personalmente una varietà di vini
+                pregiati, capaci di esaltare al meglio i piatti del menu e
+                creare un'armonia di gusto e aromi.
+              </p>
+            </div>
+            {cartaVini?.length > 0 &&
+              cartaVini.map((v) => (
+                <div onClick={() => setNomeVinoSelezionato(v?.name)}>
+                  <Vino
+                    key={v?.id}
+                    vino={v}
+                    nomeVino={nomeVinoSelezionato}
+                    listaViniScelti={listaViniScelti}
+                    setListaViniScelti={setListaViniScelti}
+                  />
+                </div>
+              ))}
+          </section>
         </div>
       </div>
     </>

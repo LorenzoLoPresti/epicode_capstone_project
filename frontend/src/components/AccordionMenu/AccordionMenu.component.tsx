@@ -5,13 +5,16 @@ import { AiOutlineMinus } from "react-icons/ai";
 import { VscDebugBreakpointLog } from "react-icons/vsc";
 import { ListaProdotti } from "../../pages/Home/Home.types";
 import React from "react";
+import GeneralButton from "../Button/GeneralButton/GeneralButton.component";
 
 const AccordionMenu = ({
   selezione,
+  setCartaVini,
   opzione,
   setMenuSelected,
 }: {
   selezione: ListaProdotti[];
+  setCartaVini: React.Dispatch<React.SetStateAction<ListaProdotti[]>>;
   opzione: number;
   setMenuSelected: React.Dispatch<React.SetStateAction<ListaProdotti[]>>;
 }) => {
@@ -23,6 +26,7 @@ const AccordionMenu = ({
   };
 
   const menu = selezione?.filter((p) => p?.categoria !== "BEVANDA");
+  const cartaVini = selezione?.filter((v) => v?.categoria === "BEVANDA");
 
   return (
     <div>
@@ -126,27 +130,27 @@ const AccordionMenu = ({
               </div>
               <div className="w-100 d-flex justify-content-end">
                 {!selected && (
-                  <div>
-                    <button
+                  <div style={{ transform: "scale(0.8)" }}>
+                    <GeneralButton
+                      text="Seleziona menu"
                       onClick={() => {
                         setMenuSelected(menu);
+                        setCartaVini(cartaVini);
                         setSelected(true);
                       }}
-                    >
-                      Seleziona menu
-                    </button>
+                      //   style={{ transform: "scale(0.8)" }}
+                    />
                   </div>
                 )}
                 {selected && (
-                  <div>
-                    <button
+                  <div style={{ transform: "scale(0.8)" }}>
+                    <GeneralButton
+                      text="Deseleziona menu"
                       onClick={() => {
                         setMenuSelected([]);
                         setSelected(false);
                       }}
-                    >
-                      Deseleziona menu
-                    </button>
+                    />
                   </div>
                 )}
               </div>
