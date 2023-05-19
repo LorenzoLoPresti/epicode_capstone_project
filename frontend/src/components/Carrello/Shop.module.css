@@ -8,3 +8,65 @@
   max-height: 100vh;
   animation: mainContainer ease 1s;
 }
+
+.chefNameContainer {
+  border-left: 2px solid #ccb7a9;
+  padding-left: 3rem;
+  margin-top: 1rem;
+  margin-left: calc(1.5rem * 0.5);
+}
+
+.chefName {
+  font-size: 3rem;
+  color: #faf4f0;
+  font-family: "Abril Fatface", cursive;
+}
+
+.chefImage {
+  height: 400px;
+  /* width: calc(100% - 5%);
+  margin: auto; */
+}
+
+.copyOptions {
+  /* width: 50%; */
+  font-size: 1.1rem;
+}
+
+@media screen and (max-width: 1040px) {
+  .chefName {
+    font-size: 2.5rem;
+  }
+  .colNameOptions {
+    padding-left: 2rem;
+  }
+}
+
+@media screen and (max-width: 998px) {
+  .mainContainer {
+    padding: 6rem 2rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .chefNameContainer {
+    padding-left: 1rem;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .mainContainer {
+    padding: 6rem 2rem;
+    margin: 0;
+    width: 100%;
+  }
+
+  .chefName {
+    font-size: 2rem;
+  }
+
+  .copyOptions {
+    /* width: 100%; */
+    font-size: 1rem;
+  }
+}

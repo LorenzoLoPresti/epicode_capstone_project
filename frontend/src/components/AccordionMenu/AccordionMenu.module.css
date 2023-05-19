@@ -1,0 +1,35 @@
+.accordionBg {
+  background-color: #1e1b1c;
+  color: #ccb7a9;
+  font-size: 1.2rem;
+  padding: 0.5rem 0;
+}
+
+.accordionBody {
+  color: white;
+  height: 100%;
+  /* display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 1s; */
+}
+
+/* .accordionContent {
+  overflow: hidden;
+}
+
+.accordionOpen {
+  grid-template-rows: 1fr;
+} */
+
+.dishNameOptions {
+  color: #ccb7a9;
+}
+
+.dishDescription {
+  font-weight: 100;
+  font-style: italic;
+}
+
+.icons {
+  font-size: 0.925rem;
+}
