@@ -9,24 +9,39 @@ import React from "react";
 const AccordionMenu = ({
   selezione,
   opzione,
+  setMenuSelected,
 }: {
   selezione: ListaProdotti[];
   opzione: number;
+  setMenuSelected: React.Dispatch<React.SetStateAction<ListaProdotti[]>>;
 }) => {
   const [visible, setVisible] = useState(false);
+  const [selected, setSelected] = useState(false);
 
   const filtraListaPerPortata = (portata: string) => {
     return selezione?.filter((p) => p.categoria === portata.toUpperCase());
   };
 
+  const menu = selezione?.filter((p) => p?.categoria !== "BEVANDA");
+
   return (
     <div>
-      <div className={`${styles.accordionBg} px-3 `}>
-        <div className={`d-flex justify-content-between align-items-center`}>
-          <p className="mb-0">Opzione {opzione}</p>
-          {(!visible && <BiPlus onClick={() => setVisible(!visible)} />) || (
-            <AiOutlineMinus onClick={() => setVisible(!visible)} />
-          )}
+      <div
+        className={`${styles.accordionBg} ${
+          selected && styles.accordionBgSelected
+        } px-3 `}
+        onClick={() => setVisible(!visible)}
+      >
+        <div
+          className={`d-flex justify-content-between align-items-center`}
+          style={{ cursor: "pointer" }}
+        >
+          <p className="mb-0">
+            Opzione {opzione}
+            {selected && <span className="ms-3">(Selezionato)</span>}
+          </p>
+
+          {(!visible && <BiPlus />) || <AiOutlineMinus />}
         </div>
         {visible && (
           <div className={`${styles.accordionBody} pt-3`}>
@@ -108,6 +123,32 @@ const AccordionMenu = ({
                       </p>
                     </React.Fragment>
                   ))}
+              </div>
+              <div className="w-100 d-flex justify-content-end">
+                {!selected && (
+                  <div>
+                    <button
+                      onClick={() => {
+                        setMenuSelected(menu);
+                        setSelected(true);
+                      }}
+                    >
+                      Seleziona menu
+                    </button>
+                  </div>
+                )}
+                {selected && (
+                  <div>
+                    <button
+                      onClick={() => {
+                        setMenuSelected([]);
+                        setSelected(false);
+                      }}
+                    >
+                      Deseleziona menu
+                    </button>
+                  </div>
+                )}
               </div>
             </div>
           </div>

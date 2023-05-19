@@ -33,6 +33,60 @@
   font-size: 1.1rem;
 }
 
+.chefName {
+  font-size: 2.8rem;
+}
+
+.copyOptions {
+  /* width: 100%; */
+  font-size: 1rem;
+}
+
+.commensaliBtn {
+  background-color: #ccb7a9;
+  color: #faf4f0;
+  border: 1px solid #faf4f0;
+  border-radius: 2px;
+  transition: transform 0.5s;
+  transition-timing-function: ease;
+  transform: scale(0.85);
+}
+
+.commensaliBtn:hover {
+  background-color: #ccb7a9 !important;
+  transform: scale(1.04);
+  animation-name: buttonAnimation !important;
+  animation-duration: 0.5s !important;
+}
+
+.btnDisabled {
+  background-color: #ccb7a9;
+  color: #faf4f0;
+  border: 1px solid #faf4f0;
+  border-radius: 2px;
+  opacity: 0.5;
+  transform: scale(0.85);
+}
+
+.btnContent {
+  margin-bottom: 2px;
+}
+
+@keyframes buttonAnimation {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    background-color: #c8beb7;
+  }
+
+  100% {
+    transform: scale(1.04);
+    background-color: #ccb7a9;
+  }
+}
+
 @media screen and (max-width: 1040px) {
   .chefName {
     font-size: 2.5rem;
@@ -59,14 +113,5 @@
     padding: 6rem 2rem;
     margin: 0;
     width: 100%;
-  }
-
-  .chefName {
-    font-size: 2rem;
-  }
-
-  .copyOptions {
-    /* width: 100%; */
-    font-size: 1rem;
   }
 }

@@ -3,6 +3,10 @@ import { useAppSelector } from "../../redux/store/store";
 import styles from "./Shop.module.css";
 import { Col, Row } from "react-bootstrap";
 import AccordionMenu from "../AccordionMenu/AccordionMenu.component";
+import { BiPlus } from "react-icons/bi";
+import { AiOutlineMinus } from "react-icons/ai";
+import { useState } from "react";
+import { ListaProdotti } from "../../pages/Home/Home.types";
 
 export interface AccordionItem {
   title: string;
@@ -15,6 +19,15 @@ const Shop = () => {
   const chefSelezionato = useAppSelector(
     (state) => state.carrelloReducer?.chef
   );
+  const [numeroCommensali, setNumeroCommensali] = useState(0);
+  const [menuSelected, setMenuSelected] = useState<ListaProdotti[]>([]);
+
+  const aggiungiCommensale = () => {
+    if (numeroCommensali < 8) setNumeroCommensali(numeroCommensali + 1);
+  };
+  const rimuoviCommensale = () => {
+    if (numeroCommensali > 0) setNumeroCommensali(numeroCommensali - 1);
+  };
 
   // const accordionItems: AccordionItem[] = [
   //   {
@@ -76,27 +89,58 @@ const Shop = () => {
                 </p>
               </div>
             </Col>
+
             <Row>
-              <Col
-                className={`${styles.chefImage}`}
-                xs={12}
-                lg={4}
-                style={{
-                  backgroundImage: `url(${chefSelezionato?.immagineCucina})`,
-                  backgroundSize: "cover",
-                  backgroundPosition: "center",
-                }}
-              ></Col>
+              <Col xs={12} lg={4} className="pt-2">
+                <div
+                  className={`${styles.chefImage}`}
+                  style={{
+                    backgroundImage: `url(${chefSelezionato?.immagineCucina})`,
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                  }}
+                ></div>
+              </Col>
               <Col lg={8}>
-                <div>
+                <Col className="mb-4 mb-lg-3 mt-4 mt-lg-0 d-flex align-items-center justify-content-evenly">
+                  <h4 className="mb-0 fs-5" style={{ color: "#ccb7a9" }}>
+                    Inserisci il numero di commensali
+                  </h4>
+                  <div className="text-light text-center d-flex align-items-center">
+                    <button
+                      className={`px-1 ms-1 ${
+                        numeroCommensali > 0 && styles.commensaliBtn
+                      } ${numeroCommensali <= 0 && styles.btnDisabled}`}
+                      onClick={rimuoviCommensale}
+                    >
+                      <AiOutlineMinus className={`${styles.btnContent}`} />
+                    </button>
+                    <span className="px-1 fs-3" style={{ width: "1.6rem" }}>
+                      {numeroCommensali}
+                    </span>
+                    <button
+                      className={`px-1 me-1 ${
+                        numeroCommensali < 8 && styles.commensaliBtn
+                      } ${numeroCommensali >= 8 && styles.btnDisabled}`}
+                      onClick={aggiungiCommensale}
+                    >
+                      <BiPlus className={`${styles.btnContent}`} />
+                    </button>
+                  </div>
+                </Col>
+                <Col>
                   {chefSelezionato?.listaMenu.map((s, i) => (
                     <AccordionMenu
                       key={i}
                       opzione={i + 1}
                       selezione={s?.selezione}
+                      setMenuSelected={setMenuSelected}
                     />
                   ))}
-                </div>
+                </Col>
+                <button onClick={() => console.log(menuSelected)}>
+                  controllo
+                </button>
               </Col>
             </Row>
           </Row>

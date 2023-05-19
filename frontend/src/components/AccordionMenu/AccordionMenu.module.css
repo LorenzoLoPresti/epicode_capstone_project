@@ -3,21 +3,31 @@
   color: #ccb7a9;
   font-size: 1.2rem;
   padding: 0.5rem 0;
+  transition: all ease 1s;
+  /* display: grid;
+  grid-template-rows: 0fr; */
+}
+
+.accordionBgSelected {
+  background-color: #474c55;
+  color: #ccb7a9;
+  transition: all ease 1s;
 }
 
 .accordionBody {
   color: white;
   height: 100%;
+
   /* display: grid;
   grid-template-rows: 0fr;
   transition: grid-template-rows 1s; */
 }
 
-/* .accordionContent {
+/* .accordionBody > div {
   overflow: hidden;
-}
+} */
 
-.accordionOpen {
+/* .accordionOpen {
   grid-template-rows: 1fr;
 } */
 
@@ -33,3 +43,7 @@
 .icons {
   font-size: 0.925rem;
 }
+
+/* .selected {
+  color: #1e1b1c;
+} */
