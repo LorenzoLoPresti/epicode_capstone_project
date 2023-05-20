@@ -20,7 +20,6 @@ const Checkout = () => {
   const [prezzoChef, setPrezzoChef] = useState(0);
   const [prezzoPiatti, setPrezzoPiatti] = useState<number | undefined>();
   const [prezzoVini, setPrezzoVini] = useState<number | undefined>(0);
-  const [totaleCarrello, setTotaleCarrello] = useState<number | undefined>(0);
 
   const cartChecker = () =>
     chef === null && dataCena === null && listaProdottiMenu === null
@@ -31,7 +30,6 @@ const Checkout = () => {
     let tempoChef;
     let costoChef;
     let costoPiattiTotale;
-    let totale;
 
     const tempo = listaProdottiMenu?.map((t) => t?.tempoDiPreparazione);
     const tempoTotale = tempo?.reduce((acc, tempo) => acc + tempo + 15, 0);
@@ -51,13 +49,11 @@ const Checkout = () => {
 
     const vini = listaVini?.map((v) => v?.prezzo);
     const costoVini = vini?.reduce((acc, costoVino) => acc + costoVino, 0);
-    if (prezzoVini && prezzoPiatti)
-      totale = prezzoChef + prezzoVini + prezzoPiatti;
 
     setPrezzoChef(costoChef);
     setPrezzoPiatti(costoPiattiTotale);
     setPrezzoVini(costoVini);
-    setTotaleCarrello(totale);
+
     console.log(prezzoChef, prezzoVini, prezzoPiatti);
   };
 
@@ -167,7 +163,7 @@ const Checkout = () => {
                         </div>
                       </div>
                     </Col>
-                    <Col className="d-flex justify-content-between">
+                    <Col xs={12} className="d-flex justify-content-between">
                       <h4>Totale</h4>
                       <button onClick={() => totale()}>Controllo</button>
                       <div>
@@ -178,7 +174,13 @@ const Checkout = () => {
                             prezzoVini &&
                             prezzoPiatti + prezzoVini}
                         </p>
-                        <p>totale: {totaleCarrello}</p>
+                        <p>
+                          totale:{" "}
+                          {prezzoPiatti &&
+                            prezzoVini &&
+                            prezzoChef &&
+                            prezzoPiatti + prezzoVini + prezzoChef}
+                        </p>
                       </div>
                     </Col>
                   </Row>
