@@ -69,7 +69,7 @@ const Checkout = () => {
     <>
       <div
         style={{
-          height: "100vh",
+          minHeight: "100vh",
           backgroundImage: `url(${accedi})`,
           backgroundSize: "cover",
         }}
@@ -103,7 +103,7 @@ const Checkout = () => {
               {token && cartChecker() && (
                 <>
                   <Row
-                    className={`d-flex flex-column h-100 pt-3 px-3 ${styles.registerOptions}`}
+                    className={`d-flex flex-column pt-3 px-3 ${styles.registerOptions}`}
                   >
                     <Col xs={12} className={`${styles.tableOptions} mb-4`}>
                       <h3>Il tuo carrello</h3>

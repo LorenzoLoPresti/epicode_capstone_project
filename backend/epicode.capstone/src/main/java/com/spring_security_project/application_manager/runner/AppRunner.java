@@ -126,6 +126,7 @@ public class AppRunner implements ApplicationRunner {
 			serviceMenu.salva(menu.getObject(c4));
 			serviceMenu.salva(menu.getObject(c5));
 			serviceMenu.salva(menu.getObject(c6));
+			serviceMenu.salva(menu.getObject(c1));
 
 			Menu m1 = serviceMenu.cercaPerId(1l);
 			Menu m2 = serviceMenu.cercaPerId(2l);
@@ -133,8 +134,10 @@ public class AppRunner implements ApplicationRunner {
 			Menu m4 = serviceMenu.cercaPerId(4l);
 			Menu m5 = serviceMenu.cercaPerId(5l);
 			Menu m6 = serviceMenu.cercaPerId(6l);
+			Menu m7 = serviceMenu.cercaPerId(7l);
 
 			c1.getListaMenu().add(m1);
+			c1.getListaMenu().add(m7);
 			c1.setImmagineProfilo("/src/assets/chef/fring_posa.jpg");
 			c1.setImmagineCucina("/src/assets/chef/fring_cucina.jpg");
 			serviceChef.modifica(c1);
@@ -218,6 +221,11 @@ public class AppRunner implements ApplicationRunner {
 			servicePiatto
 					.salva(piatto.getObject("Amatriciana", CategoriaProdotto.PRIMO, 17.00,"", m6, TipoCottura.COTTO, 25));
 			servicePiatto.salva(piatto.getObject("Gricia", CategoriaProdotto.PRIMO, 17.00,"", m6, TipoCottura.COTTO, 25));
+			
+			servicePiatto.salva(piatto.getObject("Insalata di pollo alla Caesar", CategoriaProdotto.ANTIPASTO, 10.00, "",m7, TipoCottura.COTTO, 10));
+			servicePiatto.salva(piatto.getObject("Tagliatelle al tartufo nero", CategoriaProdotto.PRIMO, 18.00, "",m7, TipoCottura.COTTO, 25));
+			servicePiatto.salva(piatto.getObject("Costolette di agnello in crosta di erbette", CategoriaProdotto.SECONDO, 26.00, "",m7, TipoCottura.COTTO, 35));
+			servicePiatto.salva(piatto.getObject("Torta al cioccolato fondente con gelato alla vaniglia", CategoriaProdotto.DOLCE, 9.00, "",m7, TipoCottura.COTTO, 10));
 //			
 			serviceBevanda.salva(bevanda.getObject("Marchese di Villamarina", CategoriaProdotto.BEVANDA, 38.00,					
 					"Il vino Marchese di Villamarina è un'eccellenza italiana. Di colore intenso, presenta un bouquet complesso e avvolgente di frutti maturi, spezie e note floreali. In bocca è elegante, con tannini morbidi e una piacevole persistenza",
@@ -247,6 +255,16 @@ public class AppRunner implements ApplicationRunner {
 					m6,
 					TipoBevanda.ALCOLICA
 					));
+			serviceBevanda.salva(bevanda.getObject("Molvina", CategoriaProdotto.BEVANDA, 45.00,
+					"Il vino Molvina è un'opera d'arte enologica. Colore vivace, aroma fruttato e fresco con accenti floreali. Gusto equilibrato e persistente con una piacevole acidità",
+					m7,
+					TipoBevanda.ALCOLICA
+					));
+			serviceBevanda.salva(bevanda.getObject("Brunello di Montalcino", CategoriaProdotto.BEVANDA, 45.00,
+					"Il Brunello di Montalcino è uno dei vini più rinomati e ammirati in Italia. Prodotto nella regione toscana, presenta un colore rubino intenso e un profilo aromatico complesso con note di frutta rossa, spezie, tabacco e cuoio.",
+					m7,
+					TipoBevanda.ALCOLICA
+					));
 //			
 //			serviceBevanda.salva(bevanda.getObject("Molvina", CategoriaProdotto.BEVANDA, 45.00, m6, TipoBevanda.ALCOLICA, ""));
 
@@ -268,13 +286,20 @@ public class AppRunner implements ApplicationRunner {
 			Piatto p16 = servicePiatto.cercaPerId(16l);
 			Piatto p17 = servicePiatto.cercaPerId(17l);
 			Piatto p18 = servicePiatto.cercaPerId(18l);
+			Piatto p19 = servicePiatto.cercaPerId(19l);
+			Piatto p20 = servicePiatto.cercaPerId(20l);
+			Piatto p21 = servicePiatto.cercaPerId(21l);
+			Piatto p22 = servicePiatto.cercaPerId(22l);
+			
 
-			Bevanda b1 = serviceBevanda.cercaPerId(19l);
-			Bevanda b2 = serviceBevanda.cercaPerId(20l);
-			Bevanda b3 = serviceBevanda.cercaPerId(21l);
-			Bevanda b4 = serviceBevanda.cercaPerId(22l);
-			Bevanda b5 = serviceBevanda.cercaPerId(23l);
-			Bevanda b6 = serviceBevanda.cercaPerId(24l);
+			Bevanda b1 = serviceBevanda.cercaPerId(23l);
+			Bevanda b2 = serviceBevanda.cercaPerId(24l);
+			Bevanda b3 = serviceBevanda.cercaPerId(25l);
+			Bevanda b4 = serviceBevanda.cercaPerId(26l);
+			Bevanda b5 = serviceBevanda.cercaPerId(27l);
+			Bevanda b6 = serviceBevanda.cercaPerId(28l);
+			Bevanda b7 = serviceBevanda.cercaPerId(29l);
+			Bevanda b8 = serviceBevanda.cercaPerId(30l);
 
 			m1.getSelezione().add(p1);
 			m1.getSelezione().add(p2);
@@ -306,6 +331,13 @@ public class AppRunner implements ApplicationRunner {
 			m6.getSelezione().add(p18);
 			m6.getSelezione().add(b6);
 			serviceMenu.modifica(m6);
+			m7.getSelezione().add(p19);
+			m7.getSelezione().add(p20);
+			m7.getSelezione().add(p21);
+			m7.getSelezione().add(p22);
+			m7.getSelezione().add(b7);
+			m7.getSelezione().add(b8);
+			serviceMenu.modifica(m7);
 
 //			c4.getListaProdotti().add(p1);
 //			c4.getListaProdotti().add(p2);
