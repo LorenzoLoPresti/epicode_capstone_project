@@ -59,6 +59,22 @@
   animation-duration: 0.5s !important;
 }
 
+.winesContainer {
+  padding: 0.5rem 0;
+  background-color: #1e1b1c;
+  opacity: 1;
+  animation: winesContainer ease 1s;
+}
+
+@keyframes winesContainer {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 .btnDisabled {
   background-color: #ccb7a9;
   color: #faf4f0;

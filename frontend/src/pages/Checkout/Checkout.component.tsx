@@ -1,34 +1,4 @@
-import { useState, useEffect } from "react";
-// import Modal from "../components/Modal/Modal.component";
-import MyButton from "../components/Button/NavButton/MyButton.component";
-import COLORS from "../style/color";
-import { useAppDispatch, useAppSelector } from "../redux/store/store";
-import { fetchToken, user } from "../redux/reducers/tokenStore";
-import { Col, Container, Row } from "react-bootstrap";
-import style from "./Login.module.css";
-import { useNavigate } from "react-router-dom";
-import accedi from "../assets/accediImg.jpg";
-
-const Login = () => {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [showAuthModal, setShowAuthModal] = useState(false);
-  const dispatch = useAppDispatch();
-  const navigate = useNavigate();
-  const reduxUsername = useAppSelector((state) => state.authToken?.username);
-
-  const user: user = {
-    username,
-    password,
-  };
-
-  useEffect(() => {
-    if (reduxUsername) {
-      navigate("/");
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [reduxUsername]);
-
+const Checkout = () => {
   return (
     <>
       <div
@@ -101,31 +71,31 @@ const Login = () => {
       </div>
 
       {/* {showAuthModal && (
-        <Modal
-          onClose={() => setShowAuthModal(false)}
-          title="Accedi a Grand Bistrot"
-          subtitle="login"
-          username={username}
-          setUsername={setUsername}
-          password={password}
-          setPassword={setPassword}
-        >
-          <MyButton
-            text="Sign Up"
-            onClick={() => {
-              dispatch(fetchToken(user));
-              setUsername("");
-              setPassword("");
-            }}
-            style={{
-              backgroundColor: `${COLORS.brandGold}`,
-              color: `${COLORS.brandBlack}`,
-            }}
-          />
-        </Modal>
-      )} */}
+    <Modal
+      onClose={() => setShowAuthModal(false)}
+      title="Accedi a Grand Bistrot"
+      subtitle="login"
+      username={username}
+      setUsername={setUsername}
+      password={password}
+      setPassword={setPassword}
+    >
+      <MyButton
+        text="Sign Up"
+        onClick={() => {
+          dispatch(fetchToken(user));
+          setUsername("");
+          setPassword("");
+        }}
+        style={{
+          backgroundColor: `${COLORS.brandGold}`,
+          color: `${COLORS.brandBlack}`,
+        }}
+      />
+    </Modal>
+  )} */}
     </>
   );
 };
 
-export default Login;
+export default Checkout;

@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../redux/store/store";
 import styles from "./Shop.module.css";
 import { Col, Row } from "react-bootstrap";
@@ -39,6 +39,7 @@ const Shop = () => {
   const [dateSelected, setDateSelected] = useState("");
   const [nomeVinoSelezionato, setNomeVinoSelezionato] = useState("");
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
   const carrello: Carrello = {
     username: username,
@@ -60,6 +61,13 @@ const Shop = () => {
     dispatch(addMenu(menu));
     dispatch(addListaVini(vini));
     dispatch(addDataCena(dataCena));
+
+    console.log(menuSelected);
+    console.log(dateSelected);
+    console.log(listaViniScelti);
+    console.log(nomeVinoSelezionato);
+
+    navigate("/checkout");
   };
 
   const aggiungiCommensale = () => {
@@ -71,6 +79,14 @@ const Shop = () => {
 
   const handleDatePicker = (e: React.FormEvent) => {
     e.preventDefault();
+  };
+
+  const handleWineSelector = (nomeVino: string) => {
+    if (nomeVinoSelezionato) {
+      setNomeVinoSelezionato("");
+    } else {
+      setNomeVinoSelezionato(nomeVino);
+    }
   };
 
   // const accordionItems: AccordionItem[] = [
@@ -194,7 +210,7 @@ const Shop = () => {
                 </form>
               </Col>
               <Col>
-                <h4 className="mb-2 fs-5" style={{ color: "#ccb7a9" }}>
+                <h4 className="mb-3 fs-5" style={{ color: "#ccb7a9" }}>
                   Seleziona menu
                 </h4>
                 {chefSelezionato?.listaMenu.map((s, i) => (
@@ -209,20 +225,10 @@ const Shop = () => {
                   />
                 ))}
               </Col>
-              <button
-                onClick={() => {
-                  console.log(menuSelected);
-                  console.log(dateSelected);
-                  console.log(listaViniScelti);
-                  console.log(nomeVinoSelezionato);
-                }}
-              >
-                controllo
-              </button>
             </Col>
           </Row>
           {/* SELEZIONE VINI */}
-          <section>
+          <section className="mb-5">
             <h4 className=" mb-4 mt-2 fs-3" style={{ color: "#ccb7a9" }}>
               Seleziona i vini per la serata
             </h4>
@@ -241,20 +247,29 @@ const Shop = () => {
                 creare un'armonia di gusto e aromi.
               </p>
             </div>
-            {cartaVini?.length > 0 &&
-              cartaVini.map((v) => (
-                <div
-                  key={v?.id}
-                  onClick={() => setNomeVinoSelezionato(v?.name)}
-                >
-                  <Vino
-                    vino={v}
-                    nomeVino={nomeVinoSelezionato}
-                    listaViniScelti={listaViniScelti}
-                    setListaViniScelti={setListaViniScelti}
-                  />
-                </div>
-              ))}
+            {menuSelected?.length === 0 && (
+              <div className={`${styles.winesContainer} px-3`}>
+                <p style={{ color: "#ccb7a9" }}>
+                  Seleziona il menu per accedere alla selezione dei vini
+                </p>
+              </div>
+            )}
+            {menuSelected?.length > 0 && (
+              <div className={`${styles.winesContainer} px-3`}>
+                {cartaVini?.length > 0 &&
+                  cartaVini.map((v) => (
+                    <div key={v?.id}>
+                      <Vino
+                        vino={v}
+                        nomeVino={nomeVinoSelezionato}
+                        listaViniScelti={listaViniScelti}
+                        setListaViniScelti={setListaViniScelti}
+                        onClick={() => handleWineSelector(v?.name)}
+                      />
+                    </div>
+                  ))}
+              </div>
+            )}
           </section>
           <GeneralButton
             text="Vai al checkout"

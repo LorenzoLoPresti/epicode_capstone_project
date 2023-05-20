@@ -46,7 +46,7 @@ const AccordionMenu = ({
         >
           <p className="mb-0">
             Opzione {opzione}
-            {selected && <span className="ms-3">(Selezionato)</span>}
+            {selected && <span className="ms-1 ms-sm-3">(Selezionato)</span>}
           </p>
 
           {(!visible && <BiPlus />) || <AiOutlineMinus />}

@@ -9,11 +9,13 @@ const Vino = ({
   nomeVino,
   listaViniScelti,
   setListaViniScelti,
+  onClick,
 }: {
   vino: ListaProdotti;
   nomeVino: string;
   listaViniScelti: ListaProdotti[];
   setListaViniScelti: React.Dispatch<React.SetStateAction<ListaProdotti[]>>;
+  onClick: () => void;
 }) => {
   const [numeroBottiglie, setNumeroBottiglie] = useState(0);
   //   const [bottiglieSelezionate, setBottiglieSelezionate] = useState<
@@ -66,15 +68,27 @@ const Vino = ({
 
   return (
     <div className={` text-light ${styles.vinoOptions}`}>
-      <p className="fs-5" style={{ fontStyle: "italic", color: "#ccb7a9" }}>
-        {vino?.name}
-      </p>
+      <div className="d-flex justify-content-between">
+        <p
+          onClick={onClick}
+          className="fs-5"
+          style={{ fontStyle: "italic", color: "#ccb7a9" }}
+        >
+          {vino?.name}
+        </p>
+        <p onClick={onClick}>
+          {(vino?.name === nomeVino && <AiOutlineMinus />) || <BiPlus />}
+        </p>
+      </div>
 
       {nomeVino === vino?.name && (
         <>
           <p>{vino?.descrizione}</p>
-          <div className="w-100 d-flex">
-            <p>Prezzo: {vino?.prezzo}.00€</p>
+          <div className="w-100 d-flex justify-content-between">
+            <div className="d-flex align-items-center">
+              <p className="mb-0">Prezzo: {vino?.prezzo}.00€</p>
+            </div>
+
             <div className="text-light text-center d-flex align-items-center">
               <button
                 className={`px-1 ms-1 ${
