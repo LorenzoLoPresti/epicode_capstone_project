@@ -34,7 +34,7 @@ const Home = () => {
   useEffect(() => {
     const t = setTimeout(() => setLoading(false), 1500);
     return () => clearTimeout(t);
-  }, []);
+  }, [reduxToken]);
 
   useEffect(() => {
     if (reduxToken) {
@@ -63,7 +63,7 @@ const Home = () => {
   return (
     <div>
       <>
-        {loading && (
+        {!reduxToken && loading && (
           <div className={style.generalContainerOption}>
             <Row className="w-100" style={{ height: "100%" }}>
               <Col
@@ -83,7 +83,9 @@ const Home = () => {
             {!loading && <HomeBody />}
           </>
         )}
-        {ristoranti.length > 0 && <MyCarousel array={ristoranti} />}
+        {reduxToken && ristoranti.length > 0 && (
+          <MyCarousel array={ristoranti} />
+        )}
       </>
     </div>
   );

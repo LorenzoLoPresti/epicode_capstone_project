@@ -1,4 +1,74 @@
+import { useEffect, useState } from "react";
+import { Col, Container, Row } from "react-bootstrap";
+import accedi from "../../assets/accediImg.jpg";
+import styles from "./Checkout.module.css";
+import { useAppSelector } from "../../redux/store/store";
+import { Link, useNavigate } from "react-router-dom";
+
 const Checkout = () => {
+  const token = useAppSelector((state) => state.authToken?.token);
+  const navigate = useNavigate();
+  const chef = useAppSelector((state) => state.carrelloReducer?.chef);
+  const numeroCommensali = useAppSelector(
+    (state) => state.carrelloReducer?.numeroCommensali
+  );
+  const dataCena = useAppSelector((state) => state.carrelloReducer?.dataCena);
+  const listaProdottiMenu = useAppSelector(
+    (state) => state.carrelloReducer?.listaProdottiMenu
+  );
+  const listaVini = useAppSelector((state) => state.carrelloReducer?.listaVini);
+  const [prezzoChef, setPrezzoChef] = useState(0);
+  const [prezzoPiatti, setPrezzoPiatti] = useState<number | undefined>();
+  const [prezzoVini, setPrezzoVini] = useState<number | undefined>(0);
+  const [totaleCarrello, setTotaleCarrello] = useState<number | undefined>(0);
+
+  const cartChecker = () =>
+    chef === null && dataCena === null && listaProdottiMenu === null
+      ? false
+      : true;
+
+  const totale = () => {
+    let tempoChef;
+    let costoChef;
+    let costoPiattiTotale;
+    let totale;
+
+    const tempo = listaProdottiMenu?.map((t) => t?.tempoDiPreparazione);
+    const tempoTotale = tempo?.reduce((acc, tempo) => acc + tempo + 15, 0);
+    if (tempoTotale !== undefined) {
+      tempoChef = Math.ceil(tempoTotale / 60);
+      costoChef = chef!.tariffaOraria * tempoChef;
+    } else {
+      return console.error();
+    }
+
+    const piatti = listaProdottiMenu?.map((p) => p?.prezzo);
+    costoPiattiTotale = piatti?.reduce(
+      (acc, costoPiatto) => acc + costoPiatto,
+      0
+    );
+    if (costoPiattiTotale !== undefined) costoPiattiTotale *= numeroCommensali;
+
+    const vini = listaVini?.map((v) => v?.prezzo);
+    const costoVini = vini?.reduce((acc, costoVino) => acc + costoVino, 0);
+    if (prezzoVini && prezzoPiatti)
+      totale = prezzoChef + prezzoVini + prezzoPiatti;
+
+    setPrezzoChef(costoChef);
+    setPrezzoPiatti(costoPiattiTotale);
+    setPrezzoVini(costoVini);
+    setTotaleCarrello(totale);
+    console.log(prezzoChef, prezzoVini, prezzoPiatti);
+  };
+
+  useEffect(() => {
+    if (!token) {
+      const t = setInterval(() => navigate("/login"), 2000);
+      return () => clearInterval(t);
+    }
+    totale();
+  }, []);
+
   return (
     <>
       <div
@@ -8,63 +78,112 @@ const Checkout = () => {
           backgroundSize: "cover",
         }}
       >
-        <div className={`${style.loginContainerOptions}`}>
+        <div className={`${styles.loginContainerOptions}`}>
           <Container className="w-100 h-100 p-5">
-            <Row className="d-flex justify-content-center align-items-center text-light h-100 w-100 p-5">
-              <Col
-                className={`d-flex flex-column justify-content-center align-items-center h-100 ${style.registerOptions}`}
-              >
-                {!showAuthModal && (
+            <Row
+              className="d-flex justify-content-center align-items-center text-light h-100 w-100"
+              style={{ padding: "5rem 3rem 3rem" }}
+            >
+              {token && !cartChecker() && (
+                <Col
+                  className={`d-flex flex-column justify-content-center align-items-center h-100 ${styles.registerOptions}`}
+                >
+                  (
                   <>
-                    <h3>Sei già registrato?</h3>
-                    <p
-                      onClick={() => {
-                        setShowAuthModal(true);
-                      }}
-                      className="text-warning"
-                      style={{ cursor: "pointer" }}
-                    >
-                      Accedi ora!
+                    <h3>Il tuo carrello è vuoto</h3>
+                    <Link to={"/"} style={{ textDecoration: "none" }}>
+                      <p className="text-warning" style={{ cursor: "pointer" }}>
+                        Clicca qui per andare ai ristoranti
+                      </p>
+                    </Link>
+                  </>
+                  {!token && (
+                    <p>
+                      Effettua il login per accedere alle funzionalità del sito
                     </p>
-                  </>
-                )}
-                {showAuthModal && (
-                  <>
-                    <h3 className="mb-3">Accedi</h3>
-                    <input
-                      value={username}
-                      className={`mb-5 mb-md-3 ${style.inputOptions}`}
-                      type="text"
-                      placeholder="username"
-                      onChange={(e) => {
-                        setUsername(e.target.value);
-                      }}
-                    />
-                    <input
-                      value={password}
-                      className={`mb-5 mb-md-3 ${style.inputOptions}`}
-                      type="password"
-                      placeholder="password"
-                      onChange={(e) => {
-                        setPassword(e.target.value);
-                      }}
-                    />
-                    <MyButton
-                      text="Sign Up"
-                      onClick={() => {
-                        dispatch(fetchToken(user));
-                        setUsername("");
-                        setPassword("");
-                      }}
-                      style={{
-                        backgroundColor: `${COLORS.brandGold}`,
-                        color: `${COLORS.brandBlack}`,
-                        marginTop: "12px",
-                      }}
-                    />
-                  </>
-                )}
-              </Col>
+                  )}
+                </Col>
+              )}
+              {token && cartChecker() && (
+                <>
+                  <Row
+                    className={`d-flex flex-column h-100 pt-3 px-3 ${styles.registerOptions}`}
+                  >
+                    <Col xs={12} className={`${styles.tableOptions} mb-4`}>
+                      <h3>Il tuo carrello</h3>
+                    </Col>
+                    <Col xs={12} className="px-0 mb-3">
+                      <div
+                        className={`d-flex justify-content-between ${styles.tableOptions}`}
+                      >
+                        <div>
+                          <p>Prodotti aggiunti</p>
+                          {listaProdottiMenu !== undefined &&
+                            listaProdottiMenu?.map((p) => (
+                              <p key={"nomePiatto:" + p?.id} className="ms-3">
+                                {p?.name}
+                              </p>
+                            ))}
+                          {listaVini?.length !== undefined &&
+                            listaVini?.map((v, i) => (
+                              <p key={"nomeVino:" + i} className="ms-3">
+                                {v?.name}
+                              </p>
+                            ))}
+                        </div>
+
+                        <div className="d-flex">
+                          <div className="text-center">
+                            <p>Prezzo</p>
+                            {listaProdottiMenu !== undefined &&
+                              listaProdottiMenu?.map((p) => (
+                                <p key={"prezzoPiatto:" + p?.id}>{p?.prezzo}</p>
+                              ))}
+                            {listaVini?.length !== undefined &&
+                              listaVini?.map((v, i) => (
+                                <p key={"prezzoVino" + i}>{v?.prezzo}</p>
+                              ))}
+                          </div>
+
+                          <div className="text-center">
+                            <p className="ms-3">Quantità</p>
+                            {listaProdottiMenu !== undefined &&
+                              listaProdottiMenu?.map((p) => (
+                                <p
+                                  key={"numeroPiatto" + p?.id}
+                                  className="ms-3"
+                                >
+                                  {numeroCommensali}
+                                </p>
+                              ))}
+                            {listaVini?.length !== undefined &&
+                              listaVini?.map((_, i) => (
+                                <p key={"numeroVino" + i} className="ms-3">
+                                  {listaVini?.length}
+                                </p>
+                              ))}
+                          </div>
+                          {/* <p className="ms-3">Totale</p> */}
+                        </div>
+                      </div>
+                    </Col>
+                    <Col className="d-flex justify-content-between">
+                      <h4>Totale</h4>
+                      <button onClick={() => totale()}>Controllo</button>
+                      <div>
+                        <p>costo chef: {prezzoChef}</p>
+                        <p>
+                          sub-totale:{" "}
+                          {prezzoPiatti &&
+                            prezzoVini &&
+                            prezzoPiatti + prezzoVini}
+                        </p>
+                        <p>totale: {totaleCarrello}</p>
+                      </div>
+                    </Col>
+                  </Row>
+                </>
+              )}
             </Row>
           </Container>
         </div>

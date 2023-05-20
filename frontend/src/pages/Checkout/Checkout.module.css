@@ -1,0 +1,29 @@
+.loginContainerOptions {
+  height: 100%;
+  width: 100%;
+
+  background: radial-gradient(
+    circle,
+    rgba(0, 0, 0, 0.2) 0%,
+    rgba(0, 0, 0, 0.3) 23%,
+    rgba(0, 0, 0, 0.5) 63%,
+    rgba(0, 0, 0, 0.8) 100%
+  );
+}
+
+.registerOptions {
+  background-color: #30303058;
+  backdrop-filter: blur(20px);
+  max-width: 36rem;
+  max-height: 36rem;
+  border: 3px solid #ccb7a98a;
+  border-radius: 20px;
+}
+
+.inputOptions {
+  width: 22rem;
+}
+
+.tableOptions {
+  border-bottom: 1px solid #faf4f0;
+}

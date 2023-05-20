@@ -3,6 +3,7 @@ import Home from "../../pages/Home/Home.component";
 import Login from "../../pages/Login.component";
 import ChefPage from "../../pages/Negozio/Negozio.component";
 import Shop from "../Carrello/Shop.component";
+import Checkout from "../../pages/Checkout/Checkout.component";
 
 const Router = () => {
   return (
@@ -12,6 +13,7 @@ const Router = () => {
       <Route path="*" element={"ErrorPage"} />
       <Route path="/store/:nomeRistorante" element={<ChefPage />} />
       <Route path="/shop/:nomeRistorante" element={<Shop />} />
+      <Route path="/checkout" element={<Checkout />} />
     </Routes>
   );
 };
