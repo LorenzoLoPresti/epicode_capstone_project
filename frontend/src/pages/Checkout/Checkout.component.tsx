@@ -103,7 +103,7 @@ const Checkout = () => {
               {token && cartChecker() && (
                 <>
                   <Row
-                    className={`d-flex flex-column pt-3 px-3 ${styles.registerOptions}`}
+                    className={`d-flex flex-column h-100 pt-3 px-3 ${styles.registerOptions}`}
                   >
                     <Col xs={12} className={`${styles.tableOptions} mb-4`}>
                       <h3>Il tuo carrello</h3>
@@ -165,14 +165,14 @@ const Checkout = () => {
                     </Col>
                     <Col xs={12} className="d-flex justify-content-between">
                       <h4>Totale</h4>
-                      <button onClick={() => totale()}>Controllo</button>
                       <div>
-                        <p>costo chef: {prezzoChef}</p>
+                        <p>costo chef: {prezzoChef}€</p>
                         <p>
                           sub-totale:{" "}
                           {prezzoPiatti &&
                             prezzoVini &&
                             prezzoPiatti + prezzoVini}
+                          €
                         </p>
                         <p>
                           totale:{" "}
@@ -180,6 +180,7 @@ const Checkout = () => {
                             prezzoVini &&
                             prezzoChef &&
                             prezzoPiatti + prezzoVini + prezzoChef}
+                          €
                         </p>
                       </div>
                     </Col>
