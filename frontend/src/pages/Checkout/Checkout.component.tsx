@@ -20,7 +20,7 @@ const Checkout = () => {
   );
   const listaVini = useAppSelector((state) => state.carrelloReducer?.listaVini);
   const [prezzoChef, setPrezzoChef] = useState(0);
-  const [prezzoPiatti, setPrezzoPiatti] = useState<number | undefined>();
+  const [prezzoPiatti, setPrezzoPiatti] = useState<number | undefined>(0);
   const [prezzoVini, setPrezzoVini] = useState<number | undefined>(0);
 
   const cartChecker = () =>
@@ -52,7 +52,7 @@ const Checkout = () => {
 
     setPrezzoChef(costoChef);
     setPrezzoPiatti(costoPiattiTotale);
-    setPrezzoVini(costoVini);
+    listaVini!.length > 0 ? setPrezzoVini(costoVini) : setPrezzoVini(0);
 
     console.log(prezzoChef, prezzoVini, prezzoPiatti);
   };
@@ -249,6 +249,10 @@ const Checkout = () => {
                         <p>
                           sub-totale:{" "}
                           {prezzoPiatti &&
+                            prezzoVini === 0 &&
+                            prezzoPiatti + prezzoVini}
+                          {prezzoPiatti &&
+                            prezzoVini !== 0 &&
                             prezzoVini &&
                             prezzoPiatti + prezzoVini}
                           €
@@ -256,13 +260,18 @@ const Checkout = () => {
                         <p className="fw-bold fs-5">
                           totale:{" "}
                           {prezzoPiatti &&
+                            prezzoVini === 0 &&
+                            prezzoChef &&
+                            prezzoPiatti + prezzoChef}
+                          {prezzoPiatti &&
+                            prezzoVini !== 0 &&
                             prezzoVini &&
                             prezzoChef &&
                             prezzoPiatti + prezzoVini + prezzoChef}
                           €
                         </p>
                       </Col>
-                      {/* <button
+                      <button
                         onClick={() => {
                           Object.entries(contaVini(listaVini)).map(
                             ([id, quantita]) => {
@@ -272,10 +281,11 @@ const Checkout = () => {
                               console.log(prodotto, quantita);
                             }
                           );
+                          console.log(prezzoVini);
                         }}
                       >
                         controllo
-                      </button> */}
+                      </button>
                     </Row>
                   </Row>
                 </>

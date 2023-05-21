@@ -29,9 +29,7 @@ interface Carrello {
 const Shop = () => {
   const ristorante = useAppSelector((state) => state.authToken?.ristoranti);
   const username = useAppSelector((state) => state.authToken?.username);
-  const reduxNumeroCommensali = useAppSelector(
-    (state) => state.carrelloReducer?.numeroCommensali
-  );
+  const reduxCart = useAppSelector((state) => state.carrelloReducer);
   const { nomeRistorante } = useParams();
   const chefSelezionato = useAppSelector(
     (state) => state.carrelloReducer?.chef
@@ -94,7 +92,13 @@ const Shop = () => {
   };
 
   useEffect(() => {
-    if (reduxNumeroCommensali !== 0) setNumeroCommensali(reduxNumeroCommensali);
+    reduxCart?.numeroCommensali !== 0
+      ? setNumeroCommensali(reduxCart?.numeroCommensali)
+      : setNumeroCommensali(numeroCommensali);
+
+    reduxCart?.dataCena !== null
+      ? setDateSelected(reduxCart?.dataCena)
+      : setDateSelected("");
   }, []);
 
   // const accordionItems: AccordionItem[] = [
