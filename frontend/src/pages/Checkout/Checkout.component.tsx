@@ -4,6 +4,7 @@ import accedi from "../../assets/accediImg.jpg";
 import styles from "./Checkout.module.css";
 import { useAppSelector } from "../../redux/store/store";
 import { Link, useNavigate } from "react-router-dom";
+import { ListaProdotti } from "../Home/Home.types";
 
 const Checkout = () => {
   const token = useAppSelector((state) => state.authToken?.token);
@@ -56,6 +57,25 @@ const Checkout = () => {
 
     console.log(prezzoChef, prezzoVini, prezzoPiatti);
   };
+
+  const contaVini = (
+    carrello: ListaProdotti[] | null
+  ): Record<string, number> => {
+    const conteggio: Record<string, number> = {};
+
+    carrello?.forEach((prodotto) => {
+      const { id } = prodotto;
+      if (conteggio[id]) {
+        conteggio[id]++;
+      } else {
+        conteggio[id] = 1;
+      }
+    });
+
+    return conteggio;
+  };
+
+  const conteggioVini = contaVini(listaVini);
 
   useEffect(() => {
     if (!token) {
@@ -182,6 +202,19 @@ const Checkout = () => {
                             prezzoPiatti + prezzoVini + prezzoChef}
                           €
                         </p>
+                      </div>
+                      <div>
+                        {Object.entries(conteggioVini).map(([id, quantita]) => {
+                          const prodotto = listaVini?.find(
+                            (p) => p.id.toString() === id
+                          );
+                          const nomeProdotto = prodotto ? prodotto.name : "";
+                          return (
+                            <p key={id}>
+                              Nome: {nomeProdotto}, Quantità: {quantita}
+                            </p>
+                          );
+                        })}
                       </div>
                     </Col>
                   </Row>
