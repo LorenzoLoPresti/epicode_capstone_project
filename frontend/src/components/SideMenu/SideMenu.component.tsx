@@ -33,7 +33,6 @@ const SideMenu = ({ children, onClose, flex, directionColumn }: sideMenu) => {
           </span>
         </div>
       </div>
-      ;
     </>
   );
 };

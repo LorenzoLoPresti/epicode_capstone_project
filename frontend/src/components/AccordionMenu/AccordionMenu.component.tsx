@@ -38,7 +38,9 @@ const AccordionMenu = ({
         className={`${styles.accordionBg} ${
           selected && styles.accordionBgSelected
         } px-3 `}
-        onClick={() => setVisible(!visible)}
+        onClick={() => {
+          setVisible(!visible);
+        }}
       >
         <div
           className={`d-flex justify-content-between align-items-center`}
