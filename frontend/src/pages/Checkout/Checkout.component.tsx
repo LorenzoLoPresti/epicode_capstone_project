@@ -5,6 +5,7 @@ import styles from "./Checkout.module.css";
 import { useAppSelector } from "../../redux/store/store";
 import { Link, useNavigate } from "react-router-dom";
 import { ListaProdotti } from "../Home/Home.types";
+import COLORS from "../../style/color";
 
 const Checkout = () => {
   const token = useAppSelector((state) => state.authToken?.token);
@@ -95,10 +96,10 @@ const Checkout = () => {
         }}
       >
         <div className={`${styles.loginContainerOptions}`}>
-          <Container className="w-100 h-100 p-5">
+          <Container className="w-100 h-100 pt-5 px-xs-1 px-md-5">
             <Row
               className="d-flex justify-content-center align-items-center text-light h-100 w-100"
-              style={{ padding: "5rem 3rem 3rem" }}
+              style={{ padding: "5rem 0", margin: "0" }}
             >
               {token && !cartChecker() && (
                 <Col
@@ -108,7 +109,7 @@ const Checkout = () => {
                   <>
                     <h3>Il tuo carrello è vuoto</h3>
                     <Link to={"/"} style={{ textDecoration: "none" }}>
-                      <p className="text-warning" style={{ cursor: "pointer" }}>
+                      <p style={{ cursor: "pointer", color: COLORS.brandGold }}>
                         Clicca qui per andare ai ristoranti
                       </p>
                     </Link>
@@ -123,67 +124,114 @@ const Checkout = () => {
               {token && cartChecker() && (
                 <>
                   <Row
-                    className={`d-flex flex-column h-100 pt-3 px-3 ${styles.registerOptions}`}
+                    className={`d-flex flex-column h-100 pt-3 px-4 ${styles.registerOptions}`}
                   >
                     <Col xs={12} className={`${styles.tableOptions} mb-4`}>
                       <h3>Il tuo carrello</h3>
                     </Col>
                     <Col xs={12} className="px-0 mb-3">
-                      <div
-                        className={`d-flex justify-content-between ${styles.tableOptions}`}
-                      >
-                        <div>
-                          <p>Prodotti aggiunti</p>
-                          {listaProdottiMenu !== undefined &&
-                            listaProdottiMenu?.map((p) => (
-                              <p key={"nomePiatto:" + p?.id} className="ms-3">
+                      <Row className={`d-flex justify-content-between`}>
+                        <Row className="mb-3">
+                          <Col xs={7} sm={8}>
+                            <p className="mb-2">Prodotti aggiunti</p>
+                          </Col>
+                          <Col className="text-center" xs={3} sm={2}>
+                            <p className="mb-2">Prezzo</p>
+                          </Col>
+                          <Col className="text-center" xs={2}>
+                            <p className="mb-2">Quantità</p>
+                          </Col>
+                        </Row>
+                        <Row className="ps-3">
+                          <Col>
+                            <p
+                              style={{
+                                fontSize: "0.825rem",
+                                color: COLORS.brandGold,
+                              }}
+                            >
+                              MENU
+                            </p>
+                          </Col>
+                        </Row>
+                        {listaProdottiMenu !== undefined &&
+                          listaProdottiMenu?.map((p) => (
+                            <Row
+                              className="mb-3 ps-3"
+                              key={"nomePiatto:" + p?.id}
+                            >
+                              <Col
+                                className="d-flex align-items-center"
+                                xs={7}
+                                sm={8}
+                              >
                                 {p?.name}
-                              </p>
-                            ))}
-                          {listaVini?.length !== undefined &&
-                            listaVini?.map((v, i) => (
-                              <p key={"nomeVino:" + i} className="ms-3">
-                                {v?.name}
-                              </p>
-                            ))}
-                        </div>
-
-                        <div className="d-flex">
-                          <div className="text-center">
-                            <p>Prezzo</p>
-                            {listaProdottiMenu !== undefined &&
-                              listaProdottiMenu?.map((p) => (
-                                <p key={"prezzoPiatto:" + p?.id}>{p?.prezzo}</p>
-                              ))}
-                            {listaVini?.length !== undefined &&
-                              listaVini?.map((v, i) => (
-                                <p key={"prezzoVino" + i}>{v?.prezzo}</p>
-                              ))}
-                          </div>
-
-                          <div className="text-center">
-                            <p className="ms-3">Quantità</p>
-                            {listaProdottiMenu !== undefined &&
-                              listaProdottiMenu?.map((p) => (
-                                <p
-                                  key={"numeroPiatto" + p?.id}
-                                  className="ms-3"
-                                >
-                                  {numeroCommensali}
-                                </p>
-                              ))}
-                            {listaVini?.length !== undefined &&
-                              listaVini?.map((_, i) => (
-                                <p key={"numeroVino" + i} className="ms-3">
-                                  {listaVini?.length}
-                                </p>
-                              ))}
-                          </div>
-                          {/* <p className="ms-3">Totale</p> */}
-                        </div>
-                      </div>
+                              </Col>
+                              <Col
+                                className="d-flex align-items-center justify-content-center"
+                                xs={3}
+                                sm={2}
+                              >
+                                {p?.prezzo}
+                              </Col>
+                              <Col
+                                className="d-flex align-items-center justify-content-center"
+                                xs={2}
+                              >
+                                {numeroCommensali}
+                              </Col>
+                            </Row>
+                          ))}
+                        <Row className="ps-3">
+                          <Col>
+                            <p
+                              style={{
+                                fontSize: "0.825rem",
+                                color: COLORS.brandGold,
+                              }}
+                            >
+                              VINI
+                            </p>
+                          </Col>
+                        </Row>
+                        {Object.entries(conteggioVini).map(([id, quantita]) => {
+                          const prodotto = listaVini?.find(
+                            (vino) => vino?.id.toString() === id
+                          );
+                          const nomeProdotto = prodotto?.name;
+                          const prezzo = prodotto?.prezzo;
+                          return (
+                            <Row className="mb-2 ps-3" key={"idVino:" + id}>
+                              <Col
+                                className="d-flex align-items-center"
+                                xs={7}
+                                sm={8}
+                              >
+                                {nomeProdotto}
+                              </Col>
+                              <Col
+                                className="d-flex align-items-center justify-content-center"
+                                xs={3}
+                                sm={2}
+                              >
+                                {prezzo}
+                              </Col>
+                              <Col
+                                className="d-flex align-items-center justify-content-center"
+                                xs={2}
+                              >
+                                {quantita}
+                              </Col>
+                            </Row>
+                          );
+                        })}
+                      </Row>
                     </Col>
-                    <Col xs={12} className="d-flex justify-content-between">
+                    <Col
+                      xs={12}
+                      className="d-flex justify-content-between pt-3"
+                      style={{ borderTop: "1px solid #faf4f0" }}
+                    >
                       <h4>Totale</h4>
                       <div>
                         <p>costo chef: {prezzoChef}€</p>
@@ -203,19 +251,20 @@ const Checkout = () => {
                           €
                         </p>
                       </div>
-                      <div>
-                        {Object.entries(conteggioVini).map(([id, quantita]) => {
-                          const prodotto = listaVini?.find(
-                            (p) => p.id.toString() === id
+                      {/* <button
+                        onClick={() => {
+                          Object.entries(contaVini(listaVini)).map(
+                            ([id, quantita]) => {
+                              const prodotto = listaVini?.find(
+                                (prodotto) => prodotto?.id.toString() === id
+                              );
+                              console.log(prodotto, quantita);
+                            }
                           );
-                          const nomeProdotto = prodotto ? prodotto.name : "";
-                          return (
-                            <p key={id}>
-                              Nome: {nomeProdotto}, Quantità: {quantita}
-                            </p>
-                          );
-                        })}
-                      </div>
+                        }}
+                      >
+                        controllo
+                      </button> */}
                     </Col>
                   </Row>
                 </>
@@ -224,31 +273,6 @@ const Checkout = () => {
           </Container>
         </div>
       </div>
-
-      {/* {showAuthModal && (
-    <Modal
-      onClose={() => setShowAuthModal(false)}
-      title="Accedi a Grand Bistrot"
-      subtitle="login"
-      username={username}
-      setUsername={setUsername}
-      password={password}
-      setPassword={setPassword}
-    >
-      <MyButton
-        text="Sign Up"
-        onClick={() => {
-          dispatch(fetchToken(user));
-          setUsername("");
-          setPassword("");
-        }}
-        style={{
-          backgroundColor: `${COLORS.brandGold}`,
-          color: `${COLORS.brandBlack}`,
-        }}
-      />
-    </Modal>
-  )} */}
     </>
   );
 };

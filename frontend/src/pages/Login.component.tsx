@@ -51,8 +51,7 @@ const Login = () => {
                       onClick={() => {
                         setShowAuthModal(true);
                       }}
-                      className="text-warning"
-                      style={{ cursor: "pointer" }}
+                      style={{ cursor: "pointer", color: COLORS.brandGold }}
                     >
                       Accedi ora!
                     </p>
@@ -99,31 +98,6 @@ const Login = () => {
           </Container>
         </div>
       </div>
-
-      {/* {showAuthModal && (
-        <Modal
-          onClose={() => setShowAuthModal(false)}
-          title="Accedi a Grand Bistrot"
-          subtitle="login"
-          username={username}
-          setUsername={setUsername}
-          password={password}
-          setPassword={setPassword}
-        >
-          <MyButton
-            text="Sign Up"
-            onClick={() => {
-              dispatch(fetchToken(user));
-              setUsername("");
-              setPassword("");
-            }}
-            style={{
-              backgroundColor: `${COLORS.brandGold}`,
-              color: `${COLORS.brandBlack}`,
-            }}
-          />
-        </Modal>
-      )} */}
     </>
   );
 };
