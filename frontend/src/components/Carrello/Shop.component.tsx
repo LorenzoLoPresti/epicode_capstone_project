@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../redux/store/store";
 import styles from "./Shop.module.css";
@@ -28,6 +29,9 @@ interface Carrello {
 const Shop = () => {
   const ristorante = useAppSelector((state) => state.authToken?.ristoranti);
   const username = useAppSelector((state) => state.authToken?.username);
+  const reduxNumeroCommensali = useAppSelector(
+    (state) => state.carrelloReducer?.numeroCommensali
+  );
   const { nomeRistorante } = useParams();
   const chefSelezionato = useAppSelector(
     (state) => state.carrelloReducer?.chef
@@ -88,6 +92,10 @@ const Shop = () => {
       setNomeVinoSelezionato(nomeVino);
     }
   };
+
+  useEffect(() => {
+    if (reduxNumeroCommensali !== 0) setNumeroCommensali(reduxNumeroCommensali);
+  }, []);
 
   // const accordionItems: AccordionItem[] = [
   //   {
