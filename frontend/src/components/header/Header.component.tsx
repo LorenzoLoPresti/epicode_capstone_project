@@ -67,13 +67,20 @@ const Header = () => {
         >
           <SideMenu.Headline text={`ciao ${reduxUsername}`}></SideMenu.Headline>
           <SideMenu.Command
+            text={"Checkout"}
+            onClick={() => {
+              navigate("/checkout");
+              setShowMenu(false);
+            }}
+          />
+          <SideMenu.Command
             text="Logout"
             onClick={() => {
               dispatch(logout());
               setShowMenu(false);
               navigate("/");
             }}
-          ></SideMenu.Command>
+          />
         </SideMenu>
       )}
       <Navbar

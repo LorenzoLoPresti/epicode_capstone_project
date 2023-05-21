@@ -29,7 +29,7 @@ const SideMenu = ({ children, onClose, flex, directionColumn }: sideMenu) => {
         >
           {children}
           <span className={`${styles.closeModal}`} onClick={onClose}>
-            <RxCross1 />
+            <RxCross1 className="text-light" />
           </span>
         </div>
       </div>

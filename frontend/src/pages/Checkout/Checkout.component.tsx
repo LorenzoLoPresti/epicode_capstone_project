@@ -24,9 +24,7 @@ const Checkout = () => {
   const [prezzoVini, setPrezzoVini] = useState<number | undefined>(0);
 
   const cartChecker = () =>
-    chef === null && dataCena === null && listaProdottiMenu === null
-      ? false
-      : true;
+    dataCena === null && listaProdottiMenu === null ? false : true;
 
   const totale = () => {
     let tempoChef;
@@ -80,7 +78,7 @@ const Checkout = () => {
 
   useEffect(() => {
     if (!token) {
-      const t = setInterval(() => navigate("/login"), 2000);
+      const t = setInterval(() => navigate("/login"), 4000);
       return () => clearInterval(t);
     }
     totale();
@@ -99,14 +97,24 @@ const Checkout = () => {
         <div className={`${styles.containerOptions}`}>
           <Container className="w-100 h-100 pt-5 px-xs-1 px-md-5">
             <Row
-              className="d-flex justify-content-center align-items-center text-light w-100"
+              className="d-flex justify-content-center align-items-center text-light h-100 w-100"
               style={{ padding: "5rem 0", margin: "0", minHeight: "100vh" }}
             >
+              {!token && !cartChecker() && (
+                <Col
+                  className={`d-flex flex-column justify-content-center align-items-center 50vh $
+                   ${styles.voidCart}`}
+                >
+                  <p>
+                    Effettua il login per accedere alle funzionalità del sito
+                  </p>
+                </Col>
+              )}
               {token && !cartChecker() && (
                 <Col
-                  className={`d-flex flex-column justify-content-center align-items-center h-100 ${styles.modalOptions}`}
+                  className={`d-flex flex-column justify-content-center align-items-center 50vh $
+                   ${styles.voidCart}`}
                 >
-                  (
                   <>
                     <h3>Il tuo carrello è vuoto</h3>
                     <Link to={"/"} style={{ textDecoration: "none" }}>
@@ -183,7 +191,7 @@ const Checkout = () => {
                               </Col>
                             </Row>
                           ))}
-                        <Row className="ps-3">
+                        <Row className="ps-3 mt-2">
                           <Col>
                             <p
                               style={{
@@ -245,7 +253,7 @@ const Checkout = () => {
                             prezzoPiatti + prezzoVini}
                           €
                         </p>
-                        <p>
+                        <p className="fw-bold fs-5">
                           totale:{" "}
                           {prezzoPiatti &&
                             prezzoVini &&
