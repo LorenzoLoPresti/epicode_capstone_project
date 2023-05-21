@@ -89,21 +89,22 @@ const Checkout = () => {
   return (
     <>
       <div
+        className={styles.bg}
         style={{
           minHeight: "100vh",
           backgroundImage: `url(${accedi})`,
           backgroundSize: "cover",
         }}
       >
-        <div className={`${styles.loginContainerOptions}`}>
+        <div className={`${styles.containerOptions}`}>
           <Container className="w-100 h-100 pt-5 px-xs-1 px-md-5">
             <Row
-              className="d-flex justify-content-center align-items-center text-light h-100 w-100"
-              style={{ padding: "5rem 0", margin: "0" }}
+              className="d-flex justify-content-center align-items-center text-light w-100"
+              style={{ padding: "5rem 0", margin: "0", minHeight: "100vh" }}
             >
               {token && !cartChecker() && (
                 <Col
-                  className={`d-flex flex-column justify-content-center align-items-center h-100 ${styles.registerOptions}`}
+                  className={`d-flex flex-column justify-content-center align-items-center h-100 ${styles.modalOptions}`}
                 >
                   (
                   <>
@@ -124,7 +125,7 @@ const Checkout = () => {
               {token && cartChecker() && (
                 <>
                   <Row
-                    className={`d-flex flex-column h-100 pt-3 px-4 ${styles.registerOptions}`}
+                    className={`d-flex flex-column h-100 pt-3 px-4 ${styles.modalOptions}`}
                   >
                     <Col xs={12} className={`${styles.tableOptions} mb-4`}>
                       <h3>Il tuo carrello</h3>
@@ -139,7 +140,7 @@ const Checkout = () => {
                             <p className="mb-2">Prezzo</p>
                           </Col>
                           <Col className="text-center" xs={2}>
-                            <p className="mb-2">Quantità</p>
+                            <p className="mb-2">Qt.</p>
                           </Col>
                         </Row>
                         <Row className="ps-3">
@@ -172,7 +173,7 @@ const Checkout = () => {
                                 xs={3}
                                 sm={2}
                               >
-                                {p?.prezzo}
+                                {p?.prezzo}€
                               </Col>
                               <Col
                                 className="d-flex align-items-center justify-content-center"
@@ -214,7 +215,7 @@ const Checkout = () => {
                                 xs={3}
                                 sm={2}
                               >
-                                {prezzo}
+                                {prezzo}€
                               </Col>
                               <Col
                                 className="d-flex align-items-center justify-content-center"
@@ -227,13 +228,15 @@ const Checkout = () => {
                         })}
                       </Row>
                     </Col>
-                    <Col
-                      xs={12}
+                    <Row
                       className="d-flex justify-content-between pt-3"
                       style={{ borderTop: "1px solid #faf4f0" }}
                     >
-                      <h4>Totale</h4>
-                      <div>
+                      <Col xs={6} sm={7} md={8}>
+                        <h4>Totale</h4>
+                      </Col>
+
+                      <Col className="d-flex flex-column">
                         <p>costo chef: {prezzoChef}€</p>
                         <p>
                           sub-totale:{" "}
@@ -250,7 +253,7 @@ const Checkout = () => {
                             prezzoPiatti + prezzoVini + prezzoChef}
                           €
                         </p>
-                      </div>
+                      </Col>
                       {/* <button
                         onClick={() => {
                           Object.entries(contaVini(listaVini)).map(
@@ -265,7 +268,7 @@ const Checkout = () => {
                       >
                         controllo
                       </button> */}
-                    </Col>
+                    </Row>
                   </Row>
                 </>
               )}
