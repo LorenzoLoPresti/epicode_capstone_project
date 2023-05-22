@@ -57,8 +57,58 @@
   color: #ccb7a9 !important;
 }
 
+.inputBox {
+  position: relative;
+  width: 100%;
+  height: 40px;
+  border-bottom: 2px solid #ccb7a9;
+  margin: 0.75rem 0;
+}
+
+.label {
+  position: absolute;
+  top: 50%;
+  left: 5px;
+  transform: translateY(-50%);
+  font-size: 1rem;
+  color: #ccb7a9;
+  font-weight: 500;
+  pointer-events: none;
+  transition: 0.5s;
+}
+
+.inputOptions:focus ~ .label,
+.inputOptions:valid ~ .label {
+  top: -5px;
+}
+
 .inputOptions {
-  width: 22rem;
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #faf4f0;
+  padding: 0 2rem 0 5px;
+}
+
+.dropdown {
+  background-color: transparent;
+  color: #ccb7a9;
+  border: none;
+  width: 100%;
+  padding: 8px 0;
+}
+
+.dropdownOptions {
+  background-color: #303030;
+  color: #ccb7a9;
+}
+
+.dropdown:focus .dropdownOptions:checked {
+  background-color: #303030;
 }
 
 @media screen and (min-width: 768px) {

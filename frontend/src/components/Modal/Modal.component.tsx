@@ -68,30 +68,34 @@ const Modal = ({
                 </p>
                 <form
                   onClick={(e) => e.preventDefault()}
-                  className="d-flex flex-column align-items-center px-0 p-md-2 w-100"
+                  className="d-flex flex-column align-items-center px-5 pb-md-2 w-100"
                 >
-                  <input
-                    value={username}
-                    className={`mb-5 mb-md-3 ${styles.inputOptions} ${
-                      warning && "bg-warning"
-                    }`}
-                    type="text"
-                    placeholder="username"
-                    onChange={(e) => {
-                      setUsername(e.target.value);
-                    }}
-                  />
-                  <input
-                    value={password}
-                    className={`mb-5 mb-md-3 ${styles.inputOptions} ${
-                      pswWarning && "bg-warning"
-                    }`}
-                    type="password"
-                    placeholder="password"
-                    onChange={(e) => {
-                      setPassword(e.target.value);
-                    }}
-                  />
+                  <div className={styles.inputBox}>
+                    <input
+                      value={username}
+                      className={`mb-5 mb-md-3 ${styles.inputOptions} ${
+                        warning && "bg-warning"
+                      }`}
+                      type="text"
+                      onChange={(e) => {
+                        setUsername(e.target.value);
+                      }}
+                    />
+                    <label className={styles.label}>Username</label>
+                  </div>
+                  <div className={styles.inputBox}>
+                    <input
+                      value={password}
+                      className={`mb-5  ${styles.inputOptions} ${
+                        pswWarning && "bg-warning"
+                      }`}
+                      type="password"
+                      onChange={(e) => {
+                        setPassword(e.target.value);
+                      }}
+                    />
+                    <label className={styles.label}>Password</label>
+                  </div>
                   {children}
                 </form>
               </div>

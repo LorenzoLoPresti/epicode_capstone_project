@@ -59,38 +59,49 @@ const Login = () => {
                 )}
                 {showAuthModal && (
                   <>
-                    <h3 className="mb-3">Accedi</h3>
-                    <input
-                      value={username}
-                      className={`mb-5 mb-md-3 ${style.inputOptions}`}
-                      type="text"
-                      placeholder="username"
-                      onChange={(e) => {
-                        setUsername(e.target.value);
-                      }}
-                    />
-                    <input
-                      value={password}
-                      className={`mb-5 mb-md-3 ${style.inputOptions}`}
-                      type="password"
-                      placeholder="password"
-                      onChange={(e) => {
-                        setPassword(e.target.value);
-                      }}
-                    />
-                    <MyButton
-                      text="Sign Up"
-                      onClick={() => {
-                        dispatch(fetchToken(user));
-                        setUsername("");
-                        setPassword("");
-                      }}
-                      style={{
-                        backgroundColor: `${COLORS.brandGold}`,
-                        color: `${COLORS.brandBlack}`,
-                        marginTop: "12px",
-                      }}
-                    />
+                    <h3 className="mb-3" style={{ color: COLORS.brandGold }}>
+                      Accedi
+                    </h3>
+                    <form
+                      onClick={(e) => e.preventDefault()}
+                      className="d-flex flex-column align-items-center px-5 pb-md-2 w-100"
+                    >
+                      <div className={style.inputBox}>
+                        <input
+                          value={username}
+                          className={`mb-5 mb-md-3 ${style.inputOptions}`}
+                          type="text"
+                          onChange={(e) => {
+                            setUsername(e.target.value);
+                          }}
+                        />
+                        <label className={style.label}>Username</label>
+                      </div>
+                      <div className={style.inputBox}>
+                        <input
+                          value={password}
+                          className={`mb-5 mb-md-3 ${style.inputOptions}`}
+                          type="password"
+                          onChange={(e) => {
+                            setPassword(e.target.value);
+                          }}
+                        />
+                        <label className={style.label}>Username</label>
+                      </div>
+                      <MyButton
+                        text="Sign Up"
+                        onClick={() => {
+                          dispatch(fetchToken(user));
+                          setUsername("");
+                          setPassword("");
+                        }}
+                        style={{
+                          backgroundColor: `${COLORS.brandGold}`,
+                          color: `${COLORS.brandBlack}`,
+                          marginTop: "12px",
+                        }}
+                      />
+                    </form>
                   </>
                 )}
               </Col>

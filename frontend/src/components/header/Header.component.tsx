@@ -188,6 +188,7 @@ const Header = () => {
                 style={{
                   backgroundColor: `${COLORS.brandGold}`,
                   color: `${COLORS.brandBlack}`,
+                  marginTop: "2rem",
                 }}
               />
             </Modal>

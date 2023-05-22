@@ -90,6 +90,13 @@ const Jumbotron = () => {
     }
   };
 
+  const handleOptionChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    const value = event.target.value;
+    console.log(value);
+
+    setCitta(value);
+  };
+
   // const handleSubmit = () => {
   //   registerRequest()
   //     .then(() => {
@@ -133,44 +140,67 @@ const Jumbotron = () => {
               setPassword={setPassword}
               warning={exists}
             >
-              <input
-                value={name}
-                className={`mb-5 mb-md-3 ${styleModal.inputOptions}`}
-                type="text"
-                placeholder="nome"
-                onChange={(e) => {
-                  setName(e.target.value);
-                }}
-              />
-              <input
-                value={lastname}
-                className={`mb-5 mb-md-3 ${styleModal.inputOptions}`}
-                type="text"
-                placeholder="cognome"
-                onChange={(e) => {
-                  setLastname(e.target.value);
-                }}
-              />
-              <input
-                value={email}
-                className={`mb-5 mb-md-3 ${styleModal.inputOptions} ${
-                  exists && "bg-warning"
-                }`}
-                type="email"
-                placeholder="email"
-                onChange={(e) => {
-                  setEmail(e.target.value);
-                }}
-              />
-              <input
-                value={citta}
-                className={`mb-5 mb-md-3 ${styleModal.inputOptions}`}
-                type="text"
-                placeholder="citta"
-                onChange={(e) => {
-                  setCitta(e.target.value);
-                }}
-              />
+              <div className={styleModal.inputBox}>
+                <input
+                  value={name}
+                  className={`mb-5 mb-md-3 ${styleModal.inputOptions}`}
+                  type="text"
+                  onChange={(e) => {
+                    setName(e.target.value);
+                  }}
+                />
+                <label className={styleModal.label}>Nome</label>
+              </div>
+              <div className={styleModal.inputBox}>
+                <input
+                  value={lastname}
+                  className={`mb-5 mb-md-3 ${styleModal.inputOptions}`}
+                  type="text"
+                  onChange={(e) => {
+                    setLastname(e.target.value);
+                  }}
+                />
+                <label className={styleModal.label}>Cognome</label>
+              </div>
+              <div className={styleModal.inputBox}>
+                <input
+                  value={email}
+                  className={`mb-5 mb-md-3 ${styleModal.inputOptions} ${
+                    exists && "bg-warning"
+                  }`}
+                  type="email"
+                  onChange={(e) => {
+                    setEmail(e.target.value);
+                  }}
+                />
+                <label className={styleModal.label}>Email</label>
+              </div>
+              {/* <div className={styleModal.inputBox}>
+                <input
+                  value={citta}
+                  className={`mb-5 mb-md-3 ${styleModal.inputOptions}`}
+                  type="text"
+                  onChange={(e) => {
+                    setCitta(e.target.value);
+                  }}
+                />
+                <label className={styleModal.label}>Città</label>
+              </div> */}
+              <div className={styleModal.inputBox}>
+                <select
+                  className={styleModal.dropdown}
+                  value={citta}
+                  id="dropdown"
+                  onChange={(event) => handleOptionChange(event)}
+                >
+                  <option className={styleModal.dropdownOptions} value="">
+                    Scegli dopo
+                  </option>
+                  <option className={styleModal.dropdownOptions} value="Roma">
+                    Roma
+                  </option>
+                </select>
+              </div>
               <MyButton
                 text="Sign Up"
                 onClick={() => {
@@ -186,6 +216,7 @@ const Jumbotron = () => {
                 style={{
                   backgroundColor: `${COLORS.brandGold}`,
                   color: `${COLORS.brandBlack}`,
+                  marginTop: "2rem",
                 }}
               />
             </Modal>
