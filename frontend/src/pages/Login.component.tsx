@@ -39,8 +39,8 @@ const Login = () => {
         }}
       >
         <div className={`${style.loginContainerOptions}`}>
-          <Container className="w-100 h-100 p-5">
-            <Row className="d-flex justify-content-center align-items-center text-light h-100 w-100 p-5">
+          <Container className="w-100 h-100 py-5 p-md-5">
+            <Row className="d-flex justify-content-center align-items-center text-light h-100 py-5 px-3 p-md-5">
               <Col
                 className={`d-flex flex-column justify-content-center align-items-center h-100 ${style.registerOptions}`}
               >
@@ -64,7 +64,7 @@ const Login = () => {
                     </h3>
                     <form
                       onClick={(e) => e.preventDefault()}
-                      className="d-flex flex-column align-items-center px-5 pb-md-2 w-100"
+                      className="d-flex flex-column align-items-center px-3 px-md-5 pb-md-2 w-100"
                     >
                       <div className={style.inputBox}>
                         <input
