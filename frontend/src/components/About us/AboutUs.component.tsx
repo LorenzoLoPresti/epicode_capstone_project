@@ -5,12 +5,28 @@ import restaurant from "../../assets/ristoranti/mirabelle_roma.jpg";
 import COLORS from "../../style/color";
 import MyCard from "../Card/MyCard.component";
 import { CiMap } from "react-icons/ci";
+import { useState } from "react";
 
 const AboutUs = () => {
+  const [navScroll, setNavScroll] = useState(false);
+  const [title, setTitle] = useState(false);
+  window.addEventListener("scroll", () => {
+    if (window.scrollY >= 100) {
+      setNavScroll(true);
+      console.log(navScroll);
+    }
+    if (window.scrollY >= 900) {
+      setTitle(true);
+    }
+  });
   return (
     <div className={`${styles.goldContainer}`}>
       <Container className="py-5">
-        <Row className={`${styles.titleOptions} d-flex p-5`}>
+        <Row
+          className={`${styles.titleOptions} ${navScroll && styles.titleIn} ${
+            !navScroll && styles.titleOut
+          }  d-flex p-5`}
+        >
           <Col xs={12} lg={6}>
             <h4 className={`${styles.about}`}>ABOUT US</h4>
             <h2 className={`${styles.title} mb-4`}>
@@ -53,7 +69,9 @@ const AboutUs = () => {
           backgroundImage: `url(${restaurant})`,
         }}
       >
-        <Row className={`m-0 ${styles.gradient}`}>
+        <Row
+          className={`m-0 ${styles.gradient} ${title && styles.titleVisible}`}
+        >
           <Col
             xs={8}
             sm={6}
@@ -62,7 +80,13 @@ const AboutUs = () => {
             style={{ color: COLORS.brandGold }}
           >
             <div className="pt-5">
-              <h4 className={`${styles.title} mb-4`}>I nostri ristoranti</h4>
+              <h4
+                className={`${styles.title} ${
+                  title && styles.titleVisible
+                } mb-4`}
+              >
+                I nostri ristoranti
+              </h4>
             </div>
             <div className="mt-4">
               <p>

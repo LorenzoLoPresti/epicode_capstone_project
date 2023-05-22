@@ -191,49 +191,54 @@ const Checkout = () => {
                               </Col>
                             </Row>
                           ))}
-                        <Row className="ps-3 mt-2">
-                          <Col>
-                            <p
-                              style={{
-                                fontSize: "0.825rem",
-                                color: COLORS.brandGold,
-                              }}
-                            >
-                              VINI
-                            </p>
-                          </Col>
-                        </Row>
-                        {Object.entries(conteggioVini).map(([id, quantita]) => {
-                          const prodotto = listaVini?.find(
-                            (vino) => vino?.id.toString() === id
-                          );
-                          const nomeProdotto = prodotto?.name;
-                          const prezzo = prodotto?.prezzo;
-                          return (
-                            <Row className="mb-2 ps-3" key={"idVino:" + id}>
-                              <Col
-                                className="d-flex align-items-center"
-                                xs={7}
-                                sm={8}
+                        {listaVini!.length > 0 && (
+                          <Row className="ps-3 mt-2">
+                            <Col>
+                              <p
+                                style={{
+                                  fontSize: "0.825rem",
+                                  color: COLORS.brandGold,
+                                }}
                               >
-                                {nomeProdotto}
-                              </Col>
-                              <Col
-                                className="d-flex align-items-center justify-content-center"
-                                xs={3}
-                                sm={2}
-                              >
-                                {prezzo}€
-                              </Col>
-                              <Col
-                                className="d-flex align-items-center justify-content-center"
-                                xs={2}
-                              >
-                                {quantita}
-                              </Col>
-                            </Row>
-                          );
-                        })}
+                                VINI
+                              </p>
+                            </Col>
+                          </Row>
+                        )}
+                        {listaVini!.length > 0 &&
+                          Object.entries(conteggioVini).map(
+                            ([id, quantita]) => {
+                              const prodotto = listaVini?.find(
+                                (vino) => vino?.id.toString() === id
+                              );
+                              const nomeProdotto = prodotto?.name;
+                              const prezzo = prodotto?.prezzo;
+                              return (
+                                <Row className="mb-2 ps-3" key={"idVino:" + id}>
+                                  <Col
+                                    className="d-flex align-items-center"
+                                    xs={7}
+                                    sm={8}
+                                  >
+                                    {nomeProdotto}
+                                  </Col>
+                                  <Col
+                                    className="d-flex align-items-center justify-content-center"
+                                    xs={3}
+                                    sm={2}
+                                  >
+                                    {prezzo}€
+                                  </Col>
+                                  <Col
+                                    className="d-flex align-items-center justify-content-center"
+                                    xs={2}
+                                  >
+                                    {quantita}
+                                  </Col>
+                                </Row>
+                              );
+                            }
+                          )}
                       </Row>
                     </Col>
                     <Row
