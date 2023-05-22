@@ -2,7 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import Home from "../../pages/Home/Home.component";
 import Login from "../../pages/Login.component";
 import ChefPage from "../../pages/Negozio/Negozio.component";
-import Shop from "../Carrello/Shop.component";
+import Shop from "../Shop/Shop.component";
 import Checkout from "../../pages/Checkout/Checkout.component";
 
 const Router = () => {

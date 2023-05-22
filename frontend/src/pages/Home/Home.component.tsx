@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import HomeBody from "../../components/HomeBody/HomeBody.component";
+import AboutUs from "../../components/About us/AboutUs.component";
 import Jumbotron from "../../components/Jumbotron/Jumbotron.component";
 import { useAppDispatch, useAppSelector } from "../../redux/store/store";
 import { addRistoranti, fetchCity } from "../../redux/reducers/tokenStore";
@@ -80,7 +80,7 @@ const Home = () => {
         {!reduxToken && (
           <>
             <Jumbotron />
-            {!loading && <HomeBody />}
+            {!loading && <AboutUs />}
           </>
         )}
         {reduxToken && ristoranti.length > 0 && (
