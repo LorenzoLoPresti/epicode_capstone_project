@@ -4,12 +4,18 @@ import logoGold from "../../assets/goldLogo.png";
 import restaurant from "../../assets/ristoranti/mirabelle_roma.jpg";
 import COLORS from "../../style/color";
 import MyCard from "../Card/MyCard.component";
-import { CiMap } from "react-icons/ci";
+import { TbMap2 } from "react-icons/tb";
+import { GrRestaurant } from "react-icons/gr";
+import { RiRestaurantLine } from "react-icons/ri";
 import { useState } from "react";
 
 const AboutUs = () => {
   const [navScroll, setNavScroll] = useState(false);
   const [title, setTitle] = useState(false);
+  const [c1, setC1] = useState(false);
+  const [c2, setC2] = useState(false);
+  const [c3, setC3] = useState(false);
+
   window.addEventListener("scroll", () => {
     if (window.scrollY >= 100) {
       setNavScroll(true);
@@ -17,6 +23,11 @@ const AboutUs = () => {
     }
     if (window.scrollY >= 900) {
       setTitle(true);
+    }
+    if (window.scrollY >= 1400) {
+      setC1(true);
+      setC2(true);
+      setC3(true);
     }
   });
   return (
@@ -29,7 +40,7 @@ const AboutUs = () => {
         >
           <Col xs={12} lg={6}>
             <h4 className={`${styles.about}`}>ABOUT US</h4>
-            <h2 className={`${styles.title} mb-4`}>
+            <h2 className={`${styles.aboutTitle} mb-4`}>
               L'eccellenza stellata direttamente a casa tua
             </h2>
             <p>
@@ -106,28 +117,37 @@ const AboutUs = () => {
       <div style={{ backgroundColor: COLORS.brandBlackPlus }}>
         <Container className="py-5">
           <Row className="py-5">
-            <Col md={4}>
+            <Col
+              md={4}
+              className={`${styles.cOpacity} ${c1 && styles.c1Visible}`}
+            >
               <MyCard
-                text="Scopri una Raffinata Esperienza Gastronomica"
+                text="Una Raffinata Esperienza Gastronomica"
                 desc="Scegli il ristorante e permetti ai nostri chef stellati di portare l'arte della gastronomia direttamente a casa tua."
               >
-                <CiMap className="fs-1" />
+                <TbMap2 className="fs-1" />
               </MyCard>
             </Col>
-            <Col md={4}>
+            <Col
+              md={4}
+              className={`${styles.cOpacity} ${c2 && styles.c2Visible}`}
+            >
               <MyCard
-                text="Scopri una Raffinata Esperienza Gastronomica"
-                desc="Scegli il ristorante e permetti ai nostri chef stellati di portare l'arte della gastronomia direttamente a casa tua."
+                text=" Scegli lo chef che risuona con i tuoi gusti"
+                desc=" Ogni chef ti offrirà un menu unico, creato con passione e cura, utilizzando ingredienti di prima qualità."
               >
-                <CiMap className="fs-1" />
+                <GrRestaurant className="fs-2" />
               </MyCard>
             </Col>
-            <Col md={4}>
+            <Col
+              md={4}
+              className={`${styles.cOpacity} ${c3 && styles.c3Visible}`}
+            >
               <MyCard
-                text="Scopri una Raffinata Esperienza Gastronomica"
-                desc="Scegli il ristorante e permetti ai nostri chef stellati di portare l'arte della gastronomia direttamente a casa tua."
+                text="Rilassati e lascia che lo Chef si prenda cura di te"
+                desc="Metti da parte le preoccupazioni e lasciati coccolare mentre lo chef prepara ogni portata con cura."
               >
-                <CiMap className="fs-1" />
+                <RiRestaurantLine className="fs-2" />
               </MyCard>
             </Col>
           </Row>

@@ -34,6 +34,11 @@
   text-transform: uppercase;
 }
 
+.aboutTitle {
+  text-transform: uppercase;
+  font-size: 1.925rem;
+}
+
 .title {
   opacity: 0;
   text-transform: uppercase;
@@ -67,6 +72,56 @@
 .titleVisible {
   opacity: 1;
   transition: all ease 1s;
+}
+
+.cOpacity {
+  transform: translate(-1500px);
+}
+
+.c1Visible {
+  transform: translate(0px);
+  animation: c1 ease 2s;
+}
+
+.c2Visible {
+  transform: translate(0px);
+  animation: c2 ease 3.5s;
+}
+
+.c3Visible {
+  transform: translate(0px);
+  animation: c3 ease 5s;
+}
+
+@keyframes c1 {
+  0% {
+    transform: translate(-1500px);
+  }
+  50% {
+    transform: translate(0px);
+  }
+}
+@keyframes c2 {
+  0% {
+    transform: translate(-1500px);
+  }
+  50% {
+    transform: translate(-1500px);
+  }
+  75% {
+    transform: translate(0px);
+  }
+}
+@keyframes c3 {
+  0% {
+    transform: translate(-1500px);
+  }
+  75% {
+    transform: translate(-1500px);
+  }
+  100% {
+    transform: translate(0px);
+  }
 }
 
 @media screen and (min-width: 1200px) {
