@@ -144,9 +144,12 @@ const Header = () => {
               <Nav.Link className={`${styles.navLink} d-none d-md-block`}>
                 Contacts
               </Nav.Link>
-              <Nav.Link className={`${styles.navLink} d-none d-lg-block`}>
-                About us
-              </Nav.Link>
+              <NavLink
+                to={"/checkout"}
+                className={`${styles.navLink} d-none d-lg-block`}
+              >
+                Checkout
+              </NavLink>
               {/* Approfondire discorso NAvLink (active automatico) */}
               <NavLink
                 className={`${styles.navLink} d-none d-md-block`}

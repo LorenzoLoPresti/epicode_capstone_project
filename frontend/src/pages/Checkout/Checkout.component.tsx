@@ -78,7 +78,7 @@ const Checkout = () => {
 
   useEffect(() => {
     if (!token) {
-      const t = setInterval(() => navigate("/login"), 4000);
+      const t = setInterval(() => navigate("/login"), 1500);
       return () => clearInterval(t);
     }
     totale();

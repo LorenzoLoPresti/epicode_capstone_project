@@ -6,7 +6,7 @@
   transform: translate(-50%, 0);
   width: 100%;
   max-width: 47rem;
-  background-color: white;
+  background-color: #303030;
   border-top-left-radius: 0.375rem;
   border-top-right-radius: 0.375rem;
 }
@@ -30,28 +30,31 @@
 
 .closeModal {
   position: absolute;
-  top: 8px;
-  right: 12px;
-  font-size: 1.25rem;
+  top: 0;
+  right: -3.6px;
+  font-size: 1.4rem !important;
   cursor: pointer;
+  background-color: #ccb7a9;
+  height: 40px;
+  width: 40px;
+  border-bottom-left-radius: 0.375rem;
+  border-top-right-radius: 0.375rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #303030;
 }
 
 .closeModal:hover {
   transform: scale(1.1);
 }
 
-@media screen and (max-width: 768px) {
-  .bgModal {
-    background-image: url(https://static1.bigstockphoto.com/4/8/2/large1500/284139886.jpg);
-    background-size: cover;
-    background-position: center;
-    height: 100vh;
-    color: white;
-  }
+.closeModal {
+  font-size: 2rem;
+}
 
-  .closeModal {
-    font-size: 2rem;
-  }
+.titleOptions {
+  color: #ccb7a9 !important;
 }
 
 .inputOptions {
@@ -63,6 +66,23 @@
     width: auto;
   }
 }
+@media screen and (max-width: 768px) {
+  .bgModal {
+    background-image: url("../../assets/sfondoModale.jpg");
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    color: white;
+  }
+
+  .imgFilter {
+    height: 100%;
+    width: 100%;
+    background-color: rgb(48, 48, 48, 0.7);
+    backdrop-filter: blur(10px);
+  }
+}
+
 @media screen and (max-width: 420px) {
   .inputOptions {
     width: auto;
