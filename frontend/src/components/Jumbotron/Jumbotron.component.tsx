@@ -26,7 +26,6 @@ const Jumbotron = () => {
   const [lastname, setLastname] = useState("");
   const [email, setEmail] = useState("");
   const [citta, setCitta] = useState("");
-  const [registered, setRegistered] = useState(false);
   const [exists, setExists] = useState(false);
   const token = useAppSelector((state) => state.authToken?.token);
   const navigate = useNavigate();
@@ -80,7 +79,7 @@ const Jumbotron = () => {
         console.log(response.body?.pipeTo);
 
         cleanField();
-        setRegistered(true);
+
         setTimeout(() => {
           setShowRegistrationModal(false);
           navigate("/login");
@@ -189,7 +188,6 @@ const Jumbotron = () => {
                   color: `${COLORS.brandBlack}`,
                 }}
               />
-              {registered && <h1>Grazie!</h1>}
             </Modal>
           )}
         </Container>

@@ -66,7 +66,10 @@ const Modal = ({
                 <p className={`mb-5 mb-md-2 ${styles.titleOptions}`}>
                   {subtitle || "ciao"}
                 </p>
-                <div className="d-flex flex-column align-items-center px-0 p-md-2 w-100">
+                <form
+                  onClick={(e) => e.preventDefault()}
+                  className="d-flex flex-column align-items-center px-0 p-md-2 w-100"
+                >
                   <input
                     value={username}
                     className={`mb-5 mb-md-3 ${styles.inputOptions} ${
@@ -90,7 +93,7 @@ const Modal = ({
                     }}
                   />
                   {children}
-                </div>
+                </form>
               </div>
             </div>
           </Col>
