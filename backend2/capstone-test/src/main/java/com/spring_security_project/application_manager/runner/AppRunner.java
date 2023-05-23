@@ -350,6 +350,7 @@ public class AppRunner implements ApplicationRunner {
 //			c6.getListaProdotti().add(p7);
 //			c6.getListaProdotti().add(p8);
 //			c6.getListaProdotti().add(p9);
+			
 //			serviceChef.modifica(c6);
 
 		}
