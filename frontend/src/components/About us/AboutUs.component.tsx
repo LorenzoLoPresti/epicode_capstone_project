@@ -19,7 +19,6 @@ const AboutUs = () => {
   window.addEventListener("scroll", () => {
     if (window.scrollY >= 100) {
       setNavScroll(true);
-      console.log(navScroll);
     }
     if (window.scrollY >= 900) {
       setTitle(true);

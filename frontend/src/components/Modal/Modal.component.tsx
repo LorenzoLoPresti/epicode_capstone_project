@@ -63,7 +63,7 @@ const Modal = ({
                 <h2 className={`fs-3 pt-3 ${styles.titleOptions}`}>
                   {title || "ciao"}
                 </h2>
-                <p className={`mb-5 mb-md-2 ${styles.titleOptions}`}>
+                <p className={`mb-5 mb-md-4 ${styles.titleOptions}`}>
                   {subtitle || "ciao"}
                 </p>
                 <form
@@ -80,6 +80,7 @@ const Modal = ({
                       onChange={(e) => {
                         setUsername(e.target.value);
                       }}
+                      required
                     />
                     <label className={styles.label}>Username</label>
                   </div>
@@ -93,6 +94,7 @@ const Modal = ({
                       onChange={(e) => {
                         setPassword(e.target.value);
                       }}
+                      required
                     />
                     <label className={styles.label}>Password</label>
                   </div>

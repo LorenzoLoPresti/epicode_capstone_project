@@ -25,6 +25,7 @@ const Jumbotron = () => {
   const [name, setName] = useState("");
   const [lastname, setLastname] = useState("");
   const [email, setEmail] = useState("");
+  const [isEmailValid, setIsEmailValid] = useState(false);
   const [citta, setCitta] = useState("");
   const [exists, setExists] = useState(false);
   const token = useAppSelector((state) => state.authToken?.token);
@@ -92,8 +93,6 @@ const Jumbotron = () => {
 
   const handleOptionChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const value = event.target.value;
-    console.log(value);
-
     setCitta(value);
   };
 
@@ -133,7 +132,7 @@ const Jumbotron = () => {
             <Modal
               onClose={() => setShowRegistrationModal(false)}
               title="Accedi a Grand Bistrot"
-              subtitle="registrati ora"
+              subtitle="Registrati ora"
               username={username}
               setUsername={setUsername}
               password={password}
@@ -148,6 +147,7 @@ const Jumbotron = () => {
                   onChange={(e) => {
                     setName(e.target.value);
                   }}
+                  required
                 />
                 <label className={styleModal.label}>Nome</label>
               </div>
@@ -159,6 +159,7 @@ const Jumbotron = () => {
                   onChange={(e) => {
                     setLastname(e.target.value);
                   }}
+                  required
                 />
                 <label className={styleModal.label}>Cognome</label>
               </div>
@@ -166,12 +167,14 @@ const Jumbotron = () => {
                 <input
                   value={email}
                   className={`mb-5 mb-md-3 ${styleModal.inputOptions} ${
-                    exists && "bg-warning"
+                    !isEmailValid && email.length > 0 ? styleModal.invalid : ""
                   }`}
                   type="email"
                   onChange={(e) => {
                     setEmail(e.target.value);
+                    setIsEmailValid(e.target.validity.valid);
                   }}
+                  required
                 />
                 <label className={styleModal.label}>Email</label>
               </div>
@@ -192,6 +195,7 @@ const Jumbotron = () => {
                   value={citta}
                   id="dropdown"
                   onChange={(event) => handleOptionChange(event)}
+                  required
                 >
                   <option className={styleModal.dropdownOptions} value="">
                     Scegli dopo

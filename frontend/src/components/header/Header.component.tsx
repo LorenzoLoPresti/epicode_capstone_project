@@ -166,7 +166,7 @@ const Header = () => {
                 setWarning(false);
               }}
               title="Accedi a Grand Bistrot"
-              subtitle="login"
+              subtitle="Login"
               username={username}
               setUsername={setUsername}
               password={password}
