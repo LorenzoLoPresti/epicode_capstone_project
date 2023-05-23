@@ -15,4 +15,9 @@ body {
   width: 100vw;
   overflow-x: hidden;
   cursor: default;
+  user-select: none;
+}
+
+p {
+  user-select: text;
 }

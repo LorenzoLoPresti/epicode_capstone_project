@@ -174,6 +174,12 @@ const Header = () => {
               warning={warning}
               pswWarning={warning}
             >
+              {/* <p className="text-light">
+                Non hai un account?{" "}
+                <Link to="/register" onClick={() => setShowAuthModal(false)}>
+                  Registrati
+                </Link>
+              </p> */}
               <MyButton
                 text="Sign Up"
                 onClick={() => {
