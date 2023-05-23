@@ -121,7 +121,8 @@ const Negozio = () => {
                           selected !== 0 && selected !== chef.id && "d-none"
                         }`}
                         md={8}
-                        lg={4}
+                        lg={5}
+                        xl={4}
                       >
                         <Chef
                           selected={selected}

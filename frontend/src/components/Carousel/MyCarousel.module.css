@@ -129,3 +129,18 @@
     font-size: 1rem;
   }
 }
+
+@media screen and (max-width: 420px) {
+  .descriptionContainer {
+    width: 18rem;
+  }
+}
+
+@media screen and (max-width: 330px) {
+  .descriptionContainer {
+    width: 16rem;
+  }
+  .descriptionOptions {
+    font-size: 0.8rem;
+  }
+}

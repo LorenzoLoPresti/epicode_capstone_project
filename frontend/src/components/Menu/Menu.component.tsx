@@ -67,7 +67,9 @@ const Menu = ({
                       className={`${styles.descContainer} d-flex flex-column justify-content-center ps-3`}
                     >
                       <p>{ristoranteEl?.descrizione}</p>
-                      <p className="d-lg-none d-xl-block">
+                      <p
+                        className={`d-lg-none d-xl-block ${styles.paragraphOptions}`}
+                      >
                         Lorem ipsum, dolor sit amet consectetur adipisicing
                         elit. Dolorum fugiat magnam sapiente! Deleniti sapiente
                         aliquid placeat rerum doloremque? Amet laudantium nulla

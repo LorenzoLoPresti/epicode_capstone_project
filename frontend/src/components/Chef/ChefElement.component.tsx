@@ -46,7 +46,7 @@ const ChefElement = ({
         <div
           className={`${styles.chefContainer} ${
             selected === chef?.id ? styles.colorImg : styles.greyScale
-          } text-center`}
+          } text-center mb-5`}
           style={{
             backgroundImage: `url(${chef?.immagineProfilo})`,
             backgroundSize: "cover",

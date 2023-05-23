@@ -204,3 +204,9 @@
   opacity: 0;
   transition: all ease 1s;
 }
+
+@media screen and (max-width: 400px) {
+  .paragraphOptions {
+    display: none;
+  }
+}

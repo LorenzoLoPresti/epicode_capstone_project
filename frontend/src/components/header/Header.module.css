@@ -43,7 +43,8 @@
 .usernameDark {
   font-weight: 400;
   color: #303030;
-  transition: color 0.8s;
+  transition: transform 0.8s color 0.8s;
+  transition-timing-function: ease;
 }
 
 .username {
@@ -55,7 +56,9 @@
 }
 
 .navLink:hover,
-.username:hover {
+.username:hover,
+.navLinkDark:hover,
+.usernameDark:hover {
   color: #ccb7a9;
   /* border-bottom: 1px solid #ccb7a9; */
   text-decoration: none;
