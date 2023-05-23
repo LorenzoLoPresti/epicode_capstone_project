@@ -60,11 +60,7 @@ const Header = () => {
   return (
     <>
       {showMenu && (
-        <SideMenu
-          onClose={() => setShowMenu(false)}
-          flex={true}
-          directionColumn={true}
-        >
+        <SideMenu setShowMenu={setShowMenu} flex={true} directionColumn={true}>
           <SideMenu.Headline text={`ciao ${reduxUsername}`}></SideMenu.Headline>
           <SideMenu.Command
             text={"Checkout"}

@@ -5,7 +5,7 @@ import { RxCross1 } from "react-icons/rx";
 
 interface sideMenu {
   children?: React.ReactNode;
-  onClose: () => void;
+  setShowMenu: React.Dispatch<React.SetStateAction<boolean>>;
   flex?: boolean;
   directionColumn?: boolean;
 }
@@ -15,20 +15,34 @@ interface sideMenuCommand {
   onClick?: () => void;
 }
 
-const SideMenu = ({ children, onClose, flex, directionColumn }: sideMenu) => {
+const SideMenu = ({
+  children,
+  setShowMenu,
+  flex,
+  directionColumn,
+}: sideMenu) => {
   const [flexbox] = useState(flex || false);
   const [flexColumn] = useState(directionColumn || false);
+  const [shown, setShown] = useState(true);
+
+  const handleMenu = () => {
+    setShown(false);
+    setTimeout(() => {
+      setShowMenu(false);
+    }, 400);
+  };
+
   return (
     <>
-      <Overlay onClick={onClose} transparent={true} />
-      <div className={`${styles.sideMenu}`}>
+      <Overlay onClick={handleMenu} transparent={true} />
+      <div className={`${styles.sideMenu} ${!shown && styles.close}`}>
         <div
           className={`py-5 px-4 position-relative ${flexbox && "d-flex"} ${
             flexColumn && "flex-column"
           }`}
         >
           {children}
-          <span className={`${styles.closeModal}`} onClick={onClose}>
+          <span className={`${styles.closeModal}`} onClick={handleMenu}>
             <RxCross1 className="text-light" />
           </span>
         </div>

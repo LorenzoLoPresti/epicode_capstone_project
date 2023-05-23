@@ -13,6 +13,10 @@
   animation: sliding linear 0.4s;
 }
 
+.close {
+  animation: closing linear 0.41s;
+}
+
 @keyframes sliding {
   0% {
     right: -30%;
@@ -20,6 +24,15 @@
 
   100% {
     right: 0%;
+  }
+}
+
+@keyframes closing {
+  0% {
+    right: 0%;
+  }
+  100% {
+    right: -30%;
   }
 }
 
