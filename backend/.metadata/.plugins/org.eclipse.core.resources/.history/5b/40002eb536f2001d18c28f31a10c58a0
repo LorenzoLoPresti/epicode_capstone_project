@@ -1,0 +1,5 @@
+package com.spring_security_project.auth.configuration;
+
+public class ChefConfiguration {
+
+}

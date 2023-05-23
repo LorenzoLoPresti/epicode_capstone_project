@@ -1,0 +1,28 @@
+package com.spring_security_project.application_manager.model;
+
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Entity
+@Table(name = "lista_menu")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class Menu {
+	@OneToMany
+	@JsonIgnoreProperties
+	List<Prodotto> selezione;
+	@ManyToOne
+	@JsonIgnore
+	Chef chef;
+}

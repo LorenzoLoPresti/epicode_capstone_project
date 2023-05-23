@@ -1,0 +1,22 @@
+package com.spring_security_project.application_manager.configuration;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Scope;
+
+import com.spring_security_project.application_manager.model.CategoriaProdotto;
+import com.spring_security_project.application_manager.model.Chef;
+import com.spring_security_project.application_manager.model.Menu;
+import com.spring_security_project.application_manager.model.Piatto;
+import com.spring_security_project.application_manager.model.TipoBevanda;
+import com.spring_security_project.application_manager.model.TipoCottura;
+
+@Configuration
+public class BevandaConfiguration {
+	
+	@Bean
+	@Scope("prototype")
+	public Piatto creaBevanda(String name, CategoriaProdotto categoria, Double prezzo, Menu menu, TipoBevanda tipoBevanda, Integer descrizione) {
+		return new Piatto(name,categoria, prezzo, menu, tipoBevanda, descrizione);
+	}
+}

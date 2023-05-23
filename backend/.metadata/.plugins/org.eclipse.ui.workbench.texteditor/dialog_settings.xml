@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
+		<item key="selection" value="#app.jwt-expiration-milliseconds=604800000"/>
+		<list key="findhistory">
+			<item value="#app.jwt-expiration-milliseconds=604800000"/>
+			<item value="&#x0D;&#x0A;//&#x09;@Bean&#x0D;&#x0A;//&#x09;@Scope(&quot;prototype&quot;)&#x0D;&#x0A;//&#x09;public Piatto creaPiatto(String name, CategoriaProdotto categoria, Double prezzo, ) {&#x0D;&#x0A;//&#x09;&#x09;return null;&#x0D;&#x0A;//&#x09;}"/>
+		</list>
+	</section>
+</section>
