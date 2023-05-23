@@ -92,7 +92,6 @@ const Header = () => {
           >
             <Col className="py-1 d-flex align-items-center">
               <Navbar.Brand
-                className="d-none d-sm-block"
                 style={{
                   color: COLORS.brandWhite,
                 }}
@@ -112,7 +111,8 @@ const Header = () => {
             >
               {!reduxUsername ? (
                 <MyButton
-                  text="Sign In"
+                  icon={true}
+                  text="Accedi"
                   onClick={() => setShowAuthModal(true)}
                 />
               ) : (
@@ -137,18 +137,18 @@ const Header = () => {
               )}
               {/* <MyButton text="Sign In" onClick={() => setShowAuthModal(true)} /> */}
 
-              <Nav.Link className={`${styles.navLink} d-none d-md-block`}>
-                Contacts
+              <Nav.Link className={`${styles.navLink} d-none d-lg-block`}>
+                Contatti
               </Nav.Link>
               <NavLink
                 to={"/checkout"}
-                className={`${styles.navLink} d-none d-lg-block`}
+                className={`${styles.navLink} d-none d-sm-block`}
               >
                 Checkout
               </NavLink>
               {/* Approfondire discorso NAvLink (active automatico) */}
               <NavLink
-                className={`${styles.navLink} d-none d-md-block`}
+                className={`${styles.navLink} d-none d-lg-block`}
                 to={"/"}
               >
                 Home
@@ -177,7 +177,8 @@ const Header = () => {
                 </Link>
               </p> */}
               <MyButton
-                text="Sign Up"
+                icon={true}
+                text="Accedi"
                 onClick={() => {
                   setWarning(false);
                   // setClicked(false);

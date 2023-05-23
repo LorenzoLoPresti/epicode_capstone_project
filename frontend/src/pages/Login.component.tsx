@@ -86,7 +86,7 @@ const Login = () => {
                             setPassword(e.target.value);
                           }}
                         />
-                        <label className={style.label}>Username</label>
+                        <label className={style.label}>Password</label>
                       </div>
                       <MyButton
                         text="Sign Up"

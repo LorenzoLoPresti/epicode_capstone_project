@@ -7,7 +7,7 @@ import MyButton from "../Button/NavButton/MyButton.component";
 import Modal from "../Modal/Modal.component";
 import COLORS from "../../style/color";
 import { useAppSelector } from "../../redux/store/store";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 // interface user {
 //   name: string;
@@ -205,8 +205,17 @@ const Jumbotron = () => {
                   </option>
                 </select>
               </div>
+              <p className="text-light mt-2 mb-4">
+                Già registrato?{" "}
+                <Link
+                  to={"/login"}
+                  style={{ color: COLORS.brandGold, textDecoration: "none" }}
+                >
+                  Effettua il login
+                </Link>
+              </p>
               <MyButton
-                text="Sign Up"
+                text="Registrati"
                 onClick={() => {
                   // handleSubmit();
                   if (valueCheck()) {
@@ -220,7 +229,6 @@ const Jumbotron = () => {
                 style={{
                   backgroundColor: `${COLORS.brandGold}`,
                   color: `${COLORS.brandBlack}`,
-                  marginTop: "2rem",
                 }}
               />
             </Modal>

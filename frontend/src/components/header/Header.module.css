@@ -68,6 +68,14 @@
   border: none;
 }
 
+@media screen and (max-width: 400px) {
+  .logoOptions {
+    border-radius: 50%;
+    height: 3.2rem;
+    width: 8.2rem;
+  }
+}
+
 /* .routerLink {
   text-decoration: none;
   color: #faf4f0;

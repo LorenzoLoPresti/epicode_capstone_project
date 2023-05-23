@@ -29,3 +29,11 @@
   animation-name: buttonAnimation !important;
   animation-duration: 0.5s !important;
 }
+
+@media screen and (max-width: 400px) {
+  .btn {
+    transform: scale(0.9);
+    padding-right: 10px !important;
+    padding-left: 10px !important;
+  }
+}
