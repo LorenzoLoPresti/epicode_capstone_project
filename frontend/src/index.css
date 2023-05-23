@@ -1,0 +1,23 @@
+*::-webkit-scrollbar {
+  display: none;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  font-family: "Montserrat", sans-serif;
+  background-color: #303030;
+  width: 100vw;
+  overflow-x: hidden;
+  cursor: default;
+  user-select: none;
+}
+
+p {
+  user-select: text;
+}

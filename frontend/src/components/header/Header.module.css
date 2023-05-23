@@ -1,0 +1,89 @@
+.navStyle {
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.7) 4%,
+    rgba(0, 0, 0, 0.5) 38%,
+    rgba(0, 0, 0, 0.2) 70%,
+    rgba(0, 0, 0, 0.1) 90%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  transition: all 0.5s;
+  z-index: 10;
+}
+
+.navbarScroll {
+  background-color: #303030;
+  border-bottom: none;
+  transition: all 1s;
+}
+
+.navBorder {
+  border-bottom: 1px ridge #faf4f0cd;
+  transition: all 1s;
+}
+
+.navLink,
+.username {
+  margin-right: 1.25rem;
+  text-transform: uppercase;
+  font-weight: 100;
+  align-self: center;
+  text-decoration: none;
+  color: #faf4f0;
+  transition: transform 0.75s;
+  transition-timing-function: ease;
+}
+
+.username {
+  font-weight: 400;
+}
+
+.active {
+  color: #ccb7a9;
+}
+
+.navLink:hover,
+.username:hover {
+  color: #ccb7a9;
+  /* border-bottom: 1px solid #ccb7a9; */
+  text-decoration: none;
+  transform: translate(0, -15%);
+}
+
+.cta {
+  font-size: 0.1rem;
+}
+
+.logoOptions {
+  border-radius: 50%;
+  height: 4.5rem;
+  width: 9.5rem;
+}
+
+.userIconOptions {
+  margin-bottom: 3px;
+}
+
+.userIconOptions:hover {
+  border: none;
+}
+
+/* .routerLink {
+  text-decoration: none;
+  color: #faf4f0;
+}
+
+.routerLink:hover {
+  text-decoration: none;
+  color: #ccb7a9;
+} */
+
+/* .navbarMenu {
+  position: absolute;
+  height: 100vh;
+  background-color: #303030;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  max-width: 30rem;
+} */

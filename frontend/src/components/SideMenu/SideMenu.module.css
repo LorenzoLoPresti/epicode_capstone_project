@@ -1,0 +1,56 @@
+.sideMenu {
+  position: fixed;
+  bottom: 0%;
+  right: 0%;
+  min-height: 100vh;
+  width: 100vw;
+  max-width: 25rem;
+  background-color: #30303058;
+  backdrop-filter: blur(5px);
+  z-index: 1000;
+  overflow: hidden;
+  /* transform: translate(-107%); */
+  animation: sliding linear 0.4s;
+}
+
+.close {
+  animation: closing linear 0.41s;
+}
+
+@keyframes sliding {
+  0% {
+    right: -30%;
+  }
+
+  100% {
+    right: 0%;
+  }
+}
+
+@keyframes closing {
+  0% {
+    right: 0%;
+  }
+  100% {
+    right: -30%;
+  }
+}
+
+.headline,
+.menuOption {
+  color: #faf4f0 !important;
+  text-transform: capitalize !important;
+}
+
+.menuOption:hover {
+  color: #ccb7a9 !important;
+  cursor: pointer !important;
+}
+
+.closeModal {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  font-size: 1.5rem;
+  cursor: pointer;
+}

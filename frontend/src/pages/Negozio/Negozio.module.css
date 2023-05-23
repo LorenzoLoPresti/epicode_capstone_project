@@ -1,0 +1,108 @@
+.mainContainer {
+  /* padding-top: 6rem; */
+  width: 77%;
+  margin: auto;
+  padding: 6rem 5rem;
+  background-color: #303030;
+  overflow-y: auto;
+  max-height: 100vh;
+  animation: mainContainer ease 1s;
+}
+
+@keyframes mainContainer {
+  0% {
+    background-color: rgba(255, 255, 255);
+  }
+
+  100% {
+    background-color: #303030;
+  }
+}
+
+.copyOptions {
+  width: 50%;
+  font-size: 1.1rem;
+}
+
+.colNameOptions {
+  border-left: 2px solid #ccb7a9;
+  padding-left: 3rem;
+  margin-top: 1rem;
+  margin-left: calc(1.5rem * 0.5);
+}
+
+.colName {
+  font-family: "Abril Fatface", cursive;
+  font-size: 3.5rem;
+  color: #faf4f0;
+}
+
+.selectChef {
+  /* padding-left: 2rem; */
+
+  font-size: 2.3rem;
+  color: #faf4f0;
+  font-family: "Abril Fatface", cursive;
+}
+
+.infoColor {
+  color: #ccb7a9;
+}
+
+.decoration {
+  border-top: 2px solid #ccb7a9;
+  animation: textAppear ease 1s;
+}
+
+@keyframes textAppear {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .categoryNameOptions {
+    font-size: 1.25rem;
+  }
+}
+
+@media screen and (max-width: 1040px) {
+  .colName {
+    font-size: 2.8rem;
+  }
+  .colNameOptions {
+    padding-left: 2rem;
+  }
+}
+
+@media screen and (max-width: 998px) {
+  .mainContainer {
+    padding: 6rem 2rem;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .mainContainer {
+    padding: 6rem 2rem;
+    margin: 0;
+    width: 100%;
+  }
+
+  .colName {
+    font-size: 2.8rem;
+  }
+  .colNameOptions {
+    padding-left: 1rem;
+  }
+
+  .copyOptions {
+    width: 100%;
+    font-size: 1rem;
+  }
+}

@@ -1,0 +1,119 @@
+.carouselContainerOptions {
+  overflow-y: hidden;
+}
+
+.imgFilter {
+  /* background: radial-gradient(
+    circle,
+    rgba(0, 0, 0, 0.4) 0%,
+    rgba(0, 0, 0, 0.3) 23%,
+    rgba(0, 0, 0, 0.2) 63%,
+    rgba(0, 0, 0, 0.1) 100%
+  ); */
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.4) 0%,
+    rgba(0, 0, 0, 0.3) 23%,
+    rgba(0, 0, 0, 0.2) 63%,
+    rgba(0, 0, 0, 0.5) 75%,
+    rgba(0, 0, 0, 0.9) 100%
+  );
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: white;
+}
+
+.titleOptions {
+  font-size: 8rem;
+  font-family: "Abril Fatface", cursive;
+  cursor: pointer;
+  transition: transform 1s;
+  transition-timing-function: ease;
+}
+
+.titleOptions:hover {
+  transform: translate(0, -5%);
+}
+
+.subtitleOptions {
+  font-size: 1.25rem;
+}
+
+.descriptionOptions {
+  font-size: 0.875rem;
+}
+
+/* ANIMAZIONE NOME RISTORANTE */
+
+.titleContainer {
+  animation: titleAnimation ease-out 1.3s;
+}
+
+@keyframes titleAnimation {
+  0% {
+    transform: translate(0%, -400%);
+  }
+  100% {
+    transform: translate(0%, 0%);
+  }
+}
+
+.descriptionContainer {
+  bottom: 11%;
+  left: 10%;
+  border-left: 2px solid #faf4f0bc;
+  width: 22rem;
+  overflow-wrap: break-word;
+  background: radial-gradient(
+    circle,
+    rgba(0, 0, 0, 0.2) 0%,
+    rgba(0, 0, 0, 0.15) 10%,
+    rgba(0, 0, 0, 0.1) 20%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  animation: desc ease 1s;
+}
+
+@keyframes desc {
+  0% {
+    bottom: -20%;
+  }
+
+  100% {
+    bottom: 11%;
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  .descriptionContainer {
+    bottom: 11%;
+    left: 10%;
+    width: 24rem;
+  }
+  .descriptionOptions {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 998px) {
+  .titleOptions {
+    font-size: 6.5rem;
+  }
+}
+@media screen and (max-width: 576px) {
+  .titleOptions {
+    font-size: 5rem;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .titleOptions {
+    text-align: center;
+    font-size: 3rem;
+  }
+  .subtitleOptions {
+    font-size: 1rem;
+  }
+}

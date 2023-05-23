@@ -1,0 +1,30 @@
+.btn {
+  background-color: #ccb7a9;
+  color: #faf4f0;
+  border: 1px solid #faf4f0;
+  border-radius: 24px;
+  transition: transform 0.5s;
+  transition-timing-function: ease;
+}
+
+.btn:hover {
+  background-color: #ccb7a9 !important;
+  transform: scale(1.04);
+  animation-name: buttonAnimation !important;
+  animation-duration: 0.5s !important;
+}
+
+@keyframes buttonAnimation {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    background-color: #c8beb7;
+  }
+
+  100% {
+    transform: scale(1.04);
+    background-color: #ccb7a9;
+  }
+}

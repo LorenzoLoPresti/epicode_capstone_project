@@ -1,0 +1,78 @@
+.colChefOptions {
+  padding: 0;
+  /* transition: transform 1s;
+  transition-timing-function: ease; */
+}
+
+/* .colChefOptions:hover {
+  transform: scale(1.1);
+  z-index: 2;
+} */
+
+.chefContainer {
+  height: 400px;
+  width: calc(100% - 5%);
+  margin: auto;
+}
+
+.greyScale {
+  filter: grayscale(100%);
+}
+
+.colorImg {
+  filter: grayscale(0%);
+  animation: colorImg ease 1s;
+}
+
+@keyframes colorImg {
+  0% {
+    filter: grayscale(100%);
+  }
+  100% {
+    filter: grayscale(0%);
+  }
+}
+
+.divOverlayDimensions {
+  width: 100%;
+  height: 100%;
+}
+
+.divOverlay {
+  background-color: rgba(34, 34, 34, 0.612);
+  margin-bottom: 0;
+}
+
+/* @keyframes chefOverlay {
+  0% {
+    background-color: rgba(0, 0, 0, 0.348);
+  }
+
+  100% {
+    background-color: rgba(0, 0, 0, 0);
+  }
+} */
+
+.chefName {
+  opacity: 1;
+  color: white;
+}
+
+.chefNameVisible {
+  opacity: 0;
+  transition: all ease 1s;
+}
+
+/* .divOverlay:hover.chefName {
+  opacity: 1;
+} */
+
+.chefSelected {
+  opacity: 0;
+  transition: all ease 1s;
+}
+
+.chefDescriptionContainer {
+  height: 500px;
+  width: 100%;
+}

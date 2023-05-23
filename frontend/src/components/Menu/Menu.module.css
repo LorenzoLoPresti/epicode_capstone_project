@@ -1,0 +1,187 @@
+.menuMainOptions {
+  height: 100vh;
+  width: 100vw;
+  padding: 0 10rem;
+  position: absolute;
+  top: 0%;
+  z-index: 1;
+  animation: menuAnimation ease 1s;
+}
+
+@keyframes menuAnimation {
+  0% {
+    top: -100%;
+  }
+  100% {
+    top: 0%;
+  }
+}
+
+/* .menuScrollup {
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  top: 100%;
+  z-index: 1;
+  padding-top: 500px;
+  animation: menuScrollup ease 1s;
+} */
+
+.menuContainer {
+  /* width: calc(100vw - 6%); */
+  /* margin: auto; */
+  height: 100%;
+}
+
+.menuTitle {
+  font-size: 3.5rem;
+  font-family: "Abril Fatface", cursive;
+  top: 20%;
+  left: 10%;
+  animation: menuTitle ease 1.8s;
+}
+
+/* .menuTitleContainer {
+  width: 100vw;
+} */
+
+@keyframes menuTitle {
+  0% {
+    color: transparent;
+    top: 200%;
+  }
+
+  30% {
+    color: transparent;
+  }
+
+  100% {
+    color: #303030;
+    top: 20%;
+  }
+}
+
+.descContainer {
+  animation: descContainer ease 1.4s;
+}
+
+@keyframes descContainer {
+  0% {
+    transform: translate(0%, 400%);
+  }
+
+  100% {
+    transform: translate(0%, 0%);
+  }
+}
+
+.imgContainer {
+  transform: rotate(-20deg);
+  background-color: #303030;
+  margin-right: 3rem;
+  animation: imgContainer ease 1s;
+}
+
+@keyframes imgContainer {
+  0% {
+    transform: translate(0%, 400%) rotate(80deg);
+  }
+  100% {
+    transform: translate(0%, 0%) rotate(-20deg);
+  }
+}
+
+.menuImg {
+  width: 350px;
+  transform: rotate(13deg);
+}
+
+/* .btn {
+  background-color: #ccb7a9;
+  color: #faf4f0;
+  border: 1px solid #faf4f0;
+  border-radius: 24px;
+  transition: transform 0.5s;
+  transition-timing-function: ease;
+}
+
+.btn:hover {
+  background-color: #ccb7a9 !important;
+  transform: scale(1.04);
+  animation-name: buttonAnimation !important;
+  animation-duration: 0.5s !important;
+}
+
+@keyframes buttonAnimation {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    background-color: #c8beb7;
+  }
+
+  100% {
+    transform: scale(1.04);
+    background-color: #ccb7a9;
+  }
+} */
+/* @keyframes menuScrollup {
+  0% {
+    top: 0%;
+  }
+  100% {
+    top: 100%;
+  }
+} */
+.decorator {
+  height: 110px;
+  width: 2px;
+  background-color: #303030;
+  top: 19%;
+  left: 7%;
+  animation: decorator ease 4s;
+}
+
+@keyframes decorator {
+  0% {
+    height: 0px;
+  }
+
+  40% {
+    height: 0px;
+  }
+
+  100% {
+    background-color: #303030;
+    height: 110px;
+  }
+}
+
+.decoratorDesc {
+  width: 100%;
+  height: 2px;
+  bottom: 20%;
+  background-color: #303030;
+  margin-top: 3rem;
+  animation: decoratorDesc ease 3.3s;
+}
+
+@keyframes decoratorDesc {
+  0% {
+    width: 0%;
+  }
+
+  40% {
+    width: 0%;
+  }
+
+  100% {
+    width: 100%;
+  }
+}
+
+.menuDisappear {
+  opacity: 0;
+  transition: all ease 1s;
+}

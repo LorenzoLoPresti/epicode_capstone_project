@@ -1,0 +1,133 @@
+.mainContainer {
+  /* padding-top: 6rem; */
+  width: 77%;
+  margin: auto;
+  padding: 6rem 5rem;
+  background-color: #303030;
+  overflow-y: auto;
+  max-height: 100vh;
+  animation: mainContainer ease 1s;
+}
+
+.chefNameContainer {
+  border-left: 2px solid #ccb7a9;
+  padding-left: 3rem;
+  margin-top: 1rem;
+  margin-left: calc(1.5rem * 0.5);
+}
+
+.chefName {
+  font-size: 3rem;
+  color: #faf4f0;
+  font-family: "Abril Fatface", cursive;
+}
+
+.chefImage {
+  height: 400px;
+  /* width: calc(100% - 5%);
+  margin: auto; */
+}
+
+.copyOptions {
+  /* width: 50%; */
+  font-size: 1.1rem;
+}
+
+.chefName {
+  font-size: 2.8rem;
+}
+
+.copyOptions {
+  /* width: 100%; */
+  font-size: 1rem;
+}
+
+.commensaliBtn {
+  background-color: #ccb7a9;
+  color: #faf4f0;
+  border: 1px solid #faf4f0;
+  border-radius: 2px;
+  transition: transform 0.5s;
+  transition-timing-function: ease;
+  transform: scale(0.85);
+}
+
+.commensaliBtn:hover {
+  background-color: #ccb7a9 !important;
+  transform: scale(1.04);
+  animation-name: buttonAnimation !important;
+  animation-duration: 0.5s !important;
+}
+
+.winesContainer {
+  padding: 0.5rem 0;
+  background-color: #1e1b1c;
+  opacity: 1;
+  animation: winesContainer ease 1s;
+}
+
+@keyframes winesContainer {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.btnDisabled {
+  background-color: #ccb7a9;
+  color: #faf4f0;
+  border: 1px solid #faf4f0;
+  border-radius: 2px;
+  opacity: 0.5;
+  transform: scale(0.85);
+}
+
+.btnContent {
+  margin-bottom: 2px;
+}
+
+@keyframes buttonAnimation {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    background-color: #c8beb7;
+  }
+
+  100% {
+    transform: scale(1.04);
+    background-color: #ccb7a9;
+  }
+}
+
+@media screen and (max-width: 1040px) {
+  .chefName {
+    font-size: 2.5rem;
+  }
+  .colNameOptions {
+    padding-left: 2rem;
+  }
+}
+
+@media screen and (max-width: 998px) {
+  .mainContainer {
+    padding: 6rem 2rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .chefNameContainer {
+    padding-left: 1rem;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .mainContainer {
+    padding: 6rem 2rem;
+    margin: 0;
+    width: 100%;
+  }
+}

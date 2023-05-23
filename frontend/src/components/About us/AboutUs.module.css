@@ -1,0 +1,160 @@
+.goldContainer {
+  background-color: #ccb7a9;
+  overflow-x: hidden;
+}
+
+.titleOptions {
+  color: #303030;
+  border: 1.2px solid #303030ae;
+  transform: translate(2500px);
+}
+
+.titleIn {
+  transform: translate(0);
+  animation: titleIn ease 1.3s;
+}
+
+/* .titleOut {
+  transform: translate(1000px);
+  transition: all ease 1.2s;
+} */
+
+@keyframes titleIn {
+  0% {
+    transform: translate(2500px);
+  }
+  100% {
+    transform: translate(0);
+  }
+}
+
+.about {
+  font-size: 1rem;
+  letter-spacing: 7px;
+  text-transform: uppercase;
+}
+
+.aboutTitle {
+  text-transform: uppercase;
+  font-size: 1.925rem;
+}
+
+.title {
+  opacity: 0;
+  text-transform: uppercase;
+  font-size: 1.925rem;
+}
+
+.img {
+  max-width: 80%;
+}
+
+.bgAbout {
+  width: 100%;
+  background-position-y: -300px;
+}
+
+.gradient {
+  opacity: 0;
+  width: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(48, 48, 48, 0) 25%,
+    rgba(48, 48, 48, 0.2) 30%,
+    rgba(48, 48, 48, 0.7) 35%,
+    rgba(48, 48, 48, 0.9) 45%,
+    rgba(48, 48, 48, 0.95) 55%,
+    rgba(48, 48, 48, 1) 70%,
+    rgba(48, 48, 48, 1) 100%
+  );
+}
+
+.titleVisible {
+  opacity: 1;
+  transition: all ease 1s;
+}
+
+.cOpacity {
+  transform: translate(-1500px);
+}
+
+.c1Visible {
+  transform: translate(0px);
+  animation: c1 ease 2s;
+}
+
+.c2Visible {
+  transform: translate(0px);
+  animation: c2 ease 3s;
+}
+
+.c3Visible {
+  transform: translate(0px);
+  animation: c3 ease 4.2s;
+}
+
+@keyframes c1 {
+  0% {
+    transform: translate(-1500px);
+  }
+  50% {
+    transform: translate(0px);
+  }
+}
+@keyframes c2 {
+  0% {
+    transform: translate(-1500px);
+  }
+  50% {
+    transform: translate(-1500px);
+  }
+  75% {
+    transform: translate(0px);
+  }
+}
+@keyframes c3 {
+  0% {
+    transform: translate(-1500px);
+  }
+  80% {
+    transform: translate(-1500px);
+  }
+  100% {
+    transform: translate(0px);
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .bgAbout {
+    background-size: cover;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .gradient {
+    background: linear-gradient(
+      270deg,
+      rgba(48, 48, 48, 0) 25%,
+      rgba(48, 48, 48, 0.2) 30%,
+      rgba(48, 48, 48, 0.7) 35%,
+      rgba(48, 48, 48, 0.9) 45%,
+      rgba(48, 48, 48, 0.95) 55%,
+      rgba(48, 48, 48, 1) 70%,
+      rgba(48, 48, 48, 1) 100%
+    );
+  }
+}
+@media screen and (max-width: 768px) {
+  .gradient {
+    background: linear-gradient(
+      270deg,
+      rgba(48, 48, 48, 0.3) 25%,
+      rgba(48, 48, 48, 0.4) 30%,
+      rgba(48, 48, 48, 0.7) 35%,
+      rgba(48, 48, 48, 0.8) 45%,
+      rgba(48, 48, 48, 0.95) 55%,
+      rgba(48, 48, 48, 1) 70%,
+      rgba(48, 48, 48, 1) 100%
+    );
+  }
+}
