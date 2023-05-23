@@ -10,11 +10,16 @@
   transition: all 0.5s;
   z-index: 10;
 }
+.navDarkStyle {
+  background: transparent;
+  transition: all 0.5s;
+  z-index: 10;
+}
 
 .navbarScroll {
   background-color: #303030;
   border-bottom: none;
-  transition: all 1s;
+  transition: all 0.7s;
 }
 
 .navBorder {
@@ -32,6 +37,13 @@
   color: #faf4f0;
   transition: transform 0.75s;
   transition-timing-function: ease;
+}
+
+.navLinkDark,
+.usernameDark {
+  font-weight: 400;
+  color: #303030;
+  transition: color 0.8s;
 }
 
 .username {
@@ -56,7 +68,7 @@
 
 .logoOptions {
   border-radius: 50%;
-  height: 4.5rem;
+  height: 5.2rem;
   width: 9.5rem;
 }
 
@@ -71,7 +83,7 @@
 @media screen and (max-width: 400px) {
   .logoOptions {
     border-radius: 50%;
-    height: 3.2rem;
+    height: 4.5rem;
     width: 8.2rem;
   }
 }

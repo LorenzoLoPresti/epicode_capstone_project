@@ -17,7 +17,7 @@ const AboutUs = () => {
   const [c3, setC3] = useState(false);
 
   window.addEventListener("scroll", () => {
-    if (window.scrollY >= 100) {
+    if (window.scrollY >= 90) {
       setNavScroll(true);
     }
     if (window.scrollY >= 900) {

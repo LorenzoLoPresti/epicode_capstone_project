@@ -25,6 +25,18 @@
   color: white;
 }
 
+.menuOpenFilter {
+  background: linear-gradient(
+    180deg,
+    rgb(248, 249, 250) 0%,
+    rgb(248, 249, 250) 16%,
+    rgba(0, 0, 0, 0.677) 16%,
+    rgba(0, 0, 0, 0.2) 63%,
+    rgba(0, 0, 0, 0.5) 75%,
+    rgba(0, 0, 0, 0.9) 100%
+  );
+}
+
 .titleOptions {
   font-size: 8rem;
   font-family: "Abril Fatface", cursive;

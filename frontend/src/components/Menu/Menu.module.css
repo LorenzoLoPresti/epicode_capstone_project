@@ -31,6 +31,7 @@
   /* width: calc(100vw - 6%); */
   /* margin: auto; */
   height: 100%;
+  background-color: rgb(248, 249, 250);
 }
 
 .menuTitle {

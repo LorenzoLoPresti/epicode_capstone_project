@@ -37,6 +37,7 @@ const Modal = ({
       onClose();
     }, 400);
   };
+
   return (
     <>
       <Overlay

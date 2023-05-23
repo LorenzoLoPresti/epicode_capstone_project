@@ -9,6 +9,7 @@ import { useAppSelector } from "../../redux/store/store";
 import { fetchToken, logout, user } from "../../redux/reducers/tokenStore";
 import { FiUser } from "react-icons/fi";
 import blackLogoNoBg from "../../assets/blackLogoNoBg.png";
+import whiteLogoNoBg from "../../assets/whiteLogoNoBg.png";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import SideMenu from "../SideMenu/SideMenu.component";
 
@@ -19,6 +20,7 @@ const Header = () => {
   const [navScroll, setNavScroll] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
   const [warning, setWarning] = useState(false);
+  const navbarColor = useAppSelector((state) => state.navbarReducer?.dark);
   // const [clicked, setClicked] = useState(false);
   const reduxUsername = useAppSelector((state) => state.authToken?.username);
   const navigate = useNavigate();
@@ -80,7 +82,9 @@ const Header = () => {
         </SideMenu>
       )}
       <Navbar
-        className={`${navScroll ? styles.navbarScroll : styles.navStyle}`}
+        className={`${navScroll ? styles.navbarScroll : styles.navStyle} ${
+          navbarColor && styles.navDarkStyle
+        }`}
         expand="lg"
         fixed="top"
       >
@@ -99,8 +103,8 @@ const Header = () => {
                 <Link to={"/"}>
                   <img
                     className={`${styles.logoOptions}`}
-                    src={blackLogoNoBg}
-                    alt=""
+                    src={!navbarColor ? blackLogoNoBg : whiteLogoNoBg}
+                    alt="logo"
                   />
                 </Link>
               </Navbar.Brand>
@@ -110,18 +114,22 @@ const Header = () => {
               style={{ color: COLORS.brandWhite }}
             >
               {!reduxUsername ? (
-                <MyButton
-                  icon={true}
-                  text="Accedi"
-                  onClick={() => setShowAuthModal(true)}
-                />
+                <div className="d-flex align-items-center">
+                  <MyButton
+                    icon={true}
+                    text="Accedi"
+                    onClick={() => setShowAuthModal(true)}
+                  />
+                </div>
               ) : (
                 <>
                   <Nav.Link
                     onClick={() => {
                       setShowMenu(true);
                     }}
-                    className={` ${styles.username} ${styles.userIconOptions} me-2 fs-6`}
+                    className={` ${styles.username} ${
+                      navbarColor && styles.usernameDark
+                    } ${styles.userIconOptions} me-2 fs-6`}
                   >
                     <FiUser />
                   </Nav.Link>
@@ -129,7 +137,9 @@ const Header = () => {
                     onClick={() => {
                       setShowMenu(true);
                     }}
-                    className={`${styles.username} me-1`}
+                    className={`${styles.username} ${
+                      navbarColor && styles.usernameDark
+                    } me-1`}
                   >
                     Ciao {reduxUsername}{" "}
                   </Nav.Link>
@@ -137,18 +147,26 @@ const Header = () => {
               )}
               {/* <MyButton text="Sign In" onClick={() => setShowAuthModal(true)} /> */}
 
-              <Nav.Link className={`${styles.navLink} d-none d-lg-block`}>
+              <Nav.Link
+                className={`${styles.navLink} ${
+                  navbarColor && styles.navLinkDark
+                } d-none d-lg-block`}
+              >
                 Contatti
               </Nav.Link>
               <NavLink
                 to={"/checkout"}
-                className={`${styles.navLink} d-none d-sm-block`}
+                className={`${styles.navLink} ${
+                  navbarColor && styles.navLinkDark
+                } d-none d-sm-block`}
               >
                 Checkout
               </NavLink>
               {/* Approfondire discorso NAvLink (active automatico) */}
               <NavLink
-                className={`${styles.navLink} d-none d-lg-block`}
+                className={`${styles.navLink} ${
+                  navbarColor && styles.navLinkDark
+                } d-none d-lg-block`}
                 to={"/"}
               >
                 Home

@@ -3,6 +3,8 @@ import styles from "./Menu.module.css";
 import { Ristorante } from "../../pages/Home/Home.types";
 import { Link } from "react-router-dom";
 import GeneralButton from "../Button/GeneralButton/GeneralButton.component";
+import { useAppDispatch } from "../../redux/store/store";
+import { darkNav } from "../../redux/reducers/navbarStore";
 
 const Menu = ({
   onClick,
@@ -13,6 +15,8 @@ const Menu = ({
   showMenu: boolean;
   ristoranteEl: Ristorante;
 }) => {
+  const dispatch = useAppDispatch();
+
   return (
     <>
       {ristoranteEl && (
@@ -25,7 +29,7 @@ const Menu = ({
             // ${!showMenu && styles.menuSrollup}
           >
             <Container
-              className={`bg-light position-relative ${styles.menuContainer} `}
+              className={` position-relative ${styles.menuContainer} `}
             >
               <div className={`position-absolute ${styles.decorator}`}></div>
               <Row
@@ -37,7 +41,13 @@ const Menu = ({
                 >
                   <h2 className={`${styles.menuTitle} pb-5 position-absolute`}>
                     {ristoranteEl?.name}{" "}
-                    <span className="ms-3 fs-3" onClick={() => onClick(false)}>
+                    <span
+                      className="ms-3 fs-3"
+                      onClick={() => {
+                        onClick(false);
+                        dispatch(darkNav(false));
+                      }}
+                    >
                       X
                     </span>
                   </h2>
@@ -62,7 +72,7 @@ const Menu = ({
                       <Link
                         style={{ textDecoration: "none", color: "#faf4f0" }}
                         to={`/store/${ristoranteEl?.name}`}
-                        onClick={() => console.log(ristoranteEl?.name)}
+                        onClick={() => dispatch(darkNav(false))}
                       >
                         <GeneralButton text="Vai agli chef" />
                       </Link>
