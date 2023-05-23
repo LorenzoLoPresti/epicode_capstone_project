@@ -24,7 +24,7 @@
     bottom: 50%;
     transform: translate(-50%, 50%);
     border-radius: 0.375rem;
-    animation: popupDesktop ease 1s;
+    animation: popupDesktop 0.6s;
   }
 
   .close {
