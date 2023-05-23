@@ -148,7 +148,7 @@ const Header = () => {
                       navbarColor && styles.usernameDark
                     } me-1`}
                   >
-                    Ciao {reduxUsername}{" "}
+                    {reduxUsername}{" "}
                   </Nav.Link>
                 </>
               )}

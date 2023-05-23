@@ -53,32 +53,38 @@ const Menu = ({
                   </h2>
                 </Col>
                 <Col className="d-flex">
-                  <div className={`${styles.imgContainer}`}>
-                    <img
-                      className={`${styles.menuImg}`}
-                      src={ristoranteEl?.menu_img}
-                      alt="immagine-menu"
-                    />
-                  </div>
-                  <div className={`${styles.descContainer} ps-3`}>
-                    <p>{ristoranteEl?.descrizione}</p>
-                    <p>
-                      Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                      Dolorum fugiat magnam sapiente! Deleniti sapiente aliquid
-                      placeat rerum doloremque? Amet laudantium nulla veniam
-                      officiis dolore adipisci vel ullam itaque aut ad.
-                    </p>
-                    <div className="w-100 text-end pe-3">
-                      <Link
-                        style={{ textDecoration: "none", color: "#faf4f0" }}
-                        to={`/store/${ristoranteEl?.name}`}
-                        onClick={() => dispatch(darkNav(false))}
-                      >
-                        <GeneralButton text="Vai agli chef" />
-                      </Link>
-                    </div>
-                    <div className={`${styles.decoratorDesc}`}></div>
-                  </div>
+                  <Row className="position-relative">
+                    <Col xs={6} xl={5} className="d-none d-lg-block">
+                      <div className={`${styles.imgContainer}`}>
+                        <img
+                          className={`${styles.menuImg}`}
+                          src={ristoranteEl?.menu_img}
+                          alt="immagine-menu"
+                        />
+                      </div>
+                    </Col>
+                    <Col
+                      className={`${styles.descContainer} d-flex flex-column justify-content-center ps-3`}
+                    >
+                      <p>{ristoranteEl?.descrizione}</p>
+                      <p className="d-lg-none d-xl-block">
+                        Lorem ipsum, dolor sit amet consectetur adipisicing
+                        elit. Dolorum fugiat magnam sapiente! Deleniti sapiente
+                        aliquid placeat rerum doloremque? Amet laudantium nulla
+                        veniam officiis dolore adipisci vel ullam itaque aut ad.
+                      </p>
+                      <div className="w-100 text-end pe-3">
+                        <Link
+                          style={{ textDecoration: "none", color: "#faf4f0" }}
+                          to={`/store/${ristoranteEl?.name}`}
+                          onClick={() => dispatch(darkNav(false))}
+                        >
+                          <GeneralButton text="Vai agli chef" />
+                        </Link>
+                      </div>
+                      <div className={`${styles.decoratorDesc} `}></div>
+                    </Col>
+                  </Row>
                 </Col>
               </Row>
             </Container>
