@@ -26,6 +26,10 @@
     border-radius: 0.375rem;
     animation: popupDesktop ease 1s;
   }
+
+  .close {
+    animation: close linear 0.41s;
+  }
 }
 
 .closeModal {
@@ -149,5 +153,13 @@
   }
   100% {
     transform: translate(-50%, 50%) scale(1);
+  }
+}
+@keyframes close {
+  0% {
+    transform: translate(-50%, 50%) scale(1);
+  }
+  100% {
+    transform: translate(-50%, 50%) scale(0);
   }
 }

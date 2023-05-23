@@ -4,6 +4,7 @@ import { Dispatch, SetStateAction } from "react";
 import { Col, Row } from "react-bootstrap";
 import { RxCross1 } from "react-icons/rx";
 import sfondoModale from "../../assets/sfondoModale.jpg";
+import { useState } from "react";
 
 const Modal = ({
   children,
@@ -28,13 +29,21 @@ const Modal = ({
   warning?: boolean;
   pswWarning?: boolean;
 }) => {
+  const [shown, setShown] = useState(true);
+
+  const handleModal = () => {
+    setShown(false);
+    setTimeout(() => {
+      onClose();
+    }, 400);
+  };
   return (
     <>
       <Overlay
-        onClick={onClose}
+        onClick={handleModal}
         // style={{ backgroundColor: "white", opacity: "1" }}
       />
-      <div className={`${styles.modal}`}>
+      <div className={`${styles.modal} ${!shown && styles.close}`}>
         <Row className="d-flex">
           <Col md={6} className="p-0 d-none d-md-block">
             {/* <Modal.Body> */}
@@ -55,7 +64,7 @@ const Modal = ({
             {/* <Modal.Footer> */}
             <div className={`${styles.imgFilter}`}>
               <div className="position-relative">
-                <div className={`${styles.closeModal}`} onClick={onClose}>
+                <div className={`${styles.closeModal}`} onClick={handleModal}>
                   <RxCross1 />
                 </div>
               </div>
