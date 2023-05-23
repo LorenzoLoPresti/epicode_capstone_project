@@ -12,6 +12,7 @@ import blackLogoNoBg from "../../assets/blackLogoNoBg.png";
 import whiteLogoNoBg from "../../assets/whiteLogoNoBg.png";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import SideMenu from "../SideMenu/SideMenu.component";
+import { darkNav } from "../../redux/reducers/navbarStore";
 
 const Header = () => {
   const [showAuthModal, setShowAuthModal] = useState(false);
@@ -58,6 +59,12 @@ const Header = () => {
       setWarning(false);
     }
   }, [token, warning]);
+
+  useEffect(() => {
+    if (!token) {
+      dispatch(darkNav(false));
+    }
+  });
 
   return (
     <>
