@@ -16,7 +16,7 @@ const NotFound = () => {
       }}
     >
       <div className={`${styles.containerOptions}`}>
-        <Container className="w-100 h-100 pt-5 px-xs-1 px-md-5">
+        <Container className="w-100 h-100 pt-5 px-1 px-md-5">
           <Row
             className="d-flex justify-content-center align-items-center text-light h-100 w-100"
             style={{ padding: "5rem 0", margin: "0", minHeight: "100vh" }}

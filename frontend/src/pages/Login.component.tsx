@@ -33,16 +33,21 @@ const Login = () => {
     <>
       <div
         style={{
-          height: "100vh",
+          minHeight: "100vh",
           backgroundImage: `url(${accedi})`,
           backgroundSize: "cover",
         }}
       >
         <div className={`${style.loginContainerOptions}`}>
-          <Container className="w-100 h-100 py-5 p-md-5">
-            <Row className="d-flex justify-content-center align-items-center text-light h-100 py-5 px-3 p-md-5">
+          <Container className="w-100 h-100 pt-5 px-1 px-md-5">
+            <Row
+              className="d-flex justify-content-center align-items-center text-light h-100 w-100"
+              style={{ padding: "5rem 0", margin: "0", minHeight: "100vh" }}
+            >
               <Col
-                className={`d-flex flex-column justify-content-center align-items-center h-100 ${style.registerOptions}`}
+                className={`d-flex flex-column align-items-center justify-content-center text-center px-3 px-md-5 ${
+                  style.registerOptions
+                } ${showAuthModal && style.registerModalOptions}`}
               >
                 {!showAuthModal && (
                   <>

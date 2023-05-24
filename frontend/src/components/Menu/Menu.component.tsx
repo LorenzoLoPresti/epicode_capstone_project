@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import GeneralButton from "../Button/GeneralButton/GeneralButton.component";
 import { useAppDispatch } from "../../redux/store/store";
 import { darkNav } from "../../redux/reducers/navbarStore";
+import { RxCross1 } from "react-icons/rx";
 
 const Menu = ({
   onClick,
@@ -33,24 +34,25 @@ const Menu = ({
             >
               <div className={`position-absolute ${styles.decorator}`}></div>
               <Row
-                className="d-flex flex-column justify-content-center"
+                className="d-flex flex-column justify-content-center position-relative"
                 style={{ height: "100%", padding: "3rem 5% 5rem 8%" }}
               >
                 <Col
-                  className={`mt-5 d-flex align-items-center justify-content-end ${styles.menuTitleContainer}`}
+                  className={`mt-5 d-flex align-items-center justify-content-end`}
                 >
                   <h2 className={`${styles.menuTitle} pb-5 position-absolute`}>
                     {ristoranteEl?.name}{" "}
-                    <span
-                      className="ms-3 fs-3"
-                      onClick={() => {
-                        onClick(false);
-                        dispatch(darkNav(false));
-                      }}
-                    >
-                      X
-                    </span>
                   </h2>
+                  <div
+                    className={`ms-3 fs-3 position-absolute ${styles.closeIcon}`}
+                    style={{ top: "22%", right: "6%" }}
+                    onClick={() => {
+                      onClick(false);
+                      dispatch(darkNav(false));
+                    }}
+                  >
+                    <RxCross1 />
+                  </div>
                 </Col>
                 <Col className="d-flex">
                   <Row className="position-relative">
