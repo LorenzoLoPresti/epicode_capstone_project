@@ -9,6 +9,21 @@
   animation: mainContainer ease 1s;
 }
 
+.popup {
+  animation: popup ease 1s;
+}
+
+@keyframes popup {
+  0% {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
 .chefNameContainer {
   border-left: 2px solid #ccb7a9;
   padding-left: 3rem;

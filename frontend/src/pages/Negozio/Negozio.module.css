@@ -2,7 +2,7 @@
   /* padding-top: 6rem; */
   width: 77%;
   margin: auto;
-  padding: 6rem 5rem;
+  padding: 6rem 5rem 3rem 5rem;
   background-color: #303030;
   overflow-y: auto;
   max-height: 100vh;
@@ -16,6 +16,21 @@
 
   100% {
     background-color: #303030;
+  }
+}
+
+.popup {
+  animation: popup ease 1s;
+}
+
+@keyframes popup {
+  0% {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
   }
 }
 

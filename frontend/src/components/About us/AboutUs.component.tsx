@@ -106,8 +106,9 @@ const AboutUs = () => {
               </p>
               <p>
                 Scoprite i sapori unici, l'arte e la dedizione che si nascondono
-                dietro ogni piatto, e lasciate che HomeCooking Italia trasformi
-                le vostre cene in momenti di autentico piacere culinario.
+                dietro ogni piatto, e lasciate che GrandBistrot Homecooking
+                trasformi le vostre cene in momenti di autentico piacere
+                culinario.
               </p>
             </div>
           </Col>

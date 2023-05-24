@@ -22,6 +22,7 @@
   max-width: 48rem;
   border: 3px solid #ccb7a98a;
   border-radius: 20px;
+  animation: popup ease 1s;
 }
 
 @media screen and (max-width: 998) {
@@ -45,4 +46,16 @@
   max-width: 48rem;
   border: 3px solid #ccb7a98a;
   border-radius: 20px;
+  animation: popup ease 1s;
+}
+
+@keyframes popup {
+  0% {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }

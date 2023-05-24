@@ -5,6 +5,7 @@ import ChefPage from "../../pages/Negozio/Negozio.component";
 import Shop from "../Shop/Shop.component";
 import Checkout from "../../pages/Checkout/Checkout.component";
 import NotFound from "../../pages/404/NotFound.component";
+import Contatti from "../../pages/Contatti/Contatti.component";
 
 const Router = () => {
   return (
@@ -15,6 +16,7 @@ const Router = () => {
       <Route path="/store/:nomeRistorante" element={<ChefPage />} />
       <Route path="/shop/:nomeRistorante" element={<Shop />} />
       <Route path="/checkout" element={<Checkout />} />
+      <Route path="/contatti" element={<Contatti />} />
     </Routes>
   );
 };

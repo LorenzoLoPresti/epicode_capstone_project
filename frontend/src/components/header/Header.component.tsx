@@ -154,13 +154,14 @@ const Header = () => {
               )}
               {/* <MyButton text="Sign In" onClick={() => setShowAuthModal(true)} /> */}
 
-              <Nav.Link
+              <NavLink
+                to={"/contatti"}
                 className={`${styles.navLink} ${
                   navbarColor && styles.navLinkDark
                 } d-none d-lg-block`}
               >
                 Contatti
-              </Nav.Link>
+              </NavLink>
               <NavLink
                 to={"/checkout"}
                 className={`${styles.navLink} ${

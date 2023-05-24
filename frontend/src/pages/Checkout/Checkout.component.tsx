@@ -276,7 +276,7 @@ const Checkout = () => {
                           €
                         </p>
                       </Col>
-                      <button
+                      {/* <button
                         onClick={() => {
                           Object.entries(contaVini(listaVini)).map(
                             ([id, quantita]) => {
@@ -290,7 +290,7 @@ const Checkout = () => {
                         }}
                       >
                         controllo
-                      </button>
+                      </button> */}
                     </Row>
                   </Row>
                 </>
