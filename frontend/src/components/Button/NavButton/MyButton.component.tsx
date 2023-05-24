@@ -11,7 +11,7 @@ const MyButton = ({ text, onClick, style, icon }: ButtonProps) => {
       style={{ ...style }}
     >
       <Nav.Link>
-        {icon && <CiLogin className="me-2" />}
+        {icon && <CiLogin className="me-2 mb-1" />}
         {text}
       </Nav.Link>
     </button>

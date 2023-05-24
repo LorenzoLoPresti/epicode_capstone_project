@@ -4,8 +4,11 @@ import styles from "./NotFound.module.css";
 import notFound from "../../assets/notFoundImg.jpg";
 import { AiFillQuestionCircle } from "react-icons/ai";
 import { Link } from "react-router-dom";
+import { useAppSelector } from "../../redux/store/store";
 
 const NotFound = () => {
+  const reduxToken = useAppSelector((state) => state.authToken?.token);
+
   return (
     <div
       //   className={styles.bg}
@@ -36,16 +39,26 @@ const NotFound = () => {
                   cancellata
                 </p>
               </div>
-              <div className="">
-                <p>
-                  <Link to={"/login"} className={`${styles.link} me-1`}>
-                    Accedi
-                  </Link>
-                  o torna alla
-                  <Link to={"/"} className={`${styles.link} ms-1`}>
-                    Homepage
-                  </Link>
-                </p>
+              <div>
+                {!reduxToken && (
+                  <p>
+                    <Link to={"/login"} className={`${styles.link} me-1`}>
+                      Accedi
+                    </Link>
+                    o torna alla
+                    <Link to={"/"} className={`${styles.link} ms-1`}>
+                      Homepage
+                    </Link>
+                  </p>
+                )}
+                {reduxToken && (
+                  <p>
+                    Torna alla
+                    <Link to={"/"} className={`${styles.link} ms-1`}>
+                      Homepage
+                    </Link>
+                  </p>
+                )}
               </div>
             </Col>
           </Row>

@@ -79,6 +79,7 @@ const Login = () => {
                           onChange={(e) => {
                             setUsername(e.target.value);
                           }}
+                          required
                         />
                         <label className={style.label}>Username</label>
                       </div>
@@ -90,6 +91,7 @@ const Login = () => {
                           onChange={(e) => {
                             setPassword(e.target.value);
                           }}
+                          required
                         />
                         <label className={style.label}>Password</label>
                       </div>
