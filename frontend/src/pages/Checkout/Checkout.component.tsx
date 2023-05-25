@@ -254,7 +254,7 @@ const Checkout = () => {
                       <Col className="d-flex flex-column">
                         <p>costo chef: {prezzoChef}€</p>
                         <p>
-                          sub-totale:
+                          sub-totale:{" "}
                           {prezzoPiatti &&
                             prezzoVini === 0 &&
                             prezzoPiatti + prezzoVini}
@@ -265,7 +265,7 @@ const Checkout = () => {
                           €
                         </p>
                         <p className="fw-bold fs-5">
-                          totale:
+                          totale:{" "}
                           {prezzoPiatti &&
                             prezzoVini === 0 &&
                             prezzoChef &&

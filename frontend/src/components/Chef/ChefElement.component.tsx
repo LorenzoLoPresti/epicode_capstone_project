@@ -77,7 +77,8 @@ const ChefElement = ({
                 className={styles.linkAnimation}
                 style={{ color: COLORS.brandGold }}
               >
-                Clicca sull'immagine o su questo link per tornare indietro
+                Clicca sull'immagine o su questo link per selezionare un altro
+                chef
               </p>
             </div>
           )}
