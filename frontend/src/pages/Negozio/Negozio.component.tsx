@@ -1,4 +1,4 @@
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../redux/store/store";
 import { Col, Row } from "react-bootstrap";
 import styles from "./Negozio.module.css";
@@ -16,6 +16,7 @@ const Negozio = () => {
   const ristorante = useAppSelector((state) => state.authToken?.ristoranti);
   const token = useAppSelector((state) => state.authToken?.token);
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
   const [selected, setSelected] = useState(0);
   const [listaMenu, setListaMenu] = useState<ListaMenu[]>([]);
 
@@ -62,6 +63,17 @@ const Negozio = () => {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selected]);
+
+  useEffect(() => {
+    const verificaRistorante = ristorante.find(
+      (r) => r?.name === nomeRistorante
+    );
+    // console.log(verificaRistorante);
+    if (!verificaRistorante) {
+      navigate("/");
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <>
@@ -171,7 +183,7 @@ const Negozio = () => {
                                       <p
                                         className={`mb-1 ${styles.categoryNamesOptions}`}
                                       >
-                                        Tempo cena medio:{" "}
+                                        Tempo cena medio:
                                       </p>
                                       <p className={`${styles.infoColor}`}>
                                         {/* RESTITUISCE MINUTI CENA */}
@@ -184,7 +196,7 @@ const Negozio = () => {
                                       <p
                                         className={`mb-1 ${styles.categoryNamesOptions}`}
                                       >
-                                        Prezzo orario chef:{" "}
+                                        Prezzo orario chef:
                                       </p>
                                       <p className={`${styles.infoColor}`}>
                                         {chefSelected?.tariffaOraria} euro

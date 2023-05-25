@@ -13,6 +13,18 @@
   height: 400px;
   width: calc(100% - 5%);
   margin: auto;
+  cursor: pointer;
+  animation: popup ease 1s;
+}
+
+@keyframes popup {
+  0% {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .greyScale {
@@ -75,4 +87,13 @@
 .chefDescriptionContainer {
   height: 500px;
   width: 100%;
+}
+
+.linkAnimation {
+  transition: transform 1s;
+  transition-timing-function: ease;
+}
+
+.linkAnimation:hover {
+  transform: translateX(5px);
 }

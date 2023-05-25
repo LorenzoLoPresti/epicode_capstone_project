@@ -3,6 +3,7 @@ import { Chef } from "../../pages/Home/Home.types";
 import styles from "./ChefElement.module.css";
 import { useAppDispatch } from "../../redux/store/store";
 import { removeChefToCart } from "../../redux/reducers/carrelloStore";
+import COLORS from "../../style/color";
 
 const ChefElement = ({
   chef,
@@ -70,6 +71,16 @@ const ChefElement = ({
               {chef?.name}
             </h4>
           </div>
+          {selected === chef?.id && (
+            <div className="text-start">
+              <p
+                className={styles.linkAnimation}
+                style={{ color: COLORS.brandGold }}
+              >
+                Clicca sull'immagine o su questo link per tornare indietro
+              </p>
+            </div>
+          )}
         </div>
       </div>
     </>

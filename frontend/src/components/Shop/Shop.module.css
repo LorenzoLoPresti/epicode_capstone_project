@@ -37,6 +37,15 @@
   font-family: "Abril Fatface", cursive;
 }
 
+.goBackLink {
+  transition: transform 1s;
+  transition-timing-function: ease;
+}
+
+.goBackLink:hover {
+  transform: translateX(10px);
+}
+
 .chefImage {
   height: 400px;
   /* width: calc(100% - 5%);

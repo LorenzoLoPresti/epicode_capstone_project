@@ -105,6 +105,12 @@ const Shop = () => {
   };
 
   useEffect(() => {
+    if (!chefSelezionato && nomeRistorante) {
+      navigate(`/store/${nomeRistorante}`);
+    } else if (!chefSelezionato) {
+      navigate("/");
+    }
+
     reduxCart?.numeroCommensali !== 0
       ? setNumeroCommensali(reduxCart?.numeroCommensali)
       : setNumeroCommensali(numeroCommensali);
@@ -149,6 +155,13 @@ const Shop = () => {
                 <h1 className={`text-light ${styles.chefName}`}>
                   Il menu di {chefSelezionato?.name}
                 </h1>
+                <p
+                  style={{ cursor: "pointer", color: COLORS.brandGold }}
+                  className={`pe-3 ${styles.goBackLink}`}
+                  onClick={() => navigate(`/store/${nomeRistorante}`)}
+                >
+                  torna indietro
+                </p>
               </Col>
               <Col className="my-4">
                 <h4 className=" mb-4 fs-3" style={{ color: "#ccb7a9" }}>
