@@ -17,6 +17,7 @@ import {
   addNumberOfPeaple,
   addUsernameToCart,
 } from "../../redux/reducers/carrelloStore";
+import COLORS from "../../style/color";
 
 interface Carrello {
   username: string;
@@ -90,6 +91,17 @@ const Shop = () => {
     } else {
       setNomeVinoSelezionato(nomeVino);
     }
+  };
+
+  const verifica = () => {
+    if (
+      menuSelected.length === 0 ||
+      numeroCommensali === 0 ||
+      dateSelected === ""
+    ) {
+      return false;
+    }
+    return true;
   };
 
   useEffect(() => {
@@ -290,10 +302,31 @@ const Shop = () => {
                 </div>
               )}
             </section>
-            <GeneralButton
-              text="Vai al checkout"
-              onClick={() => handleDispatch(carrello)}
-            />
+            {(verifica() && (
+              <GeneralButton
+                text="Vai al checkout"
+                onClick={() => handleDispatch(carrello)}
+              />
+            )) || (
+              <>
+                <h5 style={{ color: COLORS.brandGold }}>Per continuare:</h5>
+                {!numeroCommensali && (
+                  <p className={`text-light mb-0 ${styles.copyOptions}`}>
+                    Seleziona numero partecipanti
+                  </p>
+                )}
+                {!dateSelected && (
+                  <p className={`text-light mb-0 ${styles.copyOptions}`}>
+                    Seleziona data
+                  </p>
+                )}
+                {!menuSelected.length && (
+                  <p className={`text-light mb-0 ${styles.copyOptions}`}>
+                    Seleziona menu
+                  </p>
+                )}
+              </>
+            )}
           </div>
         </div>
       </div>

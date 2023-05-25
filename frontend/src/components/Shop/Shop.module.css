@@ -62,23 +62,29 @@
   color: #faf4f0;
   border: 1px solid #faf4f0;
   border-radius: 2px;
-  transition: transform 0.5s;
+  transition: transform 0.3s;
   transition-timing-function: ease;
-  transform: scale(0.85);
+  transform: scale(0.8);
 }
 
 .commensaliBtn:hover {
   background-color: #ccb7a9 !important;
-  transform: scale(1.04);
-  animation-name: buttonAnimation !important;
-  animation-duration: 0.5s !important;
+  transform: scale(0.9);
+  /* animation-name: buttonAnimation !important;
+  animation-duration: 0.5s !important; */
 }
 
 ::-webkit-calendar-picker-indicator {
   cursor: pointer;
   background-color: #ccb7a9;
   border-radius: 2px;
+  transition: transform 0.3s;
+  transition-timing-function: ease;
 }
+::-webkit-calendar-picker-indicator:hover {
+  transform: scale(1.1);
+}
+
 ::-moz-calendar-picker-indicator {
   cursor: pointer;
   background-color: #ccb7a9;
@@ -140,7 +146,7 @@
   margin-bottom: 2px;
 }
 
-@keyframes buttonAnimation {
+/* @keyframes buttonAnimation {
   0% {
     transform: scale(1);
   }
@@ -153,7 +159,7 @@
     transform: scale(1.04);
     background-color: #ccb7a9;
   }
-}
+} */
 
 @media screen and (max-width: 1040px) {
   .chefName {
