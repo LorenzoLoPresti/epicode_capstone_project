@@ -1,0 +1,54 @@
+.footerContainer {
+  background-color: rgb(30, 27, 28);
+  border-top: 1px solid #faf4f0;
+  color: #faf4f0;
+}
+
+.paragraphOptions {
+  color: #faf4f0;
+  transition: transform 0.7s;
+  transition-timing-function: ease;
+}
+
+.paragraphOptions:hover {
+  transform: translateX(10px);
+}
+
+.linkOptions {
+  text-decoration: none;
+  color: #faf4f0;
+  transition: all ease 0.4s;
+  cursor: pointer;
+}
+.linkOptions:hover {
+  color: #ccb7a9;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.icons {
+  margin: 0;
+}
+.socialBox {
+  background-color: #faf4f0;
+  width: 3rem;
+  height: 3rem;
+  padding-bottom: 4px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all ease 0.3s;
+  cursor: pointer;
+}
+
+.socialBox:hover {
+  background-color: #ccb7a9;
+  transform: translateY(-10px);
+}
+
+.socialBox .socialIcon {
+  color: #303030;
+}

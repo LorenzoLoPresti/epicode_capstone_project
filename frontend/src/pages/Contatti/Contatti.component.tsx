@@ -98,7 +98,7 @@ const Contatti = () => {
                     </li>
                     <li className={styles.linkTransition}>
                       <a
-                        href="https://www.instagram.com/"
+                        href="https://www.facebook.com/"
                         target="_blank"
                         style={{
                           textDecoration: "none",
@@ -108,7 +108,7 @@ const Contatti = () => {
                         <CiFacebook className="me-2" />
                       </a>
                       <a
-                        href="https://www.instagram.com/"
+                        href="https://www.facebook.com/"
                         target="_blank"
                         style={{
                           color: COLORS.brandGold,
@@ -120,7 +120,7 @@ const Contatti = () => {
                     </li>
                     <li className={styles.linkTransition}>
                       <a
-                        href="https://www.instagram.com/"
+                        href="https://www.pinterest.com/"
                         target="_blank"
                         style={{
                           textDecoration: "none",
@@ -130,7 +130,7 @@ const Contatti = () => {
                         <ImPinterest2 className="me-2" />
                       </a>
                       <a
-                        href="https://www.instagram.com/"
+                        href="https://www.pinterest.com/"
                         target="_blank"
                         style={{
                           color: COLORS.brandGold,

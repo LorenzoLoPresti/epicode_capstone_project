@@ -11,7 +11,6 @@ const Layout = ({ children }: LayoutProps) => {
     <div className={`${styles.layoutOptions}`}>
       <Header />
       <main className={`${styles.mainStyleOptions}`}>{children}</main>
-      {/* <Footer /> */}
     </div>
   );
 };

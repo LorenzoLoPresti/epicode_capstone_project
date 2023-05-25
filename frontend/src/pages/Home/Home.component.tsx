@@ -14,6 +14,7 @@ import {
   addUsernameToCart,
   removeChefToCart,
 } from "../../redux/reducers/carrelloStore";
+import Footer from "../../components/Footer/Footer.component";
 
 const Home = () => {
   const reduxToken = useAppSelector((state) => state.authToken?.token);
@@ -86,6 +87,7 @@ const Home = () => {
         {reduxToken && ristoranti.length > 0 && (
           <MyCarousel array={ristoranti} />
         )}
+        {!loading && !reduxToken && <Footer />}
       </>
     </div>
   );
