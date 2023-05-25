@@ -100,7 +100,7 @@ const Checkout = () => {
               className="d-flex justify-content-center align-items-center text-light h-100 w-100"
               style={{ padding: "5rem 0", margin: "0", minHeight: "100vh" }}
             >
-              {!token && !cartChecker() && (
+              {!token && (
                 <Col
                   className={`d-flex flex-column justify-content-center align-items-center 50vh $
                    ${styles.voidCart}`}
@@ -254,7 +254,7 @@ const Checkout = () => {
                       <Col className="d-flex flex-column">
                         <p>costo chef: {prezzoChef}€</p>
                         <p>
-                          sub-totale:{" "}
+                          sub-totale:
                           {prezzoPiatti &&
                             prezzoVini === 0 &&
                             prezzoPiatti + prezzoVini}
@@ -265,7 +265,7 @@ const Checkout = () => {
                           €
                         </p>
                         <p className="fw-bold fs-5">
-                          totale:{" "}
+                          totale:
                           {prezzoPiatti &&
                             prezzoVini === 0 &&
                             prezzoChef &&

@@ -37,13 +37,15 @@ const AccordionMenu = ({
       <div
         className={`${styles.accordionBg} ${
           selected && styles.accordionBgSelected
-        } px-3 `}
+        } `}
         onClick={() => {
           setVisible(!visible);
         }}
       >
         <div
-          className={`d-flex justify-content-between align-items-center`}
+          className={`d-flex justify-content-between align-items-center px-3 py-2 ${
+            visible && styles.accordionSelected
+          }`}
           style={{ cursor: "pointer" }}
         >
           <p className="mb-0">
@@ -54,7 +56,7 @@ const AccordionMenu = ({
           {(!visible && <BiPlus />) || <AiOutlineMinus />}
         </div>
         {visible && (
-          <div className={`${styles.accordionBody} pt-3`}>
+          <div className={`${styles.accordionBody} py-3 px-3`}>
             <div>
               <div>
                 {filtraListaPerPortata("antipasto")?.length > 0 && (

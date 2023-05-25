@@ -298,7 +298,7 @@ const Shop = () => {
                 </div>
               )}
               {menuSelected?.length > 0 && (
-                <div className={`${styles.winesContainer} px-3`}>
+                <div className={`${styles.winesContainer}`}>
                   {cartaVini?.length > 0 &&
                     cartaVini.map((v) => (
                       <div key={v?.id}>

@@ -76,9 +76,11 @@ const Vino = ({
   //   };
 
   return (
-    <div className={` text-light ${styles.vinoOptions}`}>
+    <div className={` text-light ${styles.vinoOptions} `}>
       <div
-        className="d-flex justify-content-between"
+        className={`d-flex justify-content-between py-2 px-3 ${
+          visible && styles.selected
+        }`}
         style={{ cursor: "pointer" }}
         onClick={() => {
           if (id === vino?.id) {
@@ -90,10 +92,11 @@ const Vino = ({
           }
         }}
       >
-        <p className="fs-5" style={{ fontStyle: "italic", color: "#ccb7a9" }}>
+        <p className="fs-5 mb-0" style={{ fontStyle: "italic" }}>
           {vino?.name}
         </p>
         <p
+          className="mb-0"
           onClick={() => {
             if (id === vino?.id) {
               setVisible(!visible);
@@ -105,7 +108,7 @@ const Vino = ({
       </div>
 
       {visible && (
-        <>
+        <div className={`${styles.animation} px-3 py-2`}>
           <p>{vino?.descrizione}</p>
           <div className="w-100 d-flex justify-content-between">
             <div className="d-flex align-items-center">
@@ -134,7 +137,7 @@ const Vino = ({
               </button>
             </div>
           </div>
-        </>
+        </div>
       )}
     </div>
   );

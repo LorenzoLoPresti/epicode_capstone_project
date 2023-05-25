@@ -127,8 +127,8 @@
 }
 
 .winesContainer {
-  padding: 0.5rem 0;
-  background-color: #1e1b1c;
+  /* padding: 0.5rem 0;
+  background-color: #1e1b1c; */
   opacity: 1;
   animation: winesContainer ease 1s;
 }
