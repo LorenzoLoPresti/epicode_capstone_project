@@ -14,17 +14,6 @@
   width: calc(100% - 5%);
   margin: auto;
   cursor: pointer;
-  animation: popup ease 1s;
-}
-
-@keyframes popup {
-  0% {
-    transform: translateY(10px);
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
 }
 
 .greyScale {
