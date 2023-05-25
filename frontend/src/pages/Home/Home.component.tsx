@@ -65,9 +65,9 @@ const Home = () => {
       <>
         {!reduxToken && loading && (
           <div className={style.generalContainerOption}>
-            <Row className="w-100" style={{ height: "100%" }}>
+            <Row className="" style={{ height: "100%" }}>
               <Col
-                className="w-100 d-flex justify-content-center align-items-center"
+                className="d-flex justify-content-center align-items-center"
                 style={{ height: "100%" }}
               >
                 <div className={`${style.logoContainerOptions}`}>

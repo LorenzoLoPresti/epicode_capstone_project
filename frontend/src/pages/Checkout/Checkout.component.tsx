@@ -105,9 +105,11 @@ const Checkout = () => {
                   className={`d-flex flex-column justify-content-center align-items-center 50vh $
                    ${styles.voidCart}`}
                 >
-                  <p>
-                    Effettua il login per accedere alle funzionalità del sito
-                  </p>
+                  <div className={styles.animationContainer}>
+                    <p>
+                      Effettua il login per accedere alle funzionalità del sito
+                    </p>
+                  </div>
                 </Col>
               )}
               {token && !cartChecker() && (
@@ -115,14 +117,14 @@ const Checkout = () => {
                   className={`d-flex flex-column justify-content-center align-items-center 50vh $
                    ${styles.voidCart}`}
                 >
-                  <>
+                  <div className={styles.animationContainer}>
                     <h3>Il tuo carrello è vuoto</h3>
                     <Link to={"/"} style={{ textDecoration: "none" }}>
                       <p style={{ cursor: "pointer", color: COLORS.brandGold }}>
                         Clicca qui per andare ai ristoranti
                       </p>
                     </Link>
-                  </>
+                  </div>
                   {!token && (
                     <p>
                       Effettua il login per accedere alle funzionalità del sito
@@ -131,9 +133,9 @@ const Checkout = () => {
                 </Col>
               )}
               {token && cartChecker() && (
-                <>
+                <div className={` ${styles.modalOptions}`}>
                   <Row
-                    className={`d-flex flex-column h-100 pt-3 px-4 ${styles.modalOptions}`}
+                    className={`d-flex flex-column h-100 pt-3 px-4 ${styles.animationContainer}`}
                   >
                     <Col xs={12} className={`${styles.tableOptions} mb-4`}>
                       <h3>Il tuo carrello</h3>
@@ -293,7 +295,7 @@ const Checkout = () => {
                       </button> */}
                     </Row>
                   </Row>
-                </>
+                </div>
               )}
             </Row>
           </Container>

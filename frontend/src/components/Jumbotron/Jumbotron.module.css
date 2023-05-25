@@ -23,18 +23,18 @@
 
 .h1Options {
   font-family: "Abril Fatface", cursive;
-  font-size: 6rem;
+  font-size: 5.5rem;
   line-height: 0.5;
 }
 
 .h2Options {
   font-family: "Abril Fatface", cursive;
-  font-size: 5.5rem;
+  font-size: 5rem;
 }
 
 .p1Options {
   font-size: 1.3rem;
-  letter-spacing: 7px;
+  letter-spacing: 6px;
   text-transform: uppercase;
   /* line-height: 0.5; */
 }
@@ -46,11 +46,11 @@
   }
 
   .h2Options {
-    font-size: 5.5rem;
+    font-size: 5rem;
   }
 
   .p1Options {
-    letter-spacing: 8px;
+    letter-spacing: 6px;
   }
 }
 
