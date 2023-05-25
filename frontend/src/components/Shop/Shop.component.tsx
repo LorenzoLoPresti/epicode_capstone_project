@@ -279,6 +279,7 @@ const Shop = () => {
                       <div key={v?.id}>
                         <Vino
                           vino={v}
+                          id={v?.id}
                           nomeVino={nomeVinoSelezionato}
                           listaViniScelti={listaViniScelti}
                           setListaViniScelti={setListaViniScelti}

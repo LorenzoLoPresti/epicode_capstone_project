@@ -6,23 +6,29 @@ import { AiOutlineMinus } from "react-icons/ai";
 
 const Vino = ({
   vino,
+  id,
   nomeVino,
   listaViniScelti,
   setListaViniScelti,
   onClick,
 }: {
   vino: ListaProdotti;
+  id: number;
   nomeVino: string;
   listaViniScelti: ListaProdotti[];
   setListaViniScelti: React.Dispatch<React.SetStateAction<ListaProdotti[]>>;
   onClick: () => void;
 }) => {
   const [numeroBottiglie, setNumeroBottiglie] = useState(0);
+  const [visible, setVisible] = useState(false);
   //   const [bottiglieSelezionate, setBottiglieSelezionate] = useState<
   //     ListaProdotti[]
   //   >([]);
 
   const aggiungiBottiglia = () => {
+    if (vino.name !== nomeVino) {
+      onClick();
+    }
     if (nomeVino === vino?.name) {
       if (numeroBottiglie < 8) setNumeroBottiglie(numeroBottiglie + 1);
       //   setBottiglieSelezionate([...listaViniScelti]);
@@ -36,6 +42,9 @@ const Vino = ({
     // setCartaVini([...cartaVini, ...bottiglieSelezionate]);
   };
   const rimuoviBottiglia = () => {
+    if (vino.name !== nomeVino) {
+      onClick();
+    }
     if (nomeVino === vino?.name) {
       if (numeroBottiglie > 0) setNumeroBottiglie(numeroBottiglie - 1);
     }
@@ -71,22 +80,36 @@ const Vino = ({
       <div
         className="d-flex justify-content-between"
         style={{ cursor: "pointer" }}
-        onClick={onClick}
+        onClick={() => {
+          if (id === vino?.id) {
+            setVisible(!visible);
+            console.log(visible);
+          }
+          if (vino?.name !== nomeVino) {
+            onClick();
+          }
+        }}
       >
         <p className="fs-5" style={{ fontStyle: "italic", color: "#ccb7a9" }}>
           {vino?.name}
         </p>
-        <p onClick={onClick}>
-          {(vino?.name === nomeVino && <AiOutlineMinus />) || <BiPlus />}
+        <p
+          onClick={() => {
+            if (id === vino?.id) {
+              setVisible(!visible);
+            }
+          }}
+        >
+          {(visible && <AiOutlineMinus />) || <BiPlus />}
         </p>
       </div>
 
-      {nomeVino === vino?.name && (
+      {visible && (
         <>
           <p>{vino?.descrizione}</p>
           <div className="w-100 d-flex justify-content-between">
             <div className="d-flex align-items-center">
-              <p className="mb-0">Prezzo: {vino?.prezzo}.00€</p>
+              <p className="mb-0">Prezzo: {vino?.prezzo}€</p>
             </div>
 
             <div className="text-light text-center d-flex align-items-center">
