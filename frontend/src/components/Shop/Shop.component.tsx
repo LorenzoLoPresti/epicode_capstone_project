@@ -42,6 +42,7 @@ const Shop = () => {
   const [nomeVinoSelezionato, setNomeVinoSelezionato] = useState("");
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
+  const dataDiOggi = new Date().toISOString().split("T")[0];
 
   const carrello: Carrello = {
     username: username,
@@ -214,12 +215,16 @@ const Shop = () => {
                     Seleziona la data
                   </h4>
                   <form onSubmit={handleDatePicker}>
-                    <input
-                      // className={styles.dataPicker}
-                      type="date"
-                      value={dateSelected}
-                      onChange={(e) => setDateSelected(e.target.value)}
-                    />
+                    <div className={styles.inputBox}>
+                      <input
+                        className={styles.inputOptions}
+                        type="date"
+                        value={dateSelected}
+                        onChange={(e) => setDateSelected(e.target.value)}
+                        min={dataDiOggi}
+                        required
+                      />
+                    </div>
                   </form>
                 </Col>
                 <Col>

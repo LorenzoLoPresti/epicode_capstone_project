@@ -74,6 +74,43 @@
   animation-duration: 0.5s !important;
 }
 
+::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+  background-color: #ccb7a9;
+  border-radius: 2px;
+}
+::-moz-calendar-picker-indicator {
+  cursor: pointer;
+  background-color: #ccb7a9;
+  border-radius: 2px;
+}
+
+::-ms-calendar-picker-indicator {
+  cursor: pointer;
+  background-color: #ccb7a9;
+  border-radius: 2px;
+}
+
+.inputBox {
+  position: relative;
+  width: 100%;
+  height: 40px;
+  border-bottom: 2px solid #ccb7a9;
+  margin: 0.75rem 0;
+}
+
+.inputOptions {
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #faf4f0;
+  padding: 0 2rem 0 5px;
+}
+
 .winesContainer {
   padding: 0.5rem 0;
   background-color: #1e1b1c;

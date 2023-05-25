@@ -68,12 +68,12 @@ const Vino = ({
 
   return (
     <div className={` text-light ${styles.vinoOptions}`}>
-      <div className="d-flex justify-content-between">
-        <p
-          onClick={onClick}
-          className="fs-5"
-          style={{ fontStyle: "italic", color: "#ccb7a9" }}
-        >
+      <div
+        className="d-flex justify-content-between"
+        style={{ cursor: "pointer" }}
+        onClick={onClick}
+      >
+        <p className="fs-5" style={{ fontStyle: "italic", color: "#ccb7a9" }}>
           {vino?.name}
         </p>
         <p onClick={onClick}>
