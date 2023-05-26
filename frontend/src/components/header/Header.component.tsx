@@ -11,7 +11,6 @@ import {
   addRistoranti,
   fetchToken,
   logout,
-  setCity,
   user,
 } from "../../redux/reducers/tokenStore";
 import { FiUser } from "react-icons/fi";
@@ -31,11 +30,12 @@ const Header = () => {
   const [showMenu, setShowMenu] = useState(false);
   const [warning, setWarning] = useState(false);
   const [citta, setCitta] = useState("");
-  const reduxCitta = useAppSelector((state) => state.authToken?.citta);
+
   const [ristoranti, setRistoranti] = useState<Ristorante[]>([]);
   const navbarColor = useAppSelector((state) => state.navbarReducer?.dark);
-  // const [clicked, setClicked] = useState(false);
+  const reduxCitta = useAppSelector((state) => state.authToken?.citta);
   const reduxUsername = useAppSelector((state) => state.authToken?.username);
+  const reduxToken = useAppSelector((state) => state.authToken?.token);
   const navigate = useNavigate();
 
   const user: user = {
@@ -46,18 +46,32 @@ const Header = () => {
   const token = useAppSelector((state) => state.authToken?.token);
   const dispatch = useAppDispatch();
 
-  // const handleScroll = () => {
-  //   if (window.scrollY >= 100) {
-  //     setNavScroll(true);
-  //   } else {
-  //     setNavScroll(false);
-  //   }
-  // };
-
-  // window.addEventListener("scroll", handleScroll);
   window.addEventListener("scroll", () =>
     window.scrollY >= 100 ? setNavScroll(true) : setNavScroll(false)
   );
+
+  const putCittaUtente = async (
+    username: string,
+    token: string,
+    citta: string
+  ) => {
+    const response = await fetch(
+      `http://localhost:8080/grand_bistrot/users/edit/${username}`,
+      {
+        method: "PUT",
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
+        body: citta,
+      }
+    );
+    if (response.ok) {
+      console.log("PIPPONE");
+    } else {
+      console.log("STEFAN1");
+    }
+  };
 
   const handleOptionChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const value = event.target.value;
@@ -74,10 +88,8 @@ const Header = () => {
     if (citta.length && token) {
       fetchRistorantiPerCitta(token, citta, setRistoranti);
     }
-    console.log(citta);
-    console.log(ristoranti);
-    if (citta !== reduxCitta) {
-      dispatch(setCity(citta));
+    if (citta !== reduxCitta && reduxToken) {
+      putCittaUtente(reduxUsername, reduxToken, citta);
     }
 
     // eslint-disable-next-line react-hooks/exhaustive-deps

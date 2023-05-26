@@ -7,6 +7,8 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -41,6 +43,18 @@ public class UserController {
 			return new ResponseEntity<>("Ristoranti non trovati", HttpStatus.NOT_FOUND);
 		}
 		return new ResponseEntity<>(ristoranteService.cercaPerCitta(citta), HttpStatus.ACCEPTED);
+	}
+	
+	@PutMapping("/edit/{username}")
+	@PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
+	public ResponseEntity<?> modificaCittaUser(@PathVariable String username, @RequestBody String citta){
+		if(!userRepo.existsByUsername(username)) {
+			return new ResponseEntity<>("Username non trovato", HttpStatus.NOT_FOUND);
+		}
+		User u = userRepo.findByUsername(username).get();
+		u.setCitta(citta);
+		return new ResponseEntity<>(userRepo.save(u), HttpStatus.OK);
+		
 	}
 	
 //	@GetMapping("/list")
