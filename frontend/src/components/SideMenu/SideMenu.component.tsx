@@ -52,19 +52,19 @@ const SideMenu = ({
 };
 
 SideMenu.Headline = ({ text }: { text: string }) => {
-  return <p className={`fs-2 fw-bold ${styles.headline}`}>{text}</p>;
+  return <p className={`fs-2 mb-0 fw-bold ${styles.headline}`}>{text}</p>;
 };
 
 SideMenu.Command = ({ text, onClick }: sideMenuCommand) => {
   return (
-    <p className={`fs-4  fw-bold ${styles.menuOption}`} onClick={onClick}>
+    <p className={`fs-4 mb-0 fw-bold ${styles.menuOption}`} onClick={onClick}>
       {text}
     </p>
   );
 };
 
 SideMenu.Option = ({ text }: { text: string }) => {
-  return <p className={`fs-4 fw-bold ${styles.menuOption}`}>{text}</p>;
+  return <p className={`fs-4 mb-0 fw-bold ${styles.menuOption}`}>{text}</p>;
 };
 
 export default SideMenu;

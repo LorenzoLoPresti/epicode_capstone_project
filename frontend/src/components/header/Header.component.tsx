@@ -21,6 +21,10 @@ import SideMenu from "../SideMenu/SideMenu.component";
 import { darkNav } from "../../redux/reducers/navbarStore";
 import { fetchRistorantiPerCitta } from "../Utils/Utils";
 import { Ristorante } from "../../pages/Home/Home.types";
+import { AiOutlineShoppingCart } from "react-icons/ai";
+import { FiLogOut } from "react-icons/fi";
+import { TiContacts } from "react-icons/ti";
+import { SlHome } from "react-icons/sl";
 
 const Header = () => {
   const [showAuthModal, setShowAuthModal] = useState(false);
@@ -119,41 +123,76 @@ const Header = () => {
     <>
       {showMenu && (
         <SideMenu setShowMenu={setShowMenu} flex={true} directionColumn={true}>
-          <SideMenu.Headline text={`ciao ${reduxUsername}`}></SideMenu.Headline>
-          <SideMenu.Command
-            text={"Checkout"}
-            onClick={() => {
-              navigate("/checkout");
-              setShowMenu(false);
-            }}
-          />
-          <SideMenu.Command
-            text="Logout"
-            onClick={() => {
-              dispatch(logout());
-              setShowMenu(false);
-              navigate("/");
-            }}
-          />
-
-          <div className={styleModal.inputBox}>
-            <select
-              className={styleModal.dropdown}
-              value={citta}
-              id="dropdown"
-              onChange={(event) => handleOptionChange(event)}
-              required
-            >
-              <option className={styleModal.dropdownOptions} value="">
-                Seleziona città
-              </option>
-              <option className={styleModal.dropdownOptions} value="Roma">
-                Roma
-              </option>
-              <option className={styleModal.dropdownOptions} value="Milano">
-                Milano
-              </option>
-            </select>
+          <div
+            className="d-flex align-items-center"
+            // style={{ borderBottom: "1px solid white" }}
+          >
+            <FiUser className="text-light me-2 fs-4" />
+            <SideMenu.Headline
+              text={`ciao ${reduxUsername}`}
+            ></SideMenu.Headline>
+          </div>
+          <div style={{ padding: `min(20vh, 10rem) 0` }}>
+            <div className={`${styleModal.inputBox} mb-4 mt-0`}>
+              <select
+                className={`${styleModal.dropdown}`}
+                value={citta}
+                id="dropdown"
+                onChange={(event) => handleOptionChange(event)}
+                required
+              >
+                <option className={styleModal.dropdownOptions} value="">
+                  Seleziona città
+                </option>
+                <option className={styleModal.dropdownOptions} value="Roma">
+                  Roma
+                </option>
+                <option className={styleModal.dropdownOptions} value="Milano">
+                  Milano
+                </option>
+              </select>
+            </div>
+            <div className="d-flex align-items-center mb-4 pt-2">
+              <SlHome className="text-light me-2 fs-4" />
+              <SideMenu.Command
+                text={"Home"}
+                onClick={() => {
+                  navigate("/");
+                  setShowMenu(false);
+                }}
+              />
+            </div>
+            <div className="d-flex align-items-center mb-4">
+              <AiOutlineShoppingCart className="text-light me-2 fs-4" />
+              <SideMenu.Command
+                text={"Checkout"}
+                onClick={() => {
+                  navigate("/checkout");
+                  setShowMenu(false);
+                }}
+              />
+            </div>
+            <div className="d-flex align-items-center mb-4">
+              <TiContacts className="text-light me-2 fs-4" />
+              <SideMenu.Command
+                text="Contatti"
+                onClick={() => {
+                  setShowMenu(false);
+                  navigate("/contatti");
+                }}
+              />
+            </div>
+            <div className="d-flex align-items-center">
+              <FiLogOut className="text-light me-2 fs-4" />
+              <SideMenu.Command
+                text="Logout"
+                onClick={() => {
+                  dispatch(logout());
+                  setShowMenu(false);
+                  navigate("/");
+                }}
+              />
+            </div>
           </div>
         </SideMenu>
       )}
