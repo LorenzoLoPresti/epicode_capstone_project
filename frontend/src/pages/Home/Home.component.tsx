@@ -23,6 +23,9 @@ const Home = () => {
   const reduxCarrelloUsername = useAppSelector(
     (state) => state.carrelloReducer?.username
   );
+  const reduxRistoranti = useAppSelector(
+    (state) => state.authToken?.ristoranti
+  );
   const [loading, setLoading] = useState(true);
   const [ristoranti, setRistoranti] = useState<Ristorante[]>([]);
   const dispatch = useAppDispatch();
@@ -84,8 +87,8 @@ const Home = () => {
             {!loading && <AboutUs />}
           </>
         )}
-        {reduxToken && ristoranti.length > 0 && (
-          <MyCarousel array={ristoranti} />
+        {reduxToken && reduxRistoranti.length > 0 && (
+          <MyCarousel array={reduxRistoranti} />
         )}
         {!loading && !reduxToken && <Footer />}
       </>

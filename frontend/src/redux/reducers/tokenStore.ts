@@ -108,6 +108,9 @@ export const tokenStore = createSlice({
     addRistoranti: (state, action: PayloadAction<Ristorante[]>) => {
       state.ristoranti = action.payload;
     },
+    setCity: (state, action: PayloadAction<string>) => {
+      state.citta = action.payload;
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(fetchToken.fulfilled, (state, action) => {
@@ -125,4 +128,4 @@ export const tokenStore = createSlice({
   },
 });
 
-export const { addToken, logout, addRistoranti } = tokenStore.actions; // Esporto le azioni
+export const { addToken, logout, addRistoranti, setCity } = tokenStore.actions; // Esporto le azioni

@@ -24,10 +24,10 @@ export const fetchRistorantiPerCitta = async (
         headers: { authorization: `Bearer ${token}` },
       }
     );
-    console.log(citta);
     if (response.ok) {
       const data = await response.json();
       setRistoranti(data);
+      console.log(data);
       return data;
     }
   } catch (error) {
