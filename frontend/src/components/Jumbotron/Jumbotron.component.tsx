@@ -203,6 +203,9 @@ const Jumbotron = () => {
                   <option className={styleModal.dropdownOptions} value="Roma">
                     Roma
                   </option>
+                  <option className={styleModal.dropdownOptions} value="Milano">
+                    Milano
+                  </option>
                 </select>
               </div>
               <p className="text-light mt-2 mb-4">

@@ -68,12 +68,19 @@ public class AppRunner implements ApplicationRunner {
 //			serviceRistorante.salva(ristorante.getObject("Ristorante Aroma", "Roma", "06 9761 5109", "/src/assets/ristoranti/aroma_roma.jpg"));
 //			serviceRistorante.salva(ristorante.getObject("Ristorante Mirabelle", "Roma", "06 4216 8838", "/src/assets/ristoranti/aroma_roma.jpg"));
 
+			// CREAZIONE RISTORANTE
 			serviceRistorante.salva(ristorante.getObject("La Pergola", "Roma", "06 3509 2152",
 					"/src/assets/ristoranti/la_pergola_roma.jpg"));
 			serviceRistorante.salva(
 					ristorante.getObject("Aroma", "Roma", "06 9761 5109", "/src/assets/ristoranti/aroma_roma.jpg"));
 			serviceRistorante.salva(ristorante.getObject("Mirabelle", "Roma", "06 4216 8838",
 					"/src/assets/ristoranti/mirabelle_roma.jpg"));
+			serviceRistorante.salva(
+					ristorante.getObject("Anima", "Milano", "02 6227 8500", "/src/assets/ristoranti/anima_milano.jpg"));
+			serviceRistorante.salva(
+					ristorante.getObject("Seta", "Milano", "02 8731 8897", "/src/assets/ristoranti/seta_milano.jpg"));
+			serviceRistorante.salva(ristorante.getObject("Iyo Aalto", "Milano", "02 4547 6898",
+					"/src/assets/ristoranti/iyoaalto_milano.jpg"));
 
 			Ristorante r1 = serviceRistorante.cercaPerId(1l);
 			r1.setDescrizione("Un panorama unico della Città Eterna si apre"
@@ -96,22 +103,52 @@ public class AppRunner implements ApplicationRunner {
 			r3.setMenu_img("/src/assets/menu/mirabelle.jpg");
 			r3.setIndirizzo("Via di Porta Pinciana 14");
 			serviceRistorante.modifica(r3);
+			Ristorante r4 = serviceRistorante.cercaPerId(4l);
+			r4.setDescrizione(
+					"Una cucina diretta dal resident chef Michele, che con mano precisa crea piatti dai sapori moderni,"
+							+ " esaltati grazie all'ottima materia prima proveniente - principalmente - dalla sua terra di origine: la Puglia.");
+			r4.setMenu_img("/src/assets/menu/la_pergola.jpg");
+			r4.setIndirizzo("via Gaspare Rosales 4");
+			serviceRistorante.modifica(r4);
+			Ristorante r5 = serviceRistorante.cercaPerId(5l);
+			r5.setDescrizione(
+					"Il menu, curato attentamente dallo Chef Antonio Guida, presenta un approccio creativo e contemporaneo alla cucina italiana,"
+							+ " unendo ingredienti tradizionali e tecniche innovative in un perfetto equilibrio.");
+			r5.setMenu_img("/src/assets/menu/aroma.jpg");
+			r5.setIndirizzo("Via Andegari 9");
+			serviceRistorante.modifica(r5);
+			Ristorante r6 = serviceRistorante.cercaPerId(6l);
+			r6.setDescrizione(
+					"Aperto nel 2007 da Claudio Liu, IYO è un ristorante di sushi innovativo e alta cucina giapponese contemporanea, premiato con una Stella nella Guida MICHELIN 2023."
+							+ " La firma di una cucina totale, che abbraccia ogni dettaglio dell’esperienza gastronomica.");
+			r6.setMenu_img("/src/assets/menu/sushi.jpg");
+			r6.setIndirizzo("Via Piero della Francesca 74");
+			serviceRistorante.modifica(r6);
 
 			r1 = serviceRistorante.cercaPerId(1l);
 			r2 = serviceRistorante.cercaPerId(2l);
 			r3 = serviceRistorante.cercaPerId(3l);
+			r4 = serviceRistorante.cercaPerId(4l);
+			r5 = serviceRistorante.cercaPerId(5l);
+			r6 = serviceRistorante.cercaPerId(6l);
 
+			// CREAZIONE CHEF
 			serviceChef.salva(chef.getObject("Gus Fring", CategoriaChef.CARNE, serviceRistorante.cercaPerId(1l), 45));
 			serviceChef.salva(
 					chef.getObject("Walter White", CategoriaChef.GENERALE, serviceRistorante.cercaPerId(2l), 50));
 			serviceChef
-					.salva(chef.getObject("Jesse Pinkman", CategoriaChef.PESCE, serviceRistorante.cercaPerId(3l), 20));
+					.salva(chef.getObject("Jesse Pinkman", CategoriaChef.PESCE, serviceRistorante.cercaPerId(2l), 20));
 			serviceChef.salva(
 					chef.getObject("Gale Boetticher", CategoriaChef.GENERALE, serviceRistorante.cercaPerId(1l), 40));
 			serviceChef
-					.salva(chef.getObject("Bruno Barbieri", CategoriaChef.CARNE, serviceRistorante.cercaPerId(2l), 35));
+					.salva(chef.getObject("Bruno Barbieri", CategoriaChef.CARNE, serviceRistorante.cercaPerId(3l), 35));
 			serviceChef.salva(
 					chef.getObject("Giorgio Locatelli", CategoriaChef.PESCE, serviceRistorante.cercaPerId(3l), 25));
+			serviceChef.salva(
+					chef.getObject("Enrico Bartolini", CategoriaChef.GENERALE, serviceRistorante.cercaPerId(4l), 60));
+			serviceChef
+					.salva(chef.getObject("Antonio Guida", CategoriaChef.CARNE, serviceRistorante.cercaPerId(5l), 45));
+			serviceChef.salva(chef.getObject("Claudio Liu", CategoriaChef.PESCE, serviceRistorante.cercaPerId(6l), 50));
 
 			Chef c1 = serviceChef.cercaPerId(1l);
 			Chef c2 = serviceChef.cercaPerId(2l);
@@ -119,7 +156,11 @@ public class AppRunner implements ApplicationRunner {
 			Chef c4 = serviceChef.cercaPerId(4l);
 			Chef c5 = serviceChef.cercaPerId(5l);
 			Chef c6 = serviceChef.cercaPerId(6l);
+			Chef c7 = serviceChef.cercaPerId(7l);
+			Chef c8 = serviceChef.cercaPerId(8l);
+			Chef c9 = serviceChef.cercaPerId(9l);
 
+			// CREAZIONE MENU
 			serviceMenu.salva(menu.getObject(c1));
 			serviceMenu.salva(menu.getObject(c2));
 			serviceMenu.salva(menu.getObject(c3));
@@ -127,6 +168,9 @@ public class AppRunner implements ApplicationRunner {
 			serviceMenu.salva(menu.getObject(c5));
 			serviceMenu.salva(menu.getObject(c6));
 			serviceMenu.salva(menu.getObject(c1));
+			serviceMenu.salva(menu.getObject(c7));
+			serviceMenu.salva(menu.getObject(c8));
+			serviceMenu.salva(menu.getObject(c9));
 
 			Menu m1 = serviceMenu.cercaPerId(1l);
 			Menu m2 = serviceMenu.cercaPerId(2l);
@@ -135,7 +179,11 @@ public class AppRunner implements ApplicationRunner {
 			Menu m5 = serviceMenu.cercaPerId(5l);
 			Menu m6 = serviceMenu.cercaPerId(6l);
 			Menu m7 = serviceMenu.cercaPerId(7l);
+			Menu m8 = serviceMenu.cercaPerId(8l);
+			Menu m9 = serviceMenu.cercaPerId(9l);
+			Menu m10 = serviceMenu.cercaPerId(10l);
 
+// 			AGGIUNGO MENU A CHEF
 			c1.getListaMenu().add(m1);
 			c1.getListaMenu().add(m7);
 			c1.setImmagineProfilo("/src/assets/chef/fring_posa.jpg");
@@ -161,6 +209,18 @@ public class AppRunner implements ApplicationRunner {
 			c6.setImmagineProfilo("/src/assets/chef/locatelli_posa.jpg");
 			c6.setImmagineCucina("/src/assets/chef/locatelli_cucina.jpg");
 			serviceChef.modifica(c6);
+			c7.getListaMenu().add(m8);
+			c7.setImmagineProfilo("/src/assets/chef/bartolini_posa.jpg");
+			c7.setImmagineCucina("/src/assets/chef/bartolini_cucina.jpg");
+			serviceChef.modifica(c7);
+			c8.getListaMenu().add(m9);
+			c8.setImmagineProfilo("/src/assets/chef/guida_posa.jpg");
+			c8.setImmagineCucina("/src/assets/chef/guida_cucina.jpg");
+			serviceChef.modifica(c8);
+			c9.getListaMenu().add(m10);
+			c9.setImmagineProfilo("/src/assets/chef/liu_posa.jpg");
+			c9.setImmagineCucina("/src/assets/chef/liu_cucina.jpg");
+			serviceChef.modifica(c9);
 
 			c1 = serviceChef.cercaPerId(1l);
 			c2 = serviceChef.cercaPerId(2l);
@@ -168,106 +228,141 @@ public class AppRunner implements ApplicationRunner {
 			c4 = serviceChef.cercaPerId(4l);
 			c5 = serviceChef.cercaPerId(5l);
 			c6 = serviceChef.cercaPerId(6l);
+			c7 = serviceChef.cercaPerId(7l);
+			c8 = serviceChef.cercaPerId(8l);
+			c9 = serviceChef.cercaPerId(9l);
 
-//			List<Chef> listaChef1 = r1.getListaChef();
+			// AGGIUNGO CHEF A RISTORANTE
 			r1.getListaChef().add(c1);
 			r1.getListaChef().add(c4);
 			serviceRistorante.modifica(r1);
 			r2.getListaChef().add(c2);
-			r2.getListaChef().add(c5);
+			r2.getListaChef().add(c3);
 			serviceRistorante.modifica(r2);
-			r3.getListaChef().add(c3);
+			r3.getListaChef().add(c5);
 			r3.getListaChef().add(c6);
 			serviceRistorante.modifica(r3);
-//			r1.getListaChef().add(c4);
-//			serviceRistorante.modifica(r1);
-//			r2.getListaChef().add(c5);
-//			serviceRistorante.modifica(r2);
-//			r3.getListaChef().add(c6);
-//			serviceRistorante.modifica(r3);
+			r4.getListaChef().add(c7);
+			serviceRistorante.modifica(r4);
+			r5.getListaChef().add(c8);
+			serviceRistorante.modifica(r5);
+			r6.getListaChef().add(c9);
+			serviceRistorante.modifica(r6);
 
-			servicePiatto
-					.salva(piatto.getObject("Gnocchi al ragù di pollo", CategoriaProdotto.PRIMO, 14.00, "", m1, TipoCottura.COTTO, 25));
-			servicePiatto
-					.salva(piatto.getObject("Filetto di manzo alla griglia con salsa al vino rosso", CategoriaProdotto.SECONDO, 17.00,"", m1, TipoCottura.COTTO, 25));
-			servicePiatto.salva(piatto.getObject("Panna cotta con coulis di frutti di bosco", CategoriaProdotto.DOLCE, 17.00,"", m1, TipoCottura.COTTO, 25));
+			// CREAZIONE PIATTI ROMA
+			servicePiatto.salva(piatto.getObject("Gnocchi al ragù di pollo", CategoriaProdotto.PRIMO, 14.00, "", m1,
+					TipoCottura.COTTO, 25));
+			servicePiatto.salva(piatto.getObject("Filetto di manzo alla griglia con salsa al vino rosso",
+					CategoriaProdotto.SECONDO, 17.00, "", m1, TipoCottura.COTTO, 25));
+			servicePiatto.salva(piatto.getObject("Panna cotta con coulis di frutti di bosco", CategoriaProdotto.DOLCE,
+					17.00, "", m1, TipoCottura.COTTO, 25));
 
+			servicePiatto.salva(
+					piatto.getObject("Carbonara", CategoriaProdotto.PRIMO, 18.00, "", m2, TipoCottura.COTTO, 25));
+			servicePiatto.salva(
+					piatto.getObject("Amatriciana", CategoriaProdotto.PRIMO, 17.00, "", m2, TipoCottura.COTTO, 25));
 			servicePiatto
-					.salva(piatto.getObject("Carbonara", CategoriaProdotto.PRIMO, 18.00,"", m2, TipoCottura.COTTO, 25));
-			servicePiatto
-					.salva(piatto.getObject("Amatriciana", CategoriaProdotto.PRIMO, 17.00,"", m2, TipoCottura.COTTO, 25));
-			servicePiatto.salva(piatto.getObject("Gricia", CategoriaProdotto.PRIMO, 17.00,"", m2, TipoCottura.COTTO, 25));
+					.salva(piatto.getObject("Gricia", CategoriaProdotto.PRIMO, 17.00, "", m2, TipoCottura.COTTO, 25));
 
+			servicePiatto.salva(
+					piatto.getObject("Carbonara", CategoriaProdotto.PRIMO, 18.00, "", m3, TipoCottura.COTTO, 25));
+			servicePiatto.salva(
+					piatto.getObject("Amatriciana", CategoriaProdotto.PRIMO, 17.00, "", m3, TipoCottura.COTTO, 25));
 			servicePiatto
-					.salva(piatto.getObject("Carbonara", CategoriaProdotto.PRIMO, 18.00,"", m3, TipoCottura.COTTO, 25));
-			servicePiatto
-					.salva(piatto.getObject("Amatriciana", CategoriaProdotto.PRIMO, 17.00,"", m3, TipoCottura.COTTO, 25));
-			servicePiatto.salva(piatto.getObject("Gricia", CategoriaProdotto.PRIMO, 17.00,"", m3, TipoCottura.COTTO, 25));
+					.salva(piatto.getObject("Gricia", CategoriaProdotto.PRIMO, 17.00, "", m3, TipoCottura.COTTO, 25));
 
+			servicePiatto.salva(
+					piatto.getObject("Carbonara", CategoriaProdotto.PRIMO, 18.00, "", m4, TipoCottura.COTTO, 25));
+			servicePiatto.salva(
+					piatto.getObject("Amatriciana", CategoriaProdotto.PRIMO, 17.00, "", m4, TipoCottura.COTTO, 25));
 			servicePiatto
-					.salva(piatto.getObject("Carbonara", CategoriaProdotto.PRIMO, 18.00,"", m4, TipoCottura.COTTO, 25));
-			servicePiatto
-					.salva(piatto.getObject("Amatriciana", CategoriaProdotto.PRIMO, 17.00,"", m4, TipoCottura.COTTO, 25));
-			servicePiatto.salva(piatto.getObject("Gricia", CategoriaProdotto.PRIMO, 17.00,"", m4, TipoCottura.COTTO, 25));
+					.salva(piatto.getObject("Gricia", CategoriaProdotto.PRIMO, 17.00, "", m4, TipoCottura.COTTO, 25));
 
+			servicePiatto.salva(
+					piatto.getObject("Carbonara", CategoriaProdotto.PRIMO, 18.00, "", m5, TipoCottura.COTTO, 25));
+			servicePiatto.salva(
+					piatto.getObject("Amatriciana", CategoriaProdotto.PRIMO, 17.00, "", m5, TipoCottura.COTTO, 25));
 			servicePiatto
-					.salva(piatto.getObject("Carbonara", CategoriaProdotto.PRIMO, 18.00,"", m5, TipoCottura.COTTO, 25));
-			servicePiatto
-					.salva(piatto.getObject("Amatriciana", CategoriaProdotto.PRIMO, 17.00,"", m5, TipoCottura.COTTO, 25));
-			servicePiatto.salva(piatto.getObject("Gricia", CategoriaProdotto.PRIMO, 17.00,"", m5, TipoCottura.COTTO, 25));
+					.salva(piatto.getObject("Gricia", CategoriaProdotto.PRIMO, 17.00, "", m5, TipoCottura.COTTO, 25));
 
+			servicePiatto.salva(
+					piatto.getObject("Carbonara", CategoriaProdotto.PRIMO, 18.00, "", m6, TipoCottura.COTTO, 25));
+			servicePiatto.salva(
+					piatto.getObject("Amatriciana", CategoriaProdotto.PRIMO, 17.00, "", m6, TipoCottura.COTTO, 25));
 			servicePiatto
-					.salva(piatto.getObject("Carbonara", CategoriaProdotto.PRIMO, 18.00,"", m6, TipoCottura.COTTO, 25));
-			servicePiatto
-					.salva(piatto.getObject("Amatriciana", CategoriaProdotto.PRIMO, 17.00,"", m6, TipoCottura.COTTO, 25));
-			servicePiatto.salva(piatto.getObject("Gricia", CategoriaProdotto.PRIMO, 17.00,"", m6, TipoCottura.COTTO, 25));
-			
-			servicePiatto.salva(piatto.getObject("Insalata di pollo alla Caesar", CategoriaProdotto.ANTIPASTO, 10.00, "",m7, TipoCottura.COTTO, 10));
-			servicePiatto.salva(piatto.getObject("Tagliatelle al tartufo nero", CategoriaProdotto.PRIMO, 18.00, "",m7, TipoCottura.COTTO, 25));
-			servicePiatto.salva(piatto.getObject("Costolette di agnello in crosta di erbette", CategoriaProdotto.SECONDO, 26.00, "",m7, TipoCottura.COTTO, 35));
-			servicePiatto.salva(piatto.getObject("Torta al cioccolato fondente con gelato alla vaniglia", CategoriaProdotto.DOLCE, 9.00, "",m7, TipoCottura.COTTO, 10));
-//			
-			serviceBevanda.salva(bevanda.getObject("Marchese di Villamarina", CategoriaProdotto.BEVANDA, 38.00,					
+					.salva(piatto.getObject("Gricia", CategoriaProdotto.PRIMO, 17.00, "", m6, TipoCottura.COTTO, 25));
+
+			servicePiatto.salva(piatto.getObject("Insalata di pollo alla Caesar", CategoriaProdotto.ANTIPASTO, 10.00,
+					"", m7, TipoCottura.COTTO, 10));
+			servicePiatto.salva(piatto.getObject("Tagliatelle al tartufo nero", CategoriaProdotto.PRIMO, 18.00, "", m7,
+					TipoCottura.COTTO, 25));
+			servicePiatto.salva(piatto.getObject("Costolette di agnello in crosta di erbette",
+					CategoriaProdotto.SECONDO, 26.00, "", m7, TipoCottura.COTTO, 35));
+			servicePiatto.salva(piatto.getObject("Torta al cioccolato fondente con gelato alla vaniglia",
+					CategoriaProdotto.DOLCE, 9.00, "", m7, TipoCottura.COTTO, 10));
+
+			// CREAZIONE BEVANDE ROMA
+			serviceBevanda.salva(bevanda.getObject("Marchese di Villamarina", CategoriaProdotto.BEVANDA, 38.00,
 					"Il vino Marchese di Villamarina è un'eccellenza italiana. Di colore intenso, presenta un bouquet complesso e avvolgente di frutti maturi, spezie e note floreali. In bocca è elegante, con tannini morbidi e una piacevole persistenza",
-					m1,
-					TipoBevanda.ALCOLICA));
-			serviceBevanda.salva(bevanda.getObject("Molvina", CategoriaProdotto.BEVANDA, 45.00,"Il vino Molvina è un'opera d'arte enologica. Colore vivace, aroma fruttato e fresco con accenti floreali. Gusto equilibrato e persistente con una piacevole acidità",
-					m2,
-					TipoBevanda.ALCOLICA
-					));
-			serviceBevanda.salva(bevanda.getObject("Leonardo Da Vinci", CategoriaProdotto.BEVANDA, 35.00,
-					"Il vino Leonardo Da Vinci è un'opera di maestria enologica. Profondo colore rubino, con intensi aromi di frutti rossi e spezie. In bocca è pieno, armonico e di lunga persistenza.",
-					m3,
-					TipoBevanda.ALCOLICA
-					));
-			serviceBevanda.salva(bevanda.getObject("Batasiolo", CategoriaProdotto.BEVANDA, 35.00,
-					"Il vino Batasiolo è un'autentica espressione del Piemonte. Colore brillante, con profumi intensi di frutti maturi, spezie e sottobosco. In bocca è strutturato, elegante e persistente, con un equilibrio perfetto tra acidità e tannini.",
-					m4,
-					TipoBevanda.ALCOLICA
-					));
-			serviceBevanda.salva(bevanda.getObject("Brunello di Montalcino", CategoriaProdotto.BEVANDA, 41.00,
-					"Il Brunello di Montalcino è uno dei vini più rinomati e ammirati in Italia. Prodotto nella regione toscana, presenta un colore rubino intenso e un profilo aromatico complesso con note di frutta rossa, spezie, tabacco e cuoio.",
-					m5,
-					TipoBevanda.ALCOLICA
-					));
-			serviceBevanda.salva(bevanda.getObject("Tignanello", CategoriaProdotto.BEVANDA, 174.00,
-					"Il Tignanello è un rinomato vino toscano. Di colore intenso, offre un bouquet complesso di frutti rossi, spezie, tabacco e note balsamiche. In bocca è elegante, con tannini vellutati e un'armoniosa acidità.",
-					m6,
-					TipoBevanda.ALCOLICA
-					));
+					m1, TipoBevanda.ALCOLICA));
 			serviceBevanda.salva(bevanda.getObject("Molvina", CategoriaProdotto.BEVANDA, 45.00,
 					"Il vino Molvina è un'opera d'arte enologica. Colore vivace, aroma fruttato e fresco con accenti floreali. Gusto equilibrato e persistente con una piacevole acidità",
-					m7,
-					TipoBevanda.ALCOLICA
-					));
+					m2, TipoBevanda.ALCOLICA));
+			serviceBevanda.salva(bevanda.getObject("Leonardo Da Vinci", CategoriaProdotto.BEVANDA, 35.00,
+					"Il vino Leonardo Da Vinci è un'opera di maestria enologica. Profondo colore rubino, con intensi aromi di frutti rossi e spezie. In bocca è pieno, armonico e di lunga persistenza.",
+					m3, TipoBevanda.ALCOLICA));
+			serviceBevanda.salva(bevanda.getObject("Batasiolo", CategoriaProdotto.BEVANDA, 35.00,
+					"Il vino Batasiolo è un'autentica espressione del Piemonte. Colore brillante, con profumi intensi di frutti maturi, spezie e sottobosco. In bocca è strutturato, elegante e persistente, con un equilibrio perfetto tra acidità e tannini.",
+					m4, TipoBevanda.ALCOLICA));
+			serviceBevanda.salva(bevanda.getObject("Brunello di Montalcino", CategoriaProdotto.BEVANDA, 41.00,
+					"Il Brunello di Montalcino è uno dei vini più rinomati e ammirati in Italia. Prodotto nella regione toscana, presenta un colore rubino intenso e un profilo aromatico complesso con note di frutta rossa, spezie, tabacco e cuoio.",
+					m5, TipoBevanda.ALCOLICA));
+			serviceBevanda.salva(bevanda.getObject("Tignanello", CategoriaProdotto.BEVANDA, 174.00,
+					"Il Tignanello è un rinomato vino toscano. Di colore intenso, offre un bouquet complesso di frutti rossi, spezie, tabacco e note balsamiche. In bocca è elegante, con tannini vellutati e un'armoniosa acidità.",
+					m6, TipoBevanda.ALCOLICA));
+			serviceBevanda.salva(bevanda.getObject("Molvina", CategoriaProdotto.BEVANDA, 45.00,
+					"Il vino Molvina è un'opera d'arte enologica. Colore vivace, aroma fruttato e fresco con accenti floreali. Gusto equilibrato e persistente con una piacevole acidità",
+					m7, TipoBevanda.ALCOLICA));
 			serviceBevanda.salva(bevanda.getObject("Brunello di Montalcino", CategoriaProdotto.BEVANDA, 45.00,
 					"Il Brunello di Montalcino è uno dei vini più rinomati e ammirati in Italia. Prodotto nella regione toscana, presenta un colore rubino intenso e un profilo aromatico complesso con note di frutta rossa, spezie, tabacco e cuoio.",
-					m7,
-					TipoBevanda.ALCOLICA
-					));
-//			
+					m7, TipoBevanda.ALCOLICA));
+
+			// PIATTI MILANO
+			servicePiatto.salva(piatto.getObject("Gnocchi al ragù di pollo", CategoriaProdotto.PRIMO, 14.00, "", m8,
+					TipoCottura.COTTO, 25));
+			servicePiatto.salva(piatto.getObject("Filetto di manzo alla griglia con salsa al vino rosso",
+					CategoriaProdotto.SECONDO, 17.00, "", m8, TipoCottura.COTTO, 25));
+			servicePiatto.salva(piatto.getObject("Panna cotta con coulis di frutti di bosco", CategoriaProdotto.DOLCE,
+					17.00, "", m8, TipoCottura.COTTO, 25));
+
+			servicePiatto.salva(piatto.getObject("Gnocchi al ragù di pollo", CategoriaProdotto.PRIMO, 14.00, "", m9,
+					TipoCottura.COTTO, 25));
+			servicePiatto.salva(piatto.getObject("Filetto di manzo alla griglia con salsa al vino rosso",
+					CategoriaProdotto.SECONDO, 17.00, "", m9, TipoCottura.COTTO, 25));
+			servicePiatto.salva(piatto.getObject("Panna cotta con coulis di frutti di bosco", CategoriaProdotto.DOLCE,
+					17.00, "", m9, TipoCottura.COTTO, 25));
+
+			servicePiatto.salva(piatto.getObject("Gnocchi al ragù di pollo", CategoriaProdotto.PRIMO, 14.00, "", m10,
+					TipoCottura.COTTO, 25));
+			servicePiatto.salva(piatto.getObject("Filetto di manzo alla griglia con salsa al vino rosso",
+					CategoriaProdotto.SECONDO, 17.00, "", m10, TipoCottura.COTTO, 25));
+			servicePiatto.salva(piatto.getObject("Panna cotta con coulis di frutti di bosco", CategoriaProdotto.DOLCE,
+					17.00, "", m10, TipoCottura.COTTO, 25));
+
+//			BEVANDE MILANO
+			serviceBevanda.salva(bevanda.getObject("Marchese di Villamarina", CategoriaProdotto.BEVANDA, 38.00,
+					"Il vino Marchese di Villamarina è un'eccellenza italiana. Di colore intenso, presenta un bouquet complesso e avvolgente di frutti maturi, spezie e note floreali. In bocca è elegante, con tannini morbidi e una piacevole persistenza",
+					m8, TipoBevanda.ALCOLICA));
+			serviceBevanda.salva(bevanda.getObject("Marchese di Villamarina", CategoriaProdotto.BEVANDA, 38.00,
+					"Il vino Marchese di Villamarina è un'eccellenza italiana. Di colore intenso, presenta un bouquet complesso e avvolgente di frutti maturi, spezie e note floreali. In bocca è elegante, con tannini morbidi e una piacevole persistenza",
+					m9, TipoBevanda.ALCOLICA));
+			serviceBevanda.salva(bevanda.getObject("Marchese di Villamarina", CategoriaProdotto.BEVANDA, 38.00,
+					"Il vino Marchese di Villamarina è un'eccellenza italiana. Di colore intenso, presenta un bouquet complesso e avvolgente di frutti maturi, spezie e note floreali. In bocca è elegante, con tannini morbidi e una piacevole persistenza",
+					m10, TipoBevanda.ALCOLICA));
+
 //			serviceBevanda.salva(bevanda.getObject("Molvina", CategoriaProdotto.BEVANDA, 45.00, m6, TipoBevanda.ALCOLICA, ""));
 
+			// SELEZIONO PIATTI ROMA
 			Piatto p1 = servicePiatto.cercaPerId(1l);
 			Piatto p2 = servicePiatto.cercaPerId(2l);
 			Piatto p3 = servicePiatto.cercaPerId(3l);
@@ -290,8 +385,8 @@ public class AppRunner implements ApplicationRunner {
 			Piatto p20 = servicePiatto.cercaPerId(20l);
 			Piatto p21 = servicePiatto.cercaPerId(21l);
 			Piatto p22 = servicePiatto.cercaPerId(22l);
-			
 
+			// SELEZIONO BEVANDE ROMA
 			Bevanda b1 = serviceBevanda.cercaPerId(23l);
 			Bevanda b2 = serviceBevanda.cercaPerId(24l);
 			Bevanda b3 = serviceBevanda.cercaPerId(25l);
@@ -301,6 +396,24 @@ public class AppRunner implements ApplicationRunner {
 			Bevanda b7 = serviceBevanda.cercaPerId(29l);
 			Bevanda b8 = serviceBevanda.cercaPerId(30l);
 
+			// SELEZIONO PIATTI MILANO
+			Piatto p31 = servicePiatto.cercaPerId(31l);
+			Piatto p32 = servicePiatto.cercaPerId(32l);
+			Piatto p33 = servicePiatto.cercaPerId(33l);
+			Piatto p34 = servicePiatto.cercaPerId(34l);
+			Piatto p35 = servicePiatto.cercaPerId(35l);
+			Piatto p36 = servicePiatto.cercaPerId(36l);
+			Piatto p37 = servicePiatto.cercaPerId(37l);
+			Piatto p38 = servicePiatto.cercaPerId(38l);
+			Piatto p39 = servicePiatto.cercaPerId(39l);
+
+			
+			// SELEZIONO BEVANDE MILANO
+			Bevanda b9 = serviceBevanda.cercaPerId(40l);
+			Bevanda b10 = serviceBevanda.cercaPerId(41l);
+			Bevanda b11 = serviceBevanda.cercaPerId(42l);
+
+			// AGGIUNGO MENU A SELEZIONE ROMA
 			m1.getSelezione().add(p1);
 			m1.getSelezione().add(p2);
 			m1.getSelezione().add(p3);
@@ -339,19 +452,23 @@ public class AppRunner implements ApplicationRunner {
 			m7.getSelezione().add(b8);
 			serviceMenu.modifica(m7);
 
-//			c4.getListaProdotti().add(p1);
-//			c4.getListaProdotti().add(p2);
-//			c4.getListaProdotti().add(p3);
-//			serviceChef.modifica(c4);
-//			c5.getListaProdotti().add(p4);
-//			c5.getListaProdotti().add(p5);
-//			c5.getListaProdotti().add(p6);
-//			serviceChef.modifica(c5);
-//			c6.getListaProdotti().add(p7);
-//			c6.getListaProdotti().add(p8);
-//			c6.getListaProdotti().add(p9);
-			
-//			serviceChef.modifica(c6);
+			// AGGIUNGO MENU A SELEZIONE MILANO
+
+			m8.getSelezione().add(p31);
+			m8.getSelezione().add(p32);
+			m8.getSelezione().add(p33);
+			m8.getSelezione().add(b9);
+			serviceMenu.modifica(m8);
+			m9.getSelezione().add(p34);
+			m9.getSelezione().add(p35);
+			m9.getSelezione().add(p36);
+			m9.getSelezione().add(b10);
+			serviceMenu.modifica(m9);
+			m10.getSelezione().add(p37);
+			m10.getSelezione().add(p38);
+			m10.getSelezione().add(p39);
+			m10.getSelezione().add(b11);
+			serviceMenu.modifica(m10);
 
 		}
 	}
