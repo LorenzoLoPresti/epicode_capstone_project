@@ -8,6 +8,7 @@ import Modal from "../Modal/Modal.component";
 import COLORS from "../../style/color";
 import { useAppSelector } from "../../redux/store/store";
 import { Link, useNavigate } from "react-router-dom";
+// import video from "../../../../../../../255472_Chef Carbon_Dioxide Dry Ice Nouvelle_Cuisine_By_LACOFILMS_Artlist_HD.mp4";
 
 // interface user {
 //   name: string;
@@ -108,6 +109,13 @@ const Jumbotron = () => {
   return (
     <div className={`${styles.jumboOptions}`}>
       <div className={`${styles.jumboContainerOptions}`}>
+        {/* <video
+          src={video}
+          autoPlay
+          loop
+          muted
+          className={styles.backVideo}
+        ></video> */}
         <Container className={`${styles.jumboSpacing}`}>
           <Row className={`${styles.jumboSpacing}`}>
             <Col

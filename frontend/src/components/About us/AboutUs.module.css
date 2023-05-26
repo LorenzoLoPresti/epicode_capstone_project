@@ -95,7 +95,7 @@
 
 @keyframes c1 {
   0% {
-    transform: translate(-1500px);
+    transform: translate(-1000%);
   }
   50% {
     transform: translate(0px);
@@ -103,10 +103,10 @@
 }
 @keyframes c2 {
   0% {
-    transform: translate(-1500px);
+    transform: translate(-1000%);
   }
   50% {
-    transform: translate(-1500px);
+    transform: translate(-1000%);
   }
   75% {
     transform: translate(0px);
@@ -114,10 +114,10 @@
 }
 @keyframes c3 {
   0% {
-    transform: translate(-1500px);
+    transform: translate(-1000%);
   }
   80% {
-    transform: translate(-1500px);
+    transform: translate(-1000%);
   }
   100% {
     transform: translate(0px);
