@@ -267,7 +267,7 @@ const Checkout = () => {
                       style={{ borderTop: "1px solid #faf4f0" }}
                     >
                       {" "}
-                      <h4>Totale</h4>
+                      <h4 className="mb-3">Totale</h4>
                       <Col
                         xs={12}
                         sm={7}
