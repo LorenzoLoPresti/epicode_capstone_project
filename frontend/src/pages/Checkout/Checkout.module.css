@@ -24,12 +24,6 @@
   border-radius: 20px;
 }
 
-@media screen and (max-width: 998) {
-  .modalOptions {
-    max-width: 36rem;
-  }
-}
-
 .inputOptions {
   width: 22rem;
 }
@@ -59,5 +53,16 @@
   100% {
     transform: translateY(0);
     opacity: 1;
+  }
+}
+
+@media screen and (max-width: 998px) {
+  .modalOptions {
+    max-width: 36rem;
+  }
+}
+@media screen and (max-width: 576px) {
+  .paypalColumn {
+    order: 2;
   }
 }

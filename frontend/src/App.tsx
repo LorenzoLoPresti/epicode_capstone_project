@@ -5,6 +5,8 @@ import { BrowserRouter } from "react-router-dom";
 import Router from "./components/Router/Router.component";
 import Layout from "./Layout/Layout.component";
 
+// const port = import.meta.env.VITE_PORT;
+
 function App() {
   return (
     <>

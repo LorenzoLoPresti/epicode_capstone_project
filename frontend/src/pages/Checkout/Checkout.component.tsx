@@ -6,6 +6,7 @@ import { useAppSelector } from "../../redux/store/store";
 import { Link, useNavigate } from "react-router-dom";
 import { ListaProdotti } from "../Home/Home.types";
 import COLORS from "../../style/color";
+import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 
 const Checkout = () => {
   const token = useAppSelector((state) => state.authToken?.token);
@@ -75,6 +76,24 @@ const Checkout = () => {
   };
 
   const conteggioVini = contaVini(listaVini);
+
+  const subTotale = () => {
+    if (prezzoPiatti && prezzoVini === 0) {
+      return prezzoPiatti + prezzoVini + "€";
+    }
+    if (prezzoPiatti && prezzoVini !== 0 && prezzoVini) {
+      return prezzoPiatti + prezzoVini + "€";
+    }
+  };
+
+  const prezzoTotale = () => {
+    if (prezzoPiatti && prezzoVini === 0 && prezzoChef) {
+      return prezzoPiatti + prezzoChef + "€";
+    }
+    if (prezzoPiatti && prezzoVini !== 0 && prezzoVini && prezzoChef) {
+      return prezzoPiatti + prezzoVini + prezzoChef + "€";
+    }
+  };
 
   useEffect(() => {
     if (!token) {
@@ -244,39 +263,53 @@ const Checkout = () => {
                       </Row>
                     </Col>
                     <Row
-                      className="d-flex justify-content-between pt-3"
+                      className="d-flex justify-content-center pt-3"
                       style={{ borderTop: "1px solid #faf4f0" }}
                     >
-                      <Col xs={6} sm={7} md={8}>
-                        <h4>Totale</h4>
+                      {" "}
+                      <h4>Totale</h4>
+                      <Col
+                        xs={12}
+                        sm={7}
+                        md={8}
+                        className={styles.paypalColumn}
+                      >
+                        <div style={{ width: "200px" }}>
+                          {prezzoTotale() && (
+                            <PayPalScriptProvider
+                              options={{
+                                currency: "EUR",
+                                "client-id": import.meta.env.VITE_CLIENT_ID,
+                              }}
+                            >
+                              <PayPalButtons
+                                createOrder={(_data: any, actions: any) => {
+                                  return actions.order.create({
+                                    purchase_units: [
+                                      {
+                                        amount: {
+                                          value: 2.0,
+                                        },
+                                      },
+                                    ],
+                                  });
+                                }}
+                                onApprove={(actions: any) => {
+                                  return actions.order
+                                    .capture()
+                                    .then(function () {
+                                      alert("transaction complete by " + token);
+                                    });
+                                }}
+                              />
+                            </PayPalScriptProvider>
+                          )}
+                        </div>
                       </Col>
-
                       <Col className="d-flex flex-column">
                         <p>costo chef: {prezzoChef}€</p>
-                        <p>
-                          sub-totale:{" "}
-                          {prezzoPiatti &&
-                            prezzoVini === 0 &&
-                            prezzoPiatti + prezzoVini}
-                          {prezzoPiatti &&
-                            prezzoVini !== 0 &&
-                            prezzoVini &&
-                            prezzoPiatti + prezzoVini}
-                          €
-                        </p>
-                        <p className="fw-bold fs-5">
-                          totale:{" "}
-                          {prezzoPiatti &&
-                            prezzoVini === 0 &&
-                            prezzoChef &&
-                            prezzoPiatti + prezzoChef}
-                          {prezzoPiatti &&
-                            prezzoVini !== 0 &&
-                            prezzoVini &&
-                            prezzoChef &&
-                            prezzoPiatti + prezzoVini + prezzoChef}
-                          €
-                        </p>
+                        <p>sub-totale: {subTotale()}</p>
+                        <p className="fw-bold fs-5">totale: {prezzoTotale()}</p>
                       </Col>
                       {/* <button
                         onClick={() => {
