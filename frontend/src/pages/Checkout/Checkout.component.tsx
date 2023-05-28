@@ -2,13 +2,15 @@ import { useEffect, useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import accedi from "../../assets/accediImg.jpg";
 import styles from "./Checkout.module.css";
-import { useAppSelector } from "../../redux/store/store";
+import { useAppDispatch, useAppSelector } from "../../redux/store/store";
 import { Link, useNavigate } from "react-router-dom";
 import { ListaProdotti } from "../Home/Home.types";
 import COLORS from "../../style/color";
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
+import { removeChefToCart } from "../../redux/reducers/carrelloStore";
 
 const Checkout = () => {
+  const dispatch = useAppDispatch();
   const token = useAppSelector((state) => state.authToken?.token);
   const navigate = useNavigate();
   const chef = useAppSelector((state) => state.carrelloReducer?.chef);
@@ -21,8 +23,9 @@ const Checkout = () => {
   );
   const listaVini = useAppSelector((state) => state.carrelloReducer?.listaVini);
   const [prezzoChef, setPrezzoChef] = useState(0);
-  const [prezzoPiatti, setPrezzoPiatti] = useState<number | undefined>(0);
-  const [prezzoVini, setPrezzoVini] = useState<number | undefined>(0);
+  const [prezzoPiatti, setPrezzoPiatti] = useState<number>(0);
+  const [prezzoVini, setPrezzoVini] = useState<number>(0);
+  const [orderFulfilled, setOrderFulfilled] = useState(false);
 
   const cartChecker = () =>
     dataCena === null && listaProdottiMenu === null ? false : true;
@@ -46,14 +49,20 @@ const Checkout = () => {
       (acc, costoPiatto) => acc + costoPiatto,
       0
     );
-    if (costoPiattiTotale !== undefined) costoPiattiTotale *= numeroCommensali;
+
+    if (costoPiattiTotale !== undefined) {
+      costoPiattiTotale *= numeroCommensali;
+      setPrezzoPiatti(costoPiattiTotale);
+    }
 
     const vini = listaVini?.map((v) => v?.prezzo);
     const costoVini = vini?.reduce((acc, costoVino) => acc + costoVino, 0);
 
+    if (costoVini) {
+      listaVini!.length > 0 ? setPrezzoVini(costoVini) : setPrezzoVini(0);
+    }
+
     setPrezzoChef(costoChef);
-    setPrezzoPiatti(costoPiattiTotale);
-    listaVini!.length > 0 ? setPrezzoVini(costoVini) : setPrezzoVini(0);
 
     console.log(prezzoChef, prezzoVini, prezzoPiatti);
   };
@@ -86,14 +95,7 @@ const Checkout = () => {
     }
   };
 
-  const prezzoTotale = () => {
-    if (prezzoPiatti && prezzoVini === 0 && prezzoChef) {
-      return prezzoPiatti + prezzoChef;
-    }
-    if (prezzoPiatti && prezzoVini !== 0 && prezzoVini && prezzoChef) {
-      return prezzoPiatti + prezzoVini + prezzoChef;
-    }
-  };
+  const prezzoTotale = prezzoPiatti + prezzoVini + prezzoChef;
 
   useEffect(() => {
     if (!token) {
@@ -137,7 +139,10 @@ const Checkout = () => {
                    ${styles.voidCart}`}
                 >
                   <div className={styles.animationContainer}>
-                    <h3>Il tuo carrello è vuoto</h3>
+                    <h3>
+                      {(orderFulfilled && "Grazie per il tuo acquisto!") ||
+                        "Il tuo carrello è vuoto"}
+                    </h3>
                     <Link to={"/"} style={{ textDecoration: "none" }}>
                       <p style={{ cursor: "pointer", color: COLORS.brandGold }}>
                         Clicca qui per andare ai ristoranti
@@ -156,8 +161,17 @@ const Checkout = () => {
                   <Row
                     className={`d-flex flex-column h-100 pt-3 px-4 ${styles.animationContainer}`}
                   >
-                    <Col xs={12} className={`${styles.tableOptions} mb-4`}>
+                    <Col
+                      xs={12}
+                      className={`${styles.tableOptions} mb-4 d-flex justify-content-between align-items-center`}
+                    >
                       <h3>Il tuo carrello</h3>
+                      <p
+                        onClick={() => dispatch(removeChefToCart())}
+                        style={{ cursor: "pointer", color: COLORS.brandGold }}
+                      >
+                        Svuota carrello
+                      </p>
                     </Col>
                     <Col xs={12} className="px-0 mb-3">
                       <Row className={`d-flex justify-content-between`}>
@@ -275,44 +289,46 @@ const Checkout = () => {
                         className={styles.paypalColumn}
                       >
                         <div style={{ width: "200px" }}>
-                          <PayPalScriptProvider
-                            options={{
-                              currency: "EUR",
-                              "client-id": import.meta.env.VITE_CLIENT_ID,
-                            }}
-                          >
-                            <PayPalButtons
-                              createOrder={(_data: any, actions: any) => {
-                                return actions.order.create({
-                                  purchase_units: [
-                                    {
-                                      amount: {
-                                        value: prezzoTotale(),
+                          {prezzoTotale && (
+                            <PayPalScriptProvider
+                              options={{
+                                currency: "EUR",
+                                "client-id": import.meta.env.VITE_CLIENT_ID,
+                              }}
+                            >
+                              <PayPalButtons
+                                createOrder={(_data: any, actions: any) => {
+                                  return actions.order.create({
+                                    purchase_units: [
+                                      {
+                                        amount: {
+                                          value: prezzoTotale,
+                                        },
                                       },
-                                    },
-                                  ],
-                                });
-                              }}
-                              onApprove={(_data: any, actions: any) => {
-                                return actions.order
-                                  .capture()
-                                  .then(function (_details: any) {
-                                    // alert(
-                                    //   "Transazione andata a buon fine per pippo"
-                                    // );
-                                    console.log("prezzo: " + prezzoTotale());
+                                    ],
                                   });
-                              }}
-                            />
-                          </PayPalScriptProvider>
+                                }}
+                                onApprove={(_data: any, actions: any) => {
+                                  return actions.order
+                                    .capture()
+                                    .then(function (_details: any) {
+                                      // alert(
+                                      //   "Transazione andata a buon fine per pippo"
+                                      // );
+                                      console.log("prezzo: " + prezzoTotale);
+                                      dispatch(removeChefToCart());
+                                      setOrderFulfilled(true);
+                                    });
+                                }}
+                              />
+                            </PayPalScriptProvider>
+                          )}
                         </div>
                       </Col>
                       <Col className="d-flex flex-column align-items-md-center">
                         <p>costo chef: {prezzoChef}€</p>
                         <p>sub-totale: {subTotale()}€</p>
-                        <p className="fw-bold fs-5">
-                          totale: {prezzoTotale()}€
-                        </p>
+                        <p className="fw-bold fs-5">totale: {prezzoTotale}€</p>
                       </Col>
                       {/* <button
                         onClick={() => {
