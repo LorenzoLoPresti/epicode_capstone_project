@@ -80,17 +80,17 @@
 
 .c1Visible {
   transform: translate(0px);
-  animation: c1 ease 1.5s;
+  animation: c1 ease-out 1.5s;
 }
 
 .c2Visible {
   transform: translate(0px);
-  animation: c2 ease 2.5s;
+  animation: c2 ease-out 2s;
 }
 
 .c3Visible {
   transform: translate(0px);
-  animation: c3 ease 3.5s;
+  animation: c3 ease-out 2.5s;
 }
 
 @keyframes c1 {
