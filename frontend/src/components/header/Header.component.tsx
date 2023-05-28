@@ -79,7 +79,9 @@ const Header = () => {
 
   const handleOptionChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const value = event.target.value;
-    setCitta(value);
+    if (value) {
+      setCitta(value);
+    }
   };
 
   // useEffect(() => {
@@ -92,7 +94,7 @@ const Header = () => {
     if (citta.length && token) {
       fetchRistorantiPerCitta(token, citta, setRistoranti);
     }
-    if (citta !== reduxCitta && reduxToken) {
+    if (citta !== reduxCitta && citta && reduxToken) {
       putCittaUtente(reduxUsername, reduxToken, citta);
     }
 

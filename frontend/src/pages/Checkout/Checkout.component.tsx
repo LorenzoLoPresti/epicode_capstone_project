@@ -79,19 +79,19 @@ const Checkout = () => {
 
   const subTotale = () => {
     if (prezzoPiatti && prezzoVini === 0) {
-      return prezzoPiatti + prezzoVini + "€";
+      return prezzoPiatti + prezzoVini;
     }
     if (prezzoPiatti && prezzoVini !== 0 && prezzoVini) {
-      return prezzoPiatti + prezzoVini + "€";
+      return prezzoPiatti + prezzoVini;
     }
   };
 
   const prezzoTotale = () => {
     if (prezzoPiatti && prezzoVini === 0 && prezzoChef) {
-      return prezzoPiatti + prezzoChef + "€";
+      return prezzoPiatti + prezzoChef;
     }
     if (prezzoPiatti && prezzoVini !== 0 && prezzoVini && prezzoChef) {
-      return prezzoPiatti + prezzoVini + prezzoChef + "€";
+      return prezzoPiatti + prezzoVini + prezzoChef;
     }
   };
 
@@ -274,37 +274,45 @@ const Checkout = () => {
                         md={8}
                         className={styles.paypalColumn}
                       >
-                        <div style={{ width: "200px" }}></div>
-                        <PayPalScriptProvider
-                          options={{
-                            currency: "EUR",
-                            "client-id": import.meta.env.VITE_CLIENT_ID,
-                          }}
-                        >
-                          <PayPalButtons
-                            createOrder={(_data: any, actions: any) => {
-                              return actions.order.create({
-                                purchase_units: [
-                                  {
-                                    amount: {
-                                      value: 5.0,
+                        <div style={{ width: "200px" }}>
+                          <PayPalScriptProvider
+                            options={{
+                              currency: "EUR",
+                              "client-id": import.meta.env.VITE_CLIENT_ID,
+                            }}
+                          >
+                            <PayPalButtons
+                              createOrder={(_data: any, actions: any) => {
+                                return actions.order.create({
+                                  purchase_units: [
+                                    {
+                                      amount: {
+                                        value: prezzoTotale(),
+                                      },
                                     },
-                                  },
-                                ],
-                              });
-                            }}
-                            onApprove={(actions: any) => {
-                              return actions.order.capture().then(function () {
-                                console.log("PIPPO IS THE NEW KING");
-                              });
-                            }}
-                          />
-                        </PayPalScriptProvider>
+                                  ],
+                                });
+                              }}
+                              onApprove={(_data: any, actions: any) => {
+                                return actions.order
+                                  .capture()
+                                  .then(function (_details: any) {
+                                    // alert(
+                                    //   "Transazione andata a buon fine per pippo"
+                                    // );
+                                    console.log("prezzo: " + prezzoTotale());
+                                  });
+                              }}
+                            />
+                          </PayPalScriptProvider>
+                        </div>
                       </Col>
                       <Col className="d-flex flex-column align-items-md-center">
                         <p>costo chef: {prezzoChef}€</p>
-                        <p>sub-totale: {subTotale()}</p>
-                        <p className="fw-bold fs-5">totale: {prezzoTotale()}</p>
+                        <p>sub-totale: {subTotale()}€</p>
+                        <p className="fw-bold fs-5">
+                          totale: {prezzoTotale()}€
+                        </p>
                       </Col>
                       {/* <button
                         onClick={() => {
