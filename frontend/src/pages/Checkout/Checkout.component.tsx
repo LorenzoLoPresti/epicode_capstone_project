@@ -306,7 +306,7 @@ const Checkout = () => {
                           )}
                         </div>
                       </Col>
-                      <Col className="d-flex flex-column">
+                      <Col className="d-flex flex-column align-items-md-center">
                         <p>costo chef: {prezzoChef}€</p>
                         <p>sub-totale: {subTotale()}</p>
                         <p className="fw-bold fs-5">totale: {prezzoTotale()}</p>
