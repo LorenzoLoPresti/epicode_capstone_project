@@ -274,37 +274,32 @@ const Checkout = () => {
                         md={8}
                         className={styles.paypalColumn}
                       >
-                        <div style={{ width: "200px" }}>
-                          {prezzoTotale() && (
-                            <PayPalScriptProvider
-                              options={{
-                                currency: "EUR",
-                                "client-id": import.meta.env.VITE_CLIENT_ID,
-                              }}
-                            >
-                              <PayPalButtons
-                                createOrder={(_data: any, actions: any) => {
-                                  return actions.order.create({
-                                    purchase_units: [
-                                      {
-                                        amount: {
-                                          value: 2.0,
-                                        },
-                                      },
-                                    ],
-                                  });
-                                }}
-                                onApprove={(actions: any) => {
-                                  return actions.order
-                                    .capture()
-                                    .then(function () {
-                                      alert("transaction complete by " + token);
-                                    });
-                                }}
-                              />
-                            </PayPalScriptProvider>
-                          )}
-                        </div>
+                        <div style={{ width: "200px" }}></div>
+                        <PayPalScriptProvider
+                          options={{
+                            currency: "EUR",
+                            "client-id": import.meta.env.VITE_CLIENT_ID,
+                          }}
+                        >
+                          <PayPalButtons
+                            createOrder={(_data: any, actions: any) => {
+                              return actions.order.create({
+                                purchase_units: [
+                                  {
+                                    amount: {
+                                      value: 5.0,
+                                    },
+                                  },
+                                ],
+                              });
+                            }}
+                            onApprove={(actions: any) => {
+                              return actions.order.capture().then(function () {
+                                console.log("PIPPO IS THE NEW KING");
+                              });
+                            }}
+                          />
+                        </PayPalScriptProvider>
                       </Col>
                       <Col className="d-flex flex-column align-items-md-center">
                         <p>costo chef: {prezzoChef}€</p>
