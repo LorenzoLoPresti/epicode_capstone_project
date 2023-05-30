@@ -11,7 +11,6 @@ const NotFound = () => {
 
   return (
     <div
-      //   className={styles.bg}
       style={{
         minHeight: "100vh",
         backgroundImage: `url(${notFound})`,

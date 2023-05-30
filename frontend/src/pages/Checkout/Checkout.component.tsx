@@ -27,14 +27,17 @@ const Checkout = () => {
   const [prezzoVini, setPrezzoVini] = useState<number>(0);
   const [orderFulfilled, setOrderFulfilled] = useState(false);
 
+  // DETERMINA SE IL CARRELLO E' VUOTO
   const cartChecker = () =>
     dataCena === null && listaProdottiMenu === null ? false : true;
 
+  // SETTA IL VALORE DEI COSTI PER CHEF, MENU E VINI
   const totale = () => {
     let tempoChef;
     let costoChef;
     let costoPiattiTotale;
 
+    // TEMPO TOTALE CHEF
     const tempo = listaProdottiMenu?.map((t) => t?.tempoDiPreparazione);
     const tempoTotale = tempo?.reduce((acc, tempo) => acc + tempo + 15, 0);
     if (tempoTotale !== undefined) {
@@ -44,6 +47,7 @@ const Checkout = () => {
       return console.error();
     }
 
+    // COSTO PIATTI PER NUMERO DI PARTECIPANTI
     const piatti = listaProdottiMenu?.map((p) => p?.prezzo);
     costoPiattiTotale = piatti?.reduce(
       (acc, costoPiatto) => acc + costoPiatto,
@@ -55,6 +59,7 @@ const Checkout = () => {
       setPrezzoPiatti(costoPiattiTotale);
     }
 
+    // COSTO DEI VINI
     const vini = listaVini?.map((v) => v?.prezzo);
     const costoVini = vini?.reduce((acc, costoVino) => acc + costoVino, 0);
 
@@ -62,11 +67,11 @@ const Checkout = () => {
       listaVini!.length > 0 ? setPrezzoVini(costoVini) : setPrezzoVini(0);
     }
 
+    // PREZZO CHEF
     setPrezzoChef(costoChef);
-
-    console.log(prezzoChef, prezzoVini, prezzoPiatti);
   };
 
+  // CONTEGGIO DELLE BOTTIGLIE
   const contaVini = (
     carrello: ListaProdotti[] | null
   ): Record<string, number> => {
@@ -86,6 +91,7 @@ const Checkout = () => {
 
   const conteggioVini = contaVini(listaVini);
 
+  // SUBTOTALE
   const subTotale = () => {
     if (prezzoPiatti && prezzoVini === 0) {
       return prezzoPiatti + prezzoVini;
@@ -95,8 +101,10 @@ const Checkout = () => {
     }
   };
 
+  // PREZZO TOTALE
   const prezzoTotale = prezzoPiatti + prezzoVini + prezzoChef;
 
+  // SENZA TOKEN REDIRECT ALLA LOGIN PAGE
   useEffect(() => {
     if (!token) {
       const t = setInterval(() => navigate("/login"), 1500);
@@ -121,6 +129,7 @@ const Checkout = () => {
               className="d-flex justify-content-center align-items-center text-light h-100 w-100"
               style={{ padding: "5rem 0", margin: "0", minHeight: "100vh" }}
             >
+              {/* SE UTENTE NON LOGGATO */}
               {!token && (
                 <Col
                   className={`d-flex flex-column justify-content-center align-items-center 50vh $
@@ -133,6 +142,7 @@ const Checkout = () => {
                   </div>
                 </Col>
               )}
+              {/* SE UTENTE LOGGATO E CARRELLO VUOTO */}
               {token && !cartChecker() && (
                 <Col
                   className={`d-flex flex-column justify-content-center align-items-center 50vh $
@@ -156,6 +166,7 @@ const Checkout = () => {
                   )}
                 </Col>
               )}
+              {/* SE UTENTE LOGGATO E CARRELLO PIENO */}
               {token && cartChecker() && (
                 <div className={` ${styles.modalOptions}`}>
                   <Row
@@ -198,6 +209,7 @@ const Checkout = () => {
                             </p>
                           </Col>
                         </Row>
+                        {/* ELEMENTI DEL MENU */}
                         {listaProdottiMenu !== undefined &&
                           listaProdottiMenu?.map((p) => (
                             <Row
@@ -226,6 +238,7 @@ const Checkout = () => {
                               </Col>
                             </Row>
                           ))}
+                        {/* LISTA VINI */}
                         {listaVini!.length > 0 && (
                           <Row className="ps-3 mt-2">
                             <Col>
@@ -282,6 +295,7 @@ const Checkout = () => {
                     >
                       {" "}
                       <h4 className="mb-3">Totale</h4>
+                      {/* PAYPAL */}
                       <Col
                         xs={12}
                         sm={7}
@@ -325,26 +339,12 @@ const Checkout = () => {
                           )}
                         </div>
                       </Col>
+                      {/* TOTALE CARRELLO */}
                       <Col className="d-flex flex-column align-items-md-center">
                         <p>costo chef: {prezzoChef}€</p>
                         <p>sub-totale: {subTotale()}€</p>
                         <p className="fw-bold fs-5">totale: {prezzoTotale}€</p>
                       </Col>
-                      {/* <button
-                        onClick={() => {
-                          Object.entries(contaVini(listaVini)).map(
-                            ([id, quantita]) => {
-                              const prodotto = listaVini?.find(
-                                (prodotto) => prodotto?.id.toString() === id
-                              );
-                              console.log(prodotto, quantita);
-                            }
-                          );
-                          console.log(prezzoVini);
-                        }}
-                      >
-                        controllo
-                      </button> */}
                     </Row>
                   </Row>
                 </div>

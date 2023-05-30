@@ -53,6 +53,7 @@ const Shop = () => {
     dataCena: dateSelected,
   };
 
+  // SALVA CARRELLO IN REDUX E PORTA ALLA PAGINA DI CHECKOUT
   const handleDispatch = ({
     username,
     partecipanti,
@@ -74,6 +75,7 @@ const Shop = () => {
     navigate("/checkout");
   };
 
+  // FUNZIONI PER CAMBIARE NUMERO DI PARTECIPANTI ALLA CENA
   const aggiungiCommensale = () => {
     if (numeroCommensali < 8) setNumeroCommensali(numeroCommensali + 1);
   };
@@ -85,6 +87,7 @@ const Shop = () => {
     e.preventDefault();
   };
 
+  // SELEZIONA VINO
   const handleWineSelector = (nomeVino: string) => {
     if (nomeVinoSelezionato) {
       setNomeVinoSelezionato("");
@@ -93,6 +96,7 @@ const Shop = () => {
     }
   };
 
+  // REQUISITI PER RAGGIUNGERE LA PAGINA DI CHECKOUT
   const verifica = () => {
     if (
       menuSelected.length === 0 ||
@@ -118,22 +122,8 @@ const Shop = () => {
     reduxCart?.dataCena !== null
       ? setDateSelected(reduxCart?.dataCena)
       : setDateSelected("");
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
-  // const accordionItems: AccordionItem[] = [
-  //   {
-  //     title: "Accordion Item #1",
-  //     content: "Contenuto dell'Accordion Item #1",
-  //   },
-  //   {
-  //     title: "Accordion Item #2",
-  //     content: "Contenuto dell'Accordion Item #2",
-  //   },
-  //   {
-  //     title: "Accordion Item #3",
-  //     content: "Contenuto dell'Accordion Item #3",
-  //   },
-  // ];
 
   return (
     <>
@@ -211,6 +201,7 @@ const Shop = () => {
                     Inserisci il numero di partecipanti
                   </h4>
                   <div className="text-light text-center d-flex align-items-center">
+                    {/* INSERISCI IL NUMERO DI PARTECIPANTI */}
                     <button
                       className={`px-1 ms-1 ${
                         numeroCommensali > 0 && styles.commensaliBtn
@@ -232,6 +223,7 @@ const Shop = () => {
                     </button>
                   </div>
                 </Col>
+                {/* SELEZIONA DATA */}
                 <Col
                   className="mb-4 mt-4 mt-lg-0 pb-2 d-flex align-items-center justify-content-between"
                   style={{ borderBottom: "1px solid #474c55" }}
@@ -252,6 +244,7 @@ const Shop = () => {
                     </div>
                   </form>
                 </Col>
+                {/* SELEZIONA OPZIONE MENU */}
                 <Col>
                   <h4 className="mb-3 fs-5" style={{ color: "#ccb7a9" }}>
                     Seleziona menu
@@ -315,6 +308,7 @@ const Shop = () => {
                 </div>
               )}
             </section>
+            {/* CONTROLLO CHECKOUT */}
             {(verifica() && (
               <GeneralButton
                 text="Vai al checkout"

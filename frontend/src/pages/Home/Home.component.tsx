@@ -30,11 +30,13 @@ const Home = () => {
   const [ristoranti, setRistoranti] = useState<Ristorante[]>([]);
   const dispatch = useAppDispatch();
 
+  // UTENTE
   const user = {
     username: reduxUsername,
     token: reduxToken,
   };
 
+  // LOADING
   useEffect(() => {
     const t = setTimeout(() => setLoading(false), 1500);
     return () => clearTimeout(t);
@@ -42,9 +44,7 @@ const Home = () => {
 
   useEffect(() => {
     if (reduxToken) {
-      console.log("ue - fetch");
       dispatch(fetchCity(user));
-      // fetchRistorantiPerCitta(reduxToken, reduxCitta, setRistoranti);
     }
     if (reduxCitta && reduxToken) {
       fetchRistorantiPerCitta(reduxToken, reduxCitta, setRistoranti);
@@ -67,6 +67,7 @@ const Home = () => {
   return (
     <div>
       <>
+        {/* CARICAMENTO SE UTENTE NON LOGGATO (PER JUMBOTRON) */}
         {!reduxToken && loading && (
           <div className={style.generalContainerOption}>
             <Row className="" style={{ height: "100%" }}>
@@ -81,15 +82,18 @@ const Home = () => {
             </Row>
           </div>
         )}
+        {/* MOSTRA JUMBOTRON SE UTENTE NON LOGGATO */}
         {!reduxToken && (
           <>
             <Jumbotron />
             {!loading && <AboutUs />}
           </>
         )}
+        {/* CAROSELLO RISTORANTI SE UTENTE LOGGATO */}
         {reduxToken && reduxRistoranti.length > 0 && (
           <MyCarousel array={reduxRistoranti} />
         )}
+        {/* FOOTER */}
         {!loading && !reduxToken && <Footer />}
       </>
     </div>

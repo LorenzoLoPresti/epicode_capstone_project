@@ -93,6 +93,8 @@
   animation: c3 ease-out 2.5s;
 }
 
+/* ANIMAZIONI */
+
 @keyframes c1 {
   0% {
     transform: translate(-1000%);

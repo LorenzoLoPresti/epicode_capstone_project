@@ -32,6 +32,7 @@ const Jumbotron = () => {
   const token = useAppSelector((state) => state.authToken?.token);
   const navigate = useNavigate();
 
+  // RESETTA I CAMPI DEL FORM DI REGISTRAZIONE
   const cleanField = () => {
     setUsername("");
     setPassword("");
@@ -41,6 +42,7 @@ const Jumbotron = () => {
     setLastname("");
   };
 
+  // CONTROLLO DEI CAMPI DEL FORM
   const valueCheck = () => {
     if (
       username.length > 2 &&
@@ -56,7 +58,8 @@ const Jumbotron = () => {
       return false;
     }
   };
-  // const storeTry = useAppSelector((state) => state.authToken.token);
+
+  // REGISTRA NUOVO UTENTE
   const registerRequest = async () => {
     setExists(false);
     try {
@@ -97,16 +100,8 @@ const Jumbotron = () => {
     setCitta(value);
   };
 
-  // const handleSubmit = () => {
-  //   registerRequest()
-  //     .then(() => {
-  //       cleanField();
-  //     })
-  //     .catch((error) => console.log(error));
-  // };
-
-  // const dispatch = useAppDispatch();
   return (
+    // JUMBOTRON
     <div className={`${styles.jumboOptions}`}>
       <div className={`${styles.jumboContainerOptions}`}>
         {/* <video
@@ -136,6 +131,7 @@ const Jumbotron = () => {
               )}
             </Col>
           </Row>
+          {/* MODALE DI REGISTRAZIONE */}
           {showRegistrationModal && (
             <Modal
               onClose={() => setShowRegistrationModal(false)}
@@ -186,17 +182,6 @@ const Jumbotron = () => {
                 />
                 <label className={styleModal.label}>Email</label>
               </div>
-              {/* <div className={styleModal.inputBox}>
-                <input
-                  value={citta}
-                  className={`mb-5 mb-md-3 ${styleModal.inputOptions}`}
-                  type="text"
-                  onChange={(e) => {
-                    setCitta(e.target.value);
-                  }}
-                />
-                <label className={styleModal.label}>Città</label>
-              </div> */}
               <div className={styleModal.inputBox}>
                 <select
                   className={styleModal.dropdown}

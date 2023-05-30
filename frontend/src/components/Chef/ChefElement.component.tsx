@@ -21,12 +21,9 @@ const ChefElement = ({
   const dispatch = useAppDispatch();
   const [nameVisible, setNameVisible] = useState(false);
 
+  // SELEZIONO L'ELEMENTO SPECIFICO
   const selectChef = () =>
     selected !== chef?.id ? setSelected(chef?.id) : setSelected(0);
-
-  // const selectMenu = () => {
-  //   selected === chef?.id && setMenuSelected(chef.listaMenu[0].id);
-  // };
 
   const showName = () => {
     if (selected !== chef?.id) setNameVisible(true);

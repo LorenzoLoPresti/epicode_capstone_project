@@ -20,6 +20,7 @@ const Menu = ({
 
   return (
     <>
+      {/* SEZIONE MENU DELL'ELEMENTO DEL CAROUSEL SELEZIONATO (HOMEPAGE) */}
       {ristoranteEl && (
         <>
           <div

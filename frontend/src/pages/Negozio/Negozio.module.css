@@ -81,6 +81,8 @@
   }
 }
 
+/* MEDIA QUERIES */
+
 @media screen and (min-width: 1200px) {
   .categoryNameOptions {
     font-size: 1.25rem;

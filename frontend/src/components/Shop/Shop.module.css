@@ -1,5 +1,4 @@
 .mainContainer {
-  /* padding-top: 6rem; */
   width: 77%;
   margin: auto;
   padding: 6rem 5rem;
@@ -48,12 +47,9 @@
 
 .chefImage {
   height: 400px;
-  /* width: calc(100% - 5%);
-  margin: auto; */
 }
 
 .copyOptions {
-  /* width: 50%; */
   font-size: 1.1rem;
 }
 
@@ -62,7 +58,6 @@
 }
 
 .copyOptions {
-  /* width: 100%; */
   font-size: 1rem;
 }
 
@@ -79,8 +74,6 @@
 .commensaliBtn:hover {
   background-color: #ccb7a9 !important;
   transform: scale(0.9);
-  /* animation-name: buttonAnimation !important;
-  animation-duration: 0.5s !important; */
 }
 
 ::-webkit-calendar-picker-indicator {
@@ -127,8 +120,6 @@
 }
 
 .winesContainer {
-  /* padding: 0.5rem 0;
-  background-color: #1e1b1c; */
   opacity: 1;
   animation: winesContainer ease 1s;
 }
@@ -155,20 +146,7 @@
   margin-bottom: 2px;
 }
 
-/* @keyframes buttonAnimation {
-  0% {
-    transform: scale(1);
-  }
-
-  50% {
-    background-color: #c8beb7;
-  }
-
-  100% {
-    transform: scale(1.04);
-    background-color: #ccb7a9;
-  }
-} */
+/* MEDIA QUERIES */
 
 @media screen and (max-width: 1040px) {
   .chefName {

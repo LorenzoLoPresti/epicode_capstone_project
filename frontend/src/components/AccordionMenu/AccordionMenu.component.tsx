@@ -25,6 +25,7 @@ const AccordionMenu = ({
   const [visible, setVisible] = useState(false);
   const [selected, setSelected] = useState(false);
 
+  // FILTRA LISTA PRODOTTI PER CATEGORIA
   const filtraListaPerPortata = (portata: string) => {
     return selezione?.filter((p) => p.categoria === portata.toUpperCase());
   };
@@ -34,6 +35,7 @@ const AccordionMenu = ({
 
   return (
     <div>
+      {/* BARRA ACCORDION */}
       <div
         className={`${styles.accordionBg} ${
           selected && styles.accordionBgSelected
@@ -55,9 +57,11 @@ const AccordionMenu = ({
 
           {(!visible && <BiPlus />) || <AiOutlineMinus />}
         </div>
+        {/* CORPO ACCORDION */}
         {visible && (
           <div className={`${styles.accordionBody} py-3 px-3`}>
             <div>
+              {/* SEZIONI ACCORDION PER PORTATA */}
               <div>
                 {filtraListaPerPortata("antipasto")?.length > 0 && (
                   <h5>
@@ -137,6 +141,7 @@ const AccordionMenu = ({
                   ))}
               </div>
               <div className="w-100 d-flex justify-content-end">
+                {/* SELEZIONA MENU */}
                 {!selected && (
                   <div style={{ transform: "scale(0.8)" }}>
                     <GeneralButton
@@ -150,6 +155,7 @@ const AccordionMenu = ({
                     />
                   </div>
                 )}
+                {/* DESELEZIONA MENU */}
                 {selected && (
                   <div style={{ transform: "scale(0.8)" }}>
                     <GeneralButton

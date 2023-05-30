@@ -83,6 +83,8 @@
   border: none;
 }
 
+/*  MEDIA QUERY */
+
 @media screen and (max-width: 400px) {
   .logoOptions {
     border-radius: 50%;
@@ -90,23 +92,3 @@
     width: 8.2rem;
   }
 }
-
-/* .routerLink {
-  text-decoration: none;
-  color: #faf4f0;
-}
-
-.routerLink:hover {
-  text-decoration: none;
-  color: #ccb7a9;
-} */
-
-/* .navbarMenu {
-  position: absolute;
-  height: 100vh;
-  background-color: #303030;
-  bottom: 0;
-  right: 0;
-  width: 100%;
-  max-width: 30rem;
-} */

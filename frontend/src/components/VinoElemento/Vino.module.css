@@ -52,23 +52,3 @@
     transform: translateY(0);
   }
 }
-
-/* .accordionContainer {
-  display: grid;
-  grid-template-rows: 0fr;
-}
-
-.animation {
-  overflow: hidden;
-  height: auto;
-  animation: growth ease 1s;
-}
-
-@keyframes growth {
-  0% {
-    height: 0px;
-  }
-  100% {
-    height: auto;
-  }
-} */

@@ -6,6 +6,7 @@ interface LayoutProps {
   children: React.ReactNode;
 }
 
+// LAYOUT PAGINE
 const Layout = ({ children }: LayoutProps) => {
   return (
     <div className={`${styles.layoutOptions}`}>

@@ -12,6 +12,7 @@ const MyCarousel = ({ array }: { array: Ristorante[] }) => {
   const [showMenu, setShowMenu] = useState(false);
   const dispatch = useAppDispatch();
 
+  // CAMBIA COLORE ALLA NAVBAR
   useEffect(() => {
     if (navbarColorDark) dispatch(darkNav(false));
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -20,6 +21,7 @@ const MyCarousel = ({ array }: { array: Ristorante[] }) => {
     <>
       <div className={`position-relative ${styles.carouselContainerOptions}`}>
         <Carousel>
+          {/* CREO ITEMS DEL CAROSELLO IN BASE ALL'ARRAY DI RISTORANTI */}
           {array.length > 0 &&
             array.map((e, i) => (
               <Carousel.Item interval={100000000} key={"carouselId:" + i}>
@@ -52,6 +54,7 @@ const MyCarousel = ({ array }: { array: Ristorante[] }) => {
                         {/* </div> */}
                       </div>
                     )}
+                    {/* MOSTRO LA SEZIONE MENU */}
                     {!showMenu && (
                       <div className={styles.titleContainer}>
                         <h1

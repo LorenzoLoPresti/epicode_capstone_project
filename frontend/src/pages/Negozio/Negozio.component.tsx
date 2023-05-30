@@ -20,10 +20,10 @@ const Negozio = () => {
   const [selected, setSelected] = useState(0);
   const [listaMenu, setListaMenu] = useState<ListaMenu[]>([]);
 
+  // SETTA LISTA MENU PER IL DETERMINATO CHEF
   const trovaListaMenuPerChefId = async (id: number) => {
     try {
       const response = await fetch(
-        // `http://localhost:8080/grand_bistrot/ristorante/menu/chef_id/${id}`
         `http://localhost:8080/grand_bistrot/menu/chef_id/${id}`,
         {
           method: "GET",
@@ -40,10 +40,12 @@ const Negozio = () => {
     }
   };
 
+  // RIMUOVE FILTRA PRODOTTI PER NON BEVANDA
   const piattiMenu = listaMenu
     ?.map((p) => p.selezione.filter((p) => p?.categoria !== "BEVANDA"))
     .pop();
 
+  // TROVA CHEF PER NOME ID
   const selezionaChefPerId = (id: number) => {
     const listaChef = ristorante?.find(
       (r) => r?.name === nomeRistorante
@@ -53,6 +55,7 @@ const Negozio = () => {
     return chefSelezionato![0];
   };
 
+  // CALCOLA TEMPO MEDIO CENA
   const tempoMedioCena = piattiMenu
     ?.map((p) => p.tempoDiPreparazione)
     .reduce((acc, tempo) => acc + tempo + 15, 0);

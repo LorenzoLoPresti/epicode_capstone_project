@@ -21,26 +21,18 @@ const Vino = ({
 }) => {
   const [numeroBottiglie, setNumeroBottiglie] = useState(0);
   const [visible, setVisible] = useState(false);
-  //   const [bottiglieSelezionate, setBottiglieSelezionate] = useState<
-  //     ListaProdotti[]
-  //   >([]);
 
+  // SETTANO IL NUMERO DI BOTTIGLIE DEL DETERMINATO ELEMENTO
   const aggiungiBottiglia = () => {
     if (vino.name !== nomeVino) {
       onClick();
     }
     if (nomeVino === vino?.name) {
       if (numeroBottiglie < 8) setNumeroBottiglie(numeroBottiglie + 1);
-      //   setBottiglieSelezionate([...listaViniScelti]);
       setListaViniScelti([...listaViniScelti, vino]);
-      //   console.log(bottiglieSelezionate);
-
-      //   for (let i = 0; i < numeroBottiglie; i++) {
-      //     setBottiglieSelezionate([...bottiglieSelezionate, vino]);
-      //   }
     }
-    // setCartaVini([...cartaVini, ...bottiglieSelezionate]);
   };
+
   const rimuoviBottiglia = () => {
     if (vino.name !== nomeVino) {
       onClick();
@@ -60,20 +52,6 @@ const Vino = ({
       setListaViniScelti([...listaViniScelti]);
     }
   };
-
-  //   const rimuoviDalCarrello = () => {
-  //     const indiceProdotto = listaViniScelti?.findIndex(
-  //       (prodotto) => prodotto?.id === vino?.id
-  //     );
-
-  //     if (indiceProdotto !== -1) {
-  //       const nuovaLista = [...listaViniScelti];
-  //       nuovaLista.splice(indiceProdotto, 1);
-  //       setListaViniScelti(nuovaLista);
-  //     } else {
-  //       setListaViniScelti([...listaViniScelti]);
-  //     }
-  //   };
 
   return (
     <div className={` text-light ${styles.vinoOptions} `}>
@@ -106,7 +84,7 @@ const Vino = ({
           {(visible && <AiOutlineMinus />) || <BiPlus />}
         </p>
       </div>
-
+      {/* CORPO ACCORDION */}
       {visible && (
         <div className={`${styles.animation} px-3 py-2`}>
           <p>{vino?.descrizione}</p>

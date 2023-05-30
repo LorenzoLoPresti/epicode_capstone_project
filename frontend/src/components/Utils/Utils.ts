@@ -6,6 +6,7 @@ export const stringCapitalizer = (string: string) => {
   return string;
 };
 
+// CERCA RISTORANTI PER CITTA
 export const fetchRistorantiPerCitta = async (
   token: string,
   citta: string,
@@ -13,12 +14,8 @@ export const fetchRistorantiPerCitta = async (
 ) => {
   try {
     const response = await fetch(
-      //   `http://localhost:8080//grand_bistrot/ristorante/list/${stringCapitalizer(
-      //     citta
-      //   )}`,
       "http://localhost:8080/grand_bistrot/ristorante/list/" +
         stringCapitalizer(citta),
-      //   `http://localhost:8080/grand_bistrot/users/list`,
       {
         method: "GET",
         headers: { authorization: `Bearer ${token}` },

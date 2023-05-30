@@ -1,6 +1,5 @@
 .containerOptions {
   min-height: 100vh;
-  /* height: 100%; */
   width: 100%;
 
   background: radial-gradient(
@@ -11,10 +10,6 @@
     rgba(0, 0, 0, 0.8) 100%
   );
 }
-
-/* .bg {
-  filter: drop-shadow(100);
-} */
 
 .modalOptions {
   background-color: #30303058;
@@ -55,6 +50,8 @@
     opacity: 1;
   }
 }
+
+/* MEDIA QUERIES */
 
 @media screen and (max-width: 998px) {
   .modalOptions {

@@ -50,10 +50,12 @@ const Header = () => {
   const token = useAppSelector((state) => state.authToken?.token);
   const dispatch = useAppDispatch();
 
+  // CAMBIO COLORE ALLA NAVBAR ALLO SCROLL
   window.addEventListener("scroll", () =>
     window.scrollY >= 100 ? setNavScroll(true) : setNavScroll(false)
   );
 
+  // CHIAMATA PER CAMBIARE CITTA UTENTE
   const putCittaUtente = async (
     username: string,
     token: string,
@@ -119,10 +121,12 @@ const Header = () => {
     if (!token) {
       dispatch(darkNav(false));
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
     <>
+      {/* MENU LATERALE */}
       {showMenu && (
         <SideMenu setShowMenu={setShowMenu} flex={true} directionColumn={true}>
           <div
@@ -198,6 +202,7 @@ const Header = () => {
           </div>
         </SideMenu>
       )}
+      {/* NAVBAR */}
       <Navbar
         className={`${navScroll ? styles.navbarScroll : styles.navStyle} ${
           navbarColor && styles.navDarkStyle
@@ -291,6 +296,7 @@ const Header = () => {
               </NavLink>
             </Col>
           </Row>
+          {/* MODALE LOGIN */}
           {showAuthModal && (
             <Modal
               onClose={() => {

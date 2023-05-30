@@ -35,6 +35,8 @@
   color: #ccb7a9;
 }
 
+/* MEDIA QUERIES */
+
 @media screen and (max-width: 768px) {
   .notFound,
   .notFoundIcon {
