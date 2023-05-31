@@ -140,7 +140,7 @@ const Checkout = () => {
     doc.text(`Chef scelto: ${nomeChef}`, 10, 70);
     doc.text(`Numero di partecipanti: ${numeroCommensali}`, 10, 80);
     doc.text(`Data cena: ${dataCena}`, 10, 90);
-    doc.text(`Totale: ${prezzo}`, 10, 105);
+    doc.text(`Totale: ${prezzo}€`, 10, 105);
 
     // Salva il documento come file
     const generatedPdfData = doc.output("blob");
