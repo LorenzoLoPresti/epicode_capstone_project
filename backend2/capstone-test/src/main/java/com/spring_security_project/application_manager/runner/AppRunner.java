@@ -82,49 +82,79 @@ public class AppRunner implements ApplicationRunner {
 			serviceRistorante.salva(ristorante.getObject("Iyo Aalto", "Milano", "02 4547 6898",
 					"/src/assets/ristoranti/iyoaalto_milano.jpg"));
 
+			// SET RISTORANTE 1
 			Ristorante r1 = serviceRistorante.cercaPerId(1l);
 			r1.setDescrizione("Un panorama unico della Città Eterna si apre"
 					+ " alla vista degli ospiti di uno dei ristoranti più belli del mondo.");
+			r1.setDescrizione2("Una cucina innovativa che celebra la tradizione con creatività, "
+					+ "piatti unici e ingredienti freschi. Cantina ricca di vini pregiati per abbinamenti unici. "
+					+ "Un'esperienza culinaria di gusto ed eleganza,");
 			r1.setMenu_img("/src/assets/menu/la_pergola.jpg");
 			r1.setIndirizzo("Via Alberto Cadlolo 101");
 			serviceRistorante.modifica(r1);
+			
+			// SET RISTORANTE 2
 			Ristorante r2 = serviceRistorante.cercaPerId(2l);
-			r2.setDescrizione(" Le ricette gourmet rielaborano i sapori e i gusti della tradizione italiana,"
+			r2.setDescrizione("Le ricette gourmet rielaborano i sapori e i gusti della tradizione italiana,"
 					+ " mentre la cantina selezionata dal Sommelier ha un’impronta molto internazionale "
 					+ "con un focus particolare sugli champagne e una selezione di vini di oltre 600 etichette.");
+			r2.setDescrizione2("Piatti unici, ingredienti freschi e presentazione curata. "
+					+ "Cantina con selezione di vini pregiati per abbinamenti unici. "
+					+ "Esperienza culinaria di gusto ed eleganza in ogni boccone.");
 			r2.setMenu_img("/src/assets/menu/aroma.jpg");
 			r2.setIndirizzo("Via Labicana 125");
 			serviceRistorante.modifica(r2);
+			
+			// SET RISTORANTE 3
 			Ristorante r3 = serviceRistorante.cercaPerId(3l);
 			r3.setDescrizione(
-					" Una terrazza gourmet con una vista che partendo da Villa Medici e Trinità dei Monti arriva fino"
+					"Una terrazza gourmet con una vista che partendo da Villa Medici e Trinità dei Monti arriva fino"
 							+ " a San Pietro e al Gianicolo. A fare da cornice a questo meraviglioso scorcio ci sono un'insuperabile accoglienza"
 							+ " e una cucina raffinata.");
+			r3.setDescrizione2("Un'offerta gastronomica eccezionale accoglie gli ospiti in un ambiente raffinato."
+					+ " Una cucina innovativa e una selezione di vini pregiati completano il tutto."
+					+ " Un'esperienza culinaria di gusto ed eleganza, dove ogni boccone è un'opera d'arte.");
 			r3.setMenu_img("/src/assets/menu/mirabelle.jpg");
 			r3.setIndirizzo("Via di Porta Pinciana 14");
 			serviceRistorante.modifica(r3);
+			
+			// SET RISTORANTE 4
 			Ristorante r4 = serviceRistorante.cercaPerId(4l);
 			r4.setDescrizione(
 					"Una cucina diretta dal resident chef Michele, che con mano precisa crea piatti dai sapori moderni,"
 							+ " esaltati grazie all'ottima materia prima proveniente - principalmente - dalla sua terra di origine: la Puglia.");
+			r4.setDescrizione2("Un'esperienza culinaria che celebra l'eccellenza degli ingredienti,"
+					+ " con una mano precisa che crea piatti unici e indimenticabili."
+					+ " Un tributo alla tradizione culinaria pugliese, rivisitata con creatività e maestria.");
 			r4.setMenu_img("/src/assets/menu/la_pergola.jpg");
 			r4.setIndirizzo("via Gaspare Rosales 4");
 			serviceRistorante.modifica(r4);
+			
+			// SET RISTORANTE 5
 			Ristorante r5 = serviceRistorante.cercaPerId(5l);
 			r5.setDescrizione(
 					"Il menu, curato attentamente dallo Chef Antonio Guida, presenta un approccio creativo e contemporaneo alla cucina italiana,"
 							+ " unendo ingredienti tradizionali e tecniche innovative in un perfetto equilibrio.");
+			r5.setDescrizione2("Gli ingredienti si fondono armoniosamente con tecniche innovative,"
+					+ " creando un perfetto equilibrio di sapori e presentazioni."
+					+ " Un'esperienza gastronomica che celebra l'arte culinaria italiana in una veste moderna e affascinante.");
 			r5.setMenu_img("/src/assets/menu/aroma.jpg");
 			r5.setIndirizzo("Via Andegari 9");
 			serviceRistorante.modifica(r5);
+			
+			// SET RISTORANTE 6
 			Ristorante r6 = serviceRistorante.cercaPerId(6l);
 			r6.setDescrizione(
 					"Aperto nel 2007 da Claudio Liu, IYO è un ristorante di sushi innovativo e alta cucina giapponese contemporanea, premiato con una Stella nella Guida MICHELIN 2023."
 							+ " La firma di una cucina totale, che abbraccia ogni dettaglio dell’esperienza gastronomica.");
+			r6.setDescrizione2("Un luogo dove la tradizione culinaria giapponese si fonde con l'innovazione,"
+					+ " offrendo piatti eccezionali che soddisfano i palati più esigenti."
+					+ " Una destinazione imperdibile per gli amanti del sushi e della cucina giapponese di alta qualità.");
 			r6.setMenu_img("/src/assets/menu/sushi.jpg");
 			r6.setIndirizzo("Via Piero della Francesca 74");
 			serviceRistorante.modifica(r6);
 
+			// SELEZIONO RISTORANTI PER ID
 			r1 = serviceRistorante.cercaPerId(1l);
 			r2 = serviceRistorante.cercaPerId(2l);
 			r3 = serviceRistorante.cercaPerId(3l);

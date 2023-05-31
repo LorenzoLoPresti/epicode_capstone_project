@@ -8,6 +8,7 @@ export interface Ristorante {
   immagine: string;
   indirizzo: string;
   descrizione: string;
+  descrizione2: string;
   menu_img: string;
 }
 

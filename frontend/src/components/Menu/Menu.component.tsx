@@ -73,10 +73,7 @@ const Menu = ({
                       <p
                         className={`d-lg-none d-xl-block ${styles.paragraphOptions}`}
                       >
-                        Lorem ipsum, dolor sit amet consectetur adipisicing
-                        elit. Dolorum fugiat magnam sapiente! Deleniti sapiente
-                        aliquid placeat rerum doloremque? Amet laudantium nulla
-                        veniam officiis dolore adipisci vel ullam itaque aut ad.
+                        {ristoranteEl?.descrizione2}
                       </p>
                       <div className="w-100 text-end pe-3">
                         <Link
