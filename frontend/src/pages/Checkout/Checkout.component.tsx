@@ -8,6 +8,8 @@ import { ListaProdotti } from "../Home/Home.types";
 import COLORS from "../../style/color";
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 import { removeChefToCart } from "../../redux/reducers/carrelloStore";
+import { jsPDF } from "jspdf";
+import logo from "../../assets/whiteLogoNoBg.png";
 
 const Checkout = () => {
   const dispatch = useAppDispatch();
@@ -113,6 +115,38 @@ const Checkout = () => {
     totale();
   }, []);
 
+  const [pdfData, setPdfData] = useState<Blob | null>(null);
+
+  // CREAZIONE RICEVUTA PDF
+  const generatePDF = (
+    prezzo: number,
+    nomeChef: string | undefined,
+    numeroCommensali: number,
+    dataCena: string | null
+  ) => {
+    const doc = new jsPDF();
+
+    const imageSrc = logo;
+
+    const imgWidth = 50;
+    const imgHeight = 27;
+
+    const centraLogo = (doc.internal.pageSize.getWidth() - imgWidth) / 2;
+
+    doc.addImage(imageSrc, "JPEG", centraLogo, 10, imgWidth, imgHeight);
+    doc.setFont("helvetica");
+    doc.setTextColor("#303030");
+    doc.text("Grazie per aver scelto Grand Bistrot Homecooking!", 10, 60);
+    doc.text(`Chef scelto: ${nomeChef}`, 10, 70);
+    doc.text(`Numero di partecipanti: ${numeroCommensali}`, 10, 80);
+    doc.text(`Data cena: ${dataCena}`, 10, 90);
+    doc.text(`Totale: ${prezzo}`, 10, 105);
+
+    // Salva il documento come file
+    const generatedPdfData = doc.output("blob");
+    setPdfData(generatedPdfData);
+  };
+
   return (
     <>
       <div
@@ -153,12 +187,33 @@ const Checkout = () => {
                       {(orderFulfilled && "Grazie per il tuo acquisto!") ||
                         "Il tuo carrello è vuoto"}
                     </h3>
+
                     <Link to={"/"} style={{ textDecoration: "none" }}>
-                      <p style={{ cursor: "pointer", color: COLORS.brandGold }}>
+                      <p
+                        className="mb-2"
+                        style={{ cursor: "pointer", color: COLORS.brandGold }}
+                      >
                         Clicca qui per andare ai ristoranti
                       </p>
                     </Link>
+                    {orderFulfilled && (
+                      <div className={`${styles.animationContainer}`}>
+                        {pdfData && (
+                          <p>
+                            <a
+                              style={{ color: COLORS.brandWhite }}
+                              href={URL.createObjectURL(pdfData)}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              Clicca qui per la ricevuta
+                            </a>
+                          </p>
+                        )}
+                      </div>
+                    )}
                   </div>
+
                   {!token && (
                     <p>
                       Effettua il login per accedere alle funzionalità del sito
@@ -332,6 +387,12 @@ const Checkout = () => {
                                       console.log("prezzo: " + prezzoTotale);
                                       dispatch(removeChefToCart());
                                       setOrderFulfilled(true);
+                                      generatePDF(
+                                        prezzoTotale,
+                                        chef?.name,
+                                        numeroCommensali,
+                                        dataCena
+                                      );
                                     });
                                 }}
                               />
