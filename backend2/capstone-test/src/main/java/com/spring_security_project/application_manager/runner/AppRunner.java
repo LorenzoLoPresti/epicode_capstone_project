@@ -330,56 +330,56 @@ public class AppRunner implements ApplicationRunner {
 			serviceRistorante.modifica(r6);
 
 			// CREAZIONE PIATTI ROMA
-			servicePiatto.salva(piatto.getObject("Gnocchi al ragù di pollo", CategoriaProdotto.PRIMO, 14.00, "", m1,
+			servicePiatto.salva(piatto.getObject("Gnocchi al ragù di pollo", CategoriaProdotto.PRIMO, 14.00, "Una deliziosa combinazione di gnocchi di patate morbidi e saporito ragù di pollo.", m1,
 					TipoCottura.COTTO, 25));
 			servicePiatto.salva(piatto.getObject("Filetto di manzo alla griglia con salsa al vino rosso",
-					CategoriaProdotto.SECONDO, 17.00, "", m1, TipoCottura.COTTO, 25));
+					CategoriaProdotto.SECONDO, 17.00, "Un capolavoro di carne succulenta e tenera, accarezzato da una salsa al vino rosso avvolgente.", m1, TipoCottura.COTTO, 25));
 			servicePiatto.salva(piatto.getObject("Panna cotta con coulis di frutti di bosco", CategoriaProdotto.DOLCE,
-					17.00, "", m1, TipoCottura.COTTO, 25));
+					17.00, "Un dolce paradisiaco che unisce la delicatezza della panna cotta con la freschezza dei frutti di bosco.", m1, TipoCottura.COTTO, 25));
 
 			servicePiatto.salva(
-					piatto.getObject("Carbonara", CategoriaProdotto.PRIMO, 18.00, "", m2, TipoCottura.COTTO, 25));
+					piatto.getObject("Meth-a Carbonara", CategoriaProdotto.PRIMO, 18.00, "La pasta al dente è avvolta in una salsa cremosa al formaggio blu, arricchita da una nota segreta.", m2, TipoCottura.COTTO, 25));
 			servicePiatto.salva(
-					piatto.getObject("Amatriciana", CategoriaProdotto.PRIMO, 17.00, "", m2, TipoCottura.COTTO, 25));
+					piatto.getObject("Heisenberg's Special", CategoriaProdotto.SECONDO, 29.00, "un'opera d'arte gastronomica che unisce un filetto di manzo di prima qualità con una riduzione di salsa di mirtilli e una guarnizione di chips di patate blu.", m2, TipoCottura.COTTO, 40));
 			servicePiatto
-					.salva(piatto.getObject("Gricia", CategoriaProdotto.PRIMO, 17.00, "", m2, TipoCottura.COTTO, 25));
+					.salva(piatto.getObject("Blue Crystal Cheesecake", CategoriaProdotto.DOLCE, 14.00, "Questo dolce al formaggio cremoso è arricchito da una salsa al caramello e decorato con cristalli di zucchero blu scintillanti.", m2, TipoCottura.COTTO, 15));
 
 			servicePiatto.salva(
-					piatto.getObject("Carbonara", CategoriaProdotto.PRIMO, 18.00, "", m3, TipoCottura.COTTO, 25));
+					piatto.getObject("Yo, B*tch Lasagna", CategoriaProdotto.PRIMO, 17.00, "Questa lasagna artigianale è composta da strati di pasta all'uovo, ricotta cremosa, ragù di pesce e gamberi saporiti.", m3, TipoCottura.COTTO, 35));
 			servicePiatto.salva(
-					piatto.getObject("Amatriciana", CategoriaProdotto.PRIMO, 17.00, "", m3, TipoCottura.COTTO, 25));
+					piatto.getObject("Blu Ocean Delight", CategoriaProdotto.SECONDO, 23.00, "Un filetto di salmone fresco, marinato con una salsa segreta a base di agrumi e peperoncino, che dona un tocco piccante e vibrante.", m3, TipoCottura.COTTO, 25));
 			servicePiatto
-					.salva(piatto.getObject("Gricia", CategoriaProdotto.PRIMO, 17.00, "", m3, TipoCottura.COTTO, 25));
+					.salva(piatto.getObject("Blueberry Bliss Explosion", CategoriaProdotto.DOLCE, 14.00, "Una morbida base di cheesecake al limone, arricchita con un generoso strato di mirtilli freschi e una spolverata di zucchero a velo blu scintillante.", m3, TipoCottura.COTTO, 10));
 
 			servicePiatto.salva(
-					piatto.getObject("Carbonara", CategoriaProdotto.PRIMO, 18.00, "", m4, TipoCottura.COTTO, 25));
+					piatto.getObject("Gustoso Raviolo d'Autore", CategoriaProdotto.PRIMO, 20.00, "Questo raviolo artigianale è farcito con una delicata mousse di burrata e basilico, avvolto in una sfoglia sottile e al dente.", m4, TipoCottura.COTTO, 25));
 			servicePiatto.salva(
-					piatto.getObject("Amatriciana", CategoriaProdotto.PRIMO, 17.00, "", m4, TipoCottura.COTTO, 25));
+					piatto.getObject("Roasted Chilean Sea Bass", CategoriaProdotto.SECONDO, 25.00, "Filetto di branzino cileno, pescato fresco, viene cotto al forno con una crosta croccante di mandorle e prezzemolo, che conferisce una nota di fragranza e gusto alle morbide carni del pesce.", m4, TipoCottura.COTTO, 25));
 			servicePiatto
-					.salva(piatto.getObject("Gricia", CategoriaProdotto.PRIMO, 17.00, "", m4, TipoCottura.COTTO, 25));
+					.salva(piatto.getObject("Delizia di Cacao e Caramello", CategoriaProdotto.DOLCE, 15.00, "Un cuore morbido e fondente al cacao, circondato da uno strato di caramello artigianale dalla consistenza setosa. ", m4, TipoCottura.COTTO, 10));
 
 			servicePiatto.salva(
-					piatto.getObject("Carbonara", CategoriaProdotto.PRIMO, 18.00, "", m5, TipoCottura.COTTO, 25));
+					piatto.getObject("Risotto al Tartufo Nero", CategoriaProdotto.PRIMO, 27.00, "Risotto cremoso preparato con un pregiato riso Carnaroli, lentamente cotto in un brodo vegetale aromatizzato, arricchito con il tocco inconfondibile del tartufo nero.", m5, TipoCottura.COTTO, 40));
 			servicePiatto.salva(
-					piatto.getObject("Amatriciana", CategoriaProdotto.PRIMO, 17.00, "", m5, TipoCottura.COTTO, 25));
+					piatto.getObject("Tagliata di Manzo al Rosmarino", CategoriaProdotto.SECONDO, 30.00, "Questa specialità è composta da un tenero taglio di manzo di alta qualità, marinato con un mix di spezie e aromi, e poi grigliato alla perfezione", m5, TipoCottura.COTTO, 25));
 			servicePiatto
-					.salva(piatto.getObject("Gricia", CategoriaProdotto.PRIMO, 17.00, "", m5, TipoCottura.COTTO, 25));
+					.salva(piatto.getObject("Soufflé al Cioccolato e Arancia", CategoriaProdotto.DOLCE, 17.00, "Questo soufflé leggero e soffice è preparato con una base di cioccolato fondente di alta qualità e una nota vibrante di arancia fresca.", m5, TipoCottura.COTTO, 25));
 
 			servicePiatto.salva(
-					piatto.getObject("Carbonara", CategoriaProdotto.PRIMO, 18.00, "", m6, TipoCottura.COTTO, 25));
+					piatto.getObject("Spaghetti alle Vongole e Bottarga", CategoriaProdotto.PRIMO, 32.00, "Spaghetti al dente, conditi con un'irresistibile salsa di vongole fresche, aglio, peperoncino e prezzemolo. ", m6, TipoCottura.COTTO, 25));
 			servicePiatto.salva(
-					piatto.getObject("Amatriciana", CategoriaProdotto.PRIMO, 17.00, "", m6, TipoCottura.COTTO, 25));
+					piatto.getObject("Branzino al Limone e Finocchio", CategoriaProdotto.SECONDO, 37.00, "Il branzino fresco viene delicatamente marinato con succo di limone fresco, prezzemolo e una nota di aglio, poi grigliato alla perfezione per ottenere una pelle croccante e una carne morbida e succosa.", m6, TipoCottura.COTTO, 35));
 			servicePiatto
-					.salva(piatto.getObject("Gricia", CategoriaProdotto.PRIMO, 17.00, "", m6, TipoCottura.COTTO, 25));
+					.salva(piatto.getObject("Torta al Pistacchio e Arancia", CategoriaProdotto.PRIMO, 17.00, "Questa torta leggera e soffice è realizzata con una base di pasta frolla croccante e un irresistibile ripieno al pistacchio, che conferisce un sapore intenso e avvolgente.", m6, TipoCottura.COTTO, 20));
 
 			servicePiatto.salva(piatto.getObject("Insalata di pollo alla Caesar", CategoriaProdotto.ANTIPASTO, 10.00,
-					"", m7, TipoCottura.COTTO, 10));
-			servicePiatto.salva(piatto.getObject("Tagliatelle al tartufo nero", CategoriaProdotto.PRIMO, 18.00, "", m7,
+					"Petto di pollo grigliato su un mix di lattuga croccante, parmigiano grattugiato e crostini di pane. Il tutto condito con una salsa cremosa e avvolgente a base di maionese, acciughe, succo di limone, senape e pepe nero.", m7, TipoCottura.COTTO, 10));
+			servicePiatto.salva(piatto.getObject("Tagliatelle al tartufo nero", CategoriaProdotto.PRIMO, 29.00, "Tagliatelle condite con una delicata salsa al tartufo nero, arricchita con burro e parmigiano per una cremosità irresistibile. ", m7,
 					TipoCottura.COTTO, 25));
 			servicePiatto.salva(piatto.getObject("Costolette di agnello in crosta di erbette",
-					CategoriaProdotto.SECONDO, 26.00, "", m7, TipoCottura.COTTO, 35));
+					CategoriaProdotto.SECONDO, 29.00, "Costolette avvolte in una crosta croccante e profumata di erbette fresche, come prezzemolo, timo e rosmarino.", m7, TipoCottura.COTTO, 35));
 			servicePiatto.salva(piatto.getObject("Torta al cioccolato fondente con gelato alla vaniglia",
-					CategoriaProdotto.DOLCE, 9.00, "", m7, TipoCottura.COTTO, 10));
+					CategoriaProdotto.DOLCE, 9.00, "Una base di torta al cioccolato fondente, morbida e ricca, si abbina perfettamente al gusto cremoso e aromatico del gelato alla vaniglia.", m7, TipoCottura.COTTO, 10));
 
 			// CREAZIONE BEVANDE ROMA
 			serviceBevanda.salva(bevanda.getObject("Marchese di Villamarina", CategoriaProdotto.BEVANDA, 38.00,
@@ -408,26 +408,26 @@ public class AppRunner implements ApplicationRunner {
 					m7, TipoBevanda.ALCOLICA));
 
 			// PIATTI MILANO
-			servicePiatto.salva(piatto.getObject("Gnocchi al ragù di pollo", CategoriaProdotto.PRIMO, 14.00, "", m8,
+			servicePiatto.salva(piatto.getObject("Ravioli di zucca con salsa al burro e salvia", CategoriaProdotto.PRIMO, 19.00, " I ravioli artigianali, ripieni di una morbida crema di zucca, vengono accompagnati da una delicata salsa al burro e salvia.", m8,
 					TipoCottura.COTTO, 25));
-			servicePiatto.salva(piatto.getObject("Filetto di manzo alla griglia con salsa al vino rosso",
-					CategoriaProdotto.SECONDO, 17.00, "", m8, TipoCottura.COTTO, 25));
-			servicePiatto.salva(piatto.getObject("Panna cotta con coulis di frutti di bosco", CategoriaProdotto.DOLCE,
-					17.00, "", m8, TipoCottura.COTTO, 25));
+			servicePiatto.salva(piatto.getObject("Tagliata di manzo con riduzione di aceto balsamico e patate arrosto",
+					CategoriaProdotto.SECONDO, 30.00, " La tagliata, cotta alla perfezione, è servita con una deliziosa riduzione di aceto balsamico, che le conferisce una nota agrodolce.", m8, TipoCottura.COTTO, 35));
+			servicePiatto.salva(piatto.getObject("Torta al cioccolato con cuore fondente e salsa di frutti di bosco", CategoriaProdotto.DOLCE,
+					10.00, "Una torta al cioccolato decadente e soffice, con un cuore fondente che si scioglie al primo morso.", m8, TipoCottura.COTTO, 25));
 
-			servicePiatto.salva(piatto.getObject("Gnocchi al ragù di pollo", CategoriaProdotto.PRIMO, 14.00, "", m9,
+			servicePiatto.salva(piatto.getObject("Gnocchi di patate con ragù di salsiccia e funghi porcini", CategoriaProdotto.PRIMO, 19.00, "Un piatto che unisce la delicatezza degli gnocchi di patate fatti in casa con la robustezza del ragù di salsiccia e funghi porcini.", m9,
 					TipoCottura.COTTO, 25));
-			servicePiatto.salva(piatto.getObject("Filetto di manzo alla griglia con salsa al vino rosso",
-					CategoriaProdotto.SECONDO, 17.00, "", m9, TipoCottura.COTTO, 25));
-			servicePiatto.salva(piatto.getObject("Panna cotta con coulis di frutti di bosco", CategoriaProdotto.DOLCE,
-					17.00, "", m9, TipoCottura.COTTO, 25));
+			servicePiatto.salva(piatto.getObject("Tagliata di manzo con crema di patate e salsa al vino rosso",
+					CategoriaProdotto.SECONDO, 33.00, "La carne, tagliata a fette sottili, è morbida e succosa, mentre la crema di patate regala una consistenza cremosa e un sapore delicato.", m9, TipoCottura.COTTO, 25));
+			servicePiatto.salva(piatto.getObject("Tortino al cioccolato con cuore morbido di pistacchio e gelato alla vaniglia", CategoriaProdotto.DOLCE,
+					11.00, "Il tortino, appena sfornato, si presenta con una crosticina croccante e un cuore fondente che si scioglie al primo assaggio.", m9, TipoCottura.COTTO, 10));
 
-			servicePiatto.salva(piatto.getObject("Gnocchi al ragù di pollo", CategoriaProdotto.PRIMO, 14.00, "", m10,
-					TipoCottura.COTTO, 25));
-			servicePiatto.salva(piatto.getObject("Filetto di manzo alla griglia con salsa al vino rosso",
-					CategoriaProdotto.SECONDO, 17.00, "", m10, TipoCottura.COTTO, 25));
-			servicePiatto.salva(piatto.getObject("Panna cotta con coulis di frutti di bosco", CategoriaProdotto.DOLCE,
-					17.00, "", m10, TipoCottura.COTTO, 25));
+			servicePiatto.salva(piatto.getObject("Tartare di tonno bluefin con guacamole al wasabi e chips di alga nori", CategoriaProdotto.SECONDO, 32.00, "Una tartare di tonno bluefin, il gioiello del mare, finemente tritato e condito con una delicata guacamole al wasabi. ", m10,
+					TipoCottura.CRUDO, 25));
+			servicePiatto.salva(piatto.getObject("Salmone glassato all'arancia su letto di riso nero venere e julienne di verdure",
+					CategoriaProdotto.SECONDO, 36.00, "Servito su un letto di riso nero venere, arricchito da una julienne di verdure croccanti.", m10, TipoCottura.COTTO, 25));
+			servicePiatto.salva(piatto.getObject("Mousse di matcha con gelato al tè verde e spuma di yuzu", CategoriaProdotto.DOLCE,
+					17.00, "Una mousse leggera e setosa al tè verde matcha, accompagnata da un gelato al tè verde e una spuma di yuzu, un agrume giapponese dal sapore unico.", m10, TipoCottura.COTTO, 15));
 
 //			BEVANDE MILANO
 			serviceBevanda.salva(bevanda.getObject("Marchese di Villamarina", CategoriaProdotto.BEVANDA, 38.00,
