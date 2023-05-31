@@ -40,6 +40,7 @@ public class Chef {
 	private double tariffaOraria;
 	private String immagineProfilo;
 	private String immagineCucina;
+	private String descrizioneChef;
 	@OneToMany(fetch = FetchType.EAGER)
 	@JsonIgnoreProperties
 	private List<Menu> listaMenu;

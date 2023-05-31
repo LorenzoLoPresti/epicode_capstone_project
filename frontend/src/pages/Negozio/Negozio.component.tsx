@@ -137,8 +137,8 @@ const Negozio = () => {
                           className={`p-0 mb-4 mb-md-0 ${
                             selected !== 0 && selected !== chef.id && "d-none"
                           }`}
-                          md={8}
-                          lg={5}
+                          sm={7}
+                          md={5}
                           xl={4}
                         >
                           <Chef
@@ -162,13 +162,7 @@ const Negozio = () => {
                                   <p className={`${styles.selectChef}`}>
                                     {chefSelected?.name}
                                   </p>
-                                  <p>
-                                    Lorem ipsum dolor, sit amet consectetur
-                                    adipisicing elit. Quam eligendi totam,
-                                    eveniet qui provident iusto cum in quaerat.
-                                    Tempora blanditiis laboriosam libero culpa
-                                    ipsa atque dolore est quos doloremque fugit.
-                                  </p>
+                                  <p>{chefSelected?.descrizioneChef}</p>
                                 </Col>
                                 <Col className="text-light text-center pt-2">
                                   <Row className="flex-column flex-lg-row flex-xl-column">

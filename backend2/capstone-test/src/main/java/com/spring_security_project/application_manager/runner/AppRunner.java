@@ -163,7 +163,7 @@ public class AppRunner implements ApplicationRunner {
 			r6 = serviceRistorante.cercaPerId(6l);
 
 			// CREAZIONE CHEF
-			serviceChef.salva(chef.getObject("Gus Fring", CategoriaChef.CARNE, serviceRistorante.cercaPerId(1l), 45));
+			serviceChef.salva(chef.getObject("Gustavo Fring", CategoriaChef.CARNE, serviceRistorante.cercaPerId(1l), 45));
 			serviceChef.salva(
 					chef.getObject("Walter White", CategoriaChef.GENERALE, serviceRistorante.cercaPerId(2l), 50));
 			serviceChef
@@ -180,15 +180,65 @@ public class AppRunner implements ApplicationRunner {
 					.salva(chef.getObject("Antonio Guida", CategoriaChef.CARNE, serviceRistorante.cercaPerId(5l), 45));
 			serviceChef.salva(chef.getObject("Claudio Liu", CategoriaChef.PESCE, serviceRistorante.cercaPerId(6l), 50));
 
+			// SET DESCRIZIONE CHEF
 			Chef c1 = serviceChef.cercaPerId(1l);
+			c1.setDescrizioneChef("Maestro culinario dal fascino enigmatico, incanta gli ospiti con la sua offerta gourmet."
+					+ " Un'esperienza gastronomica avvolta nel mistero, dove ogni boccone è una scoperta gustativa.");
+			serviceChef.modifica(c1);
+			
 			Chef c2 = serviceChef.cercaPerId(2l);
+			c2.setDescrizioneChef("\"I'm the one who cooks\"."
+					+ " Walter White trasforma la cucina in un vero e proprio laboratorio esplosivo di sapori."
+					+ " La sua passione per la chimica si fonde con l'arte culinaria, creando piatti che sono autentiche reazioni gustative.");
+			serviceChef.modifica(c2);
+			
 			Chef c3 = serviceChef.cercaPerId(3l);
+			c3.setDescrizioneChef("\"Yo, la cucina è arte, amico!\" Con la sua anima ribelle, Jesse mescola gli ingredienti come fossero note musicali, creando sinfonie di sapori sorprendenti"
+					+ " con quel tocco di piccantezza che rende ogni piatto indimenticabile.");
+			serviceChef.modifica(c3);
+			
 			Chef c4 = serviceChef.cercaPerId(4l);
+			c4.setDescrizioneChef("Con la sua passione per la precisione e la presentazione impeccabile,"
+					+ " Gale crea piatti che sono vere e proprie opere d'arte gastronomiche e porta "
+					+ "i commensali in un viaggio gustativo senza precedenti.");
+			serviceChef.modifica(c4);
+			
 			Chef c5 = serviceChef.cercaPerId(5l);
+			c5.setDescrizioneChef("Il virtuoso della cucina sorprende con la sua maestria culinaria. Con passione e precisione, crea piatti che sono vere e proprie sinfonie di sapori."
+					+ " Lasciatevi deliziare dalla genialità culinaria di Bruno Barbieri, un vero maestro dei sensi. ");
+			serviceChef.modifica(c5);
+			
 			Chef c6 = serviceChef.cercaPerId(6l);
+			c6.setDescrizioneChef("Giorgio Locatelli, l'artista culinario appassionato, incanta i palati con la sua abilità senza pari."
+					+ " Con una maestria che nasce dalla tradizione italiana,"
+					+ " Giorgio crea piatti che sono vere e proprie opere d'arte gastronomiche.");
+			serviceChef.modifica(c6);
+			
 			Chef c7 = serviceChef.cercaPerId(7l);
+			c7.setDescrizioneChef(" Con la sua creatività senza confini,"
+					+ " Enrico mescola ingredienti di alta qualità e tecniche innovative per creare piatti che sono veri capolavori culinari.");
+			serviceChef.modifica(c7);
+			
 			Chef c8 = serviceChef.cercaPerId(8l);
+			c8.setDescrizioneChef("il maestro culinario dallo spirito creativo e una visione unica della gastronomia."
+					+ " Con un equilibrio magistrale tra tradizione e innovazione, Antonio crea piatti che sono vere opere d'arte culinarie.");
+			serviceChef.modifica(c8);
+			
 			Chef c9 = serviceChef.cercaPerId(9l);
+			c9.setDescrizioneChef("maestro dell'arte culinaria giapponese, stupisce i commensali con la sua creatività senza limiti."
+					+ " Ogni boccone è un viaggio sensoriale, in cui gli ingredienti si fondono con tecniche affinate nel tempo. ");
+			serviceChef.modifica(c9);
+			
+			// SELEZIONO CHEF PER ID
+			c1 = serviceChef.cercaPerId(1l);
+			c2 = serviceChef.cercaPerId(2l);
+			c3 = serviceChef.cercaPerId(3l);
+			c4 = serviceChef.cercaPerId(4l);
+			c5 = serviceChef.cercaPerId(5l);
+			c6 = serviceChef.cercaPerId(6l);
+			c7 = serviceChef.cercaPerId(7l);
+			c8 = serviceChef.cercaPerId(8l);
+			c9 = serviceChef.cercaPerId(9l);
 
 			// CREAZIONE MENU
 			serviceMenu.salva(menu.getObject(c1));

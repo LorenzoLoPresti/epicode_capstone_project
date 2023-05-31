@@ -20,6 +20,7 @@ export interface Chef {
   tariffaOraria: number;
   immagineProfilo: string;
   immagineCucina: string;
+  descrizioneChef: string;
   listaMenu: ListaMenu[];
 }
 
