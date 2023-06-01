@@ -90,7 +90,7 @@ export const generatePDF = (
   doc.text(`Cliente: ${username}`, 20, 60);
   doc.text(`Chef scelto: ${chefName}`, 20, 70);
   doc.text(`Numero di partecipanti: ${numeroCommensali}`, 20, 80);
-  doc.text(`Data cena: ${dataTransform(data)}`, 20, 90);
+  doc.text(`Data cena: ${dataTransform(data)} ore 20.30`, 20, 90);
 
   doc.line(20, 105, linesWidth, 105);
   doc.text(`Tariffa Chef: ${prezzoChef}€`, 20, 123);
