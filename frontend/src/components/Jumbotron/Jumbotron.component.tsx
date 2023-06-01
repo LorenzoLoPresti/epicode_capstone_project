@@ -8,6 +8,9 @@ import Modal from "../Modal/Modal.component";
 import COLORS from "../../style/color";
 import { useAppSelector } from "../../redux/store/store";
 import { Link, useNavigate } from "react-router-dom";
+import { jsPDF } from "jspdf";
+import logo from "../../assets/whiteLogoNoBg.png";
+// import logo from "../../assets/blackLogoNoBg.png";
 
 // import video from "../../../../../../../255472_Chef Carbon_Dioxide Dry Ice Nouvelle_Cuisine_By_LACOFILMS_Artlist_HD.mp4";
 
@@ -101,6 +104,46 @@ const Jumbotron = () => {
     setCitta(value);
   };
 
+  const [pdfData, setPdfData] = useState<Blob | null>(null);
+
+  // CREAZIONE RICEVUTA PDF
+  const generatePDF = () => {
+    const doc = new jsPDF();
+
+    const imageSrc = logo;
+
+    const imgWidth = 50;
+    const imgHeight = 27;
+
+    const centraLogo = (doc.internal.pageSize.getWidth() - imgWidth) / 2;
+
+    doc.addImage(imageSrc, "JPEG", centraLogo, 10, imgWidth, imgHeight);
+    doc.setFont("Montserrat");
+    doc.setFontSize(15);
+    doc.setTextColor(COLORS.brandBlack);
+    const linesWidth = doc.internal.pageSize.getWidth() - 20;
+    doc.setLineWidth(0.3); // Imposta lo spessore della linea a 2
+    doc.setDrawColor(COLORS.brandGold); // Imposta il colore della linea a rosso
+    doc.line(20, 42, linesWidth, 42); // Linea orizzontale da (20, 20) a (100, 20)
+
+    doc.text("Cliente: nome", 20, 60);
+    doc.text(`Chef scelto: Gus`, 20, 70);
+    doc.text(`Numero di partecipanti: 1`, 20, 80);
+    doc.text(`Data cena: 2021/04/23`, 20, 90);
+
+    doc.line(20, 105, linesWidth, 105);
+    doc.text(`Tariffa Chef: 20€`, 20, 123);
+    doc.setFontSize(19);
+    doc.text(`Totale: 118€`, 20, 138);
+
+    doc.setFontSize(14);
+    doc.text(`Grazie per aver scelto GrandBistrot Homecooking!`, 20, 158);
+    doc.text(`2021/04/23`, linesWidth - 25, 178);
+
+    const generatedPdfData = doc.output("blob");
+    setPdfData(generatedPdfData);
+  };
+
   return (
     // JUMBOTRON
     <div className={`${styles.jumboOptions}`}>
@@ -117,6 +160,16 @@ const Jumbotron = () => {
             <Col
               className={`d-flex flex-column justify-content-center ctaContainer ${styles.payofContainer}`}
             >
+              <button onClick={() => generatePDF()}>CONTROLLO</button>
+              {pdfData && (
+                <a
+                  style={{ color: COLORS.brandWhite }}
+                  href={URL.createObjectURL(pdfData)}
+                  target="_blank"
+                >
+                  ricevuta
+                </a>
+              )}
               <p className={`text-light ${styles.p1Options}`}>
                 Luxury Homecooking
               </p>
