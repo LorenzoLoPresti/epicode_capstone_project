@@ -102,6 +102,10 @@
   padding: 0 2rem 0 5px;
 }
 
+.invalidInput {
+  border-bottom-color: red;
+}
+
 .dropdown {
   background-color: transparent;
   color: #ccb7a9;

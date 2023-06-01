@@ -34,6 +34,14 @@ const Jumbotron = () => {
   const token = useAppSelector((state) => state.authToken?.token);
   const navigate = useNavigate();
 
+  // CAMPI DI INPUT
+  const [usernameInvalid, setUsernameInvalid] = useState(false);
+  const [pswInvalid, setPswInvalid] = useState(false);
+  const [cittaInvalid, setCittaInvalid] = useState(false);
+  const [emailInvalid, setEmailInvalid] = useState(false);
+  const [nameInvalid, setNameInvalid] = useState(false);
+  const [lastnameInvalid, setLastnameInvalid] = useState(false);
+
   // RESETTA I CAMPI DEL FORM DI REGISTRAZIONE
   const cleanField = () => {
     setUsername("");
@@ -44,21 +52,45 @@ const Jumbotron = () => {
     setLastname("");
   };
 
+  // RESET CAMPI
+  const cancelValidation = () => {
+    setUsernameInvalid(false);
+    setPswInvalid(false);
+    setCittaInvalid(false);
+    setEmailInvalid(false);
+    setNameInvalid(false);
+    setLastnameInvalid(false);
+  };
+
   // CONTROLLO DEI CAMPI DEL FORM
   const valueCheck = () => {
+    cancelValidation();
     if (
       username.length > 2 &&
       password.length > 2 &&
       name.length > 2 &&
       lastname.length > 2 &&
       email.length > 2 &&
-      citta.length > 2 &&
+      (citta === "Roma" || citta === "Milano") &&
       email.includes("@")
     ) {
       return true;
-    } else {
-      return false;
     }
+    if (username.length <= 2) setUsernameInvalid(true);
+    if (password.length <= 2) setPswInvalid(true);
+    if (name.length <= 2) setNameInvalid(true);
+    if (lastname.length <= 2) setLastnameInvalid(true);
+    if (!email.includes("@") && email.length <= 2) setEmailInvalid(true);
+    if (citta !== "Roma" && citta !== "Milano") setCittaInvalid(true);
+
+    console.log(usernameInvalid);
+    console.log(pswInvalid);
+    console.log(nameInvalid);
+    console.log(lastnameInvalid);
+    console.log(emailInvalid);
+    console.log(cittaInvalid);
+
+    return false;
   };
 
   // REGISTRA NUOVO UTENTE
@@ -90,7 +122,7 @@ const Jumbotron = () => {
         setTimeout(() => {
           setShowRegistrationModal(false);
           navigate("/login");
-        }, 1200);
+        }, 400);
       }
     } catch (error) {
       console.log(error);
@@ -183,7 +215,11 @@ const Jumbotron = () => {
               setPassword={setPassword}
               warning={exists}
             >
-              <div className={styleModal.inputBox}>
+              <div
+                className={`${styleModal.inputBox} ${
+                  nameInvalid && styleModal.invalidInput
+                }`}
+              >
                 <input
                   value={name}
                   className={`mb-5 mb-md-3 ${styleModal.inputOptions}`}
@@ -195,7 +231,11 @@ const Jumbotron = () => {
                 />
                 <label className={styleModal.label}>Nome</label>
               </div>
-              <div className={styleModal.inputBox}>
+              <div
+                className={`${styleModal.inputBox} ${
+                  lastnameInvalid && styleModal.invalidInput
+                }`}
+              >
                 <input
                   value={lastname}
                   className={`mb-5 mb-md-3 ${styleModal.inputOptions}`}
@@ -207,7 +247,11 @@ const Jumbotron = () => {
                 />
                 <label className={styleModal.label}>Cognome</label>
               </div>
-              <div className={styleModal.inputBox}>
+              <div
+                className={`${styleModal.inputBox} ${
+                  emailInvalid && styleModal.invalidInput
+                }`}
+              >
                 <input
                   value={email}
                   className={`mb-5 mb-md-3 ${styleModal.inputOptions} ${
@@ -222,7 +266,11 @@ const Jumbotron = () => {
                 />
                 <label className={styleModal.label}>Email</label>
               </div>
-              <div className={styleModal.inputBox}>
+              <div
+                className={`${styleModal.inputBox} ${
+                  cittaInvalid && styleModal.invalidInput
+                }`}
+              >
                 <select
                   className={styleModal.dropdown}
                   value={citta}
@@ -231,7 +279,7 @@ const Jumbotron = () => {
                   required
                 >
                   <option className={styleModal.dropdownOptions} value="">
-                    Scegli dopo
+                    Scegli citta
                   </option>
                   <option className={styleModal.dropdownOptions} value="Roma">
                     Roma
