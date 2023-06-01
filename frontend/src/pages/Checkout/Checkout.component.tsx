@@ -8,13 +8,15 @@ import { ListaProdotti } from "../Home/Home.types";
 import COLORS from "../../style/color";
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 import { removeChefToCart } from "../../redux/reducers/carrelloStore";
-import { jsPDF } from "jspdf";
-import logo from "../../assets/whiteLogoNoBg.png";
+// import { jsPDF } from "jspdf";
+// import logo from "../../assets/whiteLogoNoBg.png";
+import { generatePDF } from "../../components/Utils/Utils";
 
 const Checkout = () => {
   const dispatch = useAppDispatch();
   const token = useAppSelector((state) => state.authToken?.token);
   const navigate = useNavigate();
+  const reduxUsername = useAppSelector((state) => state.authToken?.username);
   const chef = useAppSelector((state) => state.carrelloReducer?.chef);
   const numeroCommensali = useAppSelector(
     (state) => state.carrelloReducer?.numeroCommensali
@@ -118,34 +120,34 @@ const Checkout = () => {
   const [pdfData, setPdfData] = useState<Blob | null>(null);
 
   // CREAZIONE RICEVUTA PDF
-  const generatePDF = (
-    prezzo: number,
-    nomeChef: string | undefined,
-    numeroCommensali: number,
-    dataCena: string | null
-  ) => {
-    const doc = new jsPDF();
+  // const generatePDF = (
+  //   prezzo: number,
+  //   nomeChef: string | undefined,
+  //   numeroCommensali: number,
+  //   dataCena: string | null
+  // ) => {
+  //   const doc = new jsPDF();
 
-    const imageSrc = logo;
+  //   const imageSrc = logo;
 
-    const imgWidth = 50;
-    const imgHeight = 27;
+  //   const imgWidth = 50;
+  //   const imgHeight = 27;
 
-    const centraLogo = (doc.internal.pageSize.getWidth() - imgWidth) / 2;
+  //   const centraLogo = (doc.internal.pageSize.getWidth() - imgWidth) / 2;
 
-    doc.addImage(imageSrc, "JPEG", centraLogo, 10, imgWidth, imgHeight);
-    doc.setFont("helvetica");
-    doc.setTextColor("#303030");
-    doc.text("Grazie per aver scelto Grand Bistrot Homecooking!", 10, 60);
-    doc.text(`Chef scelto: ${nomeChef}`, 10, 70);
-    doc.text(`Numero di partecipanti: ${numeroCommensali}`, 10, 80);
-    doc.text(`Data cena: ${dataCena}`, 10, 90);
-    doc.text(`Totale: ${prezzo}€`, 10, 105);
+  //   doc.addImage(imageSrc, "JPEG", centraLogo, 10, imgWidth, imgHeight);
+  //   doc.setFont("helvetica");
+  //   doc.setTextColor("#303030");
+  //   doc.text("Grazie per aver scelto Grand Bistrot Homecooking!", 10, 60);
+  //   doc.text(`Chef scelto: ${nomeChef}`, 10, 70);
+  //   doc.text(`Numero di partecipanti: ${numeroCommensali}`, 10, 80);
+  //   doc.text(`Data cena: ${dataCena}`, 10, 90);
+  //   doc.text(`Totale: ${prezzo}€`, 10, 105);
 
-    // Salva il documento come file
-    const generatedPdfData = doc.output("blob");
-    setPdfData(generatedPdfData);
-  };
+  //   // Salva il documento come file
+  //   const generatedPdfData = doc.output("blob");
+  //   setPdfData(generatedPdfData);
+  // };
 
   return (
     <>
@@ -387,11 +389,15 @@ const Checkout = () => {
                                       console.log("prezzo: " + prezzoTotale);
                                       dispatch(removeChefToCart());
                                       setOrderFulfilled(true);
-                                      generatePDF(
-                                        prezzoTotale,
-                                        chef?.name,
-                                        numeroCommensali,
-                                        dataCena
+                                      setPdfData(
+                                        generatePDF(
+                                          reduxUsername,
+                                          chef?.name,
+                                          numeroCommensali,
+                                          dataCena,
+                                          prezzoChef,
+                                          prezzoTotale
+                                        )
                                       );
                                     });
                                 }}
