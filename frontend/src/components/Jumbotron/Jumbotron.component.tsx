@@ -30,7 +30,6 @@ const Jumbotron = () => {
   const [email, setEmail] = useState("");
   const [isEmailValid, setIsEmailValid] = useState(false);
   const [citta, setCitta] = useState("");
-  const [exists, setExists] = useState(false);
   const token = useAppSelector((state) => state.authToken?.token);
   const navigate = useNavigate();
 
@@ -83,19 +82,11 @@ const Jumbotron = () => {
     if (!email.includes("@") && email.length <= 2) setEmailInvalid(true);
     if (citta !== "Roma" && citta !== "Milano") setCittaInvalid(true);
 
-    console.log(usernameInvalid);
-    console.log(pswInvalid);
-    console.log(nameInvalid);
-    console.log(lastnameInvalid);
-    console.log(emailInvalid);
-    console.log(cittaInvalid);
-
     return false;
   };
 
   // REGISTRA NUOVO UTENTE
   const registerRequest = async () => {
-    setExists(false);
     try {
       const response = await fetch("http://localhost:8080/api/auth/register", {
         method: "POST",
@@ -112,7 +103,8 @@ const Jumbotron = () => {
         }),
       });
       if (response.status === 400) {
-        setExists(true);
+        setUsernameInvalid(true);
+        setUsernameInvalid(true);
       }
       if (response.ok) {
         console.log(response.body?.pipeTo);
@@ -133,44 +125,6 @@ const Jumbotron = () => {
     const value = event.target.value;
     setCitta(value);
   };
-
-  // CREAZIONE RICEVUTA PDF
-  // const generatePDF = () => {
-  //   const doc = new jsPDF();
-
-  //   const imageSrc = logo;
-
-  //   const imgWidth = 50;
-  //   const imgHeight = 27;
-
-  //   const centraLogo = (doc.internal.pageSize.getWidth() - imgWidth) / 2;
-
-  //   doc.addImage(imageSrc, "JPEG", centraLogo, 10, imgWidth, imgHeight);
-  //   doc.setFont("Montserrat");
-  //   doc.setFontSize(15);
-  //   doc.setTextColor(COLORS.brandBlack);
-  //   const linesWidth = doc.internal.pageSize.getWidth() - 20;
-  //   doc.setLineWidth(0.3); // Imposta lo spessore della linea a 2
-  //   doc.setDrawColor(COLORS.brandGold); // Imposta il colore della linea a rosso
-  //   doc.line(20, 42, linesWidth, 42); // Linea orizzontale da (20, 20) a (100, 20)
-
-  //   doc.text("Cliente: nome", 20, 60);
-  //   doc.text(`Chef scelto: Gus`, 20, 70);
-  //   doc.text(`Numero di partecipanti: 1`, 20, 80);
-  //   doc.text(`Data cena: 2021/04/23`, 20, 90);
-
-  //   doc.line(20, 105, linesWidth, 105);
-  //   doc.text(`Tariffa Chef: 20€`, 20, 123);
-  //   doc.setFontSize(19);
-  //   doc.text(`Totale: 118€`, 20, 138);
-
-  //   doc.setFontSize(14);
-  //   doc.text(`Grazie per aver scelto GrandBistrot Homecooking!`, 20, 158);
-  //   doc.text(`2021/04/23`, linesWidth - 25, 178);
-
-  //   const generatedPdfData = doc.output("blob");
-  //   setPdfData(generatedPdfData);
-  // };
 
   return (
     // JUMBOTRON
@@ -206,14 +160,18 @@ const Jumbotron = () => {
           {/* MODALE DI REGISTRAZIONE */}
           {showRegistrationModal && (
             <Modal
-              onClose={() => setShowRegistrationModal(false)}
+              onClose={() => {
+                setShowRegistrationModal(false);
+                cancelValidation();
+              }}
               title="Accedi a Grand Bistrot"
               subtitle="Registrati ora"
               username={username}
               setUsername={setUsername}
               password={password}
               setPassword={setPassword}
-              warning={exists}
+              warning={usernameInvalid}
+              pswWarning={pswInvalid}
             >
               <div
                 className={`${styleModal.inputBox} ${

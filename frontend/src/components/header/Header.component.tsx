@@ -33,6 +33,7 @@ const Header = () => {
   const [navScroll, setNavScroll] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
   const [warning, setWarning] = useState(false);
+  const [warningPsw, setWarningPsw] = useState(false);
   const [citta, setCitta] = useState("");
 
   const [ristoranti, setRistoranti] = useState<Ristorante[]>([]);
@@ -47,7 +48,7 @@ const Header = () => {
     password,
   };
 
-  const token = useAppSelector((state) => state.authToken?.token);
+  // const token = useAppSelector((state) => state.authToken?.token);
   const dispatch = useAppDispatch();
 
   // CAMBIO COLORE ALLA NAVBAR ALLO SCROLL
@@ -55,7 +56,26 @@ const Header = () => {
     window.scrollY >= 100 ? setNavScroll(true) : setNavScroll(false)
   );
 
-  // CHIAMATA PER CAMBIARE CITTA UTENTE
+  // CONTROLLO MODALE LOGIN
+
+  const cancelValidation = () => {
+    setWarning(false);
+    setWarningPsw(false);
+  };
+
+  // CONTROLLO DEI CAMPI DEL FORM
+  const valueCheck = () => {
+    cancelValidation();
+    if (username.length > 2 && password.length > 2) {
+      return true;
+    }
+    if (username.length <= 2) setWarning(true);
+    if (password.length <= 2) setWarningPsw(true);
+
+    return false;
+  };
+
+  // CHIAMATA PER CAMBIARE CITTA UTENTE DALLA SIDEBAR
   const putCittaUtente = async (
     username: string,
     token: string,
@@ -93,8 +113,8 @@ const Header = () => {
   // }, [clicked]);
 
   useEffect(() => {
-    if (citta.length && token) {
-      fetchRistorantiPerCitta(token, citta, setRistoranti);
+    if (citta.length && reduxToken) {
+      fetchRistorantiPerCitta(reduxToken, citta, setRistoranti);
     }
     if (citta !== reduxCitta && citta && reduxToken) {
       putCittaUtente(reduxUsername, reduxToken, citta);
@@ -111,14 +131,15 @@ const Header = () => {
   }, [ristoranti]);
 
   useEffect(() => {
-    if (token) {
+    if (reduxToken) {
       setShowAuthModal(false);
       setWarning(false);
     }
-  }, [token, warning]);
+  }, [reduxToken, warning]);
 
   useEffect(() => {
-    if (!token) {
+    setWarning(false);
+    if (!reduxToken) {
       dispatch(darkNav(false));
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -301,7 +322,7 @@ const Header = () => {
             <Modal
               onClose={() => {
                 setShowAuthModal(false);
-                setWarning(false);
+                cancelValidation();
               }}
               title="Accedi a Grand Bistrot"
               subtitle="Login"
@@ -310,7 +331,7 @@ const Header = () => {
               password={password}
               setPassword={setPassword}
               warning={warning}
-              pswWarning={warning}
+              pswWarning={warningPsw}
             >
               {/* <p className="text-light">
                 Non hai un account?{" "}
@@ -322,13 +343,11 @@ const Header = () => {
                 icon={true}
                 text="Accedi"
                 onClick={() => {
-                  setWarning(false);
-                  // setClicked(false);
-                  dispatch(fetchToken(user));
-                  setUsername("");
-                  setPassword("");
-                  // setClicked(true);
-                  setWarning(true);
+                  if (valueCheck()) {
+                    dispatch(fetchToken(user));
+                    setUsername("");
+                    setPassword("");
+                  }
                 }}
                 style={{
                   backgroundColor: `${COLORS.brandGold}`,

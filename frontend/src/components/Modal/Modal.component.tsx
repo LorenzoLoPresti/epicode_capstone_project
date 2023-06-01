@@ -80,12 +80,14 @@ const Modal = ({
                   onClick={(e) => e.preventDefault()}
                   className="d-flex flex-column align-items-center px-5 pb-md-2 w-100"
                 >
-                  <div className={styles.inputBox}>
+                  <div
+                    className={`${styles.inputBox} ${
+                      warning && styles.invalidInput
+                    }`}
+                  >
                     <input
                       value={username}
-                      className={`mb-5 mb-md-3 ${styles.inputOptions} ${
-                        warning && "bg-warning"
-                      }`}
+                      className={`mb-5 mb-md-3 ${styles.inputOptions}`}
                       type="text"
                       onChange={(e) => {
                         setUsername(e.target.value);
@@ -94,12 +96,14 @@ const Modal = ({
                     />
                     <label className={styles.label}>Username</label>
                   </div>
-                  <div className={styles.inputBox}>
+                  <div
+                    className={`${styles.inputBox} ${
+                      pswWarning && styles.invalidInput
+                    }`}
+                  >
                     <input
                       value={password}
-                      className={`mb-5  ${styles.inputOptions} ${
-                        pswWarning && "bg-warning"
-                      }`}
+                      className={`mb-5  ${styles.inputOptions}`}
                       type="password"
                       onChange={(e) => {
                         setPassword(e.target.value);
