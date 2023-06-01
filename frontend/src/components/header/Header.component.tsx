@@ -93,9 +93,9 @@ const Header = () => {
       }
     );
     if (response.ok) {
-      console.log("PIPPONE");
+      console.log("Modifica riuscita");
     } else {
-      console.log("STEFAN1");
+      console.log("Modifica fallita");
     }
   };
 
