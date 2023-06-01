@@ -35,6 +35,32 @@ export const fetchRistorantiPerCitta = async (
   }
 };
 
+export const dataTransform = (data: string | null) => {
+  if (data) {
+    const newData = data.split("-").reverse();
+    if (newData.length === 3) {
+      const dataIta = newData.join("-");
+      console.log(dataIta);
+      return dataIta;
+    }
+    console.log(data);
+    return data;
+  } else {
+    return "Oops qualcosa è andato storto";
+  }
+};
+
+export const formatNowDate = () => {
+  const date = new Date();
+
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, "0");
+  const day = String(date.getDate()).padStart(2, "0");
+  const formattedDate = `${day}-${month}-${year}`;
+
+  return formattedDate;
+};
+
 export const generatePDF = (
   username: string,
   chefName: string | undefined,
@@ -64,7 +90,7 @@ export const generatePDF = (
   doc.text(`Cliente: ${username}`, 20, 60);
   doc.text(`Chef scelto: ${chefName}`, 20, 70);
   doc.text(`Numero di partecipanti: ${numeroCommensali}`, 20, 80);
-  doc.text(`Data cena: ${data}`, 20, 90);
+  doc.text(`Data cena: ${dataTransform(data)}`, 20, 90);
 
   doc.line(20, 105, linesWidth, 105);
   doc.text(`Tariffa Chef: ${prezzoChef}€`, 20, 123);
@@ -73,7 +99,7 @@ export const generatePDF = (
 
   doc.setFontSize(14);
   doc.text(`Grazie per aver scelto GrandBistrot Homecooking!`, 20, 158);
-  doc.text(`2021/04/23`, linesWidth - 25, 178);
+  doc.text(formatNowDate(), linesWidth - 25, 178);
 
   const generatedPdfData = doc.output("blob");
   return generatedPdfData;
