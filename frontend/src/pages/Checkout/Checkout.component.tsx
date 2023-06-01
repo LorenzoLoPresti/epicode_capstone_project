@@ -11,6 +11,7 @@ import { removeChefToCart } from "../../redux/reducers/carrelloStore";
 // import { jsPDF } from "jspdf";
 // import logo from "../../assets/whiteLogoNoBg.png";
 import { generatePDF } from "../../components/Utils/Utils";
+import { darkNav } from "../../redux/reducers/navbarStore";
 
 const Checkout = () => {
   const dispatch = useAppDispatch();
@@ -115,6 +116,7 @@ const Checkout = () => {
       return () => clearInterval(t);
     }
     totale();
+    dispatch(darkNav(false));
   }, []);
 
   const [pdfData, setPdfData] = useState<Blob | null>(null);
