@@ -13,6 +13,7 @@
   height: 400px;
   width: calc(100% - 5%);
   margin: auto;
+  cursor: pointer;
 }
 
 .greyScale {
@@ -22,15 +23,6 @@
 .colorImg {
   filter: grayscale(0%);
   animation: colorImg ease 1s;
-}
-
-@keyframes colorImg {
-  0% {
-    filter: grayscale(100%);
-  }
-  100% {
-    filter: grayscale(0%);
-  }
 }
 
 .divOverlayDimensions {
@@ -75,4 +67,24 @@
 .chefDescriptionContainer {
   height: 500px;
   width: 100%;
+}
+
+.linkAnimation {
+  transition: transform 1s;
+  transition-timing-function: ease;
+}
+
+.linkAnimation:hover {
+  transform: translateX(5px);
+}
+
+/* ANIMAZIONI */
+
+@keyframes colorImg {
+  0% {
+    filter: grayscale(100%);
+  }
+  100% {
+    filter: grayscale(0%);
+  }
 }

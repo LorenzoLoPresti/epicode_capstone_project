@@ -3,27 +3,41 @@ import styles from "./MyCarousel.module.css";
 import { Ristorante } from "../../pages/Home/Home.types";
 import { useState } from "react";
 import Menu from "../Menu/Menu.component";
+import { useAppDispatch, useAppSelector } from "../../redux/store/store";
+import { darkNav } from "../../redux/reducers/navbarStore";
+import { useEffect } from "react";
 
 const MyCarousel = ({ array }: { array: Ristorante[] }) => {
+  const navbarColorDark = useAppSelector((state) => state.navbarReducer?.dark);
   const [showMenu, setShowMenu] = useState(false);
+  const dispatch = useAppDispatch();
 
+  // CAMBIA COLORE ALLA NAVBAR
+  useEffect(() => {
+    if (navbarColorDark) dispatch(darkNav(false));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   return (
     <>
       <div className={`position-relative ${styles.carouselContainerOptions}`}>
         <Carousel>
+          {/* CREO ITEMS DEL CAROSELLO IN BASE ALL'ARRAY DI RISTORANTI */}
           {array.length > 0 &&
             array.map((e, i) => (
               <Carousel.Item interval={100000000} key={"carouselId:" + i}>
                 <div
-                  className="d-block w-100 position-relative"
+                  className={`d-block w-100 position-relative`}
                   style={{
                     backgroundImage: `url(${e?.immagine})`,
                     height: "100vh",
                     backgroundSize: "cover",
+                    filter: "greyscale(100%)",
                   }}
                 >
                   <div
-                    className={`${styles.imgFilter}`}
+                    className={`${styles.imgFilter} ${
+                      navbarColorDark && styles.menuOpenFilter
+                    }`}
                     style={{
                       width: "100%",
                       height: "100%",
@@ -40,11 +54,15 @@ const MyCarousel = ({ array }: { array: Ristorante[] }) => {
                         {/* </div> */}
                       </div>
                     )}
+                    {/* MOSTRO LA SEZIONE MENU */}
                     {!showMenu && (
                       <div className={styles.titleContainer}>
                         <h1
                           className={`${styles.titleOptions}  mb-0`}
-                          onClick={() => setShowMenu(true)}
+                          onClick={() => {
+                            setShowMenu(true);
+                            dispatch(darkNav(true));
+                          }}
                         >
                           {e?.name}
                         </h1>

@@ -1,3 +1,4 @@
+// TIPO RISTORANTE
 export interface Ristorante {
   name: string;
   id: number;
@@ -7,9 +8,11 @@ export interface Ristorante {
   immagine: string;
   indirizzo: string;
   descrizione: string;
+  descrizione2: string;
   menu_img: string;
 }
 
+// TIPO CHEF
 export interface Chef {
   id: number;
   name: string;
@@ -17,14 +20,17 @@ export interface Chef {
   tariffaOraria: number;
   immagineProfilo: string;
   immagineCucina: string;
+  descrizioneChef: string;
   listaMenu: ListaMenu[];
 }
 
+// TIPO LISTAMENU
 export interface ListaMenu {
   id: number;
   selezione: ListaProdotti[];
 }
 
+// TIPO LISTAPRODOTTI
 export interface ListaProdotti {
   id: number;
   categoria: string;

@@ -16,8 +16,9 @@ const AboutUs = () => {
   const [c2, setC2] = useState(false);
   const [c3, setC3] = useState(false);
 
+  // LA NAVBAR CAMBIA COLORE ALLO SCROLL
   window.addEventListener("scroll", () => {
-    if (window.scrollY >= 100) {
+    if (window.scrollY >= 90) {
       setNavScroll(true);
     }
     if (window.scrollY >= 900) {
@@ -32,6 +33,7 @@ const AboutUs = () => {
   return (
     <div className={`${styles.goldContainer}`}>
       <Container className="py-5">
+        {/* DESCRIZIONE */}
         <Row
           className={`${styles.titleOptions} ${navScroll && styles.titleIn} ${
             !navScroll && styles.titleOut
@@ -73,7 +75,8 @@ const AboutUs = () => {
           </Col> */}
         </Row>
       </Container>
-      <div
+      {/* SECONDA SEZIONE MAIN PAGE */}
+      <section
         className={styles.bgAbout}
         style={{
           backgroundImage: `url(${restaurant})`,
@@ -106,14 +109,16 @@ const AboutUs = () => {
               </p>
               <p>
                 Scoprite i sapori unici, l'arte e la dedizione che si nascondono
-                dietro ogni piatto, e lasciate che HomeCooking Italia trasformi
-                le vostre cene in momenti di autentico piacere culinario.
+                dietro ogni piatto, e lasciate che GrandBistrot Homecooking
+                trasformi le vostre cene in momenti di autentico piacere
+                culinario.
               </p>
             </div>
           </Col>
         </Row>
-      </div>
-      <div style={{ backgroundColor: COLORS.brandBlackPlus }}>
+      </section>
+      {/* SEZIONE CARDS MAIN PAGE */}
+      <section style={{ backgroundColor: COLORS.brandBlackPlus }}>
         <Container className="py-5">
           <Row className="py-5">
             <Col
@@ -151,7 +156,7 @@ const AboutUs = () => {
             </Col>
           </Row>
         </Container>
-      </div>
+      </section>
     </div>
   );
 };

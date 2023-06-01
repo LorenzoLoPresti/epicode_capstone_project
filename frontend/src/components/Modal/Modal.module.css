@@ -24,7 +24,11 @@
     bottom: 50%;
     transform: translate(-50%, 50%);
     border-radius: 0.375rem;
-    animation: popupDesktop ease 1s;
+    animation: popupDesktop 0.6s;
+  }
+
+  .close {
+    animation: close linear 0.41s;
   }
 }
 
@@ -98,6 +102,10 @@
   padding: 0 2rem 0 5px;
 }
 
+.invalidInput {
+  border-bottom-color: red;
+}
+
 .dropdown {
   background-color: transparent;
   color: #ccb7a9;
@@ -114,6 +122,8 @@
 .dropdown:focus .dropdownOptions:checked {
   background-color: #303030;
 }
+
+/* MEDIA QUERIES */
 
 @media screen and (min-width: 768px) {
   .inputOptions {
@@ -149,5 +159,13 @@
   }
   100% {
     transform: translate(-50%, 50%) scale(1);
+  }
+}
+@keyframes close {
+  0% {
+    transform: translate(-50%, 50%) scale(1);
+  }
+  100% {
+    transform: translate(-50%, 50%) scale(0);
   }
 }

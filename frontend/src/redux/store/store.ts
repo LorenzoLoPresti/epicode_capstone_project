@@ -5,10 +5,12 @@ import storage from "redux-persist/lib/storage";
 import { persistReducer } from "redux-persist";
 import persistStore from "redux-persist/es/persistStore";
 import { carrelloStore } from "../reducers/carrelloStore";
+import { navbarStore } from "../reducers/navbarStore";
 
 const rootReducer = combineReducers({
   authToken: tokenStore.reducer,
   carrelloReducer: carrelloStore.reducer,
+  navbarReducer: navbarStore.reducer,
 });
 
 const persistConfig = {

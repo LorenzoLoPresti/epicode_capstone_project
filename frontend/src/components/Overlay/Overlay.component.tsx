@@ -6,6 +6,7 @@ interface OverlayProps {
   transparent?: boolean;
 }
 
+// OVERLAY CHE COMPARE ALL'APERTURA DI UN MODALE O DEL MENU LATERALE
 const Overlay = ({ onClick, style, transparent }: OverlayProps) => {
   return (
     <div

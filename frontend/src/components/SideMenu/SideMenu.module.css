@@ -5,7 +5,7 @@
   min-height: 100vh;
   width: 100vw;
   max-width: 25rem;
-  background-color: #30303058;
+  background-color: #303030a8;
   backdrop-filter: blur(5px);
   z-index: 1000;
   overflow: hidden;
@@ -40,11 +40,14 @@
 .menuOption {
   color: #faf4f0 !important;
   text-transform: capitalize !important;
+  transition: transform 0.5s;
+  transition-timing-function: ease;
 }
 
 .menuOption:hover {
   color: #ccb7a9 !important;
   cursor: pointer !important;
+  transform: translateX(10px);
 }
 
 .closeModal {

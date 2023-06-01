@@ -6,12 +6,12 @@ interface LayoutProps {
   children: React.ReactNode;
 }
 
+// LAYOUT PAGINE
 const Layout = ({ children }: LayoutProps) => {
   return (
     <div className={`${styles.layoutOptions}`}>
       <Header />
       <main className={`${styles.mainStyleOptions}`}>{children}</main>
-      {/* <Footer /> */}
     </div>
   );
 };

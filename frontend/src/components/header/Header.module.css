@@ -10,11 +10,16 @@
   transition: all 0.5s;
   z-index: 10;
 }
+.navDarkStyle {
+  background: transparent;
+  transition: all 0.5s;
+  z-index: 10;
+}
 
 .navbarScroll {
   background-color: #303030;
   border-bottom: none;
-  transition: all 1s;
+  transition: all 0.7s;
 }
 
 .navBorder {
@@ -34,6 +39,14 @@
   transition-timing-function: ease;
 }
 
+.navLinkDark,
+.usernameDark {
+  font-weight: 400;
+  color: #303030;
+  transition: transform 0.8s color 0.8s;
+  transition-timing-function: ease;
+}
+
 .username {
   font-weight: 400;
 }
@@ -43,7 +56,9 @@
 }
 
 .navLink:hover,
-.username:hover {
+.username:hover,
+.navLinkDark:hover,
+.usernameDark:hover {
   color: #ccb7a9;
   /* border-bottom: 1px solid #ccb7a9; */
   text-decoration: none;
@@ -56,7 +71,7 @@
 
 .logoOptions {
   border-radius: 50%;
-  height: 4.5rem;
+  height: 5.2rem;
   width: 9.5rem;
 }
 
@@ -68,22 +83,12 @@
   border: none;
 }
 
-/* .routerLink {
-  text-decoration: none;
-  color: #faf4f0;
+/*  MEDIA QUERY */
+
+@media screen and (max-width: 400px) {
+  .logoOptions {
+    border-radius: 50%;
+    height: 4.5rem;
+    width: 8.2rem;
+  }
 }
-
-.routerLink:hover {
-  text-decoration: none;
-  color: #ccb7a9;
-} */
-
-/* .navbarMenu {
-  position: absolute;
-  height: 100vh;
-  background-color: #303030;
-  bottom: 0;
-  right: 0;
-  width: 100%;
-  max-width: 30rem;
-} */

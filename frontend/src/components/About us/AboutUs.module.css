@@ -80,22 +80,24 @@
 
 .c1Visible {
   transform: translate(0px);
-  animation: c1 ease 2s;
+  animation: c1 ease-out 1.5s;
 }
 
 .c2Visible {
   transform: translate(0px);
-  animation: c2 ease 3s;
+  animation: c2 ease-out 2s;
 }
 
 .c3Visible {
   transform: translate(0px);
-  animation: c3 ease 4.2s;
+  animation: c3 ease-out 2.5s;
 }
+
+/* ANIMAZIONI */
 
 @keyframes c1 {
   0% {
-    transform: translate(-1500px);
+    transform: translate(-1000%);
   }
   50% {
     transform: translate(0px);
@@ -103,10 +105,10 @@
 }
 @keyframes c2 {
   0% {
-    transform: translate(-1500px);
+    transform: translate(-1000%);
   }
   50% {
-    transform: translate(-1500px);
+    transform: translate(-1000%);
   }
   75% {
     transform: translate(0px);
@@ -114,10 +116,10 @@
 }
 @keyframes c3 {
   0% {
-    transform: translate(-1500px);
+    transform: translate(-1000%);
   }
   80% {
-    transform: translate(-1500px);
+    transform: translate(-1000%);
   }
   100% {
     transform: translate(0px);

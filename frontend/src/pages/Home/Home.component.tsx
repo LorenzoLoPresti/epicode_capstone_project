@@ -14,6 +14,7 @@ import {
   addUsernameToCart,
   removeChefToCart,
 } from "../../redux/reducers/carrelloStore";
+import Footer from "../../components/Footer/Footer.component";
 
 const Home = () => {
   const reduxToken = useAppSelector((state) => state.authToken?.token);
@@ -22,15 +23,20 @@ const Home = () => {
   const reduxCarrelloUsername = useAppSelector(
     (state) => state.carrelloReducer?.username
   );
+  const reduxRistoranti = useAppSelector(
+    (state) => state.authToken?.ristoranti
+  );
   const [loading, setLoading] = useState(true);
   const [ristoranti, setRistoranti] = useState<Ristorante[]>([]);
   const dispatch = useAppDispatch();
 
+  // UTENTE
   const user = {
     username: reduxUsername,
     token: reduxToken,
   };
 
+  // LOADING
   useEffect(() => {
     const t = setTimeout(() => setLoading(false), 1500);
     return () => clearTimeout(t);
@@ -38,9 +44,7 @@ const Home = () => {
 
   useEffect(() => {
     if (reduxToken) {
-      console.log("ue - fetch");
       dispatch(fetchCity(user));
-      // fetchRistorantiPerCitta(reduxToken, reduxCitta, setRistoranti);
     }
     if (reduxCitta && reduxToken) {
       fetchRistorantiPerCitta(reduxToken, reduxCitta, setRistoranti);
@@ -63,11 +67,12 @@ const Home = () => {
   return (
     <div>
       <>
+        {/* CARICAMENTO SE UTENTE NON LOGGATO (PER JUMBOTRON) */}
         {!reduxToken && loading && (
           <div className={style.generalContainerOption}>
-            <Row className="w-100" style={{ height: "100%" }}>
+            <Row className="" style={{ height: "100%" }}>
               <Col
-                className="w-100 d-flex justify-content-center align-items-center"
+                className="d-flex justify-content-center align-items-center"
                 style={{ height: "100%" }}
               >
                 <div className={`${style.logoContainerOptions}`}>
@@ -77,15 +82,19 @@ const Home = () => {
             </Row>
           </div>
         )}
+        {/* MOSTRA JUMBOTRON SE UTENTE NON LOGGATO */}
         {!reduxToken && (
           <>
             <Jumbotron />
             {!loading && <AboutUs />}
           </>
         )}
-        {reduxToken && ristoranti.length > 0 && (
-          <MyCarousel array={ristoranti} />
+        {/* CAROSELLO RISTORANTI SE UTENTE LOGGATO */}
+        {reduxToken && reduxRistoranti.length > 0 && (
+          <MyCarousel array={reduxRistoranti} />
         )}
+        {/* FOOTER */}
+        {!loading && !reduxToken && <Footer />}
       </>
     </div>
   );

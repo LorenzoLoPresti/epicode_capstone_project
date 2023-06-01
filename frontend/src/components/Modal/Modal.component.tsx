@@ -4,6 +4,7 @@ import { Dispatch, SetStateAction } from "react";
 import { Col, Row } from "react-bootstrap";
 import { RxCross1 } from "react-icons/rx";
 import sfondoModale from "../../assets/sfondoModale.jpg";
+import { useState } from "react";
 
 const Modal = ({
   children,
@@ -28,13 +29,22 @@ const Modal = ({
   warning?: boolean;
   pswWarning?: boolean;
 }) => {
+  const [shown, setShown] = useState(true);
+
+  const handleModal = () => {
+    setShown(false);
+    setTimeout(() => {
+      onClose();
+    }, 400);
+  };
+
   return (
     <>
       <Overlay
-        onClick={onClose}
+        onClick={handleModal}
         // style={{ backgroundColor: "white", opacity: "1" }}
       />
-      <div className={`${styles.modal}`}>
+      <div className={`${styles.modal} ${!shown && styles.close}`}>
         <Row className="d-flex">
           <Col md={6} className="p-0 d-none d-md-block">
             {/* <Modal.Body> */}
@@ -55,7 +65,7 @@ const Modal = ({
             {/* <Modal.Footer> */}
             <div className={`${styles.imgFilter}`}>
               <div className="position-relative">
-                <div className={`${styles.closeModal}`} onClick={onClose}>
+                <div className={`${styles.closeModal}`} onClick={handleModal}>
                   <RxCross1 />
                 </div>
               </div>
@@ -70,12 +80,14 @@ const Modal = ({
                   onClick={(e) => e.preventDefault()}
                   className="d-flex flex-column align-items-center px-5 pb-md-2 w-100"
                 >
-                  <div className={styles.inputBox}>
+                  <div
+                    className={`${styles.inputBox} ${
+                      warning && styles.invalidInput
+                    }`}
+                  >
                     <input
                       value={username}
-                      className={`mb-5 mb-md-3 ${styles.inputOptions} ${
-                        warning && "bg-warning"
-                      }`}
+                      className={`mb-5 mb-md-3 ${styles.inputOptions}`}
                       type="text"
                       onChange={(e) => {
                         setUsername(e.target.value);
@@ -84,12 +96,14 @@ const Modal = ({
                     />
                     <label className={styles.label}>Username</label>
                   </div>
-                  <div className={styles.inputBox}>
+                  <div
+                    className={`${styles.inputBox} ${
+                      pswWarning && styles.invalidInput
+                    }`}
+                  >
                     <input
                       value={password}
-                      className={`mb-5  ${styles.inputOptions} ${
-                        pswWarning && "bg-warning"
-                      }`}
+                      className={`mb-5  ${styles.inputOptions}`}
                       type="password"
                       onChange={(e) => {
                         setPassword(e.target.value);

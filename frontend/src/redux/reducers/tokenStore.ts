@@ -20,6 +20,7 @@ export interface user {
   password: string;
 }
 
+// RECUPERA BEARER TOKEN
 export const fetchToken = createAsyncThunk(
   "token/fetch",
   async ({ username, password }: user, thunkAPI) => {
@@ -49,6 +50,7 @@ export const fetchToken = createAsyncThunk(
   }
 );
 
+// CITTA DELL'UTENTE
 export const fetchCity = createAsyncThunk(
   "city/fetch",
   async ({
@@ -78,20 +80,6 @@ export const fetchCity = createAsyncThunk(
   }
 );
 
-// const fetchdddd = async () => {
-//   return (dispatch) =>
-// }
-
-// export const fetchCityExtra = ({
-//   username,
-//   token,
-// }: {
-//   username: string;
-//   token: string | undefined;
-// }) => {
-//   const dispatch = useAppDispatch();
-// };
-
 export const tokenStore = createSlice({
   name: "token", // nome dello slice
   initialState,
@@ -107,6 +95,9 @@ export const tokenStore = createSlice({
     },
     addRistoranti: (state, action: PayloadAction<Ristorante[]>) => {
       state.ristoranti = action.payload;
+    },
+    setCity: (state, action: PayloadAction<string>) => {
+      state.citta = action.payload;
     },
   },
   extraReducers: (builder) => {
@@ -125,4 +116,4 @@ export const tokenStore = createSlice({
   },
 });
 
-export const { addToken, logout, addRistoranti } = tokenStore.actions; // Esporto le azioni
+export const { addToken, logout, addRistoranti, setCity } = tokenStore.actions; // Esporto le azioni

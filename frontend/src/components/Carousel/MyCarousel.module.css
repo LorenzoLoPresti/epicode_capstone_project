@@ -25,6 +25,18 @@
   color: white;
 }
 
+.menuOpenFilter {
+  background: linear-gradient(
+    180deg,
+    rgb(248, 249, 250) 0%,
+    rgb(248, 249, 250) 16%,
+    rgba(0, 0, 0, 0.677) 16%,
+    rgba(0, 0, 0, 0.2) 63%,
+    rgba(0, 0, 0, 0.5) 75%,
+    rgba(0, 0, 0, 0.9) 100%
+  );
+}
+
 .titleOptions {
   font-size: 8rem;
   font-family: "Abril Fatface", cursive;
@@ -45,19 +57,8 @@
   font-size: 0.875rem;
 }
 
-/* ANIMAZIONE NOME RISTORANTE */
-
 .titleContainer {
   animation: titleAnimation ease-out 1.3s;
-}
-
-@keyframes titleAnimation {
-  0% {
-    transform: translate(0%, -400%);
-  }
-  100% {
-    transform: translate(0%, 0%);
-  }
 }
 
 .descriptionContainer {
@@ -76,6 +77,17 @@
   animation: desc ease 1s;
 }
 
+/* ANIMAZIONI*/
+
+@keyframes titleAnimation {
+  0% {
+    transform: translate(0%, -400%);
+  }
+  100% {
+    transform: translate(0%, 0%);
+  }
+}
+
 @keyframes desc {
   0% {
     bottom: -20%;
@@ -85,6 +97,8 @@
     bottom: 11%;
   }
 }
+
+/* MEDIA QUERIES */
 
 @media screen and (min-width: 1400px) {
   .descriptionContainer {
@@ -115,5 +129,20 @@
   }
   .subtitleOptions {
     font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .descriptionContainer {
+    width: 18rem;
+  }
+}
+
+@media screen and (max-width: 330px) {
+  .descriptionContainer {
+    width: 16rem;
+  }
+  .descriptionOptions {
+    font-size: 0.8rem;
   }
 }

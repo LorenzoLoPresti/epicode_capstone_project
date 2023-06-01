@@ -7,7 +7,10 @@ import MyButton from "../Button/NavButton/MyButton.component";
 import Modal from "../Modal/Modal.component";
 import COLORS from "../../style/color";
 import { useAppSelector } from "../../redux/store/store";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+// import logo from "../../assets/blackLogoNoBg.png";
+
+// import video from "../../../../../../../255472_Chef Carbon_Dioxide Dry Ice Nouvelle_Cuisine_By_LACOFILMS_Artlist_HD.mp4";
 
 // interface user {
 //   name: string;
@@ -27,10 +30,18 @@ const Jumbotron = () => {
   const [email, setEmail] = useState("");
   const [isEmailValid, setIsEmailValid] = useState(false);
   const [citta, setCitta] = useState("");
-  const [exists, setExists] = useState(false);
   const token = useAppSelector((state) => state.authToken?.token);
   const navigate = useNavigate();
 
+  // CAMPI DI INPUT
+  const [usernameInvalid, setUsernameInvalid] = useState(false);
+  const [pswInvalid, setPswInvalid] = useState(false);
+  const [cittaInvalid, setCittaInvalid] = useState(false);
+  const [emailInvalid, setEmailInvalid] = useState(false);
+  const [nameInvalid, setNameInvalid] = useState(false);
+  const [lastnameInvalid, setLastnameInvalid] = useState(false);
+
+  // RESETTA I CAMPI DEL FORM DI REGISTRAZIONE
   const cleanField = () => {
     setUsername("");
     setPassword("");
@@ -40,24 +51,42 @@ const Jumbotron = () => {
     setLastname("");
   };
 
+  // RESET CAMPI
+  const cancelValidation = () => {
+    setUsernameInvalid(false);
+    setPswInvalid(false);
+    setCittaInvalid(false);
+    setEmailInvalid(false);
+    setNameInvalid(false);
+    setLastnameInvalid(false);
+  };
+
+  // CONTROLLO DEI CAMPI DEL FORM
   const valueCheck = () => {
+    cancelValidation();
     if (
       username.length > 2 &&
       password.length > 2 &&
       name.length > 2 &&
       lastname.length > 2 &&
       email.length > 2 &&
-      citta.length > 2 &&
+      (citta === "Roma" || citta === "Milano") &&
       email.includes("@")
     ) {
       return true;
-    } else {
-      return false;
     }
+    if (username.length <= 2) setUsernameInvalid(true);
+    if (password.length <= 2) setPswInvalid(true);
+    if (name.length <= 2) setNameInvalid(true);
+    if (lastname.length <= 2) setLastnameInvalid(true);
+    if (!email.includes("@") && email.length <= 2) setEmailInvalid(true);
+    if (citta !== "Roma" && citta !== "Milano") setCittaInvalid(true);
+
+    return false;
   };
-  // const storeTry = useAppSelector((state) => state.authToken.token);
+
+  // REGISTRA NUOVO UTENTE
   const registerRequest = async () => {
-    setExists(false);
     try {
       const response = await fetch("http://localhost:8080/api/auth/register", {
         method: "POST",
@@ -74,7 +103,8 @@ const Jumbotron = () => {
         }),
       });
       if (response.status === 400) {
-        setExists(true);
+        setUsernameInvalid(true);
+        setUsernameInvalid(true);
       }
       if (response.ok) {
         console.log(response.body?.pipeTo);
@@ -84,7 +114,7 @@ const Jumbotron = () => {
         setTimeout(() => {
           setShowRegistrationModal(false);
           navigate("/login");
-        }, 1200);
+        }, 400);
       }
     } catch (error) {
       console.log(error);
@@ -96,18 +126,17 @@ const Jumbotron = () => {
     setCitta(value);
   };
 
-  // const handleSubmit = () => {
-  //   registerRequest()
-  //     .then(() => {
-  //       cleanField();
-  //     })
-  //     .catch((error) => console.log(error));
-  // };
-
-  // const dispatch = useAppDispatch();
   return (
+    // JUMBOTRON
     <div className={`${styles.jumboOptions}`}>
       <div className={`${styles.jumboContainerOptions}`}>
+        {/* <video
+          src={video}
+          autoPlay
+          loop
+          muted
+          className={styles.backVideo}
+        ></video> */}
         <Container className={`${styles.jumboSpacing}`}>
           <Row className={`${styles.jumboSpacing}`}>
             <Col
@@ -128,18 +157,27 @@ const Jumbotron = () => {
               )}
             </Col>
           </Row>
+          {/* MODALE DI REGISTRAZIONE */}
           {showRegistrationModal && (
             <Modal
-              onClose={() => setShowRegistrationModal(false)}
+              onClose={() => {
+                setShowRegistrationModal(false);
+                cancelValidation();
+              }}
               title="Accedi a Grand Bistrot"
               subtitle="Registrati ora"
               username={username}
               setUsername={setUsername}
               password={password}
               setPassword={setPassword}
-              warning={exists}
+              warning={usernameInvalid}
+              pswWarning={pswInvalid}
             >
-              <div className={styleModal.inputBox}>
+              <div
+                className={`${styleModal.inputBox} ${
+                  nameInvalid && styleModal.invalidInput
+                }`}
+              >
                 <input
                   value={name}
                   className={`mb-5 mb-md-3 ${styleModal.inputOptions}`}
@@ -151,7 +189,11 @@ const Jumbotron = () => {
                 />
                 <label className={styleModal.label}>Nome</label>
               </div>
-              <div className={styleModal.inputBox}>
+              <div
+                className={`${styleModal.inputBox} ${
+                  lastnameInvalid && styleModal.invalidInput
+                }`}
+              >
                 <input
                   value={lastname}
                   className={`mb-5 mb-md-3 ${styleModal.inputOptions}`}
@@ -163,7 +205,11 @@ const Jumbotron = () => {
                 />
                 <label className={styleModal.label}>Cognome</label>
               </div>
-              <div className={styleModal.inputBox}>
+              <div
+                className={`${styleModal.inputBox} ${
+                  emailInvalid && styleModal.invalidInput
+                }`}
+              >
                 <input
                   value={email}
                   className={`mb-5 mb-md-3 ${styleModal.inputOptions} ${
@@ -178,18 +224,11 @@ const Jumbotron = () => {
                 />
                 <label className={styleModal.label}>Email</label>
               </div>
-              {/* <div className={styleModal.inputBox}>
-                <input
-                  value={citta}
-                  className={`mb-5 mb-md-3 ${styleModal.inputOptions}`}
-                  type="text"
-                  onChange={(e) => {
-                    setCitta(e.target.value);
-                  }}
-                />
-                <label className={styleModal.label}>Città</label>
-              </div> */}
-              <div className={styleModal.inputBox}>
+              <div
+                className={`${styleModal.inputBox} ${
+                  cittaInvalid && styleModal.invalidInput
+                }`}
+              >
                 <select
                   className={styleModal.dropdown}
                   value={citta}
@@ -198,15 +237,27 @@ const Jumbotron = () => {
                   required
                 >
                   <option className={styleModal.dropdownOptions} value="">
-                    Scegli dopo
+                    Scegli citta
                   </option>
                   <option className={styleModal.dropdownOptions} value="Roma">
                     Roma
                   </option>
+                  <option className={styleModal.dropdownOptions} value="Milano">
+                    Milano
+                  </option>
                 </select>
               </div>
+              <p className="text-light mt-2 mb-4">
+                Già registrato?{" "}
+                <Link
+                  to={"/login"}
+                  style={{ color: COLORS.brandGold, textDecoration: "none" }}
+                >
+                  Effettua il login
+                </Link>
+              </p>
               <MyButton
-                text="Sign Up"
+                text="Registrati"
                 onClick={() => {
                   // handleSubmit();
                   if (valueCheck()) {
@@ -220,7 +271,6 @@ const Jumbotron = () => {
                 style={{
                   backgroundColor: `${COLORS.brandGold}`,
                   color: `${COLORS.brandBlack}`,
-                  marginTop: "2rem",
                 }}
               />
             </Modal>

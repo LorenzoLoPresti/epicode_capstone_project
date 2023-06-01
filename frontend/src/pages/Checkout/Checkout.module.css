@@ -1,6 +1,5 @@
 .containerOptions {
   min-height: 100vh;
-  /* height: 100%; */
   width: 100%;
 
   background: radial-gradient(
@@ -12,22 +11,12 @@
   );
 }
 
-/* .bg {
-  filter: drop-shadow(100);
-} */
-
 .modalOptions {
   background-color: #30303058;
   backdrop-filter: blur(20px);
   max-width: 48rem;
   border: 3px solid #ccb7a98a;
   border-radius: 20px;
-}
-
-@media screen and (max-width: 998) {
-  .modalOptions {
-    max-width: 36rem;
-  }
 }
 
 .inputOptions {
@@ -45,4 +34,32 @@
   max-width: 48rem;
   border: 3px solid #ccb7a98a;
   border-radius: 20px;
+}
+
+.animationContainer {
+  animation: popup ease 1s;
+}
+
+@keyframes popup {
+  0% {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* MEDIA QUERIES */
+
+@media screen and (max-width: 998px) {
+  .modalOptions {
+    max-width: 36rem;
+  }
+}
+@media screen and (max-width: 576px) {
+  .paypalColumn {
+    order: 2;
+  }
 }
