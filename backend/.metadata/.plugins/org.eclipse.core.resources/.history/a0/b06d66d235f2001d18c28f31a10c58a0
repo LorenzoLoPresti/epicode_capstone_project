@@ -1,5 +1,0 @@
-package com.spring_security_project.auth.entity;
-
-public class Bevanda {
-
-}
